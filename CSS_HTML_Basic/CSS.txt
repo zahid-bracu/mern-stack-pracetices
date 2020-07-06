@@ -1,0 +1,88 @@
+CSS stands for Cascading Style Sheets.
+
+color: #3f9933;
+background-color: burlywood;
+width: 70%;
+height: 80px;
+
+color:aqua;
+font-size: 25px;
+font-weight: 700;
+font-family: Arial, Helvetica, sans-serif;
+font-style: oblique;
+
+border: 2px solid red;
+border-radius: 20px;
+border-left/right/top/bottom: 7px solid;
+border-image: linear-gradient(180deg, blue,cyan);
+border-image-slice: 1;
+
+margin: 20px; 
+margin: 20px 20px;
+margin: 20px 20px 20px;
+margin: 20px 20px 20px 20px;
+margin-top: 20px;
+margin-right: 20px;
+margin-bottom: 20px;
+margin-left: 20px;
+
+padding: 15px;
+padding: 15px 15px;
+padding: 15px 15px 15px;
+padding: 15px 15ps 15px 15px;
+
+padding-top: 15px;
+padding-right: 15px;
+padding-bottom: 15px;
+padding-left: 15px;
+
+text-align: center / justify /  left / right;
+
+float: left/right/middle;
+display: block/inline-block/inline;
+
+
+.className : hover{
+}
+
+input:focus{
+//input focus হলে যেরকম design হবে
+}
+
+li:first-child{
+// li tag এর প্রথম child 
+}
+
+li:last-child{
+//li tag এর শেস child
+}
+
+
+li:nth-child(1/2/3){
+//li tag এর ১ম / ২য় /৩য় নাম্বার child
+}
+
+li:nth-child(2n){
+// li tag এর 2*n means জোড় সং
+}
+
+
+a:visited{
+//when a link become visited
+}
+
+
+h1::before{
+    content:
+}
+
+h1::after{
+    content:
+}
+
+
+html tag select--> ctrl + F
+
+emojipedia: https://emojipedia.org/
+
+position : relative / absolute /fixed

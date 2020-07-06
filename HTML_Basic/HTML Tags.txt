@@ -1,0 +1,134 @@
+Headings:
+<h1></h1>
+<h2></h2>
+<h3></h3>
+<h4></h4>
+<h5></h5>
+<h6></h6>
+
+Paragraph:
+<p></p>
+
+links tag:
+<a href="" target="_blank"> </a>
+
+bold & Strong:
+<strong> </strong>
+<b> </b>
+
+---------------------------till revise 5-----------------------
+
+
+image tag:
+<img src="">
+
+line break:
+<br>
+
+italic / emphasized:
+<em> </em>
+
+Italic
+<i> </i>
+
+Small text
+<small> </small>
+
+underlined:
+<u> </u>
+
+Mark Highlighted Text:
+<mark> </mark>
+
+Deleted Text:
+<del> </del>
+
+ordered list:
+<ol>
+     <li> </li>
+</ol>
+
+
+unordered list:
+<ul>
+     <li></li>
+</ul>
+
+Super Script:
+<sup> </sup>
+
+Sub Scritp
+<sub> </sub>
+
+Horizental Line:
+<hr>
+
+
+table:
+<table>
+     <tr>
+          <th></th>
+     </tr>
+
+     <tr>
+           <td> </td>
+     </tr>
+
+     <tr>
+            <td> </td>
+     </tr>
+
+</table>
+
+Scrolling text:
+<marquee> </marquee>
+
+Center text
+<center> </center>
+
+
+form:
+<form>
+    <label>
+    <input>
+</form>
+
+option form:
+<form>
+  <select>
+     <center></center>
+     <option></option>
+     <option></option>
+     <option></option>
+  </select>
+</form>
+
+Article
+<article></article>
+
+Audio:
+<audio></audio>
+
+<bdi><bdi>
+
+
+button:
+<button></button>
+
+span:
+<span></span>
+
+navigation
+<nav></nav>
+
+
+----------------------------------module 6----------------------------
+
+Audio File :
+<audio controls src=""></audio>
+
+Video File :
+<video controls src=""></video>
+
+
+<iframe width="" height="" src="" frameholder="" allow="" allowfullscreen> </iframe>
