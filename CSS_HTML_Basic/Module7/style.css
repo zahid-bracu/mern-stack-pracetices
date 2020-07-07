@@ -1,0 +1,198 @@
+
+/********************** Overflow Example  ***********************/
+.box{
+    border: 1px solid black;
+    width: 40%;
+    padding: 20px;
+    height: 250px;
+}
+.scroll{
+    overflow: scroll;
+}
+
+.hidden{
+    overflow: hidden;
+}
+
+
+/************************ Image file example ***********************/
+
+img{
+    width: 200px;
+    height: 200px;
+}
+
+
+
+/********************** Transform example *************************/
+.boxes{
+    height: 200px;
+    width: 200px;
+}
+
+
+.outer{
+    background-color: aqua;
+}
+
+/**************** Transform slide changes example *******************/
+.inner{
+    background-color: burlywood;
+    /*transform : scale_change rotation_changes x_way_move y_way_move*/
+    transform: scale(.5) rotate(45deg) translateX(50px) translateY(50px);
+}
+
+
+
+
+/*********************** Transition Example *************************/
+
+.transBox{
+    width: 200px;
+    height: 200px;
+    margin-top: 40px;
+    background-color: cornflowerblue;
+    /*Total Transition Time*/
+    transition: 15s;
+}
+
+.transBox:hover{
+    background-color: crimson;
+    width: 600px;
+}
+
+
+
+/***************** Transition Over Other Box ********************/
+
+.boxTrans{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 1px solid black;
+    display: inline-block;
+}
+
+.boxOne{
+    background-color: chartreuse;
+    position: relative;
+    left: 0px;
+    /*Transition : cssElement_that_will_change total_duration type*/
+    transition: left .5s ease-in-out;
+}
+.boxTwo{
+    background-color: cyan;
+    position: relative;
+    left: 200px;
+    /*Transition : cssElement_that_will_change total_duration type delay_time*/
+    transition: transform .6s ease-in-out .5s ;
+}
+
+/*Parent MovingBox Hover --> effect on --> Box One*/
+.movingBox:hover .boxOne{
+    left:200px;
+}
+
+/*Parent MovingBox Hover --> effect on --> Box Two*/
+.movingBox:hover .boxTwo{
+    transform: translateX(400px);
+}
+
+/******************* Animation Testing ******************/
+
+.stage{
+    width: 100%;
+    height: 300px;
+    background-color: springgreen;
+    border:1px solid black;
+}
+
+.ball{
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background-color: tomato;
+    border: 1px solid black;
+    position: absolute;
+}
+
+
+/*This declare the every frame of the element animation*/
+@keyframes roll{
+    0%{
+        left:0px;
+        background-color: tomato;
+    }
+    100%{
+        left:800px;
+        background-color: red;
+    }
+}
+
+
+/*Hover on Parent Div Stage --> Effect On --> Ball*/
+.stage:hover .ball{
+    
+    /*Animation : Key_frame_function_name  total_duration type_of_animation delay Animation_loop_number last_position*/
+    
+    /*animation: name duration timing-function delay iteration-count direction fill-mode; */
+    
+    animation: roll 1s ease-in-out 1s infinite alternate;
+}
+
+
+
+/********************* Flex Box **********************/
+
+.boxflex{
+    height: 100px;
+    width: 100px;
+    border: 1px solid black;
+    border-radius: 30px;
+    padding: 30px;
+    background-color: burlywood;
+}
+
+.container{
+    display: flex;
+    justify-content:center;
+    justify-content: space-evenly;
+    justify-content: flex-end;
+    flex-direction: column-reverse;
+    align-items: center;
+}
+/* link : https://css-tricks.com/snippets/css/a-guide-to-flexbox/ */
+.bbs{
+    flex:1;
+}
+
+
+
+
+/********************* CSS Grid **********************/
+.gridBox{
+    border: 2px solid red;
+    padding: 10px;
+}
+
+.grid{
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    grid-template-columns: 150px 150px 150px;
+    grid-gap: 10px;
+}
+
+
+
+/**CSS Grid Repeat Function Example**/
+
+.gridBox2{
+    border: 1px solid rgb(0, 146, 56);
+    padding: 10px;
+}
+
+.grid2{
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-gap: 10px;
+}

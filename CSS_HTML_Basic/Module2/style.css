@@ -1,0 +1,40 @@
+/************Module 2*******************/
+
+/*CSS Style in Section*/
+ section{
+     /*Background color*/
+     background-color: rgb(70, 236, 236);
+     /*Text Color*/
+     color:rgb(63, 36, 63);
+     /*height of the section*/
+     height: auto;
+     /*Width of the section*/
+     width: 40%;
+ }
+
+ aside{
+     width: 500px;
+ }
+
+ img{
+    width: 100%;
+}
+
+ /*ID declaration for P or paragraph tag*/
+
+ /*Class declaration*/
+ .font{
+     font-size: 25px;
+     font-weight: 600;
+     font-family: 'Courier New', Courier, monospace;
+ }
+
+/* ID Declaration*/
+ #color{
+     background-color: sandybrown;
+     color: slategrey;
+ }
+
+
+
+ 

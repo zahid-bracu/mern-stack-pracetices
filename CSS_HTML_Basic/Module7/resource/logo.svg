@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="-40 -40 80 80">
+	<circle r="39" fill="pink"/>
+	<path d="M0,38a38,38 0 0 1 0,-76a19,19 0 0 1 0,38a19,19 0 0 0 0,38" fill="yellow"/>
+	<circle cy="19" r="5" fill="red"/>
+	<circle cy="-19" r="5" fill="green"/>
+</svg>
