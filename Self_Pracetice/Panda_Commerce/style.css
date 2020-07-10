@@ -1,0 +1,56 @@
+ .carousel{
+    background-color: #fceae8;
+    margin: 20px 0px;
+    border-radius: 10px;
+ }
+
+ .box{
+    padding-left: 20px;
+ }
+
+ button{
+    background-color: #ff136f;
+    color: white;
+    padding: 5px 10px;
+    border: 1px solid #ff136f;
+    border-radius: 10px;
+    box-shadow: 2px 2px 2px rgb(104, 104, 104);
+ }
+
+ .cat1{
+    background-color: orange;
+ }
+
+ .cat2{
+   background-color: #ff136f;
+}
+
+.cat3{
+   background-color: rgb(0, 204, 255);
+}
+
+.cat1, .cat2, .cat3{
+   color:white;
+   border-radius: 10px;
+   padding: 10px;
+   margin: 20px 0px;
+}
+
+.cat img{
+   width: 100px;
+}
+
+.cats{
+   padding: 50px 0px;
+   margin-bottom: 30px;
+}
+
+#card{
+   border:none;
+   box-shadow: 2px 2px 2px rgb(129, 129, 129);
+}
+
+footer{
+   background-color: #fceae8;
+   height: 400px;
+}

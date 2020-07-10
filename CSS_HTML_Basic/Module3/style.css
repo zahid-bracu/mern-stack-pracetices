@@ -1,0 +1,10 @@
+.box{
+    width: 200px;
+    height: 200px;
+    background-color: rgb(145, 248, 209);
+}
+
+.box:hover{
+    background-color: rgb(0, 168, 104);
+    border: 2px solid red;
+}

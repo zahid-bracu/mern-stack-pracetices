@@ -1,0 +1,72 @@
+.carousel-item{
+    background-color: #fceae8;;
+}
+
+.box{
+    padding: 20px 40px;
+}
+
+.button{
+    color:white;
+    background-color: #ff136f;
+    padding: 10px 15px;
+    border: 1px solid #ff136f;
+    border-radius: 10px;
+    box-shadow: 2px 2px 6px 1px rgb(78, 78, 78);
+    font-weight: 600;
+    margin: 15px 0px;
+}
+
+.slider{
+    margin: 40px 0px;
+}
+
+.button
+
+.price{
+    color: #ff136f;
+    font-weight: 650;
+    text-shadow: 2px 3px 4px  rgb(100, 100, 100);
+}
+
+.cat1{
+    background-color: orange;
+    
+}
+
+.cat2{
+    background-color: rgb(45, 236, 250);
+}
+
+.cat3{
+    background-color: #ff136f;
+}
+
+.cat1, .cat2, .cat3{
+    border-radius: 30px;
+    padding: 20px 30px;
+    margin: 20px 0px;
+}
+
+.cat h2{
+    color: cornsilk;
+}
+.cat img{
+    width: 100px;
+}
+
+
+#card-box{
+    border: none;
+    box-shadow: 6px 6px 10px rgb(189, 189, 189);
+}
+
+.deck{
+    margin: 40px ;
+}
+
+
+footer{
+    background-color: #fceae8;
+    height: 300px;
+}
