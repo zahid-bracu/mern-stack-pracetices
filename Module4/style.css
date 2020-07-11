@@ -1,0 +1,88 @@
+/**************** Pseudo Class : Hover ***********************/
+.test{
+    width: 300px;
+    height: 300px;
+    border: 2px solid rgb(218, 0, 0);
+    background-color: rgb(54, 54, 54);
+}
+
+.inner{
+    width: 300px;
+    height: 300px;
+    background-color: greenyellow;
+    border: rgb(3, 236, 139);
+    border-radius: 50%;
+}
+
+.test:hover .inner{
+    transform: scale(.6);
+    transition: 2s;
+}
+
+/**************** Pseudo Class : Focus ***********************/
+
+.input:focus{
+    color: red;
+    font-size: 20px;
+}
+
+/**************** Pseudo Class : Child ***********************/
+
+li:last-child{
+    font-size: 30px;
+    color: red;
+}
+
+li:first-child{
+    font-size: 40px;
+    color:green;
+}
+
+li:nth-child(2n+1){
+    font-size: 25px;
+}
+
+/**************** Pseudo Class : Visited ***********************/
+
+a{
+    text-decoration: none;
+    color: green;
+}
+a:visited{
+    color:red;
+}
+
+/**************** Pseudo Class ::before ::after  ***********************/
+
+h2::before{
+    content: "There's ";
+    font-size: large;
+}
+
+h2::after{
+    content: " After";
+    font-size: large;
+}
+
+
+/**************** Position : fixed & sticky  ***********************/
+
+.fixed{
+    width: 60px;
+    height: 60px;
+    background-color: rgb(36, 36, 36);
+    border: 2px solid rgb(236, 3, 3);
+    position: fixed;
+    bottom: 0px;
+    right: 0px;
+}
+
+.sticky{
+    width: 60px;
+    height: 60px;
+    background-color: rgb(34, 221, 206);
+    border: 2px solid rgb(236, 3, 3);
+    position: fixed;
+    top: 0px;
+    right: 0px;
+}

@@ -1,0 +1,131 @@
+
+
+/******************** Position : Relative & Absolute Basic *********************/
+.testOne{
+    margin-bottom: 60px;
+}
+
+.container{
+    display: flex;
+    border:  3px solid green;
+    position: relative;
+}
+
+.box{
+    width: 200px;
+    height: 200px;
+    background-color: rgb(77, 249, 255);
+    border: 1px solid rgb(155, 155, 155);
+    margin: 5px;
+}
+
+/*************Position Relative : Z-index*************/
+
+.box-2{
+    background-color: rgb(255, 152, 152);
+    position: relative;
+    left: 50px;
+}
+
+.box-4{
+    border: 3px solid red;
+    z-index: 2;
+}
+
+/*************Position Absolute : Z-index*************/
+
+.box-3{
+    position: absolute;
+    background-color: burlywood;
+    top:20px;
+    
+}
+
+
+/*********************Photo Album ***********************/
+
+.photo-album{
+    display: flex;
+}
+
+.photo-frame{
+    width: 300px;
+     
+    border: 5px solid rgb(255, 166, 0);
+    border-radius: 5%;
+    position: relative;
+    overflow: hidden;
+}
+
+.photo-frame .photo img{
+    width: 100%;
+    
+}
+
+.photo-details{
+    position: absolute;
+    top:0px;
+    display: none;
+    
+}
+
+.photo-details p{
+    text-align: justify;
+}
+
+
+.photo-frame:hover .photo-details{
+    display: block;
+    color: white;
+    background-color: rgb(75, 75, 75, .5);
+     
+    border-radius: 5%;
+    padding: 10px;
+}
+
+.photo-album:hover .photo {
+    transform: scale(1.9) rotate(360deg);
+    transition: 2s;
+}
+
+
+/************** CSS Grid *****************/
+
+.container-grid{
+    margin: 20px 0px;
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    grid-gap: 10px;
+}
+
+.article{
+    background-color: rgb(216, 255, 176);
+}
+
+.article-1{
+    grid-row: 1/span 4;
+}
+
+.article-2{
+    grid-column: 2/span 3;
+}
+
+
+/*********************CSS Dislplay block & inline************************/
+
+
+.room{
+    border: 2px solid blue;
+    height: 150px;
+    width: 150px;
+    margin: 10px;
+    text-align: center;
+    padding: 5px;
+    display: inline-block;
+}
+
+.boxes{
+    background-color: chartreuse;
+    max-width: 700px;
+    height: 500px;
+}
