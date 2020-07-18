@@ -74,7 +74,7 @@ h2::after{
     border: 2px solid rgb(236, 3, 3);
     position: fixed;
     bottom: 0px;
-    right: 0px;
+    left: 0px;
 }
 
 .sticky{
@@ -82,7 +82,7 @@ h2::after{
     height: 60px;
     background-color: rgb(34, 221, 206);
     border: 2px solid rgb(236, 3, 3);
-    position: fixed;
+    position: sticky;
     top: 0px;
     right: 0px;
 }
