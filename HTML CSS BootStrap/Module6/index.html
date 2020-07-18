@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-------------------Audio & Video----------------->
+    <section>
+        <!--Youtube video : iframe-->
+        <div class="Youtube">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/k_OQJsWR4Uw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+
+        <!--Audio file-->
+        <div class="sound">
+            <audio controls src="https://file-examples-com.github.io/uploads/2017/11/file_example_MP3_700KB.mp3">
+            </audio>
+        </div>
+
+        <!--Video File-->
+        <div class="sound">
+            <video controls src="https://file-examples-com.github.io/uploads/2017/04/file_example_MP4_480_1_5MG.mp4">
+            </video>
+        </div>
+    </section>
+
+
+
+    <!----------------Semantic Rules----------------->
+    ul>li*4>article>h3{Header-&}+p>lorem
+
+    .blog*3>article>h1{header-$}+p>lorem
+
+    <!-------------------HTML5-------------------->
+
+    <header>
+        <nav>
+            <ul>
+                <li>Lorem, ipsum.</li>
+                <li>Aperiam, repellendus.</li>
+                <li>Maiores, repellendus.</li>
+            </ul>
+        </nav>
+    </header>
+
+    <section>
+        <article>
+            <h1>Header</h1>
+            <p>Lorem ipsum dolor sit amet.</p>
+        </article>
+    </section>
+
+     <!----------------------------Table------------------------->
+     <div>
+        <section>
+            <div>
+                <!--Table : Thead : Tr : Th-->
+                <!--Table : Tbody : Tr : Td-->
+                <table>
+                    <caption>Companies Information</caption>
+                    <!---The Head of the Table--->
+                    <thead>
+                        <tr>
+                            <th>Company</th>
+                            <th>Earning</th>
+                            <th>Country</th>
+                        </tr>
+                    </thead>
+                    <!---Table Body--->
+                    <tbody>
+                        <tr>
+                            <td>Facebook</td>
+                            <td>1550$</td>
+                            <td>USA</td>
+                        </tr>
+    
+                        <tr>
+                            <td>Google</td>
+                            <td>5550$</td>
+                            <td>UK</td>
+                        </tr>
+    
+                        <tr>
+                            <td>Microsoft</td>
+                            <td>9000$</td>
+                            <td>Australia</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </div>
+
+
+    <!---------------HTML Form------------------>
+    <section class="form">
+        <form action="index.html">
+            <p>Name: <input placeholder="Enter Your Name" type="text" value="" name="" id=""> </p>
+            <p>Telephone : <input type="tel" value="" name="" id=""> </p>
+            <p>Email : <input pattern="validatation" type="email" value="" name="" id=""> </p>
+        </form>
+
+        <!---Radio--->
+        <fieldset style="width: 300px;">
+            <legend>Select Subject:</legend>
+            <p><label for="cse">CSE</label><input type="radio" value="" name="subject" id="cse"></p>
+            <p><label for="mns">MNS</label><input type="radio" value="" name="subject" id="mns"></p>
+            <p><label for="bbs">BBS</label><input type="radio" value="" name="subject" id="bbs"></p>
+            <!--TO select multiple option : delete all the name attribute-->
+        </fieldset>
+
+        <!---CheckBox-->
+        <fieldset style="width: 300px;">
+            <legend>Select Subject:</legend>
+            <p><label for="cse">CSE</label><input type="checkbox" value=""   id="cse"></p>
+            <p><label for="mns">MNS</label><input type="checkbox" value=""   id="mns"></p>
+            <p><label for="bbs">BBS</label><input type="checkbox" value=""   id="bbs"></p>
+        </fieldset>
+
+        <!----Text Area--->
+        <fieldset style="width: 300px;">
+            <p>
+                <label for="">Information</label>
+                <textarea></textarea>
+            </p>
+        </fieldset>
+
+        <input type="submit" value="Press">
+    </section>
+
+    <!--Title-->
+    <p title="Here is the Title">Hover here .There is a Title</p>
+
+    <!---Own Attribute-->
+    <div data-key="150">
+        This is a sample attribute
+    </div>
+</body>
+</html>

@@ -1,0 +1,10 @@
+
+/*****************Table********************/
+/*table column, row & heading-row CSS style*/
+td,th{
+    border: 1px solid black;
+    padding: 5px 10px;
+}
+table{
+    border-collapse: collapse;
+}

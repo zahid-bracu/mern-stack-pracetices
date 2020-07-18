@@ -5,6 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="style.css">
+    <style>
+        #check{
+            color: crimson;
+        }
+        .test{
+            /*Specificity*/
+            color: darkgreen !important;
+        }
+        h6{
+            color: blue;
+        }
+    </style>
 </head>
 <body>
     <!--------Pseudo Class : Hover --------->
@@ -48,5 +60,12 @@
 
     <div class="sticky">
     </div>
+
+
+    <!-------------------------Specificity---------------------------->
+
+    <section>
+        <h6  id="check" class="test" style="color:chocolate">Specificity</h6>
+    </section>
 </body>
 </html>
