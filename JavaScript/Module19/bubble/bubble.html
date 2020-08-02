@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="container">
+        <h3>The Lorem List</h3>
+        <ul id="lists">
+            <li class="list-1 list" id="list-1">Lorem, ipsum dolor.</li>
+            <li class="list-2 list" id="list-2">Tempora, quas dolore.</li>
+            <li class="list-3 list" id="list-3">Numquam, doloremque rem!</li>
+            <li class="list-4 list" id="list-4">Explicabo, cupiditate accusamus?</li>
+            <li class="list-5 list" id="list-5">Libero, fugit. Repellat.</li>
+        </ul>
+    </div>
+
+    <script>
+        // inner bubble
+        const listOne=document.getElementById('list-1');
+        listOne.onclick=function(event){
+            console.log("List One is clicked");
+            
+            //Stop propagation
+            event.stopPropagation();
+        }
+
+        //inner wrapper bubble
+        const lists=document.getElementById('lists');
+        lists.onclick=function(event){
+            console.log("List Wrapper is clicked");
+            event.stopPropagation();
+        }
+
+        //bubble wrapper
+        const container=document.getElementById('container');
+        container.onclick=function(event){
+            console.log("Container is clicked");
+        }
+    </script>
+</body>
+</html>

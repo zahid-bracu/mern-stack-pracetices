@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- inline event -->
+    <!-- Normal event function assigned to HTML included event -->
+    <button onclick="clicked()">click me</button>
+
+    <!-- inline event through function -->
+    <!-- Normal alert is directly applied to inner HTML event -->
+    <button onclick="alert('New Message')">Alert</button>
+
+    <!-- inline multiple event through function -->
+    <!-- Double Event are applied to one particular HTML Event -->
+    <h4 onmouseout="outMouse()" onmousemove="moveMouse()">CPSCM</h4>
+
+
+    <!-- Name Function to Object with Event -->
+    <!-- Button Click with direct function implemented -->
+    <button class="" id="button">Press to test with normal function assigned</button>
+
+    <br>
+    <!--  Anonymous Function to Object with Event -->
+    <!-- Button Click with direct function implemented -->
+    <button class="" id="buttonZero">Press to test with direct anonymous function assigned</button>
+
+    <br>
+    <!-- Add event listener example with anonymous function-->
+    <button class="" id="firstButton">Press to test addEventListener with anonymous function</button>
+
+    <br>
+    <!-- Add event listener example with normal function-->
+    <button class="" id="secondButton">Press to test addEventListener normal function</button>
+
+
+    <!-- Event Target / Remove Child Method / This / parentNode / -->
+    <div id="container">
+        <h4>List</h4>
+        <ul id="lists" style="list-style: none;">
+            <li class="list-1 list" id="list">Lorem, ipsum.</li>
+            <li class="list-2 list" id="list">Deleniti, dolores.</li>
+            <li class="list-3 list" id="list">Enim, expedita!</li>
+            <li class="list-4 list" id="list">Sapiente, fuga.</li>
+            <li class="list-5 list" id="list">Soluta, natus.</li>
+            <li class="list-6 list" id="list">Excepturi, labore.</li>
+        </ul>
+    </div>
+
+    <!-- Adding New Element -->
+    <button id="addNew">Add Item</button>
+
+    
+    <script>
+
+        // Adding New Item
+        var addNew=document.getElementById('addNew');
+        addNew.addEventListener('click',addList);
+
+        function addList(){
+            var myList=document.getElementById('lists');
+            var newItem=document.createElement("li");
+            newItem.innerText="Nothing Ipsum";
+            myList.appendChild(newItem);
+        }
+
+        // Remove Child Using Event Target
+        // var lists=document.getElementsByTagName("li");
+        //     for(var i=0;i<lists.length;i++){
+        //         var items=lists[i];
+        //         items.addEventListener('click',function(event){
+        //             console.log(event.target);
+        //             console.log(event.target.innerText);
+        //             console.log(event.target.parentNode);
+        //             console.log(event.target.parentNode.removeChild(event.target));
+        //         })
+        //     }
+        
+        document.getElementById("lists").addEventListener('click',function(event){
+            event.target.parentNode.removeChild(event.target);
+        })
+
+
+
+        // Normal function that is applied to HTML inner event
+        function clicked(){
+            alert("Normal Function that is applied to HTML inner Event");
+         }
+
+
+         //Double event is 
+         function moveMouse(){
+             console.log("This is moved");
+         }
+
+         function outMouse(){
+             console.log("Mouse is gone");
+         }
+
+
+        //Name Function to Object with Event
+        const button=document.getElementById('button');
+        button.onclick=msg;
+
+        function msg(){
+            alert("Normal function assigned to event");
+        }
+
+
+        // Anonymous Function to Object with Event
+        const zeroButton=document.getElementById('buttonZero');
+        zeroButton.onclick=function(){
+            alert("Some messages has been displayed");
+        }
+
+
+        // Anonymous Function to Object with addEventListener
+        var firstButton=document.getElementById('firstButton');
+        firstButton.addEventListener('click',function(){
+            alert("Event listener has been clicked with anonymous function")
+        })
+
+
+        // Name Function to Object with addEventListener
+        var secondButton=document.getElementById('secondButton');
+        secondButton.addEventListener('click',message);
+
+        function message(){
+            alert("Event listener has been clicked with Normal function");
+        }
+
+        
+         
+    </script>
+</body>
+</html>

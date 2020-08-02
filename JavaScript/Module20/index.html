@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <title>Document</title>
+
+    <style>
+        .loginBox{
+            padding: 30px;
+            margin-top: 70px;
+            border: 0px solid rgb(214, 214, 214);
+            border-radius: 10px;
+            box-shadow: 5px 5px 10px rgb(138, 138, 138);
+            max-width: 830px;
+        }
+        .box-1{
+            background-color:#e8505b ;
+            padding: 10px;
+            color: white;
+            border: 1px solid #e8505b;
+            border-radius: 10px;
+            max-width: 250px;
+        }
+
+        .box-2{
+            background-color:#00bcd4 ;
+            padding: 10px;
+            color: white;
+            border: 1px solid #00bcd4 ;
+            border-radius: 10px;
+            max-width: 250px;
+        }
+
+        .box-3{
+            background-color:#14b1ab ;
+            padding: 10px;
+            color: white;
+            border: 1px solid #14b1ab ;
+            border-radius: 10px;
+            max-width: 250px;
+        }
+
+        .form-box{
+            max-width: 430px;
+            padding: 40px;
+            border: 0px solid rgb(214, 214, 214);
+            border-radius: 10px;
+            box-shadow: 5px 5px 10px rgb(138, 138, 138);
+        }
+
+        #submitBox{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container mt-5">
+        <header class="text-center">
+            <h3>Welcome To Pioneer Bank</h3>
+        </header>
+
+        <div class="row justify-content-center">
+            <div class="loginBox col-10" id="loginBox">
+                <h4>Login</h4>
+                <form>
+                    <div class="form-group">
+                      <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Email" aria-describedby="emailHelp">
+                      <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                    </div>
+                    <div class="form-group">
+                      <input type="password" placeholder="Password" class="form-control" id="exampleInputPassword1">
+                    </div>
+                    <div class="form-group form-check">
+                      <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                      <label class="form-check-label" for="exampleCheck1">Remember</label>
+                    </div>
+                    <button type="button" id="loginBtn" class="btn btn-success">Submit</button>
+                  </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="container" id="submitBox">
+        <div class="row justify-content-center align-items-center my-5">
+            <div class="col-lg-4 col-md-4 col-sm-8 col-8 my-2 mx-4 box-1 box">
+                    <h6>Deposite</h6>
+                    <h1>$ <span id="depositAmount">00</span></h1>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-8 col-8 my-2 mx-4 box-2 box">
+                    <h6>Withdraw</h6>
+                    <h1>$ <span id="withdrawAmount">00</span></h1>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-8 col-8 my-2 mx-4 box-3 box">
+                    <h6>Balance</h6>
+                    <h1>$ <span id="balanceAmount">1240</span></h1>
+            </div>
+        </div>
+
+        <div class="row justify-content-center align-items-center my-5">
+            <div class="col-lg-6 col-md-10 col-10 form-group form-box mx-3">
+                <h5 class="my-4">Deposit</h5>
+                
+                <input type="value" class="form-control my-4" placeholder="$ amount you want to deposit" id="deposit" aria-describedby="depositNumber">
+
+                <button type="button" id="depositButton" class="btn btn-success">Submit</button>
+            </div>
+            <div class="col-lg-6 col-md-10 col-10 form-group form-box mx-3">
+                <h5 class="my-4">Withdraw</h5>
+                <input type="email" class="form-control my-4" id="withdraw" placeholder="$ amount you want to withdraw" id="exampleInputEmail1" aria-describedby="emailHelp">
+                <button type="button" id="withdrawButton" class="btn btn-success">Submit</button>  
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+        var loginBtn=document.getElementById("loginBtn");
+        loginBtn.addEventListener('mouseover',function(event){
+            console.log("Mouse Has Come Over");
+        })
+        loginBtn.addEventListener('mouseout',function(event){
+            console.log("Mouse Has Gone");
+        })
+        loginBtn.addEventListener('click',function(event){
+            console.log("Mouse Has Been Clicked");
+            document.getElementById('loginBox').style.display="none";
+            document.getElementById('submitBox').style.display="block";
+        })
+        //Withdraw Button
+        var withdrawButton=document.getElementById('withdrawButton');
+        withdrawButton.addEventListener('click',function(event){
+            var withdraw=document.getElementById('withdraw').value;
+            withdraw=parseFloat(withdraw);
+            console.log(withdraw);
+            updateAmount(withdraw);
+        })
+
+        function updateAmount(balance){
+            var withdrawAmount=document.getElementById('withdrawAmount').innerText;
+            withdrawAmount=parseFloat(withdrawAmount);
+            
+            var balanceAmount=document.getElementById('balanceAmount').innerText;
+            balanceAmount=parseFloat(balanceAmount);
+
+            if(balance<=balanceAmount){
+                withdrawAmount+=balance;
+                withdrawAmountField=document.getElementById('withdrawAmount');
+                withdrawAmountField.innerText=withdrawAmount;
+
+                balanceAmount-=balance;
+                console.log(balanceAmount);
+                var balanceAmountField=document.getElementById('balanceAmount');
+                balanceAmountField.innerText=balanceAmount;
+            }else{
+                alert("You Don't Have Sufficient Balance");
+            }
+        }
+
+
+
+
+
+        //deposit button
+        var depositButton=document.getElementById('depositButton');
+        depositButton.addEventListener('click',function(){
+            var deposit=document.getElementById('deposit').value;
+            deposit=parseFloat(deposit);
+            console.log(deposit);
+
+            update(deposit);
+
+            // var depositField=document.getElementById('deposit').value;
+            // console.log(depositField);
+            // var value=parseFloat(depositField);
+
+
+            // var depositAmount=document.getElementById('depositAmount').innerText;
+            // depositAmount=parseFloat(depositAmount);
+            // console.log(depositAmount);
+
+            // depositAmount=depositAmount+value;
+
+            // depositAmountField=document.getElementById('depositAmount');
+            // depositAmountField.innerText=depositAmount;
+
+            // var balanceAmount=document.getElementById('balanceAmount').innerText;
+            // balanceAmount=parseFloat(balanceAmount);
+            // balanceAmount+=value;
+
+            // var balanceAmountField=document.getElementById('balanceAmount');
+            // balanceAmountField.innerText=balanceAmount;
+        })
+
+        function update(value){
+            //inner existed value has taken
+            var depositAmount=document.getElementById('depositAmount').innerText;
+            // parsing the taken value from string to float
+            depositAmount=parseFloat(depositAmount);
+            //adding the input value
+            depositAmount+=value;
+            console.log(depositAmount);
+
+            //conneting the span that shows the value
+            var depositAmountField=document.getElementById('depositAmount')
+            //updating the inner value
+            depositAmountField.innerText=depositAmount;
+            
+
+            var balanceAmount=document.getElementById('balanceAmount').innerText;
+            balanceAmount=parseFloat(balanceAmount);
+            balanceAmount+=value;
+            console.log(balanceAmount);
+
+            var balanceAmountField=document.getElementById('balanceAmount')
+            balanceAmountField.innerText=balanceAmount;
+                
+
+            }
+    </script>
+
+
+
+
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+</body>
+</html>
