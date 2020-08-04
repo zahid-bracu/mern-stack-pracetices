@@ -16,7 +16,7 @@
       <div class="container">
          <div class="cart">
             <div class="col-md-12 col-lg-10 mx-auto">
-               <div class="cart-item">
+               <div id="cart1" class="cart-item">
                   <div class="row">
                      <div class="col-md-7 center-item">
                         <img src="images/product-1.png" alt="">
@@ -30,12 +30,12 @@
                            <button class="btn btn-default"><i id="plusOne" class="fas fa-plus"></i></button>
                         </div>
                         <h5>$<span id="amountOne">1219</span></h5>
-                        <img src="images/remove.png" alt="" class="remove-item">
+                        <img id="removeOne" src="images/remove.png" alt="" class="remove-item">
                      </div>
                   </div>
                </div>
 
-               <div class="cart-item">
+               <div id="cart2" class="cart-item">
                   <div class="row">
                      <div class="col-md-7 center-item mx-auto">
                         <img src="images/product-2.png" alt="">
@@ -44,12 +44,12 @@
                      <div class="col-md-5 center-item">
                         <div class="input-group number-spinner">
                            <button id="minusOne2" class="btn btn-default"><i  class="fas fa-minus"></i></button>
-                           <input type="text" class="form-control text-center" value="1">
-                           <button class="btn btn-default"><i class="fas fa-plus"></i></button>
+                           <input id="inputTwo" type="text" class="form-control text-center" value="1">
+                           <button id="plusOne2" class="btn btn-default"><i class="fas fa-plus"></i></button>
 
                         </div>
-                        <h5>$59</h5>
-                        <img src="images/remove.png" alt="" class="remove-item">
+                        <h5>$<span id="amountTwo">59</span></h5>
+                        <img id="removeTwo" src="images/remove.png" alt="" class="remove-item">
                      </div>
                   </div>
                </div>
@@ -64,9 +64,9 @@
                      </div>
 
                      <div class="col-md-4 status">
-                        <h5>$1,278</h5>
+                        <h5>$ <span id="subTotal">1278</span></h5>
                         <h5>$0</h5>
-                        <h5>$1,278</h5>
+                        <h5>$ <span id="total">1278</span></h5>
                      </div>
                   </div>
                </div>
@@ -79,6 +79,11 @@
    </section>
 
    <script>
+
+      var total=document.getElementById('total');
+      var subTotal=document.getElementById('subTotal');
+      var st=subTotal.innerText;
+      st=parseFloat(st);
 
       //first list try
 
@@ -96,6 +101,9 @@
          ++inputOne.value;
          amount+=temp;
          amountOne.innerText=amount;
+         st+=temp;
+         subTotal.innerText=st;
+         total.innerText=st;
       })
 
       minusOne.addEventListener('click',function(event){   
@@ -105,8 +113,64 @@
             inputOne.value--;
             amount-=temp;
             amountOne.innerText=amount;
+            st-=temp;
+            subTotal.innerText=st;
+            total.innerText=st;
          }
       })
+
+      // Row 2
+
+      var amountTwo=document.getElementById('amountTwo');
+      var amount2=amountTwo.innerText;
+      amount2=parseFloat(amount2);
+      var temp2=amount2;
+
+
+      var plusOne2=document.getElementById('plusOne2');
+      var minusOne2=document.getElementById('minusOne2');
+      var inputTwo=document.getElementById('inputTwo');
+
+      plusOne2.addEventListener('click',function(event){
+         ++inputTwo.value;
+         amount2+=temp2;
+         amountTwo.innerText=amount2;
+         st+=temp2;
+         subTotal.innerText=st;
+         total.innerText=st;
+      })
+
+      minusOne2.addEventListener('click',function(event){   
+         if(inputTwo.value<=0){
+            this.classList.add('disabled');
+         }else{
+            inputTwo.value--;
+            amount2-=temp2;
+            amountTwo.innerText=amount2;
+            st-=temp2;
+            subTotal.innerText=st;
+            total.innerText=st;
+         }
+      })
+
+      var removeOne=document.getElementById('removeOne');
+      var removeTwo=document.getElementById('removeTwo');
+
+      removeOne.addEventListener('click',function(event){
+         document.getElementById('cart1').style.display="none";
+         st-=amount;
+         subTotal.innerText=st;
+         total.innerText=st;
+      })
+
+      removeTwo.addEventListener('click',function(event){
+         document.getElementById('cart2').style.display="none";
+         st-=amount2;
+         subTotal.innerText=st;
+         total.innerText=st;
+      })
+      
+
 
    </script>
    
