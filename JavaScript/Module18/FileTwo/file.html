@@ -8,6 +8,11 @@
         p{
             font-size: 20px;
         }
+        article{
+            border: 2px solid green;
+            border-radius: 15px;
+            padding: 10px;
+        }
     </style>
 </head>
 <body>
@@ -36,6 +41,67 @@
             <li class="list" id="list">List Value 6 :  Labore, eveniet doloribus!</li>
         </ul>
     </section>
-    <script src="file.js"></script>
+    <script>
+            //document print
+            console.log(document);
+
+            //document.body print
+            console.log(document.body);
+
+
+            //console with for loop
+            for(var i=0;i<=10;i++){
+                console.log(i);
+            }
+
+
+            //get element by tag name
+            var para=document.getElementById("para2");
+            //css value set
+            para.style.color="red";
+            //inner text change
+            para.innerText="Xmen";
+
+            //innerHTML
+            var sec=document.getElementById("sec");
+            console.log(sec.innerHTML);
+
+
+            // get element by tag name
+            var h4=document.getElementsByTagName("h4");
+            for(var i=0;i<4;i++){
+                console.log(h4[i]);
+            }
+
+            // // get element by class name
+            var arc=document.getElementsByClassName("arc");
+            for(var i=0;i<4;i++){
+                console.log(arc[i]); 
+            }
+
+            //query selector
+            var list=document.querySelector("#list");
+            list.innerText="No Text is Shown";
+
+
+            //query selector all
+            var list=document.querySelectorAll("#list");
+            for(var i=0;i<list.length;i++){
+                list[i].innerText=`Number ${i}`;
+            }
+
+
+
+            //  Element Creation & Appending 
+            var elem=document.createElement('p');
+            elem.innerText="This is an another paragraph that has been added";
+
+            var loca=document.getElementById("para3");
+            loca.append(elem);
+
+            //set Attribute
+            var got=document.getElementById("para2");
+            got.setAttribute('style','color:green;font-weight:bold');
+    </script>
 </body>
 </html>

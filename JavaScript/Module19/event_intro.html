@@ -67,6 +67,11 @@
             myList.appendChild(newItem);
         }
 
+        document.getElementById("lists").addEventListener('click',function(event){
+            event.target.parentNode.removeChild(event.target);
+        })
+
+
         // Remove Child Using Event Target
         // var lists=document.getElementsByTagName("li");
         //     for(var i=0;i<lists.length;i++){
@@ -79,9 +84,7 @@
         //         })
         //     }
         
-        document.getElementById("lists").addEventListener('click',function(event){
-            event.target.parentNode.removeChild(event.target);
-        })
+         
 
 
 

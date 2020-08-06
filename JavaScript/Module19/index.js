@@ -92,7 +92,7 @@ console.log(result);
 
 
 // -----------------------------------------------------------
-// Array Mapping With Three Arguments
+// Array Mapping With Three Arguments*****
 var array=[11,22,33,44,55,66];
 var newArray=array.map(function(num,index,array){
   return num;
@@ -101,7 +101,7 @@ var newArray=array.map(function(num,index,array){
 console.log(newArray);
 
 // ----------------------------------------------------------
-//Array Map with Arrow Function
+//Array Map with Arrow Function*****
 var array=[11,22,33,44,55,66];
 var newArray=array.map((num)=>{
   return num;
@@ -131,7 +131,7 @@ var newArray=array.map((item)=>{
 console.log(newArray);
 // ---------------------------------------------------------------------
 // Arrow Function
-var value = (x) =>{
-  return x*x;
+var value = (x,y=10) =>{
+  return x*y;
 }
 console.log(value(8));
