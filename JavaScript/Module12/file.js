@@ -112,7 +112,7 @@ if (val > 10 && val < 20 ){
   console.log("Not Between 10 & 20");
 }
 
-//Logical pr
+//Logical or
 var val2=15;
 if (val < 10 || val > 20 ){
   console.log("Matched");

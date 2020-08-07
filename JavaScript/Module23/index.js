@@ -60,3 +60,32 @@ console.log(result);
 var string=`this is my december
 this is my snow covered eyes`;
 console.log(string);
+
+
+//------------------------spread operator--------------------------
+var array1=[110,220,330];
+var array2=[100,200,300];
+
+var newArray=[...array1,...array2,100];
+console.log(newArray);
+
+
+//--------------------------max value---------------------------
+var max=Math.max(...newArray);
+console.log(max);
+
+
+//------------------------class & constructor-----------------------
+class student{
+  constructor(name,id){
+    this.Name=name;
+    this.Id=id;
+    this.Campus="BRACU";
+  }
+}
+
+const student1=new student('Zahid',15101122);
+const student2=new student('Rahman',19241051);
+
+console.log(student1);
+console.log(student2);

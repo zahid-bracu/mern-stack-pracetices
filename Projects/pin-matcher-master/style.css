@@ -35,6 +35,7 @@ body {
 input[type='text']{
     background-color: #3D4153;
     padding: 10px 0px;
+    color: #ffffff;
     width: 80%;
     margin: 0 auto;
     border: 2px solid #858299;
@@ -61,7 +62,7 @@ color: #fff;
 width: 100%;
 }
 
-.button {
+.numButton {
 width: 20%;
 background: #425062;
 color: #fff;
@@ -75,6 +76,39 @@ margin-right: -4px;
 border-radius: 10px;
 cursor: pointer;
 }
+
+.cross{
+    width: 20%;
+background: #425062;
+color: #fff;
+padding: 20px 0;
+margin: 5px;
+display: inline-block;
+font-size: 25px;
+text-align: center;
+vertical-align: middle;
+margin-right: -4px;
+border-radius: 10px;
+cursor: pointer;
+}
+
+.clean{
+    width: 20%;
+background: #425062;
+color: #fff;
+padding: 20px 0;
+margin: 5px;
+display: inline-block;
+font-size: 25px;
+text-align: center;
+vertical-align: middle;
+margin-right: -4px;
+border-radius: 10px;
+cursor: pointer;
+}
+
+
+
 .blink-me {
 color: #E0B612;
 }
@@ -95,6 +129,14 @@ color: #E0B612;
     border-radius: 15px;
     padding: 5px 20px;
 }
+
+#matched{
+    display: none;
+}
+#not_matched{
+    display: none;
+}
+
 .notify-section{
     width: 35%;
     margin: 0 auto;
@@ -102,11 +144,4 @@ color: #E0B612;
 .action-left {
     color: #FF3C5F;
     margin-top: 10px;
-}
-
-#matched{
-    display: none;
-}
-#tryAgain{
-    display: none;
 }

@@ -1,1 +1,0 @@
-# js-pin-master
