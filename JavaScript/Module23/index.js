@@ -89,3 +89,53 @@ const student2=new student('Rahman',19241051);
 
 console.log(student1);
 console.log(student2);
+
+// ---------------------------Inheritances & Class------------------
+class Parents{
+  constructor(fname){
+    this.fname="Farid Box";
+  }
+}
+
+class Children extends Parents{
+  constructor(name){
+    super();
+    this.name=name;
+  }
+
+  getInfo(){
+    return `My Name ${this.name} and father name is ${this.fname}`;
+  }
+} 
+
+const child=new Children("Jashim Box");
+var message=child.getInfo();
+console.log(message);
+
+//----------------------Destructure----------------------------------
+var objects={
+  name: 'zahid',
+  id: '14101122',
+  campus: 'bracu',
+  location: 'dhaka',
+  info:{
+    batch: 'spring15',
+    time: 'morning'
+  }
+}
+
+var {name,campus,location}=objects;
+var {batch}=objects.info;
+console.log("Campus : "+campus);
+console.log("Batch : "+batch);
+
+//----------------------Destructure -------------------------------------
+
+var array=['121','212','313','131','454'];
+console.log(array);
+
+var [minOne,minTwo,...rest]=array;
+
+console.log("Minimum One : "+minOne);
+console.log("Minimum Two : "+minTwo);
+console.log("Rest Number : "+rest);
