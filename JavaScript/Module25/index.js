@@ -15,7 +15,7 @@ var info=[
       id:"128(C)",
       name:"Tushi",
       campus:"Iit",
-      country:"India"
+      country:"India", 
     }
   ]
   
