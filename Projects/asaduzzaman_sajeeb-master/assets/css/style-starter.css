@@ -43,11 +43,7 @@
   left:40%;
   } 
 }
-/* #viewport {
-  position: absolute;
-  left: 0;
-  top: 0;
-} */
+ 
 @media screen and (max-width: 412px) {
   .box-caption{
     transform: scale(.65);
