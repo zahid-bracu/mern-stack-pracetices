@@ -78,7 +78,7 @@ var person={
   
   
   
-  //function with this & new
+  //-------------------------------------function with this & new----------------------------------
   function student(name,id){
     this.name=name,
     this.id=id
@@ -86,3 +86,49 @@ var person={
   const info=new student("Hublo",15101122);
   console.log(info);
   
+
+
+  // --------------------------------This with Object ---------------------------------------------
+  const object={
+    name : "KisLu",
+    getInfo : function(){
+      console.log("Name : "+this.name);
+    }
+  }
+  
+  const object2={
+    name : "BajLu",
+  }
+  
+  // adding the function with second object
+  object2.getInfo=object.getInfo;
+  object2.getInfo();
+ 
+  
+  // ------------------------------ this with : adding function to a object--------------------------------
+  const object={
+    id:420,
+    steam: "CSE"
+  }
+  
+  
+  function add(a,b){
+    var result=a+b;
+    return result;
+  }
+  
+  //
+  var value = add(10,12);
+  console.log(value);
+  
+  //using add function to engage it to the 
+  object.sum=add;
+  object.sum(30,22);
+
+//----------------------------------------------- Async message------------------------------------------
+async function check(){
+  return "This is my Message";
+}
+
+var msg=check();
+msg.then(res => console.log(res));
