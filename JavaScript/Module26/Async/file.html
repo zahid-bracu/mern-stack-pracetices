@@ -27,7 +27,7 @@
             return data;
         }
 
-        load().then(data => {display(data)});
+        load().then(data => {display(data)}).catch(error=>console.log(error));
         
 
         // fetch('https://jsonplaceholder.typicode.com/users')

@@ -63,7 +63,7 @@ var person={
   console.log(result);
 
 
-  // ----------------------- Class and Function with this & new-----------------------------
+  // ----------------------- Class  with this & new-----------------------------
 
   class person{
     constructor(name,id){
@@ -88,7 +88,7 @@ var person={
   
 
 
-  // --------------------------------This with Object ---------------------------------------------
+  // --------------------------------Object with this---------------------------------------------
   const object={
     name : "KisLu",
     getInfo : function(){
@@ -132,3 +132,57 @@ async function check(){
 
 var msg=check();
 msg.then(res => console.log(res));
+
+// ---------------------------------------------Set Time Out---------------------------------------------
+setTimeout(function(){
+  console.log("Will be printed after 4 sec")
+},2000)
+
+//Set Time Out with arrow function
+setTimeout(()=>{
+  console.log("Will be printed after 2 sec")
+},2000)
+
+// Set Time Out 2
+var num=10;
+function check(){
+  num++;
+  console.log("Messages "+num);
+}
+
+check();
+check();
+setTimeout(check,2000);
+check()
+
+
+// -----------------------------------Set Interval------------------------------------------
+setInterval(()=>{
+  console.log("Will be printed after every 1 sec")
+},1000)
+
+
+// --------------------------------- Stop watch -------------------------
+var sec=0;
+var minute=0;
+
+setInterval(()=>{
+  if(sec%60==0 && sec>0){
+    sec=0;
+    minute++;
+  }
+  console.log(minute+":"+sec)
+  sec++;
+},1000)
+
+
+// _------------------------------- Time  Duration ----------------------------
+const start=new Date();
+let sum=0;
+for(var i=0;i<=100000;i++){
+  sum+=465;
+}
+const end =new Date();
+var time=end-start;
+console.log("Time : "+time);
+console.log("Sum : "+sum);
