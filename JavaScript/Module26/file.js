@@ -64,7 +64,6 @@ var person={
 
 
   // ----------------------- Class  with this & new-----------------------------
-
   class person{
     constructor(name,id){
       //this
