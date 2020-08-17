@@ -20,12 +20,15 @@
         </ul>
     </section>
 
+    
     <Script>
+        //Async Example
         async function load(){
             var response=await fetch('https://jsonplaceholder.typicode.com/users');
-            var data= await response.json();
+            var data= await response.json(); 
             return data;
         }
+
 
         load().then(data => {display(data)}).catch(error=>console.log(error));
         
