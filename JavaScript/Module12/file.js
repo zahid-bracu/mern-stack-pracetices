@@ -19,6 +19,9 @@ console.log(typeof name);
 var flag=true;
 console.log(typeof flag);
 
+//js naming conventions
+var camelCase="Value";
+
 //string lower to upper to lower class conversion
 var word="I become so numb";
 word=word.toUpperCase();
