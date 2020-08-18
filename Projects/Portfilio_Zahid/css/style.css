@@ -78,6 +78,28 @@
         -webkit-transform-origin-x: 0;
     }
   }
+.primary-button{
+    border: 0px ;
+}
+
+.btn-light{
+    border: 1px solid #212529;
+}
+
+.btn-light:hover{
+    background-color:#212529;
+    color: white;
+}
+
+.btn-dark{
+    background-color:#212529;
+}
+
+.btn-dark:hover{
+    border: 1px solid #212529;
+    background-color:white;
+    color: #212529;
+}
 
 
 .site-main .site-banner {
