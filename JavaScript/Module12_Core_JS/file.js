@@ -16,6 +16,7 @@ console.log(typeof result);
 var name="zahid";
 console.log(typeof name);
 
+//boolean
 var flag=true;
 console.log(typeof flag);
 
@@ -23,10 +24,12 @@ console.log(typeof flag);
 var camelCase="Value";
 
 //string lower to upper to lower class conversion
+//upper case
 var word="I become so numb";
 word=word.toUpperCase();
 console.log(word);
 
+//lower case
 var word2="I CAN FEEL YOU THERE";
 word=word2.toLowerCase();
 console.log(word2);
