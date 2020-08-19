@@ -90,6 +90,15 @@ function method(num1,num2){
 var result=method(10,20);
 console.log(result);
 
+//function default parameter
+function method(num1,num2=120){
+    var result=num1+num2;
+    return result;
+}
+
+var result=method(10);
+console.log(result);
+
 
 //object
 object={

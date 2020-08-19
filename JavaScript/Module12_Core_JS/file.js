@@ -82,18 +82,24 @@ floatNum=floatNum.toFixed(4);
 console.log(floatNum);
 
 //Math class
+
+//math abs
 var absolute=Math.abs(-4357.2387283);
 console.log(absolute);
 
+//math round
 var round=Math.round(3.49);
 console.log(round);
 
+//math ceil
 var ceil=Math.ceil(3.49);
 console.log(ceil);
 
+//math floor
 var floor=Math.floor(3.59);
 console.log(floor);
 
+//random value generator
 var random=Math.random();
 console.log(random);
 
@@ -123,3 +129,6 @@ if (val < 10 || val > 20 ){
   console.log("Not Matched");
 }
 
+//date and time
+var date=new Date('1992-8-9');
+console.log(date);

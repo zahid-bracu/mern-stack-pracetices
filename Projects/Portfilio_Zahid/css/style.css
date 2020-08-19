@@ -68,9 +68,11 @@
 
 .loading {
     animation: check .8s infinite;
+    transition: s;
 }
 .loading:hover{
     animation:none;
+    transform: scale(1.1);
 }
 
 @keyframes check {
