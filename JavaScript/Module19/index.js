@@ -94,8 +94,8 @@ console.log(result);
 // -----------------------------------------------------------
 // Array Mapping With Three Arguments*****
 var array=[11,22,33,44,55,66];
-var newArray=array.map(function(num,index,array){
-  return num;
+var newArray=array.map(function(value,index,array){
+  return value;
 })
 
 console.log(newArray);
