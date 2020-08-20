@@ -59,6 +59,7 @@
             var para=document.getElementById("para2");
             //css value set
             para.style.color="red";
+            
             //inner text change
             para.innerText="Xmen";
 
@@ -76,7 +77,9 @@
             // // get element by class name
             var arc=document.getElementsByClassName("arc");
             for(var i=0;i<4;i++){
-                console.log(arc[i]); 
+                console.log(arc[i]);
+                var elem=arc[i];
+                elem.style.backgroundColor="green";
             }
 
             //query selector
