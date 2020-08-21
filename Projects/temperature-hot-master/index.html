@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Temperature Hot</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <style>
+        body {
+            background: url(images/bg-image.jpg) no-repeat;
+            background-size: cover;
+            height: 100vh;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <form class="col-md-6 m-auto py-5">
+            <div class="input-group mb-3">
+                <input type="text" class="form-control" id="search" placeholder="Enter a location for Weather ...">
+                <div class="input-group-append">
+                    <button type="button" class="btn btn-danger" id="submitSearch">Search</button>
+                </div>
+            </div>
+        </form>
+        <div class="weather-status text-white text-center">
+            <img src="https://openweathermap.org/img/wn/02d@2x.png" alt="">
+            <h1 id="city">Dhaka</h1>
+            <h3><span id="temp">38.06</span>&deg;C</h3>
+            <h1 class="lead" id="env">Clouds</h1>
+        </div>
+    </div>
+
+    <script>
+        var inputValue=document.getElementById('search').value;
+        document.getElementById('submitSearch').addEventListener('click',search)
+
+        function search(){
+            var searchValue=document.getElementById('search').value;
+            console.log(searchValue);
+            fetch('https://api.openweathermap.org/data/2.5/weather?q='+searchValue+'&appid=8439fea33e8372849e06fc843037d88a')
+                .then(response => response.json())
+                .then(data => {
+                    console.log(data);
+                    document.getElementById('city').innerText=data.name;
+                    
+                    var temp=data.main.temp;
+                    temp=temp/10;
+                    temp=temp.toFixed(2);
+                    
+                    var weather=data.weather[0].description;
+                    weather=weather.toUpperCase();
+
+                    document.getElementById("temp").innerText=temp;
+                    document.getElementById("env").innerText=weather;
+                });
+            }
+
+        
+    </script>
+
+</body>
+
+</html>

@@ -42,10 +42,11 @@ console.log("Array Length : "+length);
 newArray=arrayOne.slice(3,6);
 console.log(newArray);
 
-//array splice
+//array splice***** revise
 arrayTwo=[10,20,30,40,50,60,70,80,90];
-arrayTwo.splice(2,6);
-console.log(arrayTwo);
+var array=arrayTwo.splice(2,6);
+console.log(arrayTwo); //10, 20, 90
+console.log(array) //30, 40, 50, 60, 70, 80 
 
 //while loop
 var i=1;
@@ -110,6 +111,8 @@ object={
 //property access
 console.log(object.name);
 console.log(object["id"]);
+
+// ***** Rare case object access****
 var store="campus";
 console.log(object[store]);
 

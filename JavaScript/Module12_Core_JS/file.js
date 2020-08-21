@@ -40,7 +40,7 @@ var speech="My name is Md. Zahidur Rahman";
 var position=speech.indexOf('Md.');
 console.log(position);
 
-//spliting s string sentence
+//**************************spliting s string sentence***********************
 var sentence="Hello from the other side";
 var array=sentence.split(' ');
 console.log(array);
