@@ -127,11 +127,17 @@ var array=[
 var newArray=array.map((item)=>{
   return item.brand;
 })
-
 console.log(newArray);
-// ---------------------------------------------------------------------
+
+
+// -------------------Arrow Function--------------------------------------------------
 // Arrow Function
 var value = (x,y=10) =>{
   return x*y;
 }
 console.log(value(8));
+
+// Super simplified arrow function
+var x= y => y*y
+var res=x(10);
+console.log(res)

@@ -4,6 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        .box{
+            width:100px;
+            height: 100px;
+            border: 1px solid black;
+            background:rgb(255, 190, 190);
+        }
+    </style>
 </head>
 <body>
     <!-- inline event -->
@@ -36,6 +44,9 @@
     <!-- Add event listener example with normal function-->
     <button class="" id="secondButton">Press to test addEventListener normal function</button>
 
+    <!-- Event & Target Value -->
+    <div class="box" id="box">
+    </div>
 
     <!-- Event Target / Remove Child Method / This / parentNode / -->
     <div id="container">
@@ -54,6 +65,9 @@
     <button id="addNew">Add Item</button>
 
     
+
+
+    
     <script>
 
         // Adding New Item
@@ -67,11 +81,16 @@
             myList.appendChild(newItem);
         }
 
+        //************************** Event & Target Value *************************
+        document.getElementById("box").addEventListener("click",function(event){
+            console.log(event);
+            console.log(event.target);
+        })
 
         // ******************* Important & Revise Must **************************
         document.getElementById("lists").addEventListener('click',function(event){
             console.log(event.target.innerText);
-            //event.target.parentNode.removeChild(event.target);
+            event.target.parentNode.removeChild(event.target);
         })
 
 
