@@ -1,0 +1,31 @@
+#web component:
+1. same & similar design
+repeating in pattern
+
+2.Container: repeating pattern 
+inside a big component
+
+3.One single element pattern 
+
+best templating repeating 
+web component based framework
+1. Angular
+2. Vue
+3. React  
+
+#ForEach Array
+
+#Single Page Application(SPA)
+
+#routing in SPA:
+
+
+#state: 
+
+#  chart show :
+D3 chart
+
+
+# easy chart
+nvd3 chart
+chart.js

@@ -21,7 +21,10 @@
             setInterval(function(){
                 fetch('http://www.boredapi.com/api/activity/')
                 .then(response => response.json())
-                .then(data => {document.getElementById('message').innerText=data.activity});
+                .then(data => {
+                    console.log(data);
+                    document.getElementById('message').innerText=data.activity
+            });
             },3000);
         }
 
