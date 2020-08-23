@@ -37,17 +37,17 @@ for(let i=0;i<=5;i++){
 
 // -------------------- default value set to function variabe : Part One----------------
 function add(x,y){
-    y = y || 10;
-    return x+y;
-  }
-  var res=add(10,20);
-  console.log(res);
+  y = y || 10;
+  return x+y;
+}
+var res=add(10);
+console.log(res);
 
 //--------------- default value set to function : Part Two------------------------------
 function add(x,y=10){
     return x+y;
   }
-  var res=add(10,20);
+  var res=add(10);
   console.log(res);
 
 // ---------------- String formation--------------------------------------
@@ -61,8 +61,38 @@ var string=`this is my december
 this is my snow covered eyes`;
 console.log(string);
 
+// ---------------------------- Arrow Function ----------------------------------
 
-//------------------------spread operator--------------------------
+// Arrow Function Example 1
+var func= x=> x*x;
+var res=func(10)
+console.log(res);
+
+// Arrow Function Example 2
+var func= x=> {
+  x--;
+  x+=10
+  return x
+};
+var res=func(10)
+console.log(res);
+
+// Arrow Function Example 3
+var func= (x,y)=> {
+  x+=y;
+  x+=10;
+  return x
+};
+var res=func(10,5)
+console.log(res);
+
+// Arrow Function Example 4
+var func = () => 10;
+var res=func();
+console.log(res);
+
+
+//------------------------spread operator : combine all array together--------------------------
 var array1=[110,220,330];
 var array2=[100,200,300];
 
@@ -90,6 +120,9 @@ const student2=new student('Rahman',19241051);
 console.log(student1);
 console.log(student2);
 
+console.log(student1.Name)
+console.log(student2.Id)
+
 // ---------------------------Inheritances & Class------------------
 class Parents{
   constructor(fname){
@@ -112,7 +145,7 @@ const child=new Children("Jashim Box");
 var message=child.getInfo();
 console.log(message);
 
-//----------------------Destructure----------------------------------
+//----------------------Destructure Object----------------------------------
 var objects={
   name: 'zahid',
   id: '14101122',
@@ -126,10 +159,12 @@ var objects={
 
 var {name,campus,location}=objects;
 var {batch}=objects.info;
+var time=objects.info;
+console.log("Time : "+time);
 console.log("Campus : "+campus);
 console.log("Batch : "+batch);
 
-//----------------------Destructure -------------------------------------
+//----------------------Destructure Array -------------------------------------
 
 var array=['121','212','313','131','454'];
 console.log(array);
