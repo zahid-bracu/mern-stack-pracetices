@@ -78,7 +78,7 @@ function evenify(num){
   
 // ------------------------------------------------------------------------------------
 
-//sum function with arguments
+//***************************sum function with arguments***************************
 function sum(){
   var sum=0;
   for(var i=0;i<arguments.length;i++){
@@ -124,6 +124,7 @@ var array=[
   }
 ]
 
+// ****************Most important********************
 var newArray=array.map((item)=>{
   return item.brand;
 })

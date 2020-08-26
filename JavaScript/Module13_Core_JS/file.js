@@ -2,45 +2,55 @@
 arrayOne=[11,22,33,44,'spooky','creepy'];
 
 // array print
+arrayOne=[11,22,33,44,'spooky','creepy'];
 console.log(arrayOne);
 
 // array index
+arrayOne=[11,22,33,44,'spooky','creepy'];
 var value=arrayOne[4];
 console.log(value);
 
 //array indexOf
+arrayOne=[11,22,33,44,'spooky','creepy'];
 var check='creepy';
 var exist=arrayOne.indexOf(check);
 console.log("index : "+exist);
 
 
 //index value set
+arrayOne=[11,22,33,44,'spooky','creepy'];
 arrayOne[3]='evil';
 console.log(arrayOne);
 
 //array pop
+arrayOne=[11,22,33,44,'spooky','creepy'];
 arrayOne.pop();
 console.log(arrayOne);
 
 //array push
+arrayOne=[11,22,33,44,'spooky','creepy'];
 arrayOne.push('nightmare');
 console.log(arrayOne);
 
 //array shift
+arrayOne=[11,22,33,44,'spooky','creepy'];
 arrayOne.shift();
 console.log(arrayOne);
 
 //array unshift
+arrayOne=[11,22,33,44,'spooky','creepy'];
 arrayOne.unshift("Death Star");
 console.log(arrayOne);
 
 //array length
+arrayOne=[11,22,33,44,'spooky','creepy'];
 var length=arrayOne.length;
 console.log("Array Length : "+length);
 
 //array slice
+arrayOne=[11,22,33,44,'spooky','creepy'];
 newArray=arrayOne.slice(3,6);
-console.log(newArray);
+console.log(newArray);//44,'spooky','creepy'
 
 //array splice***** revise
 arrayTwo=[10,20,30,40,50,60,70,80,90];
@@ -101,7 +111,7 @@ var result=method(10);
 console.log(result);
 
 
-//object
+//********************object*************************
 object={
     name:"zahid",
     id:"15101122",

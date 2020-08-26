@@ -10,7 +10,7 @@ var num2=13;
 //addition of two number
 var result=num1+num2;
 console.log(result);
-console.log(typeof result);
+console.log(typeof result); 
 
 //checking type of variable
 var name="zahid";
