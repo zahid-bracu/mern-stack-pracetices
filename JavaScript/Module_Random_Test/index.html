@@ -5,30 +5,44 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
+        li{
+            list-style:none;
+        }
     </style>
 </head>
 <body>
 
-    <ul id="p">
+    <ul id="parent">
 
     </ul>
 
-    <button class="b1">Add</button>
-    <button class="b2">Remove</button>
+    <button id="addButton">Add</button>
+    <button id="removeButton">Remove</button>
 
     <script>
-        var add=document.getElementById("b1");
-        var rmv=document.getElementById("b2");
-        var p=document.getElementById("p");
+        var add=document.getElementById("addButton");
+        var rmv=document.getElementById("removeButton");
+        var parent=document.getElementById("parent");
         
 
-        add.addEventListener(click,);
+        add.addEventListener("click",function(){
+            var string=makeid(5);
+            let list=document.createElement('li');
+            list.innerText=string;
+            parent.appendChild(list);
+        });
 
-        function add(){
-            var string=makeid(5)
 
+        rmv.addEventListener("click",function(){
+            let list=document.querySelectorAll("li");
+            console.log(list[list.length-1]);
+            remove(list[list.length-1]);
+
+        })
+
+        function remove(event){
+            event.parentNode.removeChild(event);
         }
-
 
 
 
