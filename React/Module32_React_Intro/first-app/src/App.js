@@ -38,17 +38,37 @@ function App() {
         
         {/* using object property in JSX*/}
         <h2>Right Hand : <span>{info.name}</span></h2>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
       </header>
+
+      <body>
+      <Person></Person>
+      <Person></Person>
+      <Person></Person>
+      <Person></Person>
+      </body>
     </div>
   );
+}
+
+function Person(){
+  const stylediv={
+    padding:"10px",
+    backgroundColor:"white",
+    width:"300px",
+    border:"2px solid red",
+    textAlign:"center",
+    display:"block",
+    margin:"auto",
+    marginTop:"30px"
+  }
+
+
+  return(
+    <div style={stylediv}>
+    <h2>My Name is Zahid</h2>
+    <p>I am a Disco Dancer, বিড়ি খাইলে হয় caner</p>
+    </div>
+  )
 }
 
 export default App;
