@@ -56,8 +56,27 @@ var object=[];
 // ------------------Null Vs. Undefined--------------------
 
 
-//-----------------------------  Double Equal----------------------------
+//-----------------------------  Double Equal & Triple Equal----------------------------
+// double equal & matched 
+var x=1;
+var y=true;
+if(x==y){
+  console.log("Matched");
+}else{
+  console.log("Not Matched");
+}
 
+// Triple Equal & Not matched
+
+var x=1;
+var y=true;
+if(x===y){
+  console.log("Matched");
+}else{
+  console.log("Not Matched");
+}
+
+//double equal & matched 
 var x=10;
 var y='10';
 if(x==y){
@@ -66,9 +85,7 @@ if(x==y){
   console.log("Not Matched");
 }
 
-
-//---------------------------- Triple Equal ------------------------------
-
+// Triple Equal & Not matched
 var x=10;
 var y='10';
 if(x===y){
@@ -76,6 +93,8 @@ if(x===y){
 }else{
   console.log("Not Matched");
 }
+
+ 
 
 
 //----------------------Map-----------------------------------------
@@ -89,15 +108,13 @@ console.log(newArray);
 
 // ----------------------filter-----------------------------------
 var array=[11,22,33,44,55];
-
-var newArray= array.filter(function check(x){
+var newArray=array.filter(function check(x){
   return x>30;
-})
-
+});
 console.log(newArray);
 
 // ------------------------Array Map : Short -------------------------
-var array = [10,20,30,40,50];
+var array=[10,20,30,40,50];
 var newArray=array.map(x=> x*10);
 console.log(newArray);
 
@@ -107,7 +124,7 @@ var newArray=array.filter(x=> x>15);
 console.log(newArray);
 
 
-// ---------------------------Array Map : from Object -----------------------
+// ---------------------------Object Map to array : from Object -----------------------
 var object=[
     {
       name:"Zahid",
@@ -129,6 +146,32 @@ var object=[
 var array=object.map(x => x.name);
 console.log(array);
 
+// --------------------------Object Filter to object : from object -------------------------
+var obj=[
+  {
+    id:420,
+    name:"Bajlu"
+  },
+  {
+    id:421,
+    name:"Shiplu"
+  },
+  {
+    id:422,
+    name:"Khairul"
+  },
+  {
+    id:423,
+    name:"Mokabul"
+  }
+]
+
+
+var newArray=obj.filter(x=>{
+  return x.id>421;
+})
+
+console.log(newArray)
 
 //----------------------------Object Find : --------------------------------------
 var object=[
@@ -192,6 +235,12 @@ console.log(newArray);
 var array=[11,22,33,44,55,66,77];
 var newArray=array.splice(4,1,"creep");
 console.log(array);
+
+// -------------------------Array Join ---------------------------------
+var array=[11,22,33,44,55,66];
+var str=array.join("|");
+console.log(str);
+
 
 //---------------------Continue-------------------------------
 function check(){
