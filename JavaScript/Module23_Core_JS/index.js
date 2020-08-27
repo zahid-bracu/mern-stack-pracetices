@@ -101,6 +101,7 @@ console.log(newArray);
 
 
 //--------------------------max value---------------------------
+var newArray=[110,22,150,99,26,33,142]
 var max=Math.max(...newArray);
 console.log(max);
 
@@ -159,7 +160,7 @@ var objects={
 
 var {name,campus,location}=objects;
 var {batch}=objects.info;
-var time=objects.info;
+var {time}=objects.info;
 console.log("Time : "+time);
 console.log("Campus : "+campus);
 console.log("Batch : "+batch);

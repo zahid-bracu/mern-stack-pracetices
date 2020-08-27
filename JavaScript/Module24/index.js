@@ -1,12 +1,30 @@
 // ---------------- zero value in if else ------------------
+// True
+var value=-4;
+if(value){
+  console.log("true");
+}else{
+  console.log("false");
+}
+
+// False
 var value=0;
 if(value){
-  console.log("Not Zero");
+  console.log("true");
 }else{
-  console.log("Zero");
+  console.log("false");
 }
 
 //---------------String existance Checking------------------
+// Using length
+var str="Spooky";
+if(str.length>0){
+  console.log("String Existed");
+}else{
+  console.log("String not existed");
+}
+
+// Using value
 var value="";
 if(value){
   console.log("String Existed");
@@ -32,8 +50,8 @@ NaN
 undefined
 
 //--------------True Result -----------------------------
-{}
-[]
+var array={};
+var object=[];
 
 // ------------------Null Vs. Undefined--------------------
 

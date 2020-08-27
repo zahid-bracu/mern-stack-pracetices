@@ -170,6 +170,15 @@
     background-color:white;
     color: #212529;
 }
+/*********************** What I do**************************/
+.skill_logo{
+    filter:grayscale(100%);
+    transition:.3s;
+}
+.skill_logo:hover{
+    transform: scale(1.1);
+    filter:none;
+}
 
 
 .site-main .site-banner {
