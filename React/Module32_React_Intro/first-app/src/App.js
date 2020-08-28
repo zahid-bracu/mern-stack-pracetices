@@ -41,16 +41,20 @@ function App() {
       </header>
 
       <body>
-      <Person></Person>
-      <Person></Person>
-      <Person></Person>
-      <Person></Person>
+      {/*passing props value dynamically*/}
+      <Person name="KisLu"></Person>
+      <Person name="Mokbul"></Person>
+      <Person name="Sodrul"></Person>
+      <Person name="Shajahan"></Person>
       </body>
     </div>
   );
 }
 
-function Person(){
+
+// Adding new function component
+function Person(props){
+  // creating new css style object
   const stylediv={
     padding:"10px",
     backgroundColor:"white",
@@ -64,9 +68,10 @@ function Person(){
 
 
   return(
+    // Adding the css style object ot JSX file
     <div style={stylediv}>
-    <h2>My Name is Zahid</h2>
-    <p>I am a Disco Dancer, বিড়ি খাইলে হয় caner</p>
+    <h2>My Name is {props.name}</h2>
+    <p>I am a Disco Dancer, বিড়ি খাইলে হয় cancer</p>
     </div>
   )
 }
