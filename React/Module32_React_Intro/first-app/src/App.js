@@ -3,6 +3,24 @@ import logo from './logo.svg';
 import './App.css';
 
 function App() {
+  // declaring an array to dynamically pass data
+  var names=["chiknesh","goblet","Foglet"]
+
+  // declaring and object to dynamically pass the object
+  var products=[
+    {
+      name:"ps4",
+      price:"130$"
+    },
+    {
+      name:"nintendo switch",
+      price:"530$"
+    },
+    {
+      name:"xbox",
+      price:"537$"
+    }
+  ]
 
   // declaring a variable
   var name="Mr. Bean"
@@ -42,10 +60,22 @@ function App() {
 
       <body>
       {/*passing props value dynamically*/}
-      <Person name="KisLu"></Person>
-      <Person name="Mokbul"></Person>
-      <Person name="Sodrul"></Person>
-      <Person name="Shajahan"></Person>
+      <Person name="KisLu" food="biri"></Person>
+
+      {/*Dynamicallt calling data from array*/}
+      <Person name={names[1]} food="ganja"></Person>
+      <Person name="Sodrul" food="stick"></Person>
+      <Person name={names[2]} food="weed"></Person>
+
+
+      {/*2nd example of dynamic passing*/}
+      <Student name="TikLu" id="420"></Student>
+      <Student name="Kotbel" id="421"></Student>
+
+      {/*Passing object from array*/}
+      <Product product={products[0]} ></Product>
+      <Product product={products[1]} ></Product>
+      <Product product={products[2]} ></Product>
       </body>
     </div>
   );
@@ -71,9 +101,46 @@ function Person(props){
     // Adding the css style object ot JSX file
     <div style={stylediv}>
     <h2>My Name is {props.name}</h2>
-    <p>I am a Disco Dancer, বিড়ি খাইলে হয় cancer</p>
+    <p>I am a Disco Dancer, {props.food} খাইলে হয় cancer</p>
     </div>
   )
 }
 
+// 2nd example of dynmic passing
+function Student(props){
+  const styles={
+    border: "2px solid green",
+    padding:"10px",
+    margin:"auto",
+    marginTop:"10px",
+    width:"200px"
+
+  }
+
+  return(
+    <div style={styles}>
+    <h3>Name : {props.name} </h3>
+    <h3>Id: {props.id} </h3>
+    </div>
+  )
+}
+
+// Object passing to props
+function Product(props){
+  const style={
+    width:"200px",
+    height:"200px",
+    backgroundColor:"#fff5d9",
+    textAlign:"center",
+    margin:"auto"
+  }
+
+  return(
+    <div style={style}>
+    {/*Using the object*/}
+    <h4>Product : {props.product.name}</h4>
+    <h5>Price : {props.product.price}</h5>
+    </div>
+  )
+}
 export default App;
