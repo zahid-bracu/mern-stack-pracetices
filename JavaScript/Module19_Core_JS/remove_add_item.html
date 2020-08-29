@@ -24,7 +24,7 @@
         var rmv=document.getElementById("removeButton");
         var parent=document.getElementById("parent");
         
-
+        // add element
         add.addEventListener("click",function(){
             var string=makeid(5);
             let list=document.createElement('li');
@@ -32,7 +32,7 @@
             parent.appendChild(list);
         });
 
-
+        // remove element
         rmv.addEventListener("click",function(){
             let list=document.querySelectorAll("li");
             console.log(list[list.length-1]);
@@ -45,7 +45,7 @@
         }
 
 
-
+        // Auto string generate
         function makeid(length) {
             var result           = '';
             var characters       = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';

@@ -53,6 +53,25 @@ undefined
 var array={};
 var object=[];
 
+
+//variation
+
+// false
+var array=[];
+ if(array.length>0){
+   console.log("not null");
+ }else{
+   console.log("null")
+ }
+
+// true
+ var array=[];
+ if(array){
+   console.log("not null");
+ }else{
+   console.log("null")
+ }
+
 // ------------------Null Vs. Undefined--------------------
 
 
@@ -146,7 +165,7 @@ var object=[
 var array=object.map(x => x.name);
 console.log(array);
 
-// --------------------------Object Filter to object : from object -------------------------
+// --------------------------Object Filter to object array : from object -------------------------
 var obj=[
   {
     id:420,
