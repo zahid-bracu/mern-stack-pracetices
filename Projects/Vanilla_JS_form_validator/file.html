@@ -20,6 +20,10 @@
       .navbar {
         box-shadow: 0px 0px 10px rgb(184, 183, 183);
       }
+      .success-message{
+        position: relative;
+        top:50%;
+      }
     </style>
   </head>
   <body>
@@ -41,13 +45,16 @@
     </nav>
 
     <section class="container mt-2">
-      <div class="row justify-content-between">
+      <div class="row justify-content-center">
         <div class="col-lg-6 col-md-12 col-sm-12 col-12">
           <img src="reg.png" class="img-responsive" width="100%" />
         </div>
+        <div class="col-lg-6 col-md-12 col-sm-12 col-12" id="success" style="display: none;">
+          <h2 class="text-center success-message">✔️Registration Successful</h2>
+        </div>
+
         <div class="col-lg-6 col-md-12 col-sm-12 col-12" id="validForm">
           <h4 class="my-3 text-center">Register Here</h4>
-
           <form id="myform">
             <div class="form-group">
               <label for="firstName">First Name</label>
@@ -122,12 +129,13 @@
             </button>
           </form>
         </div>
+
       </div>
     </section>
-    <section id="show" style="display: none">
+    <!-- <section id="show" style="display: none">
       <p>Name : <span id="name"></span></p>
       <p>Email : <span id="mailShow"></span></p>
-    </section>
+    </section> -->
 
     <script>
       var objects = {
@@ -198,6 +206,7 @@
         console.log(count);
         if (count == 4) {
           document.getElementById("validForm").style.display = "none";
+          document.getElementById("success").style.display = "block";
           button.style.display = "none";
           document.getElementById("show").style.display = "block";
         }
