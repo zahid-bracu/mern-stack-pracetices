@@ -1,0 +1,38 @@
+.header{
+    text-align: center;
+}
+.header img{
+    display: block;
+    margin: auto;
+    width: 200px;
+}
+
+nav{
+    background:rgb(37, 37, 37);
+    color:white;
+    padding:10px;
+    
+}
+
+nav a{
+    margin: 0px 15px;
+    padding:10px;
+}
+nav a:hover{
+    background-color: gray;
+}
+
+@media screen and (max-width: 700px) {
+    nav a{
+        display: block;
+        margin:0px 0px;
+        padding:0px;
+    }
+    nav{
+        height: auto;
+    }
+    .right-item{
+        position: none;
+        float: none;
+    }
+  }

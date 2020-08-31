@@ -6,7 +6,7 @@ function App() {
   // declaring an array to dynamically pass data 1.1
   var names=["chiknesh","goblet","Foglet"]
 
-  // declaring and object to dynamically pass the object
+  // declaring and object to dynamically pass the object 1.2
   var products=[
     {
       name:"ps4",
@@ -72,7 +72,7 @@ function App() {
       <Student name="TikLu" id="420"></Student>
       <Student name="Kotbel" id="421"></Student>
 
-      {/*Passing object from array*/}
+      {/*Passing object from array 1.2*/} 
       <Product product={products[0]} ></Product>
       <Product product={products[1]} ></Product>
       <Product product={products[2]} ></Product>
