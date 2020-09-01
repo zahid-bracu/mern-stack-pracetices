@@ -48,10 +48,11 @@ const box={
 }
 
 function ProductDisplay(props){
+  const {name,price}=props.product;
     return(
         <div style={box}>
-        <h5>Name : {props.product.name} </h5>
-        <h6>Price : {props.product.price} </h6>
+        <h5>Name : {name} </h5>
+        <h6>Price : {price} </h6>
         </div>
     )
 }
