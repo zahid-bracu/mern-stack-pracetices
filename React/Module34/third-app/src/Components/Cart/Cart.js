@@ -34,7 +34,7 @@ const Cart = (props) => {
             <p>Tax : {tax}</p>
             <p>Total : {total}</p>
             <div>
-            <button className="cartButton"><FontAwesomeIcon icon={faShoppingCart} /> Check Out </button>
+            <button className="cartButton" onClick={()=> console.log("Item has been checked out")}><FontAwesomeIcon icon={faShoppingCart} /> Check Out </button>
             </div>
         </div>
     );
