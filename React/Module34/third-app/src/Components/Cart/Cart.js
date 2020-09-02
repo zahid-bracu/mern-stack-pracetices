@@ -8,6 +8,7 @@ import './cart.css';
 
 const Cart = (props) => {
     var total=0;
+    // Adding all value price to a total value
     for(var i=0;i<props.cart.length;i++){
         total+=props.cart[i].price;
         total=total.toFixed(2);
