@@ -6,6 +6,7 @@ import Products from '../Products/Products';
 import Cart from '../Cart/Cart';
 
 const Shop = () => {
+    // Values are saved that are clicked
     const [cart,setCart]=useState([]);
 
     // Slicing the JSON data values & keep sliced data values in a variable
@@ -17,8 +18,9 @@ const Shop = () => {
 
     // Declaring a function
     function addCart(product){
+        // addint the added item to a array-object
         var newCart=[...cart,product];
-        console.log(newCart);
+        // now set all clicked value together
         setCart(newCart);
        
     }
@@ -31,6 +33,7 @@ const Shop = () => {
                 </div>
             </div>
             <div className="cartContainer">
+            {/*Passing cart value to other component*/}
                 <Cart cart={cart}></Cart>
                 
             </div>
