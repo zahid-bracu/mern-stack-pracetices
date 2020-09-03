@@ -7,16 +7,16 @@ import {
 
 export default function Display(props) {
   const {name,id,tag,img}=props.Datas;
-  console.log(props);
+ 
   return (
-      <Card className=" col-lg-6 col-md-6 col-sm-12 col-12 my-4" style={{maxWidth: '18rem' }}>
+      <Card className=" col-lg-6 col-md-6 col-sm-12 col-12 m-4" style={{maxWidth: '18rem' }}>
         <Card.Img variant="top" src={img} />
           <Card.Body>
               <Card.Title>{name}</Card.Title>
                 <Card.Text>
                   {tag}
                 </Card.Text>
-              <Button variant="primary">Go somewhere</Button>
+              <Button onClick={()=> props.addCart(props.Datas)} variant="primary">Add to Cart</Button>
           </Card.Body>
       </Card>
   );
