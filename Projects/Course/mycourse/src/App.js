@@ -10,9 +10,12 @@ export default function App() {
     <div className="">
       <NavBar></NavBar>
       <h1>Cool</h1>
+      <div className="row">
       {Datas.map((key) => (
-        <Display Datas={key}></Display>
+        <Display  Datas={key}></Display>
       ))}
+      </div>
+      
     </div>
   );
 }
