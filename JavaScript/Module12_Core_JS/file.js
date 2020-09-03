@@ -1,4 +1,6 @@
+// Variable 
 var xyz="43";
+// Integer casting
 var abc=parseInt(xyz);
 console.log(abc);
 
@@ -10,6 +12,7 @@ var num2=13;
 //addition of two number
 var result=num1+num2;
 console.log(result);
+// Variable Type
 console.log(typeof result); 
 
 //checking type of variable
@@ -35,12 +38,12 @@ word=word2.toLowerCase();
 console.log(word2);
 
 
-//checking the position of  a Word
+//checking the position of  a Word in Sentences
 var speech="My name is Md. Zahidur Rahman";
 var position=speech.indexOf('Md.');
 console.log(position);
 
-//**************************spliting s string sentence***********************
+//**************************Spliting Sentence into String***********************
 var sentence="Hello from the other side";
 var array=sentence.split(' ');
 console.log(array);
