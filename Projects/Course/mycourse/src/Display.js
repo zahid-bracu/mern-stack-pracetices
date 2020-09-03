@@ -6,7 +6,7 @@ import {
 } from "react-bootstrap";
 
 export default function Display(props) {
-  const {name,id,tag,img}=props.Datas;
+  const {name,id,tag,img,price}=props.Datas;
  
   return (
       <Card className=" col-lg-6 col-md-6 col-sm-12 col-12 m-4" style={{maxWidth: '18rem' }}>
@@ -15,6 +15,9 @@ export default function Display(props) {
               <Card.Title>{name}</Card.Title>
                 <Card.Text>
                   {tag}
+                </Card.Text>
+                <Card.Text>
+                  Price: {price}
                 </Card.Text>
               <Button onClick={()=> props.addCart(props.Datas)} variant="primary">Add to Cart</Button>
           </Card.Body>

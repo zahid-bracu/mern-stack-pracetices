@@ -10,7 +10,7 @@ import {
 export default function NavBar() {
   return (
     <Navbar bg="dark" style={{color:"white"}} expand="lg">
-      <Navbar.Brand href="#home" style={{color:"white"}}>Developer's Programming Academy</Navbar.Brand>
+      <Navbar.Brand href="#home" style={{color:"white"}}>DPA</Navbar.Brand>
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="mr-auto">

@@ -28,7 +28,7 @@ function App() {
             </div>
           </div>
           <div className="col-4">
-              <Cart></Cart>
+              <Cart cart={cart}></Cart>
           </div>
       </div>
       
