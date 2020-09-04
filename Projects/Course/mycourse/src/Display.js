@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./styles.css";
 import {
   Card,
@@ -6,7 +6,22 @@ import {
 } from "react-bootstrap";
 
 export default function Display(props) {
-  const {name,id,tag,img,price}=props.Datas;
+  const {name,id,tag,img}=props.Datas;
+  const [price,setPrice]=useState();
+
+   
+
+  function setPrices(value){
+    if(price==null){
+      var newValue=value+"$";
+      setPrice(newValue);
+    }else{
+      var temp=null;
+      setPrice(temp);
+    }
+    
+     
+  }
  
   return (
       <Card className=" col-lg-6 col-md-6 col-sm-12 col-12 m-4" style={{maxWidth: '18rem' }}>
@@ -17,9 +32,11 @@ export default function Display(props) {
                   {tag}
                 </Card.Text>
                 <Card.Text>
-                  Price: {price}
+                <h6>{price}</h6>
                 </Card.Text>
-              <Button onClick={()=> props.addCart(props.Datas)} variant="primary">Add to Cart</Button>
+              
+              <Button   onClick={()=>setPrices(props.Datas.price)} className="my-2" style={{display:"block"}} variant="info" size="sm">Show Price</Button>
+              <Button   onClick={()=> props.addCart(props.Datas)} variant="secondary" size="sm">Add to Cart</Button>
           </Card.Body>
       </Card>
   );

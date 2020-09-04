@@ -18,7 +18,7 @@ function Cart(props){
                 <Card.Title>Cart</Card.Title>
                 <p>Total Courses: {props.cart.length}</p>
                 <p>Total Price: {total}</p>
-                <Button variant="primary">Check Out</Button>
+                <Button variant="danger" size="sm">Check Out</Button>
             </Card.Body>
         </Card>
     )
