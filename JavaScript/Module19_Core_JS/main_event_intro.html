@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -70,7 +70,7 @@
     
     <script>
 
-        // Adding New Item
+        // Adding New Item to List
         var addNew=document.getElementById('addNew');
         addNew.addEventListener('click',addList);
 
@@ -87,6 +87,7 @@
             console.log(event.target); //inner html elements
         })
 
+        // Remove target Item By Click
         // ******************* Important & Revise Must **************************
         document.getElementById("lists").addEventListener('click',function(event){
             console.log(event.target.innerText);
