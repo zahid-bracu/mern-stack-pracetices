@@ -11,7 +11,7 @@ const Header = () => {
                     <h5 style={{fontWeight:"400"}}>
                     Death of Osama bin Laden
                     </h5>
-                    <p className="text-justified">Osama bin Laden, the mastermind behind the September 11, 2001, terror attacks that killed thousands of Americans, has been killed in an operation led by the United States. Egyptian-born doctor and surgeon Ayman al-Zawahri, Al-Qaida's second-in-command, is expected to succeed Laden following his killing.</p>
+                    <p className="text-justify">Osama bin Laden, the mastermind behind the September 11, 2001, terror attacks that killed thousands of Americans, has been killed in an operation led by the United States. Egyptian-born doctor and surgeon Ayman al-Zawahri, Al-Qaida's second-in-command, is expected to succeed Laden following his killing.</p>
                     <p>
                         <Button variant="primary" size="sm">Read More</Button>
                     </p>
