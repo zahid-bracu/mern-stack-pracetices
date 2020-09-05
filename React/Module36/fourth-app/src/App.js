@@ -7,8 +7,8 @@ import News from './Components/News';
 function App() {
   return(
     <div>
-    <Header></Header>
-    <News></News>
+      <Header></Header>
+      <News></News>
     </div>
   )
 }
