@@ -10,6 +10,7 @@ const News = () => {
         .then(data => setArticle(data.articles))
     },[])
 
+    
     console.log(article.length);
     return (
             <div className="row">

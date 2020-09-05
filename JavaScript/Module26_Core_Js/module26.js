@@ -124,7 +124,7 @@ var person={
   object.sum=add;
   object.sum(30,22);
 
-//----------------------------------------------- Async message------------------------------------------
+//----------------------------------------------- Async message & Then------------------------------------------
 async function check(){
   return "This is my Message";
 }

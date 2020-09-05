@@ -2,11 +2,12 @@ import React from 'react';
 import { Jumbotron, Button } from 'react-bootstrap';
 import NavBar from './NavBar';
 const Header = () => {
+    var img="https://i.ibb.co/r0dFWNc/IMGBIN-globe-logo-breaking-news-png-Ps-Pty5-Vz.png";
     return (
         <div>
             <NavBar></NavBar>
-            <Jumbotron>
-                <div style={{maxWidth:"500px"}}>
+            <div className="row justify-content-center align-items-center">
+                <div style={{maxWidth:"500px"}} className="col-lg-6 col-md-6 col-sm-12">
                     <h1>BBC News</h1>
                     <h5 style={{fontWeight:"400"}}>
                     Death of Osama bin Laden
@@ -16,7 +17,10 @@ const Header = () => {
                         <Button variant="primary" size="sm">Read More</Button>
                     </p>
                 </div>
-            </Jumbotron>
+                <div className="col-lg-4 offset-lg-2 col-md-6 col-sm-12">
+                <img src={img} style={{width:"500px"}}/>
+                </div>
+            </div>
         </div>
         
     );

@@ -22,8 +22,7 @@
 
     
     <Script>
-        // Data Fetch from API using fetch
-        //Async Example
+        // Async & Await
         async function load(){
             var response=await fetch('https://jsonplaceholder.typicode.com/users');
             var data= await response.json(); 
@@ -31,15 +30,10 @@
         }
 
 
-        load()
-        .then(data => {display(data)})
-        .catch(error=>console.log(error));
+        load().then(data => {display(data)}).catch(error=>console.log(error));
         
 
-        // fetch('https://jsonplaceholder.typicode.com/users')
-        // .then(response => response.json())
-        // .then(json => display(json))
-        // .catch(error => console.log(error));
+       
 
         var list=document.getElementById('list');
         function display(json){
