@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        fetch('http://newsapi.org/v2/everything?domains=wsj.com&apiKey=14b59f1d71dc478ead98b301a833accc')
+        .then(response => response.json())
+        .then(json =>func(json))
+
+        function func(data){
+            console.log(data)
+             
+        }
+
+    </script>
+</body>
+</html>
