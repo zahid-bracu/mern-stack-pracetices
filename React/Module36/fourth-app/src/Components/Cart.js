@@ -19,6 +19,7 @@ const Cart = (props) => {
                         <Card.Link href="#">Read More</Card.Link>
                 </Card.Body>
             </Card>
+             
         </React.Fragment>
     );
 };

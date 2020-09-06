@@ -1,0 +1,14 @@
+  #box{
+      max-width:500px;
+
+  }
+
+  #card{
+    border:0px solid black;
+    box-shadow: 0px 0px 0px white;
+    margin : 0px;
+  }
+
+  #nav{
+    box-shadow: 0px 0px 0px white;
+  }
