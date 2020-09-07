@@ -18,25 +18,24 @@ function App() {
   return (
     <div>
       <Header></Header>
-      <Router>
-        <Switch>
-          
-          <Route path='/order'>
-            <Order></Order>
+      <Router>{/*Router Whole Wrapper*/}
+        <Switch>{/*Switch for other page*/}
+          <Route path='/order'> {/*Path to other page*/}
+            <Order></Order> {/*Other Page Declaration*/}
           </Route>
           <Route path='/display'>
             <Shop></Shop>
           </Route>
-          <Route exact path='/'>
-            <Shop></Shop>
+          <Route exact path='/'> {/*This is default for Homepage...when the page is loaded*/}
+            <Shop></Shop> {/*The Homepage*/}
           </Route>
           
-          <Route path='/product/:key'>
-            <ProductDetail></ProductDetail>
+          <Route path='/product/:pd'> {/*The Path for dynamic Data key*/}
+            <ProductDetail></ProductDetail> {/*Page for Dynamic Key Passing*/}
           </Route>
 
-          <Route path='*'>
-            <Error></Error>
+          <Route path='*'>{/*Path for wrong URL*/}
+            <Error></Error>{/*Wrong URL Page*/}
           </Route>
         </Switch>
       </Router>

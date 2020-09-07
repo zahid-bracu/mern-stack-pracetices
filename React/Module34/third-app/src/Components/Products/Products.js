@@ -22,7 +22,7 @@ const Products = (props) => {
                 <img src={img} />
             </div>
             <div>
-                <h4 style={{color:"blue"}}> <Link to={"/product/"+key}>{name}</Link> </h4>
+                <h4 style={{color:"blue"}}> <Link to={"/product/"+key}>{name}</Link> </h4> {/*Dynamically Data Key is passing through to router*/}
                 <p>By {seller}</p>
                 <p>Price {price}$</p>
                 <p>only {stock} left in stock - order soon</p>
