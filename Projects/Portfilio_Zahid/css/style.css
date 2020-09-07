@@ -173,10 +173,10 @@
 /*********************** What I do**************************/
 .skill_logo{
     filter:grayscale(100%);
-    transition:.3s;
+    transition:.1s;
 }
 .skill_logo:hover{
-    transform: scale(1.1);
+    transform: scale(1.2);
     filter:none;
 }
 
