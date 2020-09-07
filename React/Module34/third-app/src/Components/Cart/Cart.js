@@ -14,28 +14,37 @@ const Cart = (props) => {
         total=total.toFixed(2);
         total= parseFloat(total);
     }
-    var tax=null;
+    var exTotal=total;
+    var shipping=null;
     if(total==0){
-        tax=0;
+        shipping=0;
     }else if(total<50){
-        tax=11.99;
+        shipping=11.99;
     }else if(total>=50 && total<100){
-        tax=6.99;
+        shipping=6.99;
     }else if(total>=100){
-        tax=4.99;
+        shipping=4.99;
     }
 
-    total+=tax;
-    total=total.toFixed(2);
+    var tax=parseFloat((total*15)/100);
+    tax=parseFloat(tax.toFixed(2));
 
-    console.log(total)
+    total+=shipping;
+    total+=tax;
+    total=parseFloat(total.toFixed(2));
+
+     
     return (
-        <div>
-            <p>Total Item : {props.cart.length}</p>
-            <p>Tax : {tax}</p>
-            <p>Total : {total}</p>
+        <div className="sticky">
+            <h3 style={{textAlign:"center"}}>Order Summary</h3>
+            <h5 style={{textAlign:"center"}}>Item Ordered : {props.cart.length}</h5>
+             
+            <p>Product Price: {exTotal}</p>
+            <p>Shipping & Delivery Cost : {shipping}</p>
+            <p>Vat & Tax Cost : {tax} (15%)</p>
+            <p>Total (Including Tax) : {total}</p>
             <div>
-            <button className="cartButton" onClick={()=> console.log("Item has been checked out")}><FontAwesomeIcon icon={faShoppingCart} /> Check Out </button>
+            <button className="cartButton" onClick={()=> console.log("Item has been checked out")}><FontAwesomeIcon icon={faShoppingCart} /> Review Your Order </button>
             </div>
         </div>
     );

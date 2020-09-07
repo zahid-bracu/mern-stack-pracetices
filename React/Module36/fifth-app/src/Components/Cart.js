@@ -24,7 +24,20 @@ const useStyles = makeStyles({
   },
 });
 
-export default function Cart() {
+export default function Cart(props) {
+  var sum=0;
+  for(var i=0;i<props.prices.length;i++){
+    sum+=props.prices[i];
+  }
+  console.log(sum);
+
+  var total=(sum*15)/100;
+  total+=sum;
+
+
+  sum+="$";
+  total+="$";
+
   const classes = useStyles();
   const bull = <span className={classes.bullet}>•</span>;
 
@@ -36,11 +49,11 @@ export default function Cart() {
     <Card style={cartStyle} className={classes.root}>
       <CardContent>
         <Typography variant="h6" component="h3" className="mt-2">
-          Total Order :
+          Total Order :  {props.prices.length}
         </Typography>
 
         <Typography variant="h6" component="h3" className="mt-2">
-          Price :
+          Price : {sum}
         </Typography>
         
         <Typography color="textSecondary" className="mt-2">
@@ -48,10 +61,10 @@ export default function Cart() {
         </Typography>
 
         <Typography variant="h6" component="h3" className="mt-3">
-          Total Price :
+          Total Price :{total}
         </Typography>
 
-        <Button variant="contained" size="medium" color="primary" className={classes.margin} className="mt-4">
+        <Button onClick={()=>props.checkOut()} variant="contained" size="medium" color="primary" className={classes.margin} className="mt-4">
           Check Out
         </Button>
         

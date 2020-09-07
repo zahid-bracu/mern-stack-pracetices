@@ -1,5 +1,6 @@
 .header{
     text-align: center;
+    
 }
 .header img{
     display: block;
@@ -35,4 +36,9 @@ nav a:hover{
         position: none;
         float: none;
     }
+  }
+
+  .header nav a{
+      text-decoration: none;
+      color:white;
   }

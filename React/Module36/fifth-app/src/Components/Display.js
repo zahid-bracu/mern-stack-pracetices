@@ -86,7 +86,7 @@ export default function Display(props) {
       <IconButton aria-label="share">
         <ShareIcon />
       </IconButton>
-      <IconButton aria-label="add">
+      <IconButton onClick={()=>props.clicked(price)} aria-label="add">
         <AddCircleIcon />
       </IconButton>
       <IconButton

@@ -3,6 +3,10 @@
     padding:3px 50px ;
     border: 1px solid rgb(218, 215, 215);
     border-radius: 3px;
-     
-
 }
+
+div.sticky {
+    position: -webkit-sticky; /* Safari */
+    position: sticky;
+    top: 0;
+  }
