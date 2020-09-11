@@ -4,6 +4,9 @@ import fakeData from '../../fakeData';
 import './shop.css';
 import Products from '../Products/Products';
 import Cart from '../Cart/Cart';
+import { addToDatabaseCart } from '../../utilities/databaseManager';
+ 
+ 
 
 const Shop = () => {
     // Values are saved that are clicked
@@ -22,6 +25,10 @@ const Shop = () => {
         var newCart=[...cart,product];
         // now set all clicked value together
         setCart(newCart);
+        const sameProduct=newCart.filter(pd=> pd.key===product.key);
+        const count=sameProduct.length;
+        addToDatabaseCart(product.key,count);
+         
        
     }
     return (
@@ -29,7 +36,7 @@ const Shop = () => {
             <div className="productContainer">
                 <div>
                     {/*Now Passing the sliced json data & function through the attribute as props of other component*/}
-                    {products.map(pd => <Products addCart={addCart} products={pd}></Products>)}
+                    {products.map(pd => <Products key={pd.key} addCart={addCart} products={pd}></Products>)}
                 </div>
             </div>
             <div className="cartContainer">

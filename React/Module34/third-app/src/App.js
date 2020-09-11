@@ -13,6 +13,7 @@ import {
 import Order from './Components/Order/Order';
 import Error from './Components/Error';
 import ProductDetail from './Components/ProductDetail';
+import Review from './Components/Review';
 
 function App() {
   return (
@@ -20,12 +21,15 @@ function App() {
       <Header></Header>
       <Router>{/*Router Whole Wrapper*/}
         <Switch>{/*Switch for other page*/}
-          <Route path='/order'> {/*Path to other page*/}
-            <Order></Order> {/*Other Page Declaration*/}
-          </Route>
-          <Route path='/display'>
+          <Route path='/shop'>
             <Shop></Shop>
           </Route>
+
+          <Route path='/review'>
+            <Review></Review>
+          </Route>
+
+
           <Route exact path='/'> {/*This is default for Homepage...when the page is loaded*/}
             <Shop></Shop> {/*The Homepage*/}
           </Route>

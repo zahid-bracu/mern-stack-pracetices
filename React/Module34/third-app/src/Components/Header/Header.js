@@ -12,11 +12,11 @@ const Header = () => {
         <div className="header">
             <img  src={logo}/> 
             <nav>
-                <a href="/display">Home</a>
-                <a href="/display">Shop</a>
+                <a href="/shop">Home</a>
+                <a href="/shop">Shop</a>
                 <a href="/customer_service">Customer Service</a>
                 <a href="/deal">Today's Deal</a>
-                <a href="/order">Order Review</a>
+                <a href="/review">Order Review</a>
                 <a href="/inventory">Manage Inventory</a>
             </nav>
         </div>

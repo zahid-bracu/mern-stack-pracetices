@@ -5,6 +5,13 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faShoppingCart } from '@fortawesome/free-solid-svg-icons'
 import './cart.css';
 
+import {
+    BrowserRouter as Router,
+    Link,
+    Route,
+    Switch,
+  } from 'react-router-dom';
+
 
 const Cart = (props) => {
     var total=0;
@@ -44,7 +51,9 @@ const Cart = (props) => {
             <p>Vat & Tax Cost : {tax} (15%)</p>
             <p>Total (Including Tax) : {total}</p>
             <div>
+            <Link to="/review">
             <button className="cartButton" onClick={()=> console.log("Item has been checked out")}><FontAwesomeIcon icon={faShoppingCart} /> Review Your Order </button>
+            </Link>
             </div>
         </div>
     );
