@@ -32,8 +32,7 @@ const FinalCart = (props) => {
     var tax=parseFloat((total*15)/100);
     tax=parseFloat(tax.toFixed(2));
 
-    total+=shipping;
-    total+=tax;
+    total+=parseFloat(tax);
     total=parseFloat(total.toFixed(2));
     return (
         <div>
