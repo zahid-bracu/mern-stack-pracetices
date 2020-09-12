@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import  {getDatabaseCart} from '../utilities/databaseManager';
 import fakeData from '../fakeData';
 import ReviewItem from './ReviewItem';
-import Cart from './Cart/Cart';
+import FinalCart from './Cart/FinalCart';
 const Review = () => {
     const [cart,setCart]=useState([]);
     useEffect(()=>{
@@ -27,7 +27,7 @@ const Review = () => {
             }
             </div>
             <div className="col-4">
-                <Cart cart={cart}></Cart>
+                <FinalCart cart={cart}></FinalCart>
             </div>
         </div>
 
