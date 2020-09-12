@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import  {getDatabaseCart} from '../utilities/databaseManager';
 import fakeData from '../fakeData';
+import ReviewItem from './ReviewItem';
+import Cart from './Cart/Cart';
 const Review = () => {
     const [cart,setCart]=useState([]);
     useEffect(()=>{
@@ -18,9 +20,17 @@ const Review = () => {
      },[])
      console.log(cart);
     return (
-        <div>
-            Total Item: {cart.length};
+        <div className="row">
+            <div className="col-8">
+            {
+                cart.map(item=> <ReviewItem key={item.key} cart={item}></ReviewItem>)
+            }
+            </div>
+            <div className="col-4">
+                <Cart cart={cart}></Cart>
+            </div>
         </div>
+
     );
 };
 

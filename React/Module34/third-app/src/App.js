@@ -14,6 +14,7 @@ import Order from './Components/Order/Order';
 import Error from './Components/Error';
 import ProductDetail from './Components/ProductDetail';
 import Review from './Components/Review';
+import 'bootstrap/dist/css/bootstrap.min.css'
 
 function App() {
   return (
