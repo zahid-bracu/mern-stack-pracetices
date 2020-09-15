@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import  {getDatabaseCart} from '../utilities/databaseManager';
+import  {getDatabaseCart,removeFromDatabaseCart,processOrder} from '../utilities/databaseManager';
 import fakeData from '../fakeData';
 import ReviewItem from './ReviewItem';
 import FinalCart from './Cart/FinalCart';
@@ -19,15 +19,33 @@ const Review = () => {
          
      },[])
      console.log(cart);
+
+
+     function remove(value){
+         console.log("Button is working");
+         const items=cart.filter(pd=> pd.key!=value);
+         removeFromDatabaseCart(value)
+         setCart(items)
+     }
+     console.log(cart);
+
+
+     function checked(){
+         setCart([]);
+         processOrder();
+         console.log(checked);
+         var checkedOutCart=getDatabaseCart();
+         console.log(checkedOutCart);
+     }
     return (
         <div className="row">
             <div className="col-8">
             {
-                cart.map(item=> <ReviewItem key={item.key} cart={item}></ReviewItem>)
+                cart.map(item=> <ReviewItem remove={remove} key={item.key}  cart={item}></ReviewItem>)
             }
             </div>
             <div className="col-4">
-                <FinalCart cart={cart}></FinalCart>
+                <FinalCart checked={checked} cart={cart}></FinalCart>
             </div>
         </div>
 
@@ -35,3 +53,4 @@ const Review = () => {
 };
 
 export default Review;
+

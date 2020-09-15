@@ -20,7 +20,7 @@ const ReviewItem = (props) => {
         padding:"3px 50px",
         border: "1px solid rgb(218, 215, 215)",
         borderRadius: "3px"
-         
+          
     
     }
 
@@ -38,7 +38,7 @@ const ReviewItem = (props) => {
                     {/*using the function that comes through props*/}
                     {/*passing current clicked product value to the passed through props function*/}
                     {/*Using font awesome Icon*/}
-                    <button style={cartButton}>Remove</button>
+                    <button onClick={()=>props.remove(key)} style={cartButton}>Remove</button>
                 </div>
             </div>
         

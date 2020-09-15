@@ -29,16 +29,22 @@ const FinalCart = (props) => {
         total=total+(prices*count);
     }
     var subTotal=total;
+    subTotal=subTotal.toFixed(2);
+    subTotal=parseFloat(subTotal);
+
     var tax=parseFloat((total*15)/100);
     tax=parseFloat(tax.toFixed(2));
 
     total+=parseFloat(tax);
     total=parseFloat(total.toFixed(2));
+
+     
     return (
         <div>
             <div className="sticky">
-            <h3 style={{textAlign:"center"}}>Order Summary</h3>
-            <h5 style={{textAlign:"center"}}>Item Ordered : {counts}</h5>
+            <h2>Final Cart</h2>
+            <h3>Order Summary</h3>
+            <h5>Item Ordered : {counts}</h5>
              
             <p>Product Price: {subTotal}</p>
             <p>Shipping & Delivery Cost : {shipping}</p>
@@ -46,7 +52,7 @@ const FinalCart = (props) => {
             <p>Total (Including Tax) : {total}</p>
             <div>
              
-            <button className="cartButton" onClick={()=> console.log("Item has been checked out")}><FontAwesomeIcon icon={faShoppingCart} /> Review Your Order </button>
+            <button className="cartButton" onClick={()=> props.checked()}><FontAwesomeIcon icon={faShoppingCart} /> Check Out </button>
              
             </div>
         </div>
