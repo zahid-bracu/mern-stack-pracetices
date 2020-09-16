@@ -14,12 +14,12 @@ export default function NavBar() {
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="mr-auto">
-          <Nav.Link href="#home" style={{color:"white"}}>Home</Nav.Link>
-          <Nav.Link href="#link" style={{color:"white"}}>Courses</Nav.Link>
-          <Nav.Link href="#home" style={{color:"white"}}>Bootcamp</Nav.Link>
-          <Nav.Link href="#link" style={{color:"white"}}>Login</Nav.Link>
-          <Nav.Link href="#home" style={{color:"white"}}>Registration</Nav.Link>
-          <Nav.Link href="#link" style={{color:"white"}}>Contact Us</Nav.Link>
+          <Nav.Link href="/home" style={{color:"white"}}>Home</Nav.Link>
+          <Nav.Link href="/shop" style={{color:"white"}}>Courses</Nav.Link>
+          <Nav.Link href="/bootcamp" style={{color:"white"}}>Bootcamp</Nav.Link>
+          <Nav.Link href="/login" style={{color:"white"}}>Login</Nav.Link>
+          <Nav.Link href="/registration" style={{color:"white"}}>Registration</Nav.Link>
+          <Nav.Link href="/order" style={{color:"white"}}>Cart</Nav.Link>
         </Nav>
         <Form inline>
           <FormControl type="text" placeholder="Search" className="mr-sm-2" />

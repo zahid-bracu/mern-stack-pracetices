@@ -7,12 +7,10 @@ import {
 
 export default function Display(props) {
   const {name,key,tag,img}=props.Datas;
+  
   const [price,setPrice]=useState();
-
-   
-
   function setPrices(value,event){
-    console.log();
+     
     if(price==null){
       var newValue=value+"$";
       setPrice(newValue);
@@ -36,8 +34,8 @@ export default function Display(props) {
                 <h6>{price}</h6>
                 </Card.Text>
               
-              <Button   onClick={(event)=>setPrices(props.Datas.price,event)} className="my-2" style={{display:"block"}} variant="info" size="sm">Show Price</Button>
-              <Button   onClick={()=> props.addCart(props.Datas)} variant="secondary" size="sm">Add to Cart</Button>
+                <Button   onClick={(event)=>setPrices(props.Datas.price,event)} className="my-2" style={{display:"block"}} variant="info" size="sm">Show Price</Button>
+                <Button   onClick={()=> props.addCart(props.Datas)} variant="secondary" size="sm">Add to Cart</Button>
           </Card.Body>
       </Card>
   );

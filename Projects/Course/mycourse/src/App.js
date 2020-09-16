@@ -1,50 +1,60 @@
 import React, { useState } from "react";
 import "./styles.css";
-import Datas from "./Datas.js";
-import Display from "./components/Display.js";
-import NavBar from "./NavBar.js";
+import Shop from './components/Shop'
+import NavBar from "./components/NavBar.js";
+import Order from './components/Order';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Cart from "./Cart.js";
+import Cart from "./components/Cart.js";
 import { addToDatabaseCart, getDatabaseCart } from '../src/utilities/databaseManager';
+import Error from './components/Error';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link,
+  useRouteMatch,
+  useParams
+} from "react-router-dom";
+import Landing from "./components/Landing";
+import Home from "./components/Home";
 
 
 function App() {
-  /*
-  declaring the cart variable as array to save & add product
-  */
-  const [cart,setCart]=useState([]);
+ 
 
-  /* A function that help to add the product into cart while clicking add to cart button
-  newly added items are pass through the function parameter*/
-  function addCart(item){
-    // newly add item join with the other cart value in the array
-    var newCart=[...cart,item];
 
-    // check if same item being added more than one times
-    const same=newCart.filter(pd=>pd.key===item.key)
-    var count=same.length; //check how many times same items are being clicked
-    item.count=count;
-    addToDatabaseCart(item.key,count);
-    var tempCart=[...cart,item];
-    // Now newly added Item + old Item array are being added to the cart
-    setCart(tempCart);
-  }
-  console.log(cart);
+  
   return (
     <div className="">
       <NavBar></NavBar>
-      <div className="row">
-        <div className="col-8 main">
-          <div className="row">
-            {
-              Datas.map((pd) => (<Display key={pd.key}  Datas={pd} addCart={addCart}></Display>))
-            }
-            </div>
-          </div>
-          <div className="col-4">
-              <Cart cart={cart}></Cart>
-          </div>
-      </div>
+      
+      <Router>{/*Router Whole Wrapper*/}
+        <Switch>{/*Switch for other page*/}
+          <Route path='/shop'>
+            <Shop></Shop>
+          </Route>
+
+          <Route path='/order'>
+            <Order></Order>
+          </Route>
+
+           
+          <Route path='/home'>
+            <Home></Home>
+          </Route>
+
+
+          <Route exact path='/'> {/*This is default for Homepage...when the page is loaded*/}
+            <Shop></Shop> {/*The Homepage*/}
+          </Route>
+          
+          
+
+          <Route path='*'>{/*Path for wrong URL*/}
+            <Error></Error>{/*Wrong URL Page*/}
+          </Route>
+        </Switch>
+      </Router>
       
     </div>
   );
