@@ -6,7 +6,7 @@ import {
 } from "react-bootstrap";
 
 export default function Display(props) {
-  const {name,id,tag,img}=props.Datas;
+  const {name,key,tag,img}=props.Datas;
   const [price,setPrice]=useState();
 
    

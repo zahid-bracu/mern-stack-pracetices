@@ -172,11 +172,11 @@
 }
 /*********************** What I do**************************/
 .skill_logo{
-    filter:grayscale(100%);
+    /* filter:grayscale(100%); */
     transition:.2s;
 }
 .skill_logo:hover{
-    transform: scale(1.2);
+    transform: scale(1.3);
     filter:none;
 }
 
