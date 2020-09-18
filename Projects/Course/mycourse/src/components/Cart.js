@@ -32,11 +32,8 @@ function Cart(props){
       var total=0;
       for(let i=0;i<newCart.length;i++){
           var price=parseFloat(newCart[i].price);
-          console.log(price);
           var count=parseFloat(newCart[i].count);
-          console.log(count);
           sum+=count;
-          console.log(typeof(count));
           total=parseFloat(total+(price*count));
       }
 
@@ -48,7 +45,7 @@ function Cart(props){
         <Card  className="my-4" style={{position:'sticky',top:'0',width: 'auto',border:'none' }}>
             <Card.Body id="checking">
                 <Card.Title>Cart</Card.Title>
-                <p>Total Courses: {sum}$</p>
+                <p>Total Courses: {sum}</p>
                 <p>Courses Price: {total}$</p>
                 <p>Vat & Tax: 15%</p>
                 <p>Total Price: {mainprice}$ </p>

@@ -17,6 +17,7 @@ import {
 } from "react-router-dom";
 import Landing from "./components/Landing";
 import Home from "./components/Home";
+import CourseDetails from "./components/CourseDetails";
 
 
 function App() {
@@ -43,9 +44,14 @@ function App() {
             <Home></Home>
           </Route>
 
+          <Route path='/CourseDetails/:pd'> {/*The Path for dynamic Data key*/}
+            <CourseDetails></CourseDetails> {/*Page for Dynamic Key Passing*/}
+          </Route>
+
+
 
           <Route exact path='/'> {/*This is default for Homepage...when the page is loaded*/}
-            <Shop></Shop> {/*The Homepage*/}
+            <Home></Home> {/*The Homepage*/}
           </Route>
           
           

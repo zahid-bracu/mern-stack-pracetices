@@ -13,6 +13,7 @@ function App() {
     <div style={box}>
       {/* inline css style */}
       <p style={{ color: "green", backgroundColor: "yellow" }}>cool</p>
+      
     </div>
   );
 }

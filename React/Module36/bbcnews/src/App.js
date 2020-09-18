@@ -6,7 +6,7 @@ import News from './Components/News';
 
 function App() {
   return(
-    <div>
+    <div className="container-fluid">
       <Header></Header>
       <News></News>
     </div>
