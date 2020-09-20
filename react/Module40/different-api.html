@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        fetch('https://randomuser.me/api/')
+            .then(response => response.json())
+            .then(data => Display(data))
+
+
+            function Display(data){
+                console.log(data.info.seed);
+                console.log(data.results[0].id.name);
+            }
+    </script>
+</body>
+</html>

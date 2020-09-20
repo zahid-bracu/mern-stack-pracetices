@@ -16,7 +16,8 @@ export default function NavBar() {
         <Nav className="mr-auto">
           <Nav.Link href="/home" style={{color:"white"}}>Home</Nav.Link>
           <Nav.Link href="/shop" style={{color:"white"}}>Courses</Nav.Link>
-          <Nav.Link href="/bootcamp" style={{color:"white"}}>Bootcamp</Nav.Link>
+          <Nav.Link href="/portfolio" style={{color:"white"}}>Developer's Portfolio</Nav.Link>
+          <Nav.Link href="https://github.com/zahid-bracu" style={{color:"white"}}>Developer's Github</Nav.Link>
           <Nav.Link href="/login" style={{color:"white"}}>Login</Nav.Link>
           <Nav.Link href="/registration" style={{color:"white"}}>Registration</Nav.Link>
           <Nav.Link href="/order" style={{color:"white"}}>Cart</Nav.Link>
