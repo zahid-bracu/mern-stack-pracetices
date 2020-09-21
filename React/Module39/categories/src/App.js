@@ -10,9 +10,11 @@ export const DataContext = React.createContext([]);
 function App() 
 {
   const data=fakeData.slice(0,50);
-  const [products,setProducts]=useState(data)
+  const [products,setProducts]=useState(data);
+  
 
   const [sort,setSort]=useState(products);
+  
   function clicks(category){
     var array=products.filter(pd=> pd.category==category);
     console.log(array);

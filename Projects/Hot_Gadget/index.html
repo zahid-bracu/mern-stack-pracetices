@@ -27,28 +27,31 @@
 
       .card{
         border: 0px solid black;
-        /*box-shadow: 5px 5px 10px rgb(145, 145, 145);*/
-        border-radius: 10px;
+        box-shadow: 0px 0px 10px rgb(145, 145, 145);
         min-height: 500px;
+        margin: 20px 0px;
+        padding: 7px 0px;
       }
 
-      @media screen and (min-width:900px){
-        #bag{
+      #cat:hover{
         position: relative;
-        bottom: 60px;
-        left: 80px;
-      }
+        bottom: 3px;
       }
 
-
-
-      
+      .box{
+        width: 100%;
+        height: 150px;
+        background-image: linear-gradient(to right, rgb(32, 253, 253) , rgb(173, 255, 255));
+        box-shadow: 0px 0px 7px rgb(207, 207, 207);
+      }
+      .footer{
+        background-color: rgb(247, 247, 247);
+        padding:60px 0px;
+      }
     </style>
 </head>
 <body>
-
-    
-        <!-- Navigation Bar -->
+      <!-- Navigation Bar -->
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <section class="container">
               <a class="navbar-brand" href="#"><img src="./logo.png" class="img-fluid" width="80" alt=""></a>
@@ -237,13 +240,20 @@
         <section class="container">
           <h4 class="text-center">Catagories</h4>
           <div class="row justify-content-center align-items-center">
-            <div class="col-lg-6 col-md-6 col-sm-12">
+            <div class="col-lg-6  offset-lg-0  offset-md-0 col-md-6 col-sm-11 offset-sm-1 col-xs-11 offset-xs-1 col-11 offset-1">
                 <div class="row">
-                  <div class="col-lg-6 col-md-12 offset-md-6 col-12 offset-lg-6"><img src="./Categories/shoe.png" alt=""></div>
-                </div>
-                <div class="row">
-                  <div class="col-6"><img id="bag" src="./Categories/bag.png" alt=""></div>
-                  <div class="col-6"><img src="./Categories/perfume.png" alt=""></div>
+                  <div class="col-5 offset-1 my-2">
+                    <img id="cat" src="Categories/bag.png"/>
+                  </div>
+                  <div class="col-6 my-2">
+                    <img id="cat" src="Categories/shoe.png"/>
+                  </div>
+                  <div class="col-5 offset-1 my-2">
+                    <img id="cat" src="Categories/perfume.png"/>
+                  </div>
+                  <div class="col-6 my-2">
+                    <img id="cat" src="Categories/products.png" style="max-width: 120px;"/>
+                  </div>
                 </div>
             </div>
             <div class="col-lg-6 col-md-6 col-sm-12">
@@ -251,6 +261,60 @@
             </div>
           </div>
         </section>
+
+
+        <section class="container my-5">
+          <section class="box row justify-content-center align-items-center">
+            <div class="col-6 text-white">
+              <div class="ml-5">
+                <h3>NEWS LETTER</h3>
+                <p>Join us now to get all news and special offers</p>
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="input-group">
+                <input type="text" class="form-control" placeholder="Enter Your Email Here" aria-label="Recipient's username" aria-describedby="button-addon2">
+                <div class="input-group-append">
+                  <button class="btn btn-danger" type="button" id="button-addon2">Button</button>
+                </div>
+              </div>
+            </div>
+          </section>
+        </section>
+
+
+        <div class="footer">
+          <footer class="container">
+            <div class="row justify-content-center align-items-center">
+              <div class="col-4">
+                <img src="./logo.png" style="width: 120px;" alt="">
+                <p class="my-2">HotGadget © 2020 . All right Reserved</p>
+              </div>
+              <div class="col-2">
+                <ul class="" style="list-style-type:none;">
+                  <li>Home</li>
+                  <li>About</li>
+                  <li>Support</li>
+                </ul>
+              </div>
+              <div class="col-3">
+                <ul class="" style="list-style-type:none;">
+                  <li>Our Feed</li>
+                  <li>Term and Condition</li>
+                  <li>Our Policy</li>
+                </ul>
+              </div>
+              <div class="col-3">
+                <h5>Stay Connected</h5>
+                <p>info@hotgadget.com</p>
+                <p>+88017-XXX-XXX</p>
+              </div>
+            </div>
+          </footer>
+        </div>
+
+
+
     
     
 
