@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <nav id="mynav" class="navbar navbar-expand-lg navbar-light bg-transparent">
+        <a class="navbar-brand" href="#"><img src="./logo.png" style="width: 50px;"/></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+          <ul class="navbar-nav">
+            <li class=" active">
+              <a class="nav-link font-weight-bold" href="#">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="">
+              <a class="nav-link font-weight-bold" href="#">Developer's Portfolio</a>
+            </li>
+            <li class="">
+              <a class="nav-link font-weight-bold" href="#">Github Link</a>
+            </li>
+            <li class=" dropdown">
+              <a class="nav-link font-weight-bold dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Contact
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                <a class="dropdown-item" href="#">Facebook</a>
+                <a class="dropdown-item" href="#">Mail</a>
+              </div>
+            </li>
+          </ul>
+          <ul class="navbar-nav ml-auto">
+             
+          </ul>
+        </div>
+      </nav>
+    <!-- Image and text -->
+    <section class="container-fluid ">
+        <h1 class="text-center mb-5" style="color:rgb(97, 97, 97)">Covid-19 Tracker</h1>
+        <div class="d-block text-center">
+            <input type="text" id="inputField"  name="country" placeholder="Enter Country Name" class="form-control mx-auto"/>
+            <button id="searchBtn" class="btn btn-success btn-lg my-3">Search</button>
+        </div>
+    </section>
+
+    <!-- Result -->
+    <section style="display: none;" id="result" class="container mb-5 mt-2">
+        <div class="text-center" style="color: rgb(53, 53, 53);">
+            <h4 >Showing Result : <span id="country"></span> <span><img style="display: inline; width:50px;" id="flag" /></span> </h4>
+             <h4>Population: <span id="population"></span> </h4>
+        </div>
+    </section>
+
+
+    <!-- Time -->
+
+    <section class="container">
+        <div class="d-flex  justify-content-around">
+            <div>  <h4><span id="time"></span> </h4></div>
+            <div> <h4><span id="watch"></span> </h4></div>
+        </div>
+    </section>
+
+    <!-- Result -->
+    <section class="container text-white">
+        <div class="row mt-5 d-flex justify-content-around align-items-center">
+            <div style="background-color: #2d4059;" class="col-lg-3 col-md-5 col-sm-10 col-10 my-3 box">
+                <div class="text-center" style="margin-top: 12%;">
+                     <h4>New Cases </h4>
+                    <h2 id="new-case"></h2>
+                </div>
+            </div>
+            <div style="background-color: #ea5455;" class="col-lg-3 col-md-5 col-sm-10 col-10 my-3 box">
+                <div class="text-center" style="margin-top: 12%;">
+                     <h4>New Death </h4>
+                    <h2 id="new-death"></h2>
+                </div>
+            </div>
+            <div style="background-color: #14b1ab;" class="col-lg-3 col-md-5 col-sm-10 col-10 my-3 box">
+                <div class="text-center" style="margin-top: 12%;">
+                     <h4>Situation Critical </h4>
+                    <h2 id="critical"></h2>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mt-5 d-flex justify-content-around align-items-center">
+            <div style="background-color: #5d54a4;" class="col-lg-3 col-md-5 col-sm-10 col-10 my-3 box">
+                <div class="text-center" style="margin-top: 12%;">
+                     <h4>Total Cases </h4>
+                    <h2 id="total-case"></h2>
+                </div>
+            </div>
+            <div style="background-color: #0f4c75;" class="col-lg-3 col-md-5 col-sm-10 col-10 my-3 box">
+                <div class="text-center" style="margin-top: 12%;">
+                     <h4>Total Death </h4>
+                    <h2 id="total-death"></h2>
+                </div>
+            </div>
+            <div style="background-color: #206a5d;" class="col-lg-3 col-md-5 col-sm-10 col-10 my-3 box">
+                <div class="text-center" style="margin-top: 12%;">
+                     <h4>Total Recovered </h4>
+                    <h2 id="total-recovered"></h2>
+                </div>
+            </div>
+        </div>
+
+        <!-- 3rd Row -->
+        <div class="row mt-5 d-flex justify-content-around align-items-center">
+            <div style="background-color: #363636;" class="col-lg-3 col-md-5 col-sm-10 col-10 my-3 box">
+                <div class="text-center" style="margin-top: 8%;">
+                     <h4>Critical Per Million </h4>
+                    <h2 id="critical-one-million"></h2>
+                </div>
+            </div>
+            <div style="background-color: #931a25;" class="col-lg-3 col-md-5 col-sm-10 col-10 my-3 box">
+                <div class="text-center" style="margin-top: 8%;">
+                     <h4>Deaths Per Million </h4>
+                    <h2 id="death-one-million"></h2>
+                </div>
+            </div>
+            <div style="background-color: #335d2d;" class="col-lg-3 col-md-5 col-sm-10 col-10 my-3 box">
+                <div class="text-center" style="margin-top: 8%;">
+                    <h4>Recovered Per Million</h4>
+                    <h2 id="recover-one-million"></h2>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        var btn=document.getElementById("searchBtn");
+        
+        btn.addEventListener('click',function(){
+            var searchValue=document.getElementById("inputField").value;
+            if(searchValue==""){
+                alert("Enter Specific Country")
+            }else{
+                console.log(searchValue);
+                fetch(`https://corona.lmao.ninja/v2/countries/${searchValue}`)
+                .then(response => response.json())
+                .then(data => load(data))
+                .catch((error)=> alert("Not Found"))
+            }
+            
+        })
+
+
+        function load(data){
+            console.log(data);
+            if(data.todayCases==undefined){
+                console.log("Not Found");
+                alert("Enter a Valid Country Name");
+
+            }else{
+                document.getElementById("new-case").innerText=data.todayCases+"🛌";
+                document.getElementById("new-death").innerText=data.todayDeaths+"⚰️";
+                document.getElementById("critical").innerText=data.critical+"🚑";
+                document.getElementById("total-case").innerText=data.cases+"🛌";
+                document.getElementById("total-death").innerText=data.deaths+"⚰️";
+                document.getElementById("total-recovered").innerText=data.recovered+"🌻";
+                document.getElementById("population").innerText=data.population+"👨‍👨‍👦‍👦";
+                document.getElementById("critical-one-million").innerText=data.criticalPerOneMillion+"🚑";
+                document.getElementById("death-one-million").innerText=data.deathsPerOneMillion+"⚰️";
+                document.getElementById("recover-one-million").innerText=data.recoveredPerOneMillion+"🌻";
+
+
+                document.getElementById("country").innerText=data.country;
+                document.getElementById("result").style.display="block";
+                var imgURL=data.countryInfo.flag;
+                document.getElementById("flag").setAttribute("src", imgURL);     
+            }
+            
+        }
+        
+
+        // Time Show
+        function getDateTime() {
+            var now     = new Date(); 
+            var year    = now.getFullYear();
+            var month   = now.getMonth()+1; 
+            var day     = now.getDate();
+            var hour    = now.getHours();
+            var minute  = now.getMinutes();
+            var second  = now.getSeconds(); 
+
+            var AmOrPm = hour >= 12 ? 'pm' : 'am';
+            hour = (hour % 12) || 12;
+
+            if(month.toString().length == 1) {
+                month = '0'+month;
+            }
+            if(day.toString().length == 1) {
+                day = '0'+day;
+            }   
+            if(hour.toString().length == 1) {
+                hour = '0'+hour;
+            }
+            if(minute.toString().length == 1) {
+                minute = '0'+minute;
+            }
+            if(second.toString().length == 1) {
+                second = '0'+second;
+            }
+            const monthNames = ["January", "February", "March", "April", "May", "June",
+            "July", "August", "September", "October", "November", "December"
+            ];
+            const d = new Date();
+            var months=monthNames[d.getMonth()];
+
+            var dateOnly=months+" "+day+", "+year;
+            var timeOnly=hour+":"+minute+":"+second+" "+AmOrPm;
+            getTime(timeOnly);
+            return dateOnly;
+    }
+
+    // example usage: realtime clock
+    setInterval(function(){
+        currentTime = getDateTime();
+        console.log(currentTime);
+        document.getElementById("time").innerText=currentTime;
+    }, 1000);
+
+    function getTime(value){
+                document.getElementById("watch").innerText=value;
+        }
+
+
+
+
+
+         
+
+    </script>
+
+
+
+
+
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+</body>
+</html>

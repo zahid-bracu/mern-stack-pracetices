@@ -1,0 +1,33 @@
+#inputField{
+    max-width:520px !important;
+    height: 55px;
+    border-radius: 50px;
+    font-size: 20px;
+}
+
+.btn{
+    border-radius: 50px;
+    box-shadow: 1px 1px 5px rgb(139, 139, 139);
+}
+
+#input:focus{
+    outline: none;
+}
+
+#time, #watch{
+    color:rgb(71, 71, 71)
+}
+
+.box{
+    min-width: 150px;
+    height: 150px;
+     
+    border-radius: 15px;
+    box-shadow: 3px 3px 10px rgb(145, 145, 145);
+}
+
+body{
+    background-image: url("./bg.jpg");
+    background-position: center;
+    background-size: cover;
+}

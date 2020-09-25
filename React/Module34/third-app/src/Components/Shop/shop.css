@@ -3,10 +3,5 @@
 }
 
 .productContainer{
-    width: 70%;
-    margin-left:100px;
-    margin-right: 15px;
-    padding-right:15px;
-    border-right:1px solid gray;
-    
+    width: 100%;
 }

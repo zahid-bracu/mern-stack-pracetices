@@ -30,7 +30,7 @@ const Shop = () => {
 
     //there are 100++ data in the json data center. we use slice method to take first ten data
     // Slicing the JSON data values & keep sliced data values in a variable
-    const firstTen = fakeData.slice(0, 10);
+    const firstTen = fakeData.slice(0, 12);
 
     // now passing the sliced data value into a products variable using set state
     const [products, setProducts] = useState(firstTen);
@@ -74,22 +74,12 @@ const Shop = () => {
     return (
         <div className="shopContainer">
             <div className="productContainer">
-                <div>
+                <div className="row justify-content-center">
                     {/*Now Passing the sliced json data & function through the attribute as props of other component*/}
                     {products.map(pd => <Products key={pd.key} addCart={addCart} products={pd}></Products>)}
                 </div>
             </div>
-            <div className="cartContainer">
-            {/*Passing cart value to other component*/}
-                <Cart cart={cart}>
-                    <Link to="/review">
-                        <button className="cartButton" onClick={()=> console.log("Item has been checked out")}>
-                            <FontAwesomeIcon icon={faShoppingCart} />
-                            Review Cart
-                        </button>
-                    </Link>
-                </Cart>
-            </div>
+            
         </div>
     );
 };

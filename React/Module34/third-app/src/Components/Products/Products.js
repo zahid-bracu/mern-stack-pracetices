@@ -12,26 +12,26 @@ import {
     Switch,
   } from 'react-router-dom';
 
+  import { Button,Nav,Form,FormControl,Navbar,Card } from 'react-bootstrap';
 
 const Products = (props) => {
     // using destructure from passed object through props
     const { img, name, seller, price, stock,key } = props.products;
     return (
-        <div className="productCard">
-            <div>
-                <img src={img} />
-            </div>
-            <div>
-                <h4 style={{color:"blue"}}> <Link to={"/product/"+key}>{name}</Link> </h4> {/*Dynamically Data Key is passing through to router*/}
-                <p>By {seller}</p>
-                <p>Price {price}$</p>
-                <p>only {stock} left in stock - order soon</p>
-                {/*using the function that comes through props*/}
-                {/*passing current clicked product value to the passed through props function*/}
-                {/*Using font awesome Icon*/}
-                <button onClick={()=> props.addCart(props.products)} className="cartButton"><FontAwesomeIcon icon={faShoppingCart} /> Add to Cart</button>
-            </div>
-        </div>
+        <Card className="col-lg-3 col-md-5 col-sm-10 col-12 mx-1 my-1" style={{width:"150px"  }}>
+        <Card.Img variant="top" src={img} />
+        <Card.Body>
+            <Card.Title><Link to={"/product/"+key}>{name}</Link></Card.Title>
+            <Card.Text>
+            <p>By {seller}</p>
+                        <p>Price {price}$</p>
+                        <p>only {stock} left in stock - order soon</p>
+            </Card.Text>
+            <button style={{position:"relative",bottom:"10px"}} onClick={()=> props.addCart(props.products)} className="btn btn-warning" style={{color:"black"}}><FontAwesomeIcon icon={faShoppingCart} /> Add to Cart</button>
+        </Card.Body>
+        </Card>
+
+        
     );
 };
 
