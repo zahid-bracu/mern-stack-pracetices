@@ -15,6 +15,7 @@ import Error from './Components/Error';
 import ProductDetail from './Components/ProductDetail';
 import Review from './Components/Review';
 import 'bootstrap/dist/css/bootstrap.min.css'
+import Home from './Components/Home';
 
 function App() {
   return (
@@ -31,8 +32,12 @@ function App() {
           </Route>
 
 
+          <Route exact path='/home'> {/*This is default for Homepage...when the page is loaded*/}
+            <Home></Home> {/*The Homepage*/}
+          </Route>
+
           <Route exact path='/'> {/*This is default for Homepage...when the page is loaded*/}
-            <Shop></Shop> {/*The Homepage*/}
+            <Home></Home> {/*The Homepage*/}
           </Route>
           
           <Route path='/product/:pd'> {/*The Path for dynamic Data key*/}

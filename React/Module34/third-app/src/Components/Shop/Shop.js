@@ -16,6 +16,7 @@ import {
     useRouteMatch,
     useParams
   } from "react-router-dom";
+import Category from '../Category';
 
  
  
@@ -71,16 +72,14 @@ const Shop = () => {
     },[])
     console.log(cart);
     
-    return (
-        <div className="shopContainer">
-            <div className="productContainer">
-                <div className="row justify-content-center">
+    return ( 
+            <div>
+            <Category className="d-block mx-auto "></Category>
+            <div className="row justify-content-center">
                     {/*Now Passing the sliced json data & function through the attribute as props of other component*/}
                     {products.map(pd => <Products key={pd.key} addCart={addCart} products={pd}></Products>)}
-                </div>
             </div>
-            
-        </div>
+            </div>             
     );
 };
 

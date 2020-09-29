@@ -4,6 +4,7 @@ import fakeData from '../fakeData';
 import ReviewItem from './ReviewItem';
 import FinalCart from './Cart/FinalCart';
 const Review = () => {
+    var imgURL="https://i.ibb.co/xCjPVxK/empty-cart-800x600-dribbble.webp";
     const [cart,setCart]=useState([]);
     useEffect(()=>{
          const savedCart=getDatabaseCart();
@@ -37,19 +38,29 @@ const Review = () => {
          var checkedOutCart=getDatabaseCart();
          console.log(checkedOutCart);
      }
-    return (
-        <div className="row">
-            <div className="col-8">
-            {
-                cart.map(item=> <ReviewItem remove={remove} key={item.key}  cart={item}></ReviewItem>)
-            }
+     if(cart.length==0){
+        return(
+            <div   className="text-center">
+                
+                <img className="img-fluid" src={imgURL}/>
             </div>
-            <div className="col-4">
-                <FinalCart checked={checked} cart={cart}></FinalCart>
+        )
+    }else{
+        return (
+            <div className="row">
+                <div className="col-8">
+                {
+                    cart.map(item=> <ReviewItem remove={remove} key={item.key}  cart={item}></ReviewItem>)
+                }
+                </div>
+                <div className="col-4">
+                    <FinalCart checked={checked} cart={cart}></FinalCart>
+                </div>
             </div>
-        </div>
-
-    );
+    
+        );
+    }
+    
 };
 
 export default Review;
