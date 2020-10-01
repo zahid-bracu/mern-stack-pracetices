@@ -42,17 +42,17 @@ const FinalCart = (props) => {
     return (
         <div>
             <div className="sticky">
-            <h2>Final Cart</h2>
+            <h2 className="">Cart</h2>
             <h3>Order Summary</h3>
             <h5>Item Ordered : {counts}</h5>
              
-            <p>Product Price: {subTotal}</p>
+            <p>Total Product Price:  <span className="text-danger">{subTotal}</span></p>
             <p>Shipping & Delivery Cost : {shipping}</p>
             <p>Vat & Tax Cost : {tax} (15%)</p>
             <p>Total (Including Tax) : {total}</p>
             <div>
              
-            <button className="cartButton" onClick={()=> props.checked()}><FontAwesomeIcon icon={faShoppingCart} /> Check Out </button>
+            <button className="btn btn-danger px-5" onClick={()=> props.checked()}><FontAwesomeIcon icon={faShoppingCart} /> Check Out </button>
              
             </div>
         </div>

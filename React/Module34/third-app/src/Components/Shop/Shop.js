@@ -70,11 +70,45 @@ const Shop = () => {
         setCart(cartProducts);
         
     },[])
+
+    function camelize(str) {
+        console.log("Working")
+        var firstChar=str[0];
+        console.log(firstChar);
+
+        firstChar=firstChar.toUpperCase();
+        console.log(firstChar);
+
+        str=str.substring(1);
+        console.log(str);
+
+        str=firstChar+str;
+        console.log(str);
+
+        return str;
+      }
+
+    function categories(value){
+        if(value=="All"){
+            const firstTen = fakeData.slice(0, 12);
+            setProducts(firstTen);
+            document.getElementById("tag").innerText="All Products";
+        }else{
+            console.log("Button Clicked");
+            var cartValues=fakeData.filter(pd=> pd.category==value);
+            setProducts(cartValues);
+            console.log(cartValues);
+            document.getElementById("tag").innerText=camelize(value);
+        }
+        
+    }
+
     console.log(cart);
     
     return ( 
             <div>
-            <Category className="d-block mx-auto "></Category>
+            <Category categories={categories}></Category>
+            <h4 id="tag"  className="text-primary text-center mb-5">All Products</h4>
             <div className="row justify-content-center">
                     {/*Now Passing the sliced json data & function through the attribute as props of other component*/}
                     {products.map(pd => <Products key={pd.key} addCart={addCart} products={pd}></Products>)}

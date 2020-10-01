@@ -1,4 +1,5 @@
 import React from 'react';
+import { Button,ButtonGroup, Badge   } from 'react-bootstrap';
 import {
     BrowserRouter as Router,
     Link,
@@ -12,7 +13,6 @@ const ReviewItem = (props) => {
         display:"flex",
         padding:"20px",
         margin:"20px",
-        border:"1px solid gray"
     }
 
     const cartButton={
@@ -26,15 +26,15 @@ const ReviewItem = (props) => {
 
     return (
         
-            <div style={styles}>
-                <div>
+            <div className="row">
+                <div className="col-lg-3 col-md-4 col-sm-12 col-12">
                     <img src={img} />
                 </div>
-                <div>
+                <div className="col-lg-9 offset-lg-0 col-md-6 offset-md-1 col-sm-12 col-12">
                     <h4 style={{color:"blue"}}> <Link to={"/product/"+key}>{name}</Link> </h4> {/*Dynamically Data Key is passing through to router*/}
-                    <p>By {seller}</p>
-                    <p>Price {price}$</p>
-                    <p>only {stock} left in stock - order soon</p>
+                    
+                    <h5>Price: <Badge variant="danger" pill>{price}$</Badge></h5>
+                    
                     {/*using the function that comes through props*/}
                     {/*passing current clicked product value to the passed through props function*/}
                     {/*Using font awesome Icon*/}

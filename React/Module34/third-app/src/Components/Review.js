@@ -5,6 +5,9 @@ import ReviewItem from './ReviewItem';
 import FinalCart from './Cart/FinalCart';
 const Review = () => {
     var imgURL="https://i.ibb.co/xCjPVxK/empty-cart-800x600-dribbble.webp";
+    var gifURL="https://i.ibb.co/zRqsRNs/bye-bye-pikachu-icegif.gif";
+    const [flag,setFlag]=useState(false);
+
     const [cart,setCart]=useState([]);
     useEffect(()=>{
          const savedCart=getDatabaseCart();
@@ -37,29 +40,38 @@ const Review = () => {
          console.log(checked);
          var checkedOutCart=getDatabaseCart();
          console.log(checkedOutCart);
+         setFlag(true);
      }
-     if(cart.length==0){
+
+     if(flag==true && cart.length==0){
+         return(
+            <div className="mt-5">
+                <h3 className="text-center">Checked Out</h3>
+                <img className="d-block mx-auto" src={gifURL}/>
+            </div>
+         )
+     }else if(flag==false && cart.length==0){
         return(
             <div   className="text-center">
                 
                 <img className="img-fluid" src={imgURL}/>
             </div>
         )
-    }else{
-        return (
-            <div className="row">
-                <div className="col-8">
-                {
-                    cart.map(item=> <ReviewItem remove={remove} key={item.key}  cart={item}></ReviewItem>)
-                }
+        }else{
+            return (
+                <div className="row container-fluid">
+                    <div className="col-lg-8 col-md-8 col-sm-12">
+                    {
+                        cart.map(item=> <ReviewItem remove={remove} key={item.key}  cart={item}></ReviewItem>)
+                    }
+                    </div>
+                    <div className="col-lg-4 col-md-4 col-sm-12 order-sm-first order-lg-last order-md-last order-first">
+                        <FinalCart checked={checked} cart={cart}></FinalCart>
+                    </div>
                 </div>
-                <div className="col-4">
-                    <FinalCart checked={checked} cart={cart}></FinalCart>
-                </div>
-            </div>
-    
-        );
-    }
+        
+            );
+        }
     
 };
 
