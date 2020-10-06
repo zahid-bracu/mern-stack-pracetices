@@ -6,7 +6,12 @@ import CardContent from '@material-ui/core/CardContent';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import './style.css';
-import {generateName} from './Name';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
 
 const useStyles = makeStyles({
     root: {
@@ -46,9 +51,9 @@ const Display = (props) => {
                     </Typography>
                 </CardContent>
                 <CardActions>
-                <Button variant="contained" color="secondary">
-                    See Details
-                </Button>
+                  <Button variant="contained" color="secondary">
+                    <Link to={"/details/"+id}>See Full Post</Link>
+                  </Button>
                 </CardActions>
             </Card>
          

@@ -1,6 +1,10 @@
 import React from 'react';
-
-
+import {
+    BrowserRouter as Router,
+    Switch,
+    Route,
+    Link
+  } from "react-router-dom";
 const Banner = () => {
     var imgURL="https://i.ibb.co/nLhLqpm/1079942.png";
     return (

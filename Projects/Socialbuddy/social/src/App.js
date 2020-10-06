@@ -3,29 +3,36 @@ import PrimarySearchAppBar from './Components/PrimarySearchAppBar';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Post from './Components/Post';
 import Banner from './Components/Banner';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
+import PostDetails from './Components/PostDetails';
+
 
 function App() {
-  const [data,setData]=useState([]);
-
-  useEffect(() => {
-    
-    fetch('https://jsonplaceholder.typicode.com/posts')
-    .then(response => response.json())
-    .then(json => {
-      const datas=json.slice(0,30)
-      setData(datas);
-    })
-  });
-
-  console.log(data);
-
-  
-
   return(
     <>
       <PrimarySearchAppBar></PrimarySearchAppBar>
-      <Banner></Banner>
-      <Post></Post>
+      <Router>
+        <Switch>
+            <Route path="/" exact>
+              <Banner/>
+            </Route>
+
+            <Route path="/post">
+                <Post/>
+            </Route>
+
+            <Route path="/details/:pd">
+              <PostDetails/>
+            </Route>
+            
+        </Switch>
+      </Router>
+       
     </>
   )
 }

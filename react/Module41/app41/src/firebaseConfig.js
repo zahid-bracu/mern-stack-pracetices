@@ -1,3 +1,4 @@
+//own firebase config file library
 var firebaseConfig = {
     apiKey: "AIzaSyAnbTwUAwlMzqyyvApaBdD-a1IB3TT3yag",
     authDomain: "ema-john-simple-8df68.firebaseapp.com",
@@ -8,4 +9,5 @@ var firebaseConfig = {
     appId: "1:303926532311:web:e4ac326e7b0c2c600c7892"
   };
 
+  // export firebase config file json data
   export default firebaseConfig;

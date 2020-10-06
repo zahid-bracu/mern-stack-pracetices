@@ -1,13 +1,18 @@
-import React, { useState } from 'react';
-import logo from './logo.svg';
-import './App.css';
-import * as firebase from "firebase/app";
-import "firebase/auth";
-import "firebase/firestore";
-import firebaseConfig from '../src/firebaseConfig';
+import React, { useState } from 'react'; //import react libraries
+import './App.css'; //import css design file 
+import * as firebase from "firebase/app"; //import firebase library
+import "firebase/auth"; //import firebase authendication library
+import "firebase/firestore"; //import firebase firestore library
+import firebaseConfig from '../src/firebaseConfig'; //import firebase config library
+
+
+// initializing the firebase config library details
 firebase.initializeApp(firebaseConfig);
 
+
+// 
 function App() {
+  
   const provider = new firebase.auth.GoogleAuthProvider();
   const [user,setUser]=useState({
     name:"",
