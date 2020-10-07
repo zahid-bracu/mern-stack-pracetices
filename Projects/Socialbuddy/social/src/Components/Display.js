@@ -50,10 +50,10 @@ const Display = (props) => {
                     {body}
                     </Typography>
                 </CardContent>
-                <CardActions>
-                  <Button variant="contained" color="secondary">
-                    <Link to={"/details/"+id}>See Full Post</Link>
-                  </Button>
+                <CardActions><Link to={"/details/"+id}>
+                  <Button style={{textDecoration:"none"}} variant="contained" color="secondary">
+                    See Full Post
+                  </Button></Link>
                 </CardActions>
             </Card>
          

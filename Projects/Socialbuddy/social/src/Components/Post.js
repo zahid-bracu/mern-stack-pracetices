@@ -12,9 +12,12 @@ const Post = () => {
         const datas=json.slice(0,30)
         setData(datas);
         })
-    });
 
-    console.log(data);
+
+        
+    },[]);
+
+     
     return (
         <div className="row container-fluid">
             {

@@ -20,6 +20,7 @@ function App() {
         <Switch>
             <Route path="/" exact>
               <Banner/>
+              <Post />
             </Route>
 
             <Route path="/post">

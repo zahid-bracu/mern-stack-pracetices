@@ -174,8 +174,12 @@ export default function PrimarySearchAppBar() {
           >
             <MenuIcon />
           </IconButton>
-          <Typography className={classes.title} variant="h6" noWrap>
-            <span className="font-weight-bold">facebook</span>
+          <Typography className={classes.title} variant="h5" noWrap>
+            <a href="/"><span style={{color:"white"}} className="font-weight-bold">facebook</span></a>
+          </Typography>
+
+          <Typography style={{marginLeft:"20px"}} className={classes.title} variant="h6" noWrap>
+            <a href="/post"><span style={{color:"white"}} className="font-weight-bold">All Post</span></a>
           </Typography>
           
           <div className={classes.search}>
@@ -194,12 +198,12 @@ export default function PrimarySearchAppBar() {
           <div className={classes.grow} />
           <div className={classes.sectionDesktop}>
             <IconButton aria-label="show 4 new mails" color="inherit">
-              <Badge badgeContent={0} color="secondary">
+              <Badge badgeContent={2} color="secondary">
                 <MailIcon />
               </Badge>
             </IconButton>
             <IconButton aria-label="show 17 new notifications" color="inherit">
-              <Badge badgeContent={0} color="secondary">
+              <Badge badgeContent={8} color="secondary">
                 <NotificationsIcon />
               </Badge>
             </IconButton>

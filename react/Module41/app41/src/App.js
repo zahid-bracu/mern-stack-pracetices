@@ -14,6 +14,9 @@ firebase.initializeApp(firebaseConfig);
 function App() {
   
   const provider = new firebase.auth.GoogleAuthProvider();
+  // This provider is fetched from firebase->console->doc->develope(tab)->authendication->web->get started->google-sign-in
+
+  //setting a useState to import data from google-auth
   const [user,setUser]=useState({
     name:"",
     photo:"",
@@ -23,20 +26,23 @@ function App() {
 
 
 
+  //sign in button function
   function signIn(){
+    //google-auth provider
     firebase.auth().signInWithPopup(provider)
     .then(res=>{
-      console.log("work");
-      console.log(res);
+       
+      //fetching the datas from google auth
       const {displayName,photoURL,email}=res.user;
-      console.log(displayName);
-      console.log(email);
+
+      // now setting the data in a object
       var info={
         name:displayName,
         photo:photoURL,
         email:email,
         state:true
       }
+      // now passing the object in the useState
       setUser(info);
       
     })
@@ -44,7 +50,7 @@ function App() {
    
   
   
-
+  // Log out / sign out button function
   function signOut(){
     if(user.state===true){
       firebase.auth().signOut().then(function() {
