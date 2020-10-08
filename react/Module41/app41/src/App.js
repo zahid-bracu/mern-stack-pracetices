@@ -28,7 +28,7 @@ function App() {
 
   //sign in button function
   function signIn(){
-    //google-auth provider
+    //google-auth provider from firebase->console->doc->develope(tab)->authendication->web->get started->google-sign-in
     firebase.auth().signInWithPopup(provider)
     .then(res=>{
        

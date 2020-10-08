@@ -10,6 +10,8 @@ import { Button,Nav,Form,FormControl,Navbar } from 'react-bootstrap';
 import { addToDatabaseCart, getDatabaseCart } from '../../utilities/databaseManager';
 import { faShoppingCart,faAlignJustify } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import Login from '../Login';
+import Registration from '../Registration';
 
 //snippet
 const Header = () => {
@@ -51,6 +53,8 @@ const Header = () => {
                             <Nav.Link href="/shop">Shop</Nav.Link>
                             <Nav.Link href="">Developer's Portfolio</Nav.Link>
                             <Nav.Link href="">Github</Nav.Link>
+                            <Nav.Link > <Login></Login> </Nav.Link>
+                            <Nav.Link > <Registration></Registration> </Nav.Link>
                             <Nav.Link href="/review">Order Review</Nav.Link>
                             </Nav>
                             <Nav className="ml-auto mr-5 d-flex">
