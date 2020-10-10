@@ -10,6 +10,7 @@ import {
   Link
 } from "react-router-dom";
 import PostDetails from './Components/PostDetails';
+import FooterPage from './Components/FooterPage';
 
 
 function App() {
@@ -33,6 +34,7 @@ function App() {
             
         </Switch>
       </Router>
+      <FooterPage></FooterPage>
        
     </>
   )

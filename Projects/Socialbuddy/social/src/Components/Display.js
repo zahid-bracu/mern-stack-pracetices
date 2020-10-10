@@ -39,7 +39,7 @@ const Display = (props) => {
     const {body,id,title,userId}=props.data;
     return (
          
-            <Card  className="bg-card" style={{maxWidth:"300px",height:"350px",margin:"5px 5px"}}>
+            <Card  className="bg-card col-12" style={{maxWidth:"300px",height:"350px",margin:"5px 5px"}}>
                 <CardContent>
                     <h4 className="text-custom">Social Buddy : {id}</h4>
                     <Typography variant="h5" component="h2">

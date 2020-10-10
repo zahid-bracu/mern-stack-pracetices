@@ -19,9 +19,9 @@ const Post = () => {
 
      
     return (
-        <div className="row container-fluid">
+        <div className="row container-fluid mx-auto">
             {
-                data.map(pd=> <Display  key={pd.id} data={pd}></Display>)
+                data.map(pd=> <Display className="col-12"   key={pd.id} data={pd}></Display>)
             }
         </div>
     );

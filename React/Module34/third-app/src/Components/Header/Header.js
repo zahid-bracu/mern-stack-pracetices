@@ -51,8 +51,8 @@ const Header = () => {
                             <Nav className="mr-auto">
                             <Nav.Link href="/home">Home</Nav.Link>
                             <Nav.Link href="/shop">Shop</Nav.Link>
-                            <Nav.Link href="">Developer's Portfolio</Nav.Link>
-                            <Nav.Link href="">Github</Nav.Link>
+                            <Nav.Link href="https://portfolio-zahid-bracu.netlify.app/">Developer's Portfolio</Nav.Link>
+                            <Nav.Link href="https://github.com/zahid-bracu">Github</Nav.Link>
                             <Nav.Link > <Login></Login> </Nav.Link>
                             <Nav.Link > <Registration></Registration> </Nav.Link>
                             <Nav.Link href="/review">Order Review</Nav.Link>
