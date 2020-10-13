@@ -1,0 +1,43 @@
+.card:hover{
+    box-shadow: 5px 5px 5px rgb(180, 180, 180) !important;
+    border:inherit !important;
+    transform: scale(1.05);
+}
+
+#task, #taskdetails, #add{
+    box-shadow: 5px 5px 5px rgb(180, 180, 180) !important;
+}
+.card{
+    background-color: lightgoldenrodyellow;
+    max-width: 600px;
+    border-radius: 10px;
+    display: block;
+    margin: 10px auto;
+    transition: 1s;
+    box-shadow: 5px 5px 5px rgb(238, 238, 238) !important;
+    border:inherit !important;
+    display: flex !important;
+}
+
+.main{
+    padding: 10px 0px;
+    margin: 0px auto;
+    max-width: 700px;
+    min-height: 550px;
+     
+}
+
+.body{
+    background-image: url("https://i.ibb.co/swXfYFY/bg.jpg");
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+}
+
+ 
+#taskHeader{
+    text-decoration: underline;
+    
+}
+
+ 

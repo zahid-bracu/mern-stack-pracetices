@@ -75,7 +75,7 @@ function App() {
           <h5>{user.name}</h5>
           <h6>{user.email}</h6>
           <img src={user.photo} />
-          <Forms></Forms>
+          <Form />
       </div>
     );
   }else{
@@ -85,42 +85,36 @@ function App() {
           <h5>{user.name}</h5>
           <h6>{user.email}</h6>
           <img src={user.photo} />
-          <Forms></Forms>
+          <Form />
       </div>
     );
   }
 }
 
 
-function Forms(){
-  function submitFunc(){
-    console.log("Submit button")
+function Form(){
+  function submitFunc(event){
+    
+    event.preventDefault();
   }
 
-  function changeFunc(e){
-    console.log(e.target.name +" : "+e.target.value);
-    if(e.target.name=='email'){
-      const isEmailValid=/\S+@\S+\.\S+/.test(e.target.value);
-      console.log(isEmailValid);
-    }
-    if(e.target.name=="password"){
-      const isPasswordValid=e.target.value.length>6;
-      const passwordHasNumber=/\d{1}/.test(e.target.value);
-      console.log( isPasswordValid && passwordHasNumber)
-    }
+  function changeFunc(event){
+    console.log(event.target.name+" : "+event.target.value);
   }
+
   return(
-    <>
-          <form onSubmit={submitFunc}>
-              <input onBlur={changeFunc} type="text" name="email" placeholder="Enter Your Email" required/>
-              <br/>
-              <input onBlur={changeFunc} type="password" name="password" placeholder="Enter Your Password" required/>
-              <br/>
-              <input type="submit" value="Submit" />
-          </form>
-    </>
+      <form onSubmit={submitFunc}>
+          <input onBlur={changeFunc} type="text" name="name" placeholder="Enter Your Name" required/>
+          <br/>
+           
+          <input onBlur={changeFunc} type="text" name="email" placeholder="Enter Your Email" required/>
+          <br/>
+          <input onBlur={changeFunc} type="password" name="password" placeholder="Enter Your Password" required/>
+          <br/>
+          <input type="submit" value="Submit" />
+      </form> 
+
   )
 }
-
 
 export default App;

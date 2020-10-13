@@ -1,45 +1,77 @@
 import React, { useState, useEffect } from 'react';
 import { Button } from 'react-bootstrap';
 import uuid from "uuid";
+import TodoList from './TodoList';
 
 const Forms = (props) => {
+    
+    
+    const todos=props.todos;
+    console.log(todos)
+    function rand(){
+        var random=Math.random();
+        var num=1000* random.toFixed(5)
+        num=parseInt(num)
+        return num;
+    }
+
     const {addTodo}=props
     const [todo,setTodo]=useState({
         id:"",
         task:"",
-        completed:false
+        taskdetails:""
     });
 
     function onHandle(event){
-        setTodo({...todo,task:event.target.value});
+         var newItems={...todo};
+         var num=rand();
+         newItems.id=num;
+         if(event.target.name=="task"){
+             newItems.task=event.target.value.trim();
+         } else if(event.target.name=="taskdetails"){
+             newItems.taskdetails=event.target.value.trim();
+             
+         }
+
+         setTodo(newItems)    
     }
 
-    function submission(event){
-        event.preventDefault();
-        if(todo.task.trim()){
-            addTodo({...todo,id: uuid.v4()});
-            setTodo({ ...todo, task: "" });
+    console.log(todo);
+
+    function submission(e){
+        e.preventDefault();
+        if(todo.task!="" || todo.taskdetails!=""){
+            addTodo(todo);
+            document.getElementById("task").value="";
+            document.getElementById("taskdetails").value="";
+        }else{
+            alert("Enter Your Task");
         }
+        
     }
      
 
     return (
-        <form   className="container">
+        <>
+        <form onSubmit={submission}   className="container">
             
-            <div className="mx-auto" style={{width:"400px"}} controlId="formBasicEmail">
-                <input  onChange={onHandle}  name="task" value={todo.task} className="form-control" type="text" placeholder="Enter Task Name" />
+            <div  className="mx-auto" style={{maxWidth:"400px"}} controlId="formBasicEmail">
+                <input id="task" style={{height:"50px",borderRadius:"10px"}} onBlur={onHandle}  name="task"   className="form-control" type="text" placeholder="Enter Task Name"  required/>
             </div>
 
-            
+            <div className="mx-auto my-3" style={{maxWidth:"400px"}} controlId="formBasicEmail">
+                <input id="taskdetails"   class="form-control" style={{height:"80px",borderRadius:"10px"}} onBlur={onHandle} type="text" name="taskdetails" placeholder="Enter Task Details" required/>
+            </div>
 
-            <Button   className="mx-auto d-block btn-info" type="submit" value="Submit">Add Task</Button>
+            <Button id="add" style={{padding:"10px 40px",borderRadius:"40px",fontWeight:"700"}}   className="mx-auto d-block btn-success" type="submit" value="Submit">Add Task</Button>
         </form>
+
+
+        
+        </>
     );
 };
 
 export default Forms;
 
-
-{/* <div className="mx-auto my-3" style={{width:"400px"}} controlId="formBasicEmail">
-                <textarea onBlur={valueFunc} name="taskdetails" style={{height:"100px"}} className="form-control" type="textarea" placeholder="Enter Task Details" />
-            </div> */}
+  
