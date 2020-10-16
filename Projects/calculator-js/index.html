@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+</head>
+<body>
+    <div id="background" class="body"><!-- Main background -->
+             
+        <div id="result"> <span id="result-main"></span></div>
+             
+         <div id="main">
+             <div id="first-rows">
+              <button class="del-bg bg-danger" id="delete">Del</button>
+                 <button value="%" class="btn-style operator opera-bg fall-back">%</button>
+                 <button value="+" class="btn-style opera-bg value align operator">+</button>
+                 </div>
+                 
+               <div class="rows">
+             <button value="7" class="btn-style num-bg num first-child">7</button>
+                 <button value="8" class="btn-style num-bg num">8</button>
+                 <button value="9" class="btn-style num-bg num">9</button>
+                 <button value="-" class="btn-style opera-bg operator">-</button>
+                 </div>
+                 
+                 <div class="rows">
+                 <button value="4" class="btn-style num-bg num first-child">4</button>
+                 <button value="5" class="btn-style num-bg num">5</button>
+                 <button value="6" class="btn-style num-bg num">6</button>
+                 <button value="*" class="btn-style opera-bg operator">x</button>
+                 </div>
+                 
+                 <div class="rows">
+                 <button value="1" class="btn-style num-bg num first-child">1</button>
+                 <button value="2" class="btn-style num-bg num">2</button>
+                 <button value="3" class="btn-style num-bg num">3</button>
+                 <button value="/" class="btn-style opera-bg operator">/</button>
+                 </div>
+                 
+                 <div class="rows">
+                 <button value="0" class="num-bg zero" id="delete">0</button>
+                 <button value="." class="btn-style num-bg period fall-back">.</button>
+                 <button value="=" id="eqn-bg" class="eqn align">=</button>
+                 </div>
+                
+             </div>
+         
+         </div>
+        
+</body>
+<script src="script.js"></script>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s" crossorigin="anonymous"></script>
+</html>

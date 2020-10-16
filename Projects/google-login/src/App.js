@@ -4,7 +4,10 @@ import * as firebase from "firebase/app"; //import firebase library
 import "firebase/auth"; //import firebase authendication library
 import "firebase/firestore"; //import firebase firestore library
 import firebaseConfig from '../src/firebaseConfig'; //import firebase config library
-
+import 'bootstrap/dist/css/bootstrap.min.css';
+import Display from './components/Display';
+import Navigation from './components/Navigation';
+import Footer from './components/Footer';
 
 // initializing the firebase config library details
 firebase.initializeApp(firebaseConfig);
@@ -21,6 +24,8 @@ function App() {
     name:"",
     photo:"",
     email:"",
+    creates:"",
+    lastOnline:"",
     state:false
   })
 
@@ -34,12 +39,17 @@ function App() {
       console.log(res.user);
       //fetching the datas from google auth
       const {displayName,photoURL,email}=res.user;
+      var creationTime=res.user.metadata.creationTime;
+      var lastOnlineTime=res.user.metadata.lastSignInTime;
+
 
       // now setting the data in a object
       var info={
         name:displayName,
         photo:photoURL,
         email:email,
+        creates:creationTime,
+        lastOnline:lastOnlineTime,
         state:true
       }
       // now passing the object in the useState
@@ -58,6 +68,8 @@ function App() {
           name:"",
           photo:"",
           email:"",
+          creates:"",
+          lastOnline:"",
           state:false
         }
         setUser(info);
@@ -70,51 +82,31 @@ function App() {
 
   if(user.state===true){
     return (
+      <>
       <div className="App">
-         <button id="btn" onClick={()=>signOut()}>Sign Out</button>
-          <h5>{user.name}</h5>
-          <h6>{user.email}</h6>
-          <img src={user.photo} />
-          <Form />
+         <Navigation></Navigation>
+         <h4 id="h4-text" className="text-success">Your are successfully Signed In</h4>
+         <Display signOut={signOut} info={user}></Display>
+          
       </div>
+      <Footer></Footer>
+      </>
     );
   }else{
     return (
+      <>
       <div className="App">
-         <button id="btn" onClick={()=>signIn()}>Sign In</button>
-          <h5>{user.name}</h5>
-          <h6>{user.email}</h6>
-          <img src={user.photo} />
-          <Form />
+         <Navigation></Navigation>
+         <h4 id="h4-text">Press the Button Below to Sign in Using your Google Account</h4>
+         <button id="btn-signin" className="btn btn-success" onClick={()=>signIn()}>Sign In</button>
+         
       </div>
+      <Footer></Footer>
+      </>
     );
   }
 }
 
 
-function Form(){
-  function submitFunc(event){
-    
-    event.preventDefault();
-  }
-
-  function changeFunc(event){
-    console.log(event.target.name+" : "+event.target.value);
-  }
-
-  return(
-      <form onSubmit={submitFunc}>
-          <input onBlur={changeFunc} type="text" name="name" placeholder="Enter Your Name" required/>
-          <br/>
-           
-          <input onBlur={changeFunc} type="text" name="email" placeholder="Enter Your Email" required/>
-          <br/>
-          <input onBlur={changeFunc} type="password" name="password" placeholder="Enter Your Password" required/>
-          <br/>
-          <input type="submit" value="Submit" />
-      </form> 
-
-  )
-}
-
+ 
 export default App;

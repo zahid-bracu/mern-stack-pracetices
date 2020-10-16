@@ -1,39 +1,101 @@
 import React, { useState } from 'react';
 import logo from './logo.svg';
 import './App.css';
+// firebase imports
 import * as firebase from 'firebase/app';
 import "firebase/auth";
 import "firebase/firestore";
+
+// the config file import
 import firebaseConfig from './firebaseConfig';
+
+// the config file initialization
 firebase.initializeApp(firebaseConfig);
 
 
 function App() {
+  // this state is boolean used for hide/show a JSX file
+  const [flag,setFlag]=useState(false);
+
+  // this state is used for saving the user info directly from html page input field & form
   const [user,setUser]=useState({
   })
   
-  function submitFunc(e){
-    if(user.email && user.password && user.name){
-      console.log("Submitted");
-      console.log(user);
+  function submitFunc(e){ // e is taken to prevent default
+    if(flag && user.email && user.password && user.name){
       firebase.auth().createUserWithEmailAndPassword(user.email, user.password).then(res=>{
-        console.log(res);
+        //infos are taken from user state to newInfo
+        var newInfo={...user};
+
+        // a message is submitted with the newInfo Json file to the user state
+        newInfo.message="Submitted";
+        setUser(newInfo);
+        
+        //sending the name to firebase database
+        updateName(user.name)
+
       })
       .catch(function(error) {
         // Handle Errors here.
-        var errorCode = error.code;
+         
         var errorMessage = error.message;
-        console.log(errorMessage);
+
+        //infos are taken from user state to newInfo
         var newInfo={...user};
-        newInfo.error=errorMessage;
+
+        // a message is submitted with the newInfo Json file to the user state
+        newInfo.message=errorMessage;
         setUser(newInfo);
-        console.log(user);
+         
+        // ...
+      });
+    }else if(!flag && user.email && user.password){
+      firebase.auth().signInWithEmailAndPassword(user.email, user.password).then(res=>{
+        var newInfo={...user};
+        newInfo.message="Logged in"
+        setUser(newInfo);
+        getInfo();
+      })
+      .catch(function(error) {
+        // Handle Errors here.
+        var errorMessage = error.message;
+        var newInfo={...user};
+        newInfo.message=errorMessage;
+        setUser(newInfo);
         // ...
       });
     }
     e.preventDefault();
   }
 
+
+  function getInfo(){
+    var user = firebase.auth().currentUser;
+    var name, email;
+
+    if (user != null) {
+      name = user.displayName;
+      email = user.email;
+      console.log("Name :"+name);
+      console.log("Email : "+email);
+ 
+    }
+  }
+
+  function updateName(name){
+    var user = firebase.auth().currentUser;
+
+    user.updateProfile({
+      displayName: name,
+       
+    }).then(function() {
+      // Update successful.
+    }).catch(function(error) {
+      // An error happened.
+    });
+  }
+
+  // Form Validation check
   function changeFunc(e){
     console.log(e.target.name +" : "+e.target.value);
     let isFormValid=true;
@@ -61,7 +123,11 @@ function App() {
   return (
     <div className="App">
       <form onSubmit={submitFunc}>
-          <input onBlur={changeFunc} type="text" name="name" placeholder="Enter Your Name" required/>
+        
+          <input type="checkbox"  onChange={()=> setFlag(!flag)} name="newUser" value="newuser"/>
+          <label for="vehicle1"> New User</label><br></br>
+
+          {flag && <input onBlur={changeFunc} type="text" name="name" placeholder="Enter Your Name" required/>}
           <br/>
            
           <input onBlur={changeFunc} type="text" name="email" placeholder="Enter Your Email" required/>
@@ -75,7 +141,7 @@ function App() {
           <p>Name : {user.name}</p>
           <p>Email : {user.email}</p>
           <p>PassWord: {user.password}</p>
-          <p>{user.error}</p>
+          <p>{user.message}</p>
       </section>
     </div>
   );

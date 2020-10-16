@@ -1,0 +1,14 @@
+.card{
+    margin:0px auto;
+    display: block;
+    transform: scale(.86);
+    position: relative;
+    bottom:60px;
+    background-color: rgb(246, 252, 252);
+}
+
+
+.btn-signout{
+    display: block;
+    margin: 0px auto;
+}
