@@ -3,10 +3,13 @@ import  {getDatabaseCart,removeFromDatabaseCart,processOrder} from '../utilities
 import fakeData from '../fakeData';
 import ReviewItem from './ReviewItem';
 import FinalCart from './Cart/FinalCart';
+import { useHistory } from 'react-router-dom';
 const Review = () => {
     var imgURL="https://i.ibb.co/xCjPVxK/empty-cart-800x600-dribbble.webp";
     var gifURL="https://i.ibb.co/zRqsRNs/bye-bye-pikachu-icegif.gif";
     const [flag,setFlag]=useState(false);
+
+    const history=useHistory();
 
     const [cart,setCart]=useState([]);
     useEffect(()=>{
@@ -35,12 +38,13 @@ const Review = () => {
 
 
      function checked(){
-         setCart([]);
-         processOrder();
-         console.log(checked);
-         var checkedOutCart=getDatabaseCart();
-         console.log(checkedOutCart);
-         setFlag(true);
+         history.push('/shipment')
+        //  setCart([]);
+        //  processOrder();
+        //  console.log(checked);
+        //  var checkedOutCart=getDatabaseCart();
+        //  console.log(checkedOutCart);
+        //  setFlag(true);
      }
 
      if(flag==true && cart.length==0){
