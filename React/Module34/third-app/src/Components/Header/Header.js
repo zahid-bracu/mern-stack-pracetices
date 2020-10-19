@@ -13,6 +13,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Login from '../Login';
 import Registration from '../Registration';
 
+import { Route, Link } from "react-router-dom";
+
 //snippet
 const Header = () => {
     const [cart,setCart]=useState([]);
@@ -49,13 +51,13 @@ const Header = () => {
                 <Navbar.Toggle className="text-white"><FontAwesomeIcon icon={faAlignJustify} /></Navbar.Toggle>
                     <Navbar.Collapse id="basic-navbar-nav">
                             <Nav className="mr-auto">
-                            <Nav.Link href="/home">Home</Nav.Link>
-                            <Nav.Link href="/shop">Shop</Nav.Link>
-                            <Nav.Link href="https://portfolio-zahid-bracu.netlify.app/">Developer's Portfolio</Nav.Link>
-                            <Nav.Link href="https://github.com/zahid-bracu">Github</Nav.Link>
+                            <Link to="/home">Home</Link>
+                            <Link to="/shop">Shop</Link>
+                            <Nav.Link target="_blank" href="https://portfolio-zahid-bracu.netlify.app/">  Developer's Portfolio</Nav.Link>
+                            <Nav.Link target="_blank" href="https://github.com/zahid-bracu">Github</Nav.Link>
                             <Nav.Link > <Login></Login> </Nav.Link>
                             <Nav.Link > <Registration></Registration> </Nav.Link>
-                            <Nav.Link href="/review">Order Review</Nav.Link>
+                            <Link to="/review">Order Review</Link> 
                             </Nav>
                             <Nav className="ml-auto mr-5 d-flex">
                                 <Nav.Link href="/review">

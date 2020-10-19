@@ -19,6 +19,7 @@ import Home from './Components/Home';
 import Logins from './Components/Logins';
 import Shipment from './Components/Shipment';
 import {createContext} from 'react';
+import PrivateRoute from './Components/PrivateRoute';
 
 export const UserContext = React.createContext();
 
@@ -27,8 +28,9 @@ function App() {
   return (
     <UserContext.Provider value={[loggedInUser,setLoggedInUser]}>
       {loggedInUser.email}
-      <Header></Header>
+      
       <Router>{/*Router Whole Wrapper*/}
+      <Header></Header>
         <Switch>{/*Switch for other page*/}
           <Route path='/shop'>
             <Shop></Shop>
@@ -47,9 +49,9 @@ function App() {
             <Logins></Logins> {/*The Homepage*/}
           </Route>
 
-          <Route exact path='/shipment'> {/*This is default for Homepage...when the page is loaded*/}
-            <Shipment></Shipment> {/*The Homepage*/}
-          </Route>
+          <PrivateRoute exact path='/shipment'>  
+            <Shipment></Shipment>  
+          </PrivateRoute>
 
 
           <Route exact path='/'> {/*This is default for Homepage...when the page is loaded*/}

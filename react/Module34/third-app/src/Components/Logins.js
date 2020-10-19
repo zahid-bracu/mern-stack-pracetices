@@ -1,26 +1,37 @@
-import React, { useState,useContext } from 'react';
+import React, { useState,useContext  } from 'react';
+import { useHistory,useLocation } from "react-router-dom";
 import * as firebase from "../../node_modules/firebase/app";
 import "../../node_modules/firebase/auth"; //import firebase authendication library
 import "../../node_modules/firebase/firestore";
-import firebaseConfig from './firebaseConfig';
+import firebaseConfig from './firebaseConfig'; //firebase config file import
 import './style.css'
 import { Button,Form } from 'react-bootstrap';
-import {UserContext} from '../App';
+import {UserContext} from '../App'; // context API import from App
 
 
-firebase.initializeApp(firebaseConfig);
+firebase.initializeApp(firebaseConfig); //fire base config file import
 
 const Logins = () => {
 
     
 
-    const provider = new firebase.auth.GoogleAuthProvider();
+    const provider = new firebase.auth.GoogleAuthProvider(); //google sign in provider import
 
-    const [loggedInUser,setLoggedInUser]=useContext(UserContext)
+    const [loggedInUser,setLoggedInUser]=useContext(UserContext); // context API import
 
-    const [flag,setFlag]=useState(false)
+
+    // after logged in below code is used to redirect to real page
+    let history = useHistory(); // imported from react-router-dom
+    let location = useLocation(); // ||  ||
+
+    let { from } = location.state || { from: { pathname: "/" } };
+    // after logged in below code is used to redirect to real page
+
+
+    const [flag,setFlag]=useState(false) // boolean flag for hide/show a JSX tag
 
     const [user,setUser]=useState({
+        // use state for user information
         
       })
 
@@ -50,6 +61,7 @@ const Logins = () => {
         })
       }
 
+      // peronal sign up & sign in button
       function submitFunc(e){ // e is taken to prevent default
         if(flag && user.email && user.password && user.name){
           firebase.auth().createUserWithEmailAndPassword(user.email, user.password).then(res=>{
@@ -87,7 +99,12 @@ const Logins = () => {
             var newInfo={...user};
             newInfo.message="Logged in"
             setUser(newInfo);
+
+            // setting in the context API state
             setLoggedInUser(newInfo);
+
+            history.replace(from);
+
             getInfo();
 
             console.log("Works Sign In");
@@ -185,16 +202,11 @@ const Logins = () => {
 
         {
           flag && <Form.Group controlId="firstName">
-                  <Form.Label>First Name</Form.Label>
-                  <Form.Control name="name" onBlur={changeFunc} type="text" placeholder="Enter First Name" />
+                  <Form.Label>Full Name</Form.Label>
+                  <Form.Control name="name" onBlur={changeFunc} type="text" placeholder="Enter Your Full Name" />
                 </Form.Group>
         }
-          {
-            flag && <Form.Group controlId="lastName">
-                    <Form.Label>Last Name</Form.Label>
-                    <Form.Control name="lname" onBlur={changeFunc} type="text" placeholder="Enter Last Name" />
-                  </Form.Group>
-          }
+           
           
 
 
