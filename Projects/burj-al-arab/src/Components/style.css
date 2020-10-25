@@ -1,0 +1,22 @@
+.nav-item{
+    color:rgb(255, 255, 255) !important;
+    font-weight: 700;
+}
+
+/* .bg-banner{
+    background-image: url("https://i.ibb.co/sPNGmvc/bg.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 1000px;
+    background-size: cover;
+} */
+
+
+.img-design{
+    border-bottom:5px solid #343a40;
+    position: relative;
+}
+
+
+ 

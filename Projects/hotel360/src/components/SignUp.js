@@ -5,6 +5,12 @@ import "firebase/firestore";
 import './style.css';
 import firebaseConfig from './firebaseConfig';
 import { Button, Form } from 'react-bootstrap';
+import {
+    BrowserRouter as Router,
+    Switch,
+    Route,
+    Link, useHistory, useLocation
+  } from "react-router-dom";
 
 if (!firebase.apps.length) {
     firebase.initializeApp({});
@@ -90,6 +96,10 @@ const SignUp = () => {
                 <Button variant="primary" type="submit">
                     Submit
                 </Button>
+
+                <p className="text-center mt-4">Already have an account?  <span> <Link to='/login'>Sign in here</Link> </span></p>
+
+
                 <p className="message my-5 text-center text-success font-weight-bold">{user.message}</p>
             </Form>
         

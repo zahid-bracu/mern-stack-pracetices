@@ -5,11 +5,22 @@ import "firebase/firestore";
 import './style.css';
 import firebaseConfig from './firebaseConfig';
 import {UserContext} from '../App';
+import {
+    BrowserRouter as Router,
+    Switch,
+    Route,
+    Link, useHistory, useLocation
+  } from "react-router-dom";
+
 
 firebase.initializeApp(firebaseConfig);
 
 const Google = () => {
     const [user,setUser]=useContext(UserContext);
+
+    const history = useHistory();
+    const location = useLocation();
+    const { from } = location.state || { from: { pathname: "/login" } };
 
     const provider = new firebase.auth.GoogleAuthProvider();
     function loginGoogle(){
@@ -28,6 +39,7 @@ const Google = () => {
                 state:true
             }
             setUser(info);
+            history.replace(from);
           }).catch(function(error) {
             // Handle Errors here.
             var errorCode = error.code;

@@ -15,6 +15,8 @@ import {
 import Rooms from './components/Rooms';
 import  { addToDatabaseCart, getDatabaseCart, removeFromDatabaseCart, processOrder } from './components/databaseManager';
 import BookedRoom from './components/BookedRoom';
+import Payment from './components/Payment';
+import PrivateRoute from './components/PrivateRoute';
 
 
 export const RoomContext = React.createContext();
@@ -51,6 +53,10 @@ function App() {
             <Route path="/rooms">
               <Rooms/>
             </Route>
+
+            <PrivateRoute path="/payment">
+              <Payment/>
+            </PrivateRoute>
 
             <Route path="/booked">
               <BookedRoom/>

@@ -1,4 +1,10 @@
 import React, {useContext, useState} from 'react';
+import {
+    BrowserRouter as Router,
+    Switch,
+    Route,
+    Link, useHistory, useLocation
+  } from "react-router-dom";
 import { Button, Form } from 'react-bootstrap';
 import Google from './Google';
 import {UserContext} from '../App';
@@ -14,6 +20,11 @@ if (!firebase.apps.length) {
 const Login = () => {
     const [user,setUser]=useContext(UserContext);
     const [users,setUsers]=useState({});
+    const [msg,setMsg]=useState();
+
+    const history = useHistory();
+    const location = useLocation();
+    const { from } = location.state || { from: { pathname: "/login" } };
 
     
 
@@ -34,7 +45,9 @@ const Login = () => {
             var newInfo={
                 state:true
             }
+
             setUser(newInfo);
+            history.replace(from);
         })
         .catch(function(error) {
             // Handle Errors here.
@@ -42,6 +55,7 @@ const Login = () => {
             var errorMessage = error.message;
             // ...
             console.log(errorMessage);
+            setMsg(errorMessage);
           });
     }
     return (
@@ -68,7 +82,13 @@ const Login = () => {
             <Button variant="primary" type="submit">
                 Submit
             </Button>
+
+            <p className="my-2 text-center text-danger">{msg}</p>
+
             </Form>
+
+            <p className="text-center mb-5">New user? <span> <Link to='/signup'>Sign up here</Link> </span></p>
+
             <h5 className="text-center my-2">Or</h5>
             <Google></Google>
         </div>

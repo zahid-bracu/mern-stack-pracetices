@@ -4,6 +4,12 @@ import { useState,useContext } from 'react';
 import {RoomContext} from '../App';
 
 const RoomCard = (props) => {
+    function changeColor(e){
+        console.log('worked');
+        e.target.classList.remove("btn-warning");
+        e.target.classList.add("btn-secondary");
+        e.target.disabled=true;
+    }
     console.log(props)
     const {
         key,
@@ -41,16 +47,17 @@ const RoomCard = (props) => {
                 <Card.Footer className="d-flex justify-content-start align-items-center">
                     <h5>Price:</h5> <h4 className="ml-2"><span className="badge badge-pill badge-danger">{price}$</span></h4>
                     
-                    <Button  className="btn btn-warning text-white font-weight-bold  px-4 ml-5"
+                    <Button id="btn" className="btn btn-warning text-white font-weight-bold  px-4 ml-5"
                     onClick={(e)=>{
                         var info={
                             key:key
                         }
 
                         setBookedRoom(info);
-                         
+                        // alert(bedType+" Room has been selected")
+                         changeColor(e);
                     }}
-                    >Book</Button>
+                    >Select</Button>
                     
                 </Card.Footer>
                 </Card>

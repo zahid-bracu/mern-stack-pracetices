@@ -5,6 +5,13 @@ import { Button, Card, ListGroup, ListGroupItem } from 'react-bootstrap';
 import { useState } from 'react';
 import RoomCard from './RoomCard';
 
+import {
+    BrowserRouter as Router,
+    Switch,
+    Route,
+    Link
+  } from "react-router-dom";
+
 const Rooms = () => {
 
     // loading data from Database
@@ -15,7 +22,9 @@ const Rooms = () => {
     
     return (
         <div className="container mx-auto d-block mt-5">
+            <Link to="/booked"><button className="btn btn-info px-5 mb-4 mx-auto d-block">Click here to check your selected rooms</button></Link>
             <div className="row ">
+        
         {
             room.map(key=> <RoomCard  info={key}></RoomCard>)
         }
