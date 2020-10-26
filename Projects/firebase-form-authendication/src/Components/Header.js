@@ -1,6 +1,9 @@
-import React from 'react';
+import React, {useState,useContext} from 'react';
 import { Button, Nav, Navbar, NavDropdown, Form, FormControl } from 'react-bootstrap';
+import {information} from '../App';
 const Header = () => {
+    const [info,setInfo]=useContext(information);
+    console.log(info);
     return (
         <Navbar bg="light" expand="lg">
         <div className="container">
@@ -8,8 +11,12 @@ const Header = () => {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="mr-auto">
-            <Nav.Link href="#home">Home</Nav.Link>
-            <Nav.Link href="#link">Login</Nav.Link>
+            <Nav.Link target="_blank" href="https://portfolio-zahid-bracu.netlify.app/">Portfolio</Nav.Link>
+            <Nav.Link target="_blank" href="https://github.com/zahid-bracu">Github</Nav.Link>
+            {
+                !info && <Nav.Link href="#link" active>Login</Nav.Link>
+            }
+            
             </Nav>
             <Form inline>
             <FormControl type="text" placeholder="Search" className="mr-sm-2" />

@@ -2,6 +2,11 @@
   text-align: center;
 }
 
+.main{
+  background-image: url("https://i.ibb.co/mG2GKD5/main-bg-75595e910f3d7dba2adadf78e84fd2629a9fb3d0a086c51b70c048bfd3c23fbe.jpg");
+  min-height: 1000px;
+}
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;
