@@ -52,6 +52,12 @@ export default function RoomCard(props) {
     setExpanded(!expanded);
   };
 
+
+  function btnChange(e){
+    
+    e.target.classList.remove("btn-success");
+    e.target.classList.add("btn-dark");
+  }
   return (
     <div className="m-3">
         <Card className={classes.root}>
@@ -92,9 +98,12 @@ export default function RoomCard(props) {
         </IconButton>
 
         <button
-        onClick={()=>props.select(key)}
+        onClick={(e)=>{
+          props.select(key);
+          btnChange(e);
+        }}
         
-        type="button" class="btn btn-success">Book</button>
+        type="button" id="btn-select" class="btn btn-success">Select</button>
       </CardActions>
        
     </Card>

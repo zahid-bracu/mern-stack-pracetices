@@ -73,7 +73,7 @@ const Header = (props) => {
 
             <NavItem>
               <NavLink className="nav-item"  >
-                <Link className="custom-font" to="/booking">Booking List</Link>
+                <Link className="custom-font" to="/booking">Bookings</Link>
               </NavLink>
             </NavItem>
 
