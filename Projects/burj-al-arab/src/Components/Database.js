@@ -35,7 +35,7 @@ const Database = [
     {
         key:4,
         title: 'Friends Suit',
-        description: ' Have lots of in-room facilities and are designed in open-concept living area with big open wide room for 6 person',
+        description: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolor, maiores.',
         imgUrl: 'https://images.unsplash.com/photo-1576675784201-0e142b423952?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=752&q=80',
         bed: 3,
         capacity: 6,
