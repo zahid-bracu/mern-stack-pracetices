@@ -4,7 +4,7 @@ import Header from './Components/Header';
 import Banner from './Components/Banner';
 import Rooms from './Components/Rooms';
 import Login from './Components/Login';
-
+import PrivateRoute from './Components/PrivateRoute';
 
 import {
   BrowserRouter as Router,
@@ -15,6 +15,7 @@ import {
 
 import React, {createContext, useState} from 'react';
 import Booking from './Components/Booking';
+import Payment from './Components/Payment';
 
 export const UserContext = React.createContext();
 
@@ -38,13 +39,19 @@ function App() {
             <Banner />
           </Route>
 
+          <Route path="/payment">
+            <Payment />
+          </Route>
+
           <Route path="/room">
             <Rooms />
           </Route>
 
-          <Route path="/booking">
-            <Booking/>
-          </Route>
+          <PrivateRoute path="/booking">
+              <Booking/>
+          </PrivateRoute>
+
+           
           
           <Route path="/login">
             <Login />

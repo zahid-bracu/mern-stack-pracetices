@@ -52,10 +52,16 @@ const Header = (props) => {
             </NavItem>
 
             {
+              /*
+              {
               !user.state && <NavItem>
                               <NavLink  > <Link className="custom-font" to="/login">Login</Link> </NavLink>
                             </NavItem>
             }
+              */
+            }
+
+            
 
             {
               user.state && <NavItem>

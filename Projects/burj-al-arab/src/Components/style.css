@@ -13,6 +13,11 @@
     position: relative;
 }
 
+.text-book{
+    color:white;
+    text-decoration: inherit;
+}
+
 .custom-font{
     color:white !important;
     text-decoration: inherit !important;

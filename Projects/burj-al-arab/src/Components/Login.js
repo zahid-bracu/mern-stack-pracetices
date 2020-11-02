@@ -12,7 +12,9 @@ import {
     BrowserRouter as Router,
     Switch,
     Route,
-    Link
+    Link,
+    useHistory,
+    useLocation
   } from "react-router-dom";
   
 import React, {useState,useContext} from 'react';
@@ -35,6 +37,12 @@ const Login = () => {
     const [user,setUser]=useContext(UserContext);
 
     const classes = useStyles();
+
+    const history = useHistory();
+    const location = useLocation();
+    const { from } = location.state || { from: { pathname: "/login" } };
+
+
 
     function logoutGoogle(){
         firebase.auth().signOut().then(function() {
@@ -64,6 +72,7 @@ const Login = () => {
             }
 
             setUser(newInfo);
+            history.replace(from);
             // ...
              
 
@@ -89,6 +98,7 @@ const Login = () => {
 
             {
                 user.state && <div className={classes.root}>
+                <h3 className="text-center my-5 text-secondary"> {user.name} Logged in </h3>
                 <Button onClick={logoutGoogle} variant="contained" className="d-block mx-auto my-5" style={{padding:"10px 90px"}}> 
                 <span className="font-weight-bold text-secondary"> Logout</span>
                 </Button>             
