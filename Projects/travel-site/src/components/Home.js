@@ -1,6 +1,12 @@
 import React, { useState } from 'react';
 import Database from './Database';
 import ImageDisplay from './ImageDisplay';
+import {
+    BrowserRouter as Router,
+    Switch,
+    Route,
+    Link
+  } from "react-router-dom";
 
 const Home = () => {
     const [db,setDb]=useState(Database);
@@ -40,11 +46,18 @@ const Home = () => {
                 <h5>
                      {dis[0].name}
                 </h5>
-                <p>
-                   {dis[0].description}
+                <p >
+                    <span className="text-justify">
+                    {dis[0].description}
+                    </span>
+                   
                 </p>
                 {
-                    dis[0].key && <button className="btn btn-warning">Book Now</button>
+                    dis[0].key && <button className="btn btn-warning">
+                        <Link to={"/form/"+dis[0].key}>
+                        Book Now
+                        </Link>
+                    </button>
                 }
             </div>
             {

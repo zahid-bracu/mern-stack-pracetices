@@ -1,0 +1,33 @@
+.project-box{
+    transition: .1s;
+    max-width: 500px;
+    min-height: 200px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 50px rgb(201, 201, 201);
+}
+
+.project-box a{
+    text-decoration: inherit;
+
+}
+
+.project-box a:hover{
+    font-weight: bold;
+}
+
+.project-box:hover{
+    box-shadow: 5px 5px 15px rgb(187, 187, 187);
+    transform: scale(1.01);
+}
+
+.img-footer{
+    width: 70%;
+    border-radius: 50%;
+    border: 5px solid #3b5998;
+    box-shadow: 5px 5px 20px rgb(158, 158, 158);
+}
+
+.text-bold:hover{
+    font-weight: bold;
+     
+}

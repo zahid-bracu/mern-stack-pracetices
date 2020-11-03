@@ -11,6 +11,7 @@ import {
 import Home from './components/Home';
 import Login from './components/Login';
 import Contact from './components/Contact';
+import FormPage from './components/FormPage';
 
 function App() {
   return (
@@ -29,6 +30,10 @@ function App() {
 
           <Route path="/contact">
             <Contact></Contact>
+          </Route>
+
+          <Route path="/form/:key">
+            <FormPage></FormPage>
           </Route>
         </Switch>
        

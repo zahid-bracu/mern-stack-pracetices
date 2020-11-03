@@ -1,0 +1,22 @@
+.img-display{
+    position: relative;
+    z-index: 9;
+}
+
+.name-header{
+    position: relative;
+    z-index: 10;
+    bottom: 70px;
+    left:20px;
+    text-decoration: inherit;
+    color: white;
+}
+
+.google-button{
+    color: black !important;
+    background-color: white !important;
+    outline: none !important;
+}
+.google-button:hover{
+    transform: scale(1.02);
+}

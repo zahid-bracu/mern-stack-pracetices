@@ -1,4 +1,12 @@
 import React from 'react';
+import {
+    BrowserRouter as Router,
+    Switch,
+    Route,
+    Link,
+    useParams
+  } from "react-router-dom";
+import './style.css';
 
 const ImageDisplay = (props) => {
     const {key,photo,name,description}=props.db;
@@ -7,7 +15,11 @@ const ImageDisplay = (props) => {
     // onClick={()=>props.display(props.db.key)}
     return (
         <div className="col-3">
-            <img src={photo} onMouseEnter={()=>display(key)}  style={{width:"250px"}}/>
+            <Link to={"/form/"+key}>
+              <img src={photo} className="img-display" onMouseEnter={()=>display(key)}  style={{width:"250px"}}/>
+                <h2 className="name-header">{name}</h2>
+            </Link>
+            
         </div>
     );
 };
