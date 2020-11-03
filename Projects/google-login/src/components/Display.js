@@ -6,7 +6,7 @@ const Display = (props) => {
     const {name,photo,email,creates,lastOnline}=props.info;
     return (
         <Card className="" style={{ width: '28rem', padding:"15px 20px" }}>
-        <Card.Img variant="top" src={photo} />
+        <Card.Img variant="top" src={photo} className="d-block mx-auto" style={{width:"150px",borderRadius:"50%"}} />
         <Card.Body>
             <Card.Title>{name}</Card.Title>
             <Card.Text>
@@ -20,8 +20,8 @@ const Display = (props) => {
              
         </ListGroup>
         <Card.Body className="text-center">
-            <Card.Link href="https://portfolio-zahid-bracu.netlify.app/">Portfolio</Card.Link>
-            <Card.Link href="https://github.com/zahid-bracu">Github</Card.Link>
+            <Card.Link target="_blank" href="https://portfolio-zahid-bracu.netlify.app/">Portfolio</Card.Link>
+            <Card.Link target="_blank" href="https://github.com/zahid-bracu">Github</Card.Link>
         </Card.Body>
         <Button className="btn btn-lg btn-danger btn-signout" onClick={()=>props.signOut()}>Sign Out</Button>
         </Card>
