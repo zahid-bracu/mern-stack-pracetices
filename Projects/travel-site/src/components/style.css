@@ -20,3 +20,10 @@
 .google-button:hover{
     transform: scale(1.02);
 }
+
+.rooms-card{
+    color:rgb(58, 58, 58);
+    
+    border-radius: 10px;
+    max-width: 1000px;
+}

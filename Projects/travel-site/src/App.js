@@ -12,32 +12,48 @@ import Home from './components/Home';
 import Login from './components/Login';
 import Contact from './components/Contact';
 import FormPage from './components/FormPage';
+import React, { useState, createContext } from 'react';
+import Rooms from './components/Rooms';
 
+
+export const UserContext = React.createContext();
 function App() {
+
+  const [user,setUser]=useState({
+    name:"",
+    email:"",
+    state:false
+  });
+  console.log(user)
   return (
     <>
-    
-    <Router>
-    <Header></Header>
-        <Switch>
-          <Route path="/home">
-            <Home></Home>
-          </Route>
+    <UserContext.Provider value={[user,setUser]}>
+      <Router>
+      <Header></Header>
+          <Switch>
+            <Route path="/home">
+              <Home></Home>
+            </Route>
 
-          <Route path="/login">
-            <Login></Login>
-          </Route>
+            <Route path="/login">
+              <Login></Login>
+            </Route>
 
-          <Route path="/contact">
-            <Contact></Contact>
-          </Route>
+            <Route path="/rooms/:name">
+              <Rooms></Rooms>
+            </Route>
 
-          <Route path="/form/:key">
-            <FormPage></FormPage>
-          </Route>
-        </Switch>
-       
-    </Router>
+            <Route path="/contact">
+              <Contact></Contact>
+            </Route>
+
+            <Route path="/form/:key">
+              <FormPage></FormPage>
+            </Route>
+          </Switch>
+        
+      </Router>
+    </UserContext.Provider>
     </>
   );
 }

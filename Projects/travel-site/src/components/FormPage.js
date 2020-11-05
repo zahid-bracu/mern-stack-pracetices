@@ -5,7 +5,8 @@ import {
     Switch,
     Route,
     Link,
-    useParams
+    useParams,
+    useHistory
   } from "react-router-dom";
 import Database from './Database';
 
@@ -24,6 +25,13 @@ const FormPage = () => {
         setDis(items);
       },[]);
       console.log(dis);
+
+      let history = useHistory();
+
+      function goRooms(key,name){
+         
+        history.push(`/rooms/${name}`);
+      }
     
     return (
         <div className="row justify-content-center align-items-center">
@@ -59,9 +67,11 @@ const FormPage = () => {
                 <Form.Group controlId="formBasicCheckbox">
                     <Form.Check type="checkbox" label="Check me out" />
                 </Form.Group>
-                <Button variant="primary" type="submit">
+
+                <Button variant="primary" onClick={()=>goRooms(dis[0].key,dis[0].name)}  type="submit">
                     Submit
                 </Button>
+
             </Form>
             </div>
         </div>

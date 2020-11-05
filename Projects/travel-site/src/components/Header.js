@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useContext,useState} from 'react';
 import { Button,Nav, Navbar, NavDropdown, NavDropdownProps, Form, FormControl } from 'react-bootstrap';
 import {
     BrowserRouter as Router,
@@ -6,11 +6,13 @@ import {
     Route,
     Link
   } from "react-router-dom";
+  import {UserContext} from '../App';
 
 const Header = () => {
+    const [user,setUser]=useContext(UserContext);
     const imgUrl="https://i.ibb.co/z6H0pdq/Logo.png";
     return (
-        <Navbar bg="light" expand="lg">
+        <Navbar className="sticky-top" bg="light" expand="lg">
         <div className="container">
         <Navbar.Brand href="#home">
             <img src={imgUrl} style={{width:"80px"}} />
@@ -25,11 +27,11 @@ const Header = () => {
                 </Link>    
             </Nav.Link>
 
-            <Nav.Link  >
-                <Link to="/login">
-                    Login
-                </Link>    
-            </Nav.Link>
+             
+
+            
+
+            
 
             <Nav.Link  >
                 <Link to="/contact">
@@ -50,10 +52,24 @@ const Header = () => {
             
              
             </Nav>
-            <Form inline>
-            <FormControl type="text" placeholder="Search" className="mr-sm-2" />
-            <Button variant="outline-success">Search</Button>
-            </Form>
+
+            <Nav className="ml-auto">
+
+            <Nav.Link  >
+                {user.name}    
+            </Nav.Link>
+            {user.state ? <Nav.Link  >
+                <Link to="/login">
+                    Logout
+                </Link>    
+            </Nav.Link> :
+            <Nav.Link  >
+                <Link to="/login">
+                    Login
+                </Link>    
+            </Nav.Link>}
+            </Nav>
+             
         </Navbar.Collapse>
 
         </div>
