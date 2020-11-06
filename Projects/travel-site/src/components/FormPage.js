@@ -11,6 +11,12 @@ import {
 import Database from './Database';
 
 const FormPage = () => {
+
+    const [date,setDate]=useState({
+        start:"",
+        end:""
+    })
+
     const {key}=useParams();
     console.log(key);
     const [db,setDb]=useState(Database);
@@ -25,6 +31,27 @@ const FormPage = () => {
         setDis(items);
       },[]);
       console.log(dis);
+
+      function dateValue(e){
+          let value=false;
+          if(e.target.name=="dateOne"){
+            console.log("Start Date : "+e.target.value);
+            var info={
+                start:e.target.value
+            }
+            setDate(info);
+          }
+          if(e.target.name=="dateTwo"){
+            console.log("End Date : "+e.target.value);
+            var info={
+                end:e.target.value
+            }
+            setDate(info);
+          }
+           
+
+      }
+      console.log(date);
 
       let history = useHistory();
 
@@ -55,12 +82,12 @@ const FormPage = () => {
 
                 <Form.Group controlId="fromDate">
                     <Form.Label>From</Form.Label>
-                    <Form.Control type="date" />
+                    <Form.Control type="date" name="dateOne" onBlur={dateValue}  />
                 </Form.Group>
 
                 <Form.Group controlId="toDate">
                     <Form.Label>To</Form.Label>
-                    <Form.Control type="date" />
+                    <Form.Control type="date" name="dateTwo" onBlur={dateValue}  />
                 </Form.Group>
 
                  
