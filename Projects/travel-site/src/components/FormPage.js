@@ -12,7 +12,10 @@ import Database from './Database';
 
 const FormPage = () => {
 
-    const [date,setDate]=useState({})
+    const [date,setDate]=useState({
+        dateOne:null,
+        dateTwo:null
+    })
 
     const {key}=useParams();
     console.log(key);
@@ -46,11 +49,31 @@ const FormPage = () => {
       }
       console.log(date);
 
+      
+
       let history = useHistory();
 
-      function goRooms(key,name){
+      function submitInfo(e){
+        if(date.dateOne!=null && date.dateTwo!=null){
+        }else{
+            e.preventDefault();
+            document.getElementById('msg').innerText="Please select starting and ending date";
+        }
+      }
+
+      function goRooms(key,name,e){
+        if(date.dateOne!=null && date.dateTwo!=null){
+            console.log("Not Null");
+            history.push(`/rooms/${name}`);
+            document.getElementById('msg').innerText="";
+            
+        }else{
+            console.log("Null");
+            // document.getElementById('msg').innerText="Please select starting and ending date";
+            
+        }
          
-        history.push(`/rooms/${name}`);
+        
       }
     
     return (
@@ -61,7 +84,7 @@ const FormPage = () => {
                     <p style={{maxWidth:"360px"}} className="d-block text-justify mx-auto">{dis[0].description}</p>
             </div>
             <div className="col-5">
-            <Form style={{maxWidth:"300px"}}>
+            <Form onSubmit={submitInfo}  style={{maxWidth:"300px"}}>
                 
                 <Form.Group controlId="formOrigin">
                     <Form.Label>Origin</Form.Label>
@@ -88,10 +111,10 @@ const FormPage = () => {
                     <Form.Check type="checkbox" label="Check me out" />
                 </Form.Group>
 
-                <Button variant="primary" onClick={()=>goRooms(dis[0].key,dis[0].name)}  type="submit">
+                <Button variant="primary" onClick={()=>goRooms(dis[0].key,dis[0].name)} type="submit">
                     Submit
                 </Button>
-
+                <p id="msg" className="text-danger text-center my-3 font-weight-bold"></p>
             </Form>
             </div>
         </div>
