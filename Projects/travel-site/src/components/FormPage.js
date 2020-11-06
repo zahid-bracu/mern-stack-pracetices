@@ -12,10 +12,7 @@ import Database from './Database';
 
 const FormPage = () => {
 
-    const [date,setDate]=useState({
-        start:"",
-        end:""
-    })
+    const [date,setDate]=useState({})
 
     const {key}=useParams();
     console.log(key);
@@ -36,20 +33,16 @@ const FormPage = () => {
           let value=false;
           if(e.target.name=="dateOne"){
             console.log("Start Date : "+e.target.value);
-            var info={
-                start:e.target.value
-            }
+            var info={...date};
+            info[e.target.name]=e.target.value;
             setDate(info);
           }
           if(e.target.name=="dateTwo"){
             console.log("End Date : "+e.target.value);
-            var info={
-                end:e.target.value
-            }
+            var info={...date};
+            info[e.target.name]=e.target.value;
             setDate(info);
           }
-           
-
       }
       console.log(date);
 
