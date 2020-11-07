@@ -14,6 +14,7 @@ import Contact from './components/Contact';
 import FormPage from './components/FormPage';
 import React, { useState, createContext } from 'react';
 import Rooms from './components/Rooms';
+import BookedRoom from './components/BookedRoom';
 
 
 export const UserContext = React.createContext();
@@ -42,6 +43,11 @@ function App() {
             <Route path="/rooms/:name">
               <Rooms></Rooms>
             </Route>
+
+            <Route path="/booked">
+              <BookedRoom></BookedRoom>
+            </Route>
+
 
             <Route path="/contact">
               <Contact></Contact>

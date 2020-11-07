@@ -39,6 +39,16 @@ const Header = () => {
                 </Link>    
             </Nav.Link>
 
+            {
+                user.state &&
+                <Nav.Link  >
+                    <Link to="/booked">
+                        Booked Room
+                    </Link>    
+                </Nav.Link>
+            }
+            
+
             <Nav.Link target="_blank" href="https://portfolio-zahid-bracu.netlify.app/" >
                     Portfolio
             </Nav.Link>
