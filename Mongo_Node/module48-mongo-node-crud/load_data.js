@@ -15,22 +15,36 @@ const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology:
 // below code for post and get data
 client.connect(err => {
   const collection = client.db("newDB").collection("testDB");
+
+  app.get('/products',(req,res)=>{
+    collection.find({})
+    .toArray((err,document)=>{
+        {
+            res.send(document);
+        }
+    })
+    })
   
+//  moving to add product page
   app.post('/addProduct',(req,res)=>{
-      const product=req.body;
+      const product=req.body; // getting the form input
       console.log(product);
       
+      //passing the form input in db
       collection.insertOne(product)
       .then(result=>{
-      console.log("Added");
-      res.send("Success");})
-      
+      console.log("Added"); // checking the success
+      res.send("Success");}) // this page will show in /addProduct page
+
   })
+
+  
 });
 
 
+// setting page
 app.get('/',(req,res)=>{
     res.sendFile(__dirname+'/index.html');
 })
 
-app.listen(4200);
+app.listen(3000);
