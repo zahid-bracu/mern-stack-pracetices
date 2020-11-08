@@ -1,0 +1,45 @@
+.wrapper{
+ 
+  width: 224px;
+  height: 337px;
+  z-index: 99;
+}
+
+
+.card {
+  height: 337px;
+  width: 224px;
+  padding: 16.8px;
+  display: block;
+ 
+}
+.titles {
+  width: 195px;
+  height: 51px;
+  display: block;
+  border: none;
+}
+.footers {
+  height: 18px;
+  width: 195px;
+}
+.btn-cust {
+  border-radius: 20px !important;
+  background-color: yellow !important;
+  border: none;
+  position: absolute;
+  top:150px;
+  left:50px;
+  display: none !important;
+}
+
+
+
+.wrapper:hover .btn-cust{
+  display: block !important;
+  z-index: 100;
+}
+
+.wrapper:hover .card{
+  display: none;
+}
