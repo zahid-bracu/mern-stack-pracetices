@@ -39,13 +39,13 @@
                 console.log(data);
                 data.forEach(element => {
                     var elem=document.createElement('p');
-                    elem.innerHTML=`<span>${element.name} : ${element.email}</span> <button onclick="deleteItem('${element._id}')">Remove</button>   <button onclick="updateItem('${element._id}')">Update</button>`;
+                    elem.innerHTML=`<span>${element.name} : ${element.email}</span> <button onclick="deleteItem('${element._id}')">Remove</button>   <button onclick="showItem('${element._id}')">Update</button>`;
                     document.getElementById('info').appendChild(elem);
                 });
                 
             }
 
-            function updateItem(id){
+            function showItem(id){
                 console.log(id);
 
                 fetch(`/product/${id}`)
@@ -60,11 +60,14 @@
                     </br>
                     Email: <input type="text" value=${email}/>
                     </br>
-                    <input type="submit"/>
+                    <input onclick="update()" type="submit"/>
                     `
                 })
             }
 
+            function update(){
+                console.log("Updating");
+            }
 
 
             // delete data

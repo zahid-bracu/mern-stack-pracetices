@@ -29,7 +29,7 @@ client.connect(err => {
     })
     })
   
-//  post data as 
+ //post data as one data
   app.post('/addProduct',(req,res)=>{
       const product=req.body; // getting the form input
       console.log(product);
@@ -43,25 +43,23 @@ client.connect(err => {
   })
 
 
-//   delete data
-  app.delete('/delete/:id', (req,res)=>{
-      console.log(req.params.id);
-      collection.deleteOne({_id:ObjectID(req.params.id)})
-      .then(result=>{
-          console.log(result);
-      })
-  })
-
-// update data
-
-app.get('/product/:id',(req,res)=>{
-    collection.find({_id:ObjectID(req.params.id)})
-    .toArray((err,docs)=>{
-        res.send(docs[0])
+    //delete data
+    app.delete('/delete/:id', (req,res)=>{
+        console.log(req.params.id);
+        collection.deleteOne({_id:ObjectID(req.params.id)})
+        .then(result=>{
+            console.log(result);
+        })
     })
-})
 
-  
+    //update data
+    app.get('/product/:id',(req,res)=>{
+        collection.find({_id:ObjectID(req.params.id)})
+        .toArray((err,docs)=>{
+            res.send(docs[0])
+        })
+    })
+
 });
 
 

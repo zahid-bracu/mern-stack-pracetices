@@ -1,9 +1,14 @@
 import React, {useState,useContext} from 'react';
 import { Button, Nav, Navbar, NavDropdown, Form, FormControl } from 'react-bootstrap';
 import {information} from '../App';
+
+
 const Header = () => {
     const [info,setInfo]=useContext(information);
+    
     console.log(info);
+
+
     return (
         <Navbar bg="light" expand="lg">
         <div className="container">

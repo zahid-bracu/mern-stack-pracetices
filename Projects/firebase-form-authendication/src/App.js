@@ -10,9 +10,10 @@ import React, {createContext, useState} from 'react';
 export const information = React.createContext();
 
 function App() {
-  const [info,setInfo]=useState(false)
+  const [info,setInfo]=useState(false);
    
   return (
+    
     <information.Provider value={[info,setInfo]}>
       <div className="main">
         <Header></Header>
