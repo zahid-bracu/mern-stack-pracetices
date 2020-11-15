@@ -10,6 +10,7 @@ const RoomsCard = (props) => {
         e.target.classList.add("btn-secondary");
         console.log(key);
         addToDatabaseCart(key,1);
+         
     }
     return (
         <div className=" my-5 rooms-card row justify-content-between align-items-center">

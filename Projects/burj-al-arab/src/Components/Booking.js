@@ -42,6 +42,11 @@ const Booking = () => {
 
     const imgUrl="https://i.ibb.co/gVfB0nX/book-now-red-stamp-text-white-47585028.jpg";
 
+    function checkOut(){
+        console.log("Order Processing");
+        processOrder();
+    }
+
     return (
         <div className="container">
             <Card className="d-block mx-auto" style={{ width: '20rem' }}>
@@ -56,9 +61,9 @@ const Booking = () => {
                         Total Room Selected : {length}
                     </Card.Text>
                     <Card.Title className="text-center"> Total Amount : {sum}$</Card.Title>
-                    <Button variant="danger" className="d-block mx-auto px-5">
+                    <Button onClick={()=> checkOut} variant="danger" className="d-block mx-auto px-5">
                         <Link to="/payment">
-                            <span className="text-book">Book</span>
+                            <span className="text-book" >Book</span>
                         </Link>
                     </Button>
                     </>

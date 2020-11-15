@@ -15,6 +15,9 @@ import FormPage from './components/FormPage';
 import React, { useState, createContext } from 'react';
 import Rooms from './components/Rooms';
 import BookedRoom from './components/BookedRoom';
+import CheckOut from './components/CheckOut';
+import PaymentPage from './components/PaymentPage';
+import PrivateRoute from './components/PrivateRoute';
 
 
 export const UserContext = React.createContext();
@@ -27,11 +30,13 @@ function App() {
   });
   console.log(user)
   return (
-    <>
+    <div className="main">
     <UserContext.Provider value={[user,setUser]}>
-      <Router>
+      <Router >
       <Header></Header>
           <Switch>
+          
+
             <Route path="/home">
               <Home></Home>
             </Route>
@@ -40,12 +45,27 @@ function App() {
               <Login></Login>
             </Route>
 
-            <Route path="/rooms/:name">
+
+            
+            <PrivateRoute path="/rooms/:name">
+                <Rooms></Rooms>
+            </PrivateRoute>
+
+
+            {/* <Route path="/rooms/:name">
               <Rooms></Rooms>
+            </Route> */}
+
+            <Route path="/paymentPage">
+              <PaymentPage></PaymentPage>
             </Route>
 
             <Route path="/booked">
               <BookedRoom></BookedRoom>
+            </Route>
+
+            <Route path="/checkout">
+              <CheckOut></CheckOut>
             </Route>
 
 
@@ -56,11 +76,15 @@ function App() {
             <Route path="/form/:key">
               <FormPage></FormPage>
             </Route>
+
+            <Route path="/">
+              <Home></Home>
+            </Route>
           </Switch>
         
       </Router>
     </UserContext.Provider>
-    </>
+    </div>
   );
 }
 

@@ -41,23 +41,27 @@ const Home = () => {
     return (
         <div className="container">
             
-            <div className="row">
-            <div className="col-3 my-5 text-center justify-item-center align-items-center">
-                <h5>
+            <div className="row mt-5">
+             <div className="col-lg-3 col-md-12 col-sm-12 col-12 my-5 text-center justify-item-center align-items-center">
+                <h5 className=" text-white">
                      {dis[0].name}
                 </h5>
                 <p >
-                    <span className="text-justify">
+                    <span className="text-justify text-white">
                     {dis[0].description}
                     </span>
                    
                 </p>
                 {
-                    dis[0].key && <button className="btn btn-warning">
-                        <Link to={"/form/"+dis[0].key}>
+                    dis[0].key && 
+                    <>
+                    <Link style={{textDecoration:"inherit",color:"black"}} to={"/form/"+dis[0].key}>
+                    <button className="btn btn-warning">
+                       
                         Book Now
-                        </Link>
+                        
                     </button>
+                    </Link> </>
                 }
             </div>
             {

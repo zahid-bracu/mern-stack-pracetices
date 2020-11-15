@@ -80,8 +80,8 @@ const FormPage = () => {
         <div className="row justify-content-center align-items-center">
             <div className="col-7 text-center">
                 <img src={dis[0].photo} style={{maxWidth:"120px"}} />
-                <h2>{dis[0].name}</h2>
-                    <p style={{maxWidth:"360px"}} className="d-block text-justify mx-auto">{dis[0].description}</p>
+                <h2 style={{textDecoration:"inherit",color:"white"}}>{dis[0].name}</h2>
+                    <p style={{maxWidth:"360px",color:"white"}} className="d-block text-justify mx-auto">{dis[0].description}</p>
             </div>
             <div className="col-5">
             <Form onSubmit={submitInfo}  style={{maxWidth:"300px"}}>
@@ -113,7 +113,15 @@ const FormPage = () => {
 
                 <Button variant="primary" onClick={()=>goRooms(dis[0].key,dis[0].name)} type="submit">
                     Submit
-                </Button>
+                </Button> 
+
+                <Link className="text-white ml-2" to="/home">
+                <Button variant="danger">
+                Back to Homepage  
+                </Button></Link>
+                
+                
+                
                 <p id="msg" className="text-danger text-center my-3 font-weight-bold"></p>
             </Form>
             </div>

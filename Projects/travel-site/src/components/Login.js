@@ -1,4 +1,4 @@
-import React, {useState,useContext} from 'react';
+ 
 import GoogleButton from 'react-google-button'
 import './style.css';
 import firebase from "firebase/app";
@@ -7,6 +7,19 @@ import "firebase/firestore";
 import firebaseConfig from './firebaseConfig';
 import {UserContext} from '../App';
 import { Button } from 'react-bootstrap';
+
+import React, { useContext, createContext, useState } from "react";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link,
+  Redirect,
+  useHistory,
+  useLocation
+} from "react-router-dom";
+
+
 firebase.initializeApp(firebaseConfig);
 
 
@@ -15,6 +28,11 @@ const Login = () => {
     console.log(user);
     var provider = new firebase.auth.GoogleAuthProvider();
 
+
+    
+const history = useHistory();
+const location = useLocation();
+const { from } = location.state || { from: { pathname: "/login" } };
 
     function loginGoogle(){
         firebase.auth().signInWithPopup(provider).then(function(result) {
@@ -30,7 +48,9 @@ const Login = () => {
                 email:email,
                 state:state
             }
+            
             setUser(temp)
+            history.replace(from);
 
             // ...
           }).catch(function(error) {
@@ -60,8 +80,12 @@ const Login = () => {
     return (
         <>
         {
-            !user.state && <GoogleButton className="google-button d-block mx-auto my-5"
+            !user.state && 
+            <div>
+                <h6 className="text-center my-5">You must login with your google account or gmail</h6>
+                <GoogleButton className="google-button d-block mx-auto my-5"
             onClick={ loginGoogle }/>
+            </div>
         }
         
         {

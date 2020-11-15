@@ -6,7 +6,7 @@ const BookedRoomCard = (props) => {
 
     const {key,title,photo,rooms,rating,price,service}=props.data;
     return (
-        <div className=" mx-4">
+        <div className="m-3">
             <Card style={{ width: '18rem' }}>
             <Card.Img variant="top" src={photo} />
             <Card.Body>

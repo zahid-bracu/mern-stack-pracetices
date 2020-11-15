@@ -10,7 +10,7 @@ app.use(bodyParser.json()) // use for post data
 const { ObjectID } = require('mongodb'); // use to compare id in the db + connect mongo
 
 const MongoClient = require('mongodb').MongoClient; //use for connect mongo
-const uri = "mongodb+srv://demoUser:9augustbd@cluster0.rwjuz.mongodb.net/newDB?retryWrites=true&w=majority"; // use for connect mongo
+const uri = "mongodb+srv://demoUser:9augustbd@cluster0.rwjuz.mongodb.net/newDB?retryWrites=true&w=majority"; // demoUser is database // use for connect mongo
 const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true }); // use for connect mongo
 
 

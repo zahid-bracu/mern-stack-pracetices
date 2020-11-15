@@ -27,3 +27,20 @@
     border-radius: 10px;
     max-width: 1000px;
 }
+
+.nav-hover{
+    transition: .2s;
+}
+
+.nav-hover:hover{
+    transform: scale(1.15);
+}
+
+
+.mainBox{
+    transition: .4s;
+}
+.mainBox:hover{
+    transform: scale(1.02);
+     
+}

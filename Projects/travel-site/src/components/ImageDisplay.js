@@ -14,12 +14,11 @@ const ImageDisplay = (props) => {
 
     // onClick={()=>props.display(props.db.key)}
     return (
-        <div className="col-3">
-            <Link to={"/form/"+key}>
-              <img src={photo} className="img-display" onMouseEnter={()=>display(key)}  style={{width:"250px"}}/>
-                <h2 className="name-header">{name}</h2>
+        <div className="col-3 ">
+            <Link className="" style={{textDecoration:"inherit",color:"white"}} to={"/form/"+key}>
+              <img src={photo} className="img-display mainBox" onMouseEnter={()=>display(key)}  style={{width:"250px"}}/>
+                <h2  className="name-header">{name}</h2>
             </Link>
-            
         </div>
     );
 };
