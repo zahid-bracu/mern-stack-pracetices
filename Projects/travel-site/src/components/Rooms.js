@@ -51,9 +51,9 @@ const Rooms = () => {
         <div class="container">
 
         
-            <h4 class="text-center mt-5">Stays in {name}</h4>
+            <h4 style={{color:"white"}} class="text-center mt-5">Stays in {name}</h4>
             <Link style={{textDecoration:"inherit",color:"black"}} class="text-white" to="/booked">
-              <button class="btn btn-info px-5 mx-auto d-block my-4">
+              <button style={{color:"white"}} class="btn btn-info px-5 mx-auto d-block my-4">
   
                 Check your booked room
                 </button>

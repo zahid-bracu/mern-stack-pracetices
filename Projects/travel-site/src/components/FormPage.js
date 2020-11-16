@@ -78,37 +78,37 @@ const FormPage = () => {
     
     return (
         <div className="row justify-content-center align-items-center">
-            <div className="col-7 text-center">
+            <div className="col-lg-7 col-md-12 col-sm-12 col-12 text-center">
                 <img src={dis[0].photo} style={{maxWidth:"120px"}} />
                 <h2 style={{textDecoration:"inherit",color:"white"}}>{dis[0].name}</h2>
                     <p style={{maxWidth:"360px",color:"white"}} className="d-block text-justify mx-auto">{dis[0].description}</p>
             </div>
-            <div className="col-5">
-            <Form onSubmit={submitInfo}  style={{maxWidth:"300px"}}>
+            <div className="col-lg-5 col-md-12 col-sm-12 col-12">
+            <Form style={{color:"white"}} onSubmit={submitInfo}  style={{maxWidth:"300px"}} className="d-block mx-auto">
                 
                 <Form.Group controlId="formOrigin">
-                    <Form.Label>Origin</Form.Label>
+                    <Form.Label className="font-weight-bold" style={{color:"white"}}>Origin</Form.Label>
                     <Form.Control type="text" value="Dhaka" disabled="disabled" />
                 </Form.Group>
 
                 <Form.Group controlId="formDestination">
-                    <Form.Label>Destination</Form.Label>
+                    <Form.Label className="font-weight-bold" style={{color:"white"}}>Destination</Form.Label>
                     <Form.Control type="text" value={dis[0].name} disabled="disabled" />
                 </Form.Group>
 
                 <Form.Group controlId="fromDate">
-                    <Form.Label>From</Form.Label>
+                    <Form.Label className="font-weight-bold" style={{color:"white"}}>From</Form.Label>
                     <Form.Control type="date" name="dateOne" onBlur={dateValue}  />
                 </Form.Group>
 
                 <Form.Group controlId="toDate">
-                    <Form.Label>To</Form.Label>
+                    <Form.Label className="font-weight-bold" style={{color:"white"}}>To</Form.Label>
                     <Form.Control type="date" name="dateTwo" onBlur={dateValue}  />
                 </Form.Group>
 
                  
                 <Form.Group controlId="formBasicCheckbox">
-                    <Form.Check type="checkbox" label="Check me out" />
+                    <Form.Check style={{color:"white"}} type="checkbox" label="Check me out" />
                 </Form.Group>
 
                 <Button variant="primary" onClick={()=>goRooms(dis[0].key,dis[0].name)} type="submit">

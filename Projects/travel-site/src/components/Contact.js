@@ -2,12 +2,12 @@ import React from 'react';
 
 const Contact = () => {
     return (
-        <div className="container">
+        <div className="container" style={{color:"white"}}>
              
         <div className="my-5 ">
-        Written by <a href="mailto:zahid.mym@gmail.com">Md. Zahidur Rahman</a><br/>
+        Written by <a style={{color:"white"}} href="mailto:zahid.mym@gmail.com">Md. Zahidur Rahman</a><br/>
         Visit us at:  <br/>
-        <a href="https://portfolio-zahid-bracu.netlify.app/">portfolio-zahid-bracu.netlify.app</a> <br/>
+        <a style={{color:"white"}} href="https://portfolio-zahid-bracu.netlify.app/">portfolio-zahid-bracu.netlify.app</a> <br/>
         Dhaka<br/>
         Bangladesh<br/>
         Phone: 01612318884 <br/>

@@ -30,31 +30,31 @@ const CheckOut = () => {
 
               <form style={{maxWidth:"600px"}} className="mx-auto d-block" onSubmit={handleSubmit(onSubmit)}>
 
-                <h5 className="text-center my-4">Complete Your Shipping Information</h5>
+                <h5 style={{color:"white"}} className="text-center my-4">Complete Your Shipping Information</h5>
 
               <div class="form-group">
-              <label for="name">Name</label>
+              <label style={{color:"white"}} for="name">Name</label>
                 <input class="form-control" value={user.name} id="name" name="name" ref={register} required />
               </div>
 
               
 
               <div class="form-group">
-              <label for="email">Email</label>
+              <label style={{color:"white"}} for="email">Email</label>
                 <input class="form-control" id="email" value={user.email} name="email" ref={register} required />
               </div>
 
               <div class="form-group">
-              <label for="address">Address</label>
+              <label style={{color:"white"}} for="address">Address</label>
                 <textarea class="form-control" type="text-area" id="address" name="address" ref={register} required/>
               </div>
 
               <div class="form-group">
-              <label for="phone">Phone</label>
+              <label style={{color:"white"}} for="phone">Phone</label>
                 <input class="form-control" id="phone" name="phone" ref={register} required/>
               </div>
               
-              <button className="btn btn-info mt-3">
+              <button  className="btn btn-info mt-3">
                 Proceed
               </button>
             </form>

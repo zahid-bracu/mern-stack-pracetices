@@ -41,7 +41,7 @@ const Home = () => {
     return (
         <div className="container">
             
-            <div className="row mt-5">
+            <div className="row mt-5 align-items-center justify-content-center">
              <div className="col-lg-3 col-md-12 col-sm-12 col-12 my-5 text-center justify-item-center align-items-center">
                 <h5 className=" text-white">
                      {dis[0].name}

@@ -17,7 +17,7 @@ const RoomsCard = (props) => {
             <div className="col-md-12 mb-2 col-sm-12 col-12 col-lg-4">
                 <img src={photo} style={{width:"100%"}} />
             </div>
-            <div className="col-8">
+            <div style={{color:"white"}} className="col-8">
                 <h4>{title}</h4>
                 <h6>{rooms}</h6>
                 <p>Cancellation flexibility available</p>

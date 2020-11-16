@@ -7,9 +7,10 @@
     position: relative;
     z-index: 10;
     bottom: 70px;
-    left:20px;
+    left:2px;
     text-decoration: inherit;
     color: white;
+    text-shadow: 2px 2px 2px rgb(22, 22, 22);
 }
 
 .google-button{
@@ -43,4 +44,9 @@
 .mainBox:hover{
     transform: scale(1.02);
      
+}
+
+
+.bg-custom{
+    background-color: black;
 }

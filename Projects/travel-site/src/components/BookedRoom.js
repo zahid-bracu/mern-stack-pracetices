@@ -50,15 +50,15 @@ const BookedRoom = () => {
     return (
         <div className="container">
             <div className="row mt-5">
-                <div className="col-lg-9">
-                    <div className="row">
+                <div className=" d-block mx-auto col-lg-9 order-lg-first order-md-last order-sm-last order-last ">
+                    <div className="row justify-content-center align-items-center">
                         {
                             rooms.map(key => <BookedRoomCard remove={remove} data={key}></BookedRoomCard>)   
                         }
                     </div>
                 </div>
-                <div className="col-lg-3">
-                    <Card style={{ width: '18rem' }}>
+                <div className="col-lg-3 order-sm-first">
+                    <Card className="d-block mx-auto" style={{ width: '18rem' }}>
                     <Card.Img variant="top" src={imgCheckOut} />
                         <Card.Body>
                             <Card.Title>Payment Information</Card.Title>
