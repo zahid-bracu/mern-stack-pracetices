@@ -2,11 +2,14 @@
   "name": "JavaScript",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "file.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "redux": "^4.0.5"
+  }
 }

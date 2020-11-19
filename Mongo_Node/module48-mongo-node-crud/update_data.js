@@ -68,4 +68,5 @@ app.get('/',(req,res)=>{
     res.sendFile(__dirname+'/index.html');
 })
 
+// always use to listen
 app.listen(9200);

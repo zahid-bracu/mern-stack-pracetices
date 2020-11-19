@@ -85,6 +85,12 @@ const { from } = location.state || { from: { pathname: "/login" } };
                 <h6 style={{color:"white"}} className="text-center my-5 font-weight-bold">You must login with your google account or gmail</h6>
                 <GoogleButton className="google-button d-block mx-auto my-5"
             onClick={ loginGoogle }/>
+
+
+            <Link className="text-white mx-auto" style={{textDecoration:"inherit"}} to="/home">
+                <Button className="d-block mx-auto" variant="warning">
+                Back to Homepage  
+                </Button></Link>
             </div>
         }
         
@@ -92,6 +98,12 @@ const { from } = location.state || { from: { pathname: "/login" } };
             user.state && <div>
                 <h4 style={{color:"white"}} className="my-5 text-center  ">Welcome {user.name}</h4>
                 <button onClick={logoutGoogle} className=" btn btn-danger px-5 d-block mx-auto my-5"  >Logout</button>
+
+
+                <Link className="text-white mx-auto" to="/home">
+                <Button className="d-block mx-auto" variant="warning">
+                Back to Homepage  
+                </Button></Link>
             </div>
         }
             

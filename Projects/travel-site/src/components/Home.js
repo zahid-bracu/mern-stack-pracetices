@@ -9,6 +9,8 @@ import {
   } from "react-router-dom";
 
 const Home = () => {
+
+    const [flag,setFlag]=useState(false);
     const [db,setDb]=useState(Database);
     const [id,setID]=useState();
     const [dis,setDis]=useState([{
@@ -22,6 +24,7 @@ const Home = () => {
     
         const items=db.filter(id=> id.key==key);
         setDis(items);
+        setFlag(true);
     }
     console.log(dis[0]);
 
@@ -43,7 +46,34 @@ const Home = () => {
             
             <div className="row mt-5 align-items-center justify-content-center">
              <div className="col-lg-3 col-md-12 col-sm-12 col-12 my-5 text-center justify-item-center align-items-center">
-                <h5 className=" text-white">
+                {
+                    !flag && <>
+                    <h4 className=" text-white">
+                     Welcome </h4>  
+                     <h5 className="text-white">to</h5>
+                     <h3 className="text-white">
+                     Travel 360 Corp.
+                         </h3>
+                        <br/>
+
+                        <h3>
+                        <badge className="badge badge-pill badge-warning">
+                       
+                            Select your dream tour
+                       
+                        </badge>
+                        </h3>
+                        
+                    </>
+                }
+                
+                
+                
+                
+                
+                {
+                    flag && <>
+                    <h5 className=" text-white">
                      {dis[0].name}
                 </h5>
                 <p >
@@ -62,6 +92,8 @@ const Home = () => {
                         
                     </button>
                     </Link> </>
+                }
+                    </>
                 }
             </div>
             {
