@@ -1,0 +1,35 @@
+@import './variables'; // importing variables file
+@import './reset'; //importing other file
+ 
+body{
+    background-color: $black-color;  
+    color: $white-color;
+    font-weight: map-get($font-weights, small); //map get  
+     
+}
+
+.main{
+    width: 80%;
+    margin: 0 auto;
+    // nesting
+    p{
+        font-weight: map-get($font-weights, large); //map get  
+    }
+
+    // nesting example 2 class
+    .paragraph-two{
+        color: $red-color;
+    }
+
+    // nesting example 3 name
+    #{&}-paragraph-three{
+        font-weight: map-get($font-weights, small );
+        color:$yellow-color;
+        // hovering 
+        &:hover{
+            transform: scale(1.2);
+        }
+    }
+}
+
+ 

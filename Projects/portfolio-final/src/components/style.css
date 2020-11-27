@@ -1,0 +1,49 @@
+.nav-item{
+    transition: .2s;
+    font-size: 18px;
+    color: rgb(78, 78, 78) !important;
+}
+ 
+
+.nav-item:hover{
+     
+    transform: scale(1.2);
+}
+
+.black-bg{
+    background-color: #171c28;
+    color:white;
+}
+
+.nav-text-black{
+    color:white;
+}
+
+.btn-custom:hover{
+    background-color: white;
+    color: #343A40;
+}
+
+.hand{
+     
+    animation-name: example;
+    animation-duration: 2s;
+     
+}
+
+
+@keyframes example {
+    0%   {
+        transform: rotate(0deg);
+    }
+
+    50%{
+        transform: rotate(80deg);
+    }
+
+    100%{
+        transform: rotate(0deg);
+    }
+}
+
+ 

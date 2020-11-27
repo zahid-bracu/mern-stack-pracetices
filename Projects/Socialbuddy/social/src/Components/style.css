@@ -8,7 +8,7 @@
 
 .site-footer
 {
-  background-color:#1a237e;
+  background-color:#007bff;;
   padding:45px 0 20px;
   font-size:15px;
   line-height:24px;
@@ -37,7 +37,7 @@
 }
 .site-footer a:hover
 {
-  color:#3366cc;
+  color:#007bff;
   text-decoration:none;
 }
 .footer-links
@@ -74,7 +74,7 @@
   margin-left:6px;
   margin-right:0;
   border-radius:100%;
-  background-color:#0d47a1;
+  background-color: #007bff;;
 }
 .copyright-text
 {

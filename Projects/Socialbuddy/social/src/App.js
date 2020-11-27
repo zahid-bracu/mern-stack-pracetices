@@ -11,6 +11,7 @@ import {
 } from "react-router-dom";
 import PostDetails from './Components/PostDetails';
 import FooterPage from './Components/FooterPage';
+import LoginReg from './Components/LoginReg';
 
 
 function App() {
@@ -26,6 +27,10 @@ function App() {
 
             <Route path="/post">
                 <Post/>
+            </Route>
+
+            <Route path="/login">
+                <LoginReg/>
             </Route>
 
             <Route path="/details/:pd">

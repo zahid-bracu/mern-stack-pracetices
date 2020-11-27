@@ -1,3 +1,7 @@
+/*
+Multiple state in single reducer with multiple action
+*/
+
 const redux= require('redux'); //importing redux
 const createStore=redux.createStore; //creating store
 

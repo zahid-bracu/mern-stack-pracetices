@@ -1,107 +1,61 @@
+
+/*
+Multiple state in single reducer with multiple different action
+*/
+
 // importing redux
 const redux=require('redux');
 const createStore=redux.createStore; // store initialize
 
 
 // book action
+const ADD_BOOK='ADD_BOOK';
+const ADD_PEN='ADD_PEN';
 
+function addBook(){
+    return{
+        type:ADD_BOOK
+    }
+}
+
+function addPen(){
+    return{
+        type:ADD_PEN
+    }
+}
 
  
 
 // value initial state
-const initialBook={
-    book:10
-}
-
-const initialPen={
+const initialState={
+    book:10,
     pen:10
 }
 
+ 
 
 // reducer
-const bookReducer= (state=initialBook, action)=>{
+const reducer=(state=initialState,action)=>{
     switch(action.type){
-        case ITEM_ADD: return{
+        case ADD_BOOK: return{
             ...state,
             book: state.book+1
         }
-
-        case ITEM_SUBTRACT: return{
+        case ADD_PEN: return{
             ...state,
-            book: state.book-1
+            pen: state.pen+1
         }
-
-        case ITEM_DOUBLE: return{
-            ...state,
-            book: state.book*2
-        }
-        default: return state;
     }
 }
 
-
-
-
-const penReducer= (state=initialPen, action)=>{
-    switch(action.type){
-        case ITEM_ADD: return{
-            ...state,
-         
-            pen: state.pen+2
-        }
-
-        case ITEM_SUBTRACT: return{
-            ...state,
-        
-            pen: state.pen-2
-        }
-
-        case ITEM_DOUBLE: return{
-            ...state,
-         
-            pen: state.pen*2
-        }
-        default: return state;
-    }
-}
-
-// pen store
-const penStore = createStore(penReducer);
-console.log("Initial State : ", penStore.getState());
-
-const penResult=penStore.subscribe=(()=>{
-    console.log('Update State', penStore.getState())
+const store=createStore(reducer);
+console.log("Initial State:", store.getState());
+const result=store.subscribe=(()=>{
+    console.log("Updated State",store.getState())
 });
 
+store.dispatch(addBook());
+result();
 
-penStore.dispatch(addItem());
-penResult();
-
-
-penStore.dispatch(subtractItem());
-penResult();
-
-
-penStore.dispatch(doubleItem());
-penResult();
-
-
-// book store
-const bookStore = createStore(bookReducer);
-console.log("Initial State : ", bookStore.getState());
-
-const bookResult=bookStore.subscribe=(()=>{
-    console.log('Update State', bookStore.getState())
-});
-
-
-bookStore.dispatch(addItem());
-bookResult();
-
-
-bookStore.dispatch(subtractItem());
-bookResult();
-
-
-bookStore.dispatch(doubleItem());
-bookResult();
+store.dispatch(addPen());
+result();

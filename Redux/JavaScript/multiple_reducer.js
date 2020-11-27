@@ -1,3 +1,7 @@
+/*
+Multiple reducer with multiple state and multiple action
+*/
+
 // importing redux
 const redux=require('redux');
 const createStore=redux.createStore; // store initialize
@@ -40,7 +44,7 @@ const initialPen={
 }
 
 
-// reducer
+//book reducer
 const bookReducer= (state=initialBook, action)=>{
     switch(action.type){
         case ITEM_ADD: return{
@@ -63,7 +67,7 @@ const bookReducer= (state=initialBook, action)=>{
 
 
 
-
+// pen reducer
 const penReducer= (state=initialPen, action)=>{
     switch(action.type){
         case ITEM_ADD: return{
