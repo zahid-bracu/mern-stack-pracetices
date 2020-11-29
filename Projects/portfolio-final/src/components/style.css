@@ -46,4 +46,18 @@
     }
 }
 
+
+.contact-logo{
+    transition: .3s;
+}
+
+.contact-logo:hover{
+    transform: scale(1.1);
+    cursor: pointer;
+    
+}
  
+.round-border{
+    border: 0px solid rgb(255, 255, 255);
+    border-radius: 50%;
+}
