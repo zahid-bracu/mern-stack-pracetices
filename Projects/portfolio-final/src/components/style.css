@@ -1,13 +1,41 @@
+/* navigation items design */
+.header{
+    animation: header-slide 1.2s;
+    
+}
+
+@keyframes header-slide{
+    0%{
+        bottom: 100px;
+    }
+
+    100%{
+        bottom:0px;
+    }
+}
+
+
 .nav-item{
     transition: .2s;
     font-size: 18px;
     color: rgb(78, 78, 78) !important;
 }
  
-
 .nav-item:hover{
      
     transform: scale(1.2);
+}
+
+
+
+.nav-text-black{
+    color:white;
+}
+
+/* Banner item design */
+.btn-custom:hover{
+    background-color: white;
+    color: #343A40;
 }
 
 .black-bg{
@@ -15,36 +43,78 @@
     color:white;
 }
 
-.nav-text-black{
-    color:white;
-}
 
-.btn-custom:hover{
-    background-color: white;
-    color: #343A40;
-}
 
 .hand{
-     
-    animation-name: example;
-    animation-duration: 2s;
-     
+    width: 40px;
+    margin-left: 3px;
+    position: relative;
+    bottom: 5px;
+    animation: hand-wave 1s infinite;
 }
 
+.hand:hover{
+    transform: scale(1.1);
+    animation: none;
+    cursor: pointer;
+}
 
-@keyframes example {
+ 
+
+@keyframes hand-wave {
     0%   {
         transform: rotate(0deg);
     }
 
     50%{
-        transform: rotate(80deg);
+        transform: rotate(30deg);
     }
 
     100%{
         transform: rotate(0deg);
     }
 }
+
+
+#first-banner{
+    position: relative;
+    animation: moving 2s;
+    transition: 0.6s;
+}
+
+
+
+
+ 
+
+@keyframes moving{
+    0%{
+        left: 100px;
+    }
+
+    100%{
+        left:0px;
+    }
+}
+
+
+
+.banner-left{
+    display: block;
+    position: relative;
+    animation: moving-left 2s;
+}
+
+@keyframes moving-left{
+    0%{
+        right: 100px;
+    }
+
+    100%{
+        right:0px;
+    }
+}
+
 
 
 .contact-logo{
@@ -61,3 +131,27 @@
     border: 0px solid rgb(255, 255, 255);
     border-radius: 50%;
 }
+
+.contact-icon{
+    
+    max-width: 118px;
+}
+
+
+
+@media only screen and (max-width: 600px) {
+    .banner {
+      text-align: center;
+    }
+
+    #summary{
+        text-align: justify;
+    }
+     
+    
+  }
+
+  /* Education */
+  .thesis:hover{
+      transform: scale(1.1);
+  }

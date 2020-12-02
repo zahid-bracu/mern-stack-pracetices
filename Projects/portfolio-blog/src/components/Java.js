@@ -3,7 +3,10 @@ import React from 'react';
 const Java = () => {
     return (
         <div className="container">
-            <h5 className="text-center my-5">Important Topics of Java Programming</h5>
+            <h5 className="text-center mt-5 mb-3">জাভা প্রোগ্রামিং এর গুরুত্বপূর্ণ টপিক সমূহ - Important Topics of Java Programming</h5>
+            
+            <h6 className="text-center mb-4">জাভা প্রোগ্রামিং শিখে এই লাইন এ career গড়তে চাইলে জাভা এর নিম্নের topic গুলো প্রাথমিক ভাবে রপ্ত করতে পারেন</h6>
+
             <div className="row">
                 <div className="col-lg-4 col-md-6 col-sm-12 col-12">
                     <ul className="list-unstyled">
@@ -16,7 +19,7 @@ const Java = () => {
                     <ul className="list-unstyled">
                     <h6>Step 2 - Basic Syntax</h6>
                     <li>- Variables & Data Types</li>
-                    <li>- Conditional & Functions</li>
+                    <li>- Conditionals & Functions</li>
                     <li>- System IO</li>
                     <li>- Array & String</li>
                     <li>- Fundamental Topics</li>
@@ -44,7 +47,7 @@ const Java = () => {
 
                     <ul className="list-unstyled">
                     <h6>Step 4 - Object Oriented Programming Practice</h6>
-                    <li>- Data Classes</li>
+                    <li>- Date Classes</li>
                     <li>- Calendar Classes</li>
                     <li>- Wrapper Classes</li>
                     </ul>

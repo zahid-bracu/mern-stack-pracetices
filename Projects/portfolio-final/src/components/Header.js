@@ -11,8 +11,8 @@ const Header = ( ) => {
      
     const logo="https://i.ibb.co/mGXSkwn/sign.png";
     return (
-        <div className="container">
-            <Navbar bg="transparent" expand="lg">
+        <div className="container ">
+            <Navbar bg="transparent" className="header" expand="lg">
             <Navbar.Brand  > 
                 <Nav.Link>
                     <img src={logo} style={{width:"60px"}} alt=""/>    

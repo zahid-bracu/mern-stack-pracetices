@@ -3,6 +3,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Header from './components/Header';
 import './components/style.css';
 import Banner from './components/Banner';
+import Skill from './components/Skill';
+import Education from './components/Education';
 
 function App() {
 
@@ -15,6 +17,8 @@ function App() {
     < >
     <Header></Header>
     <Banner></Banner>
+    <Skill></Skill>
+    <Education></Education>
     </>
   );
 }

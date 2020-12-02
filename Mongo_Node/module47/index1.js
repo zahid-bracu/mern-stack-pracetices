@@ -1,17 +1,19 @@
 /*****  tutorial no. 1 ******/
 
-
-// always write
+// Express
+// Express → App
 const express=require('express');
 const app=express();
 
-//page link
+// App Get
+// Request
+// Response
 app.get('/',(req,res)=>{
 	res.send("This is message 2");
 })
 
 
-// setting the server address
+// App Listen
 app.listen(3005,()=>{
 	console.log("Listening to port over and over ");
 })

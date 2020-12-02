@@ -3,12 +3,12 @@ import React from 'react';
 const DataStructure = () => {
     return (
         <div className="container">
-            <h5 className="text-center my-5">Important topics of Data Structure</h5>
+            <h4 className="text-center my-3">Important topics of Data Structure</h4>
 
             
             <div className="row justify-content-center  align-items-center">
-                <div className="col-6">
-                    <h6>Linear Data Structure</h6>
+                <div className="col-lg-6 col-md-12 col-sm-12 col-12">
+                    <h5 >Linear Data Structure</h5>
                     <h6>Basic Data Structures</h6>
                     <ul className="list-unstyled">
                         <li>- Array</li>
@@ -29,8 +29,8 @@ const DataStructure = () => {
                 </div>
 
 
-                <div className="col-6">
-                <h6>Non Linear Data Structure</h6>
+                <div className="col-lg-6 col-md-12 col-sm-12 col-12">
+                <h5>Non Linear Data Structure</h5>
                 <h6>Basic Data Structure</h6>
                 <ul className="list-unstyled">
                     <li>- Hash Map</li>

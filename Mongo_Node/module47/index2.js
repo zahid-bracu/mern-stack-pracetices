@@ -1,10 +1,13 @@
 /*****  tutorial no. 2 ******/
 
-// always use
+// Express
+// Express --> App
 const express=require('express');
 const app=express();
 
-// first page
+// App Get
+// Request * Response
+// Response Object
 app.get('/',(req,res)=>{
     const info={
         message:"First Page",
@@ -14,7 +17,8 @@ app.get('/',(req,res)=>{
 })
 
 
-// second page
+// Response Object
+// Second page
 app.get('/second',(req,res)=>{
     const info={
         message:"Second Page",
@@ -24,7 +28,7 @@ app.get('/second',(req,res)=>{
 })
 
 
-// port to open
+// App Listen : a port to open 
 app.listen(3006,()=>{
 	console.log("Listening to port ");
 })

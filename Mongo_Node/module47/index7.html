@@ -6,17 +6,17 @@
     <title>Document</title>
 </head>
 <body>
-    <p id="name"></p>
-
-     
-
+    <p id="msg"></p>
     <script>
-
-        fetch(`http://localhost:4200/1`)
+        // HTML Fetch load
+        fetch('http://localhost:4100/user/2')
             .then(response => response.json())
-            .then(json => {
-                document.getElementById('name').innerText=json.name;
-            })
+            .then(json => info(json))
+
+            function info(data){
+                document.getElementById("msg").innerText=data.id+":"+data.word;
+            }
+
     </script>
 </body>
 </html>
