@@ -12,7 +12,7 @@ const password="9augustbd";
 // connection string code from -->connection method --> connect your application
 const MongoClient = require('mongodb').MongoClient;
 const uri = "mongodb+srv://mydbuser:9augustbd@cluster0.eld9q.mongodb.net/crudDb?retryWrites=true&w=majority";
-const client = new MongoClient(uri, { useNewUrlParser: true,  useUnifiedTopology: true });
+const client = new MongoClient(uri, { useNewUrlParser: true,  useUnifiedTopology: true }); //edit the line
 client.connect(err => {
   const collection = client.db("crudDb").collection("crudCollection");
   // perform actions on the collection object
