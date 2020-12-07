@@ -1,4 +1,5 @@
-/*  tutorial three : insert data into db from html form  */
+/*  tutorial four : load data from db into html  */
+
 
 const express=require('express'); //express
 const app=express(); // express --> app
@@ -14,7 +15,7 @@ const password="9augustbd";
 
 // app get
 app.get('/',(req,res)=>{
-  res.sendFile(__dirname+'/index3.html');
+  res.sendFile(__dirname+'/index4.html');
 })
 
 
@@ -27,8 +28,17 @@ client.connect(err => {
   const collection = client.db("crudDb").collection("crudCollection");
   // perform actions on the collection object
 
+  // loading data
+  app.get('/info',(req,res)=>{
+    collection.find({})
+    .toArray((err,document)=>{
+      res.send(document)
+    })
+  })
+
+
   // sending data to database
-  app.post('/addUser',(req,res)=>{
+  app.post('/',(req,res)=>{
     const pd=req.body;
     console.log(pd);
     collection.insertOne(pd)
@@ -43,12 +53,7 @@ client.connect(err => {
 //   client.close();
 });
 
-
-
-
-
-
 // app listen
-app.listen(3106,()=>{
+app.listen(4106,()=>{
 	console.log("Listening to port over and over ");
 })

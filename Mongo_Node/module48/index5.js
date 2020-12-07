@@ -1,4 +1,4 @@
-/*  tutorial three : insert data into db from html form  */
+/*  tutorial five : delete data from bd using html  */
 
 const express=require('express'); //express
 const app=express(); // express --> app
@@ -8,13 +8,12 @@ app.use(cors()); // cors --> app
 app.use(bodyParser.json()) // body parser --> app
 app.use(bodyParser.urlencoded({ extended: false })) // use body parser middleware for url encoded
 const ObjectId=require('mongodb').ObjectID
-
 // set password from mongodb cluster
 const password="9augustbd";
 
 // app get
 app.get('/',(req,res)=>{
-  res.sendFile(__dirname+'/index3.html');
+  res.sendFile(__dirname+'/index5.html');
 })
 
 
@@ -27,8 +26,17 @@ client.connect(err => {
   const collection = client.db("crudDb").collection("crudCollection");
   // perform actions on the collection object
 
+  // loading data
+  app.get('/info',(req,res)=>{
+    collection.find({})
+    .toArray((err,document)=>{
+      res.send(document)
+    })
+  })
+
+
   // sending data to database
-  app.post('/addUser',(req,res)=>{
+  app.post('/',(req,res)=>{
     const pd=req.body;
     console.log(pd);
     collection.insertOne(pd)
@@ -39,16 +47,20 @@ client.connect(err => {
   })
 
 
+  // deleting data
+  app.delete('/delete/:id',(req,res)=>{
+    console.log(req.params.id);
+    collection.deleteOne({_id: ObjectId(req.params.id)}) //delete one & object id
+    .then((result)=>{
+      console.log(result)
+    })
+  })
+
   console.log("DB Connected")
 //   client.close();
 });
 
-
-
-
-
-
 // app listen
-app.listen(3106,()=>{
+app.listen(5006,()=>{
 	console.log("Listening to port over and over ");
 })

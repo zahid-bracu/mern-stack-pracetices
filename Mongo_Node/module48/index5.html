@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="/" method="post">
+        <input type="text" value=""  placeholder="name" name="name" />
+        <input type="email" value=""  placeholder="mail" name="mail" />
+        <button type="submit">Add Over</button>
+    </form>
+    <div id="products"></div>
+    <script>
+        fetch('http://localhost:5006/info')
+                .then(response => response.json())
+                .then(json => {
+                    console.log(json[0].id)
+                    const container=document.getElementById('products')
+                    json.forEach(element => {
+                        const item=document.createElement('p');
+                        item.innerHTML=`${element.name} : ${element.mail} : ${element._id}   <button onclick="deleteProduct('${element._id}')">Delete</button>`;
+                        container.appendChild(item);
+                    });
+                })
+
+
+                function deleteProduct(id){
+                    fetch(`http://localhost:5006/delete/${id}`,{
+                        method: 'DELETE'
+                    }) 
+                    .then(res=>res.json())
+                    .then(res=>{
+                        console.log("Deleted")
+                    }) 
+                    console.log(id)
+                }
+    </script>
+</body>
+</html>

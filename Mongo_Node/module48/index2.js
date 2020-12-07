@@ -1,3 +1,5 @@
+/*  tutorial two : about inserting one data into db  */
+
 const express=require('express'); //express
 const app=express(); // express --> app
 const bodyParser = require('body-parser') // body parser
@@ -5,6 +7,7 @@ var cors = require('cors'); // cors
 app.use(cors()); // cors --> app
 app.use(bodyParser.json()) // body parser --> app
 app.use(bodyParser.urlencoded({ extended: false })) // use body parser middleware for url encoded
+const ObjectId=require('mongodb').ObjectID
 
 // set password from mongodb cluster
 const password="9augustbd";
