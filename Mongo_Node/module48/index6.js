@@ -1,5 +1,4 @@
-/*  tutorial four : load data from db into html  */
-
+/*  tutorial five : delete data from bd using html  */
 
 const express=require('express'); //express
 const app=express(); // express --> app
@@ -9,13 +8,12 @@ app.use(cors()); // cors --> app
 app.use(bodyParser.json()) // body parser --> app
 app.use(bodyParser.urlencoded({ extended: false })) // use body parser middleware for url encoded
 const ObjectId=require('mongodb').ObjectID
-
 // set password from mongodb cluster
 const password="9augustbd";
 
 // app get
 app.get('/',(req,res)=>{
-  res.sendFile(__dirname+'/index4.html');
+  res.sendFile(__dirname+'/index6.html');
 })
 
 
@@ -49,11 +47,30 @@ client.connect(err => {
   })
 
 
+  // load single data
+  app.get('/product/:id',(req,res)=>{
+    console.log(req.params.id); 
+    collection.find({_id:ObjectId(req.params.id)})
+    .toArray((err,documents)=>{
+      res.send(documents[0])
+    })
+  })
+
+
+  // deleting data
+  app.delete('/delete/:id',(req,res)=>{
+    console.log(req.params.id);
+    collection.deleteOne({_id: ObjectId(req.params.id)}) //delete one & object id
+    .then((result)=>{
+      console.log(result)
+    })
+  })
+
   console.log("DB Connected")
 //   client.close();
 });
 
 // app listen
-app.listen(4106,()=>{
+app.listen(9006,()=>{
 	console.log("Listening to port over and over ");
 })

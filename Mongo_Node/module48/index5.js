@@ -36,7 +36,7 @@ client.connect(err => {
 
 
   // sending data to database
-  app.post('/',(req,res)=>{
+  app.post('/addUser',(req,res)=>{
     const pd=req.body;
     console.log(pd);
     collection.insertOne(pd)
