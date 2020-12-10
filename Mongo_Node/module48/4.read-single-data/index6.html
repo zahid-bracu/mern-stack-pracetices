@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="/addUser" method="post">
+        <input type="text" value=""  placeholder="name" name="name" />
+        <input type="email" value=""  placeholder="mail" name="mail" />
+        <button type="submit">Add Over</button>
+    </form>
+    <div id="products"></div>
+
+    <div id="product"></div>
+    <script>
+        fetch('http://localhost:9006/info')
+                .then(response => response.json())
+                .then(json => {
+                    console.log(json[0].id)
+                    const container=document.getElementById('products')
+                    json.forEach(element => {
+                        const item=document.createElement('p');
+                        item.innerHTML=`${element.name} : ${element.mail}    <button onclick="deleteProduct('${element._id}')">Delete</button> <button onclick="loadProduct('${element._id}')">Update</button>`;
+                        container.appendChild(item);
+
+
+                         
+                    });
+                })
+
+
+                // load single product
+                function loadProduct(id){
+                    fetch(`/product/${id}`)
+                    .then(res=>res.json())
+                    .then(res=>{
+                         
+                        update(res);
+                    })
+                }
+
+                function update(data){
+                    console.log(data);
+                    var product=document.getElementById('product');
+                    product.innerHTML=`
+                    <h5> ${data.name} </h5>
+
+                    <label for="name">Name:</label>
+                    <input type="text" value="${data.name}" name="name">
+
+
+                    <label for="mail">Mail:</label>
+                    <input type="text" value="${data.mail}" name="mail">
+
+                    <button>Submit</button>
+                    `
+                }
+
+                function deleteProduct(id){
+                    fetch(`http://localhost:9006/delete/${id}`,{
+                        method: 'DELETE'
+                    }) 
+                    .then(res=>res.json())
+                    .then(res=>{
+                        console.log("Deleted")
+                    }) 
+                    console.log(id)
+                }
+    </script>
+</body>
+</html>

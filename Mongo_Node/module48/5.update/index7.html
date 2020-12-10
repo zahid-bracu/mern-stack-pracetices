@@ -6,6 +6,7 @@
     <title>Document</title>
 </head>
 <body>
+    <!-- posting -->
     <form action="/addUser" method="post">
         <input type="text" value=""  placeholder="name" name="name" />
         <input type="email" value=""  placeholder="mail" name="mail" />
@@ -15,7 +16,7 @@
 
     <div id="product"></div>
     <script>
-        fetch('http://localhost:9006/info')
+        fetch('http://localhost:4010/info')
                 .then(response => response.json())
                 .then(json => {
                     console.log(json[0].id)
@@ -37,27 +38,53 @@
                     .then(res=>res.json())
                     .then(res=>{
                          
-                        update(res);
+                        load(res);
                     })
                 }
 
-                function update(data){
+                // loading single product and show
+                function load(data){
                     console.log(data);
                     var product=document.getElementById('product');
                     product.innerHTML=`
                     <h5> ${data.name} </h5>
 
                     <label for="name">Name:</label>
-                    <input type="text" value="${data.name}" name="name">
+                    <input id="name" type="text" value="${data.name}" name="name">
 
 
                     <label for="mail">Mail:</label>
-                    <input type="text" value="${data.mail}" name="mail">
+                    <input id="email" type="text" value="${data.mail}" name="mail">
+
+                    <button onclick="update('${data._id}')">Update</button>
                     `
                 }
 
+
+                // updating product
+                function update(id){
+                    console.log("Updating id is : "+id);
+                    var name=document.getElementById("name").value;
+                    var mail=document.getElementById("email").value;
+                    console.log(name);
+                    console.log(mail);
+
+                    const info={id,name,mail};
+
+                    fetch(`/update/${id}`,{
+                        method:'PATCH',
+                        headers:{'Content-Type':'application/json'},
+                        body:JSON.stringify(info)
+                    })
+                    .then(res=>res.json())
+                    .then(data=>{
+                        console.log(update);
+                    })
+                }
+
+                // deleting product
                 function deleteProduct(id){
-                    fetch(`http://localhost:9006/delete/${id}`,{
+                    fetch(`http://localhost:4010/delete/${id}`,{
                         method: 'DELETE'
                     }) 
                     .then(res=>res.json())

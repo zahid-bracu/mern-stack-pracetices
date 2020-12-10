@@ -1,4 +1,4 @@
-/*  tutorial five : delete data from bd using html  */
+/*  tutorial six : load single data from db using html  */
 
 const express=require('express'); //express
 const app=express(); // express --> app
