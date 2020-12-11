@@ -16,7 +16,9 @@
 
     <div id="product"></div>
     <script>
-        fetch('http://localhost:4010/info')
+
+        // posting data
+        fetch('http://localhost:3090/info')
                 .then(response => response.json())
                 .then(json => {
                     console.log(json[0].id)
@@ -25,9 +27,6 @@
                         const item=document.createElement('p');
                         item.innerHTML=`${element.name} : ${element.mail}    <button onclick="deleteProduct(event,'${element._id}')">Delete</button> <button onclick="loadProduct('${element._id}')">Update</button>`;
                         container.appendChild(item);
-
-
-                         
                     });
                 })
 
@@ -86,7 +85,7 @@
                 // deleting product
                 function deleteProduct(event,id){
                     console.log(event.target);
-                    fetch(`http://localhost:4010/delete/${id}`,{
+                    fetch(`http://localhost:3090/delete/${id}`,{
                         method: 'DELETE'
                     }) 
                     .then(res=>res.json())

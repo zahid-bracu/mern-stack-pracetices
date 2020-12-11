@@ -7,19 +7,19 @@ var cors = require('cors'); // cors
 app.use(cors()); // cors --> app
 app.use(bodyParser.json()) // body parser --> app
 app.use(bodyParser.urlencoded({ extended: false })) // use body parser middleware for url encoded
-const ObjectId=require('mongodb').ObjectID
+const ObjectId=require('mongodb').ObjectID // object id is needed to match data in database
 // set password from mongodb cluster
 const password="9augustbd";
 
 // app get
 app.get('/',(req,res)=>{
-  res.sendFile(__dirname+'/index8.html');
+  res.sendFile(__dirname+'/index.html'); // index8.html the file that will loaded at first
 })
 
 
 
 // connection string code from -->connection method --> connect your application
-const MongoClient = require('mongodb').MongoClient;
+const MongoClient = require('mongodb').MongoClient; //required always
 const uri = "mongodb+srv://mydbuser:9augustbd@cluster0.eld9q.mongodb.net/crudDb?retryWrites=true&w=majority";
 const client = new MongoClient(uri, { useNewUrlParser: true,  useUnifiedTopology: true }); //unified topology set
 client.connect(err => {
@@ -28,9 +28,9 @@ client.connect(err => {
 
   // loading data
   app.get('/info',(req,res)=>{
-    collection.find({})
-    .toArray((err,document)=>{
-      res.send(document)
+    collection.find({}) //find all data from database
+    .toArray((err,document)=>{ // to array is being used to load all data from db
+      res.send(document) //data send to html
     })
   })
 
@@ -39,7 +39,7 @@ client.connect(err => {
   app.patch('/update/:id',(req,res)=>{
     console.log(req.body)
 
-    collection.updateOne({_id:ObjectId(req.params.id)},
+    collection.updateOne({_id:ObjectId(req.params.id)}, //update data using update one & ObjectId for matching
     {
       $set:{
         name: req.body.name,
@@ -49,13 +49,13 @@ client.connect(err => {
     .then(result=>{
       res.send(result);
       console.log(result);
-      
+      // result is to say that data is updated
     })
 
   })
 
 
-  // sending data to database
+  // sending/posting data to database
   app.post('/addUser',(req,res)=>{
     const pd=req.body;
     console.log(pd);
@@ -92,6 +92,6 @@ client.connect(err => {
 });
 
 // app listen
-app.listen(4010,()=>{
-	console.log("Listening to port over and over ");
+app.listen(3090,()=>{
+	console.log("Listening to port at 6000 ");
 })
