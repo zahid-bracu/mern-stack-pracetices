@@ -1,0 +1,13 @@
+.font-montserrat{
+    font-family: 'Montserrat', sans-serif;
+}
+.bg-custom{
+    background-color: rgb(38,38,38) !important;
+}
+
+.btn-signup{
+    background-color: #bdf935;
+    border-radius: 40px;
+    
+}
+
