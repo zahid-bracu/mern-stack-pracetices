@@ -4,7 +4,9 @@ import Header from './Components/Header';
 import Banner from './Components/Banner';
 import Rooms from './Components/Rooms';
 import Login from './Components/Login';
+import DatePickers from './Components/DatePickers';
 import PrivateRoute from './Components/PrivateRoute';
+
 
 import {
   BrowserRouter as Router,
@@ -47,8 +49,13 @@ function App() {
             <Rooms />
           </Route>
 
-          <PrivateRoute path="/booking">
-              <Booking/>
+
+          <Route path="/booking">
+            <Booking/>
+          </Route>
+
+          <PrivateRoute path="/datepicker">
+              <DatePickers></DatePickers>
           </PrivateRoute>
 
            

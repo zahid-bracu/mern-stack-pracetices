@@ -37,7 +37,7 @@ const Rooms = () => {
     return (
         <div className="container">
             <button className="btn btn-danger my-3 d-block mx-auto">
-                 <Link className="custom-font" to="/booking">Go to Booking Page</Link>
+                 <Link className="custom-font" to="/datepicker">Go to Booking Page</Link>
             </button>
             
             <div className="row">
