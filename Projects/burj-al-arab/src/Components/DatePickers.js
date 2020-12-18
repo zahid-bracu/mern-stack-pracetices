@@ -31,12 +31,15 @@ const DatePickers = () => {
     return (
         <div className="container">
                 <div className="row my-5 ">
-                    <div className="col-md-6">
+                    <div className="col-md-6 col-6">
+                        <h5 className="my-3 text-info">Confirm Check in & Check out dates</h5>
                         <Form.Group >
-                            <Form.Label for="start">Select Starting Date</Form.Label>
+                            <Form.Label for="start">Select Check in Date</Form.Label>
                             <Form.Control id="start" onChange={handleStartDateChange} style={{width:"300px"}} type="date" name="dob" placeholder="Date of Birth" />
 
-                            <Form.Label for="end">Select Ending Date</Form.Label>
+                            <div style={{height:"20px"}}> </div>
+
+                            <Form.Label for="end">Select Check out Date</Form.Label>
                             <Form.Control id="end" onChange={handleEndDateChange} style={{width:"300px"}} type="date" name="dob" placeholder="Date of Birth" />
                         </Form.Group>
                         

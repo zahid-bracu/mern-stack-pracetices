@@ -28,10 +28,15 @@ const Home = () => {
                 <img src={url} className="text-center" style={{width:"90%"}} alt=""/>
             </div>
         </div>
-        <Link style={{textDecoration:"inherit"}} to="/rooms">
+        <div >
+            <div style={{width:"224px",margin:"auto"}}>
+            <Link style={{textDecoration:"inherit"}} to="/rooms">
         <button  className="btn btn-secondary d-block mx-auto">
             <span style={{textDecoration:"inherit",color:"white"}}>Check Our Room & Services</span>
              </button></Link>
+            </div>
+        </div>
+        
         </div>
         
     );

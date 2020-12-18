@@ -19,7 +19,7 @@
 
         // posting data
         fetch('http://localhost:3090/info')
-                .then(response => response.json())
+                .then(response => response.json()) //all datas are got
                 .then(json => {
                     console.log(json[0].id)
                     const container=document.getElementById('products')
@@ -78,7 +78,7 @@
                     .then(res=>res.json())
                     .then(data=>{
                         console.log(update);
-                        location.reload();
+                        location.reload(); //page reload
                     })
                 }
 

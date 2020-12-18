@@ -14,7 +14,7 @@ const Database = [
         key:2,
         title: 'Couple Power Room',
         description: 'Superior Double Rooms are perfectly equipped for traveling couples or friends.',
-        imgUrl: 'https://cdn.jumeirah.com/-/mediadh/dh/hospitality/jumeirah/offers/offer-images/burj-al-arab-royal-suite-staircase-5-hero.jpg',
+        imgUrl: 'https://images.pexels.com/photos/164595/pexels-photo-164595.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500.jpg',
         bed: 1,
         capacity: 2,
         bedType: 'Double',

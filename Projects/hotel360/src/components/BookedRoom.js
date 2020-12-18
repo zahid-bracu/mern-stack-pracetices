@@ -69,28 +69,13 @@ const BookedRoom = () => {
 
 
     return (
-        <div className="container">
-            
-            {
-                flag &&
-                <>
-                     
-
-                    <AmountCard data={rooms}></AmountCard>
-
-                    
-                   
-                </>
-                
-                
-            }
+        <div className="container ">
             {
                 !flag &&
-                <>
+                <div>
                 <h4 className="text-center my-4 text-info">You Didn't Select Any Room</h4>
 
-
-
+                <div style={{width:"178px" ,margin:"auto"}}>
                 <Link style={{textDecoration:"inherit"}} to="/rooms">
                 <button  className=" my-2 btn btn-info px-4 d-block mx-auto">    
                 <span style={{textDecoration:"inherit",color:"white"}}>Check Our Rooms</span>
@@ -101,17 +86,41 @@ const BookedRoom = () => {
                 <button className="btn px-2 btn-dark mx-auto d-block">
                     Go Back to Homepage
                 </button></Link>
+                </div>
+
+
+                
             
-                </>
+                </div>
             }
-
-
-            
             <div className="row">
             {
-                rooms.map(key => <BookedRoomCard remove={remove} data={key} ></BookedRoomCard>)
+                flag &&
+                <div className="col-lg-3 order-sm-last order-md-first order-sm-first order-first">
+                     
+
+                    <AmountCard data={rooms}></AmountCard>
+
+                    
+                   
+                </div>
+                
+                
             }
+            
+
+
+            
+                <div className="col-lg-9 order-lg-first order-md-last order-sm-last order-last">
+                    <div className="row mt-2 justify-content-center ">
+                    {
+                        rooms.map(key => <BookedRoomCard remove={remove} data={key} ></BookedRoomCard>)
+                    }
+                    </div>
+                </div>
             </div>
+            
+            
             
         </div>
     );

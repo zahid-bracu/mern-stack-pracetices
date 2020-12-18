@@ -14,7 +14,7 @@ const password="9augustbd";
 // app get
 app.get('/',(req,res)=>{
   res.sendFile(__dirname+'/index.html'); // index8.html the file that will loaded at first
-})
+});
 
 
 
@@ -23,7 +23,7 @@ const MongoClient = require('mongodb').MongoClient; //required always
 const uri = "mongodb+srv://mydbuser:9augustbd@cluster0.eld9q.mongodb.net/crudDb?retryWrites=true&w=majority";
 const client = new MongoClient(uri, { useNewUrlParser: true,  useUnifiedTopology: true }); //unified topology set
 client.connect(err => {
-  const collection = client.db("crudDb").collection("crudCollection");
+  const collection = client.db("crudDb").collection("crudCollection"); //connecting the collection
   // perform actions on the collection object
 
   // loading data
