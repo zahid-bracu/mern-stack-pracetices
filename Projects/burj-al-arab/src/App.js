@@ -18,8 +18,10 @@ import {
 import React, {createContext, useState} from 'react';
 import Booking from './Components/Booking';
 import Payment from './Components/Payment';
+import DynamicBooking from './Components/DynamicBooking';
 
 export const UserContext = React.createContext();
+export const DateContext = React.createContext();
 
 function App() {
   const [user,setUser]=useState({
@@ -29,8 +31,14 @@ function App() {
   });
   console.log(user);
 
+  const [dates,selectDates]=useState({
+    start:'',
+    end:''
+})
+
   return (
     <>
+    <DateContext.Provider value={[dates,selectDates]}>
     <UserContext.Provider value={[user,setUser]}>
     <Router>
       <Header></Header>
@@ -41,9 +49,16 @@ function App() {
             <Banner />
           </Route>
 
+          <Route path="/dynamicbooking">
+            <DynamicBooking></DynamicBooking>
+          </Route>
+
           <Route path="/payment">
             <Payment />
           </Route>
+
+
+          
 
           <Route path="/room">
             <Rooms />
@@ -75,7 +90,7 @@ function App() {
     </Router>
       
     </UserContext.Provider>
-      
+    </DateContext.Provider>
       
     </>
   );

@@ -1,14 +1,13 @@
-import React, { useState } from "react";
+
+import React, {useState,useContext} from 'react';
 import { Form } from 'react-bootstrap';
 import {
     Link
   } from "react-router-dom";
+  import {DateContext} from '../App';
 const DatePickers = () => {
      
-    const [dates,selectDates]=useState({
-        start:'',
-        end:''
-    })
+    const [dates,selectDates]= useContext(DateContext);
     
     function handleStartDateChange(event){
         console.log(event.target.value) 

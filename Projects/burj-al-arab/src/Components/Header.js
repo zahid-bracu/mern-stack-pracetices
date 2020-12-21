@@ -70,6 +70,25 @@ const Header = (props) => {
             }
 
 
+            {
+              !user.state && <NavItem>
+                              <NavLink className="nav-item"  ><Link className="custom-font" to="/login">Login</Link></NavLink>
+                            </NavItem>
+            }
+
+
+
+
+
+            {
+              user.state && <NavItem>
+                              <NavLink className="nav-item"  ><Link className="custom-font" to="/dynamicbooking">Databse Booking</Link></NavLink>
+                            </NavItem>
+            }
+
+            
+
+
 
             
             

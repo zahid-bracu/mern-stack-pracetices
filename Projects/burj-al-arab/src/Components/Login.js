@@ -72,6 +72,7 @@ const Login = () => {
             }
 
             setUser(newInfo);
+            storeAuthToken();
             history.replace(from);
             // ...
              
@@ -86,6 +87,17 @@ const Login = () => {
             var credential = error.credential;
             // ...
           });
+    }
+
+
+    // token for verifying
+    const storeAuthToken=()=>{
+      firebase.auth().currentUser.getIdToken(/* forceRefresh */ true).then(function(idToken) {
+        console.log(idToken);
+        sessionStorage.setItem('token',idToken);
+      }).catch(function(error) {
+        // Handle error
+      });
     }
     return (
         <div >
