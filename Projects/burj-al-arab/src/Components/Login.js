@@ -72,7 +72,7 @@ const Login = () => {
             }
 
             setUser(newInfo);
-            storeAuthToken();
+            storeAuthToken(); // creating the jwt token
             history.replace(from);
             // ...
              
@@ -94,7 +94,7 @@ const Login = () => {
     const storeAuthToken=()=>{
       firebase.auth().currentUser.getIdToken(/* forceRefresh */ true).then(function(idToken) {
         console.log(idToken);
-        sessionStorage.setItem('token',idToken);
+        sessionStorage.setItem('token',idToken); //creating session
       }).catch(function(error) {
         // Handle error
       });
