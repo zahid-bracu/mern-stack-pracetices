@@ -12,7 +12,11 @@ import Login from './components/Login';
 import Home from './components/Home';
 import Contact from './components/Contact';
 import {createContext} from 'react';
+import Saved from './components/Saved';
+import Delete from './components/Delete';
+import DeleteMessage from './components/DeleteMessage';
 export const UserContext = React.createContext();
+
 
 
 function App() {
@@ -37,12 +41,25 @@ function App() {
             </Route>
 
 
+            <Route path="/deletemsg">
+            <DeleteMessage></DeleteMessage>
+            </Route>
+
+
             <Route path="/login">
             <Login></Login>
             </Route>
 
+            <Route path="/saved">
+            <Saved></Saved>
+            </Route>
+
             <Route path="/contact">
               <Contact></Contact>
+            </Route>
+
+            <Route path="/delete/:id">
+            <Delete></Delete>
             </Route>
 
 

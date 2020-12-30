@@ -12,6 +12,7 @@ import {
   import './style.css';
   import {DateContext} from '../App';
   import {UserContext} from '../App';
+import SelectedRoom from './SelectedRoom';
 
 
 const Booking = (props) => {
@@ -26,8 +27,10 @@ const Booking = (props) => {
     
     
         useEffect(async () => {
+            window.scrollTo(0,0);
             var temp=getDatabaseCart();
             var keys=Object.keys(temp)
+            console.log(keys)
         
              
 
@@ -36,11 +39,26 @@ const Booking = (props) => {
             );
             setDb(finalArr);
 
-
-            
-                    
         },[]);
 
+
+        function remove(id){
+            removeFromDatabaseCart(id);
+            var temp=getDatabaseCart();
+            var keys=Object.keys(temp)
+            console.log(keys)
+        
+             
+
+            const finalArr = Database.filter(pd =>
+                keys.some(exclude => exclude == pd.key)
+            );
+            setDb(finalArr);
+          }
+
+
+
+        // 
         useEffect(() => {
             fetch('http://localhost:9000/showBooking?email='+user.email)
                     .then(response => response.json()) //all datas are got
@@ -95,36 +113,52 @@ const Booking = (props) => {
        }
     }
 
+
+
+
+    
+
     return (
         <div className="container">
-            <Card className="d-block mx-auto" style={{ width: '20rem' }}>
-            <Card.Img variant="top" src={imgUrl} />
-            <Card.Body>
-            
-                
-                {
-                    sum && 
-                    <>
-                    <Card.Text className="text-center">
-                        Total Room Selected : {length}
-                    </Card.Text>
-                    <Card.Title className="text-center"> Total Amount : {sum}$</Card.Title>
-                    <Button onClick={checkOut} variant="danger" className="d-block mx-auto px-5">
-                        {/* <Link to="/payment"> */}
-                            <span className="text-book" >Book</span>
-                        {/* </Link> */}
-                    </Button>
-                    </>
-                }
-                {
-                    !sum && <h6 className="text-center text-danger">You didn't select any rooms</h6>
-                }
+
+            <div className="row">
+            <div style={{display:"flex",flexWrap:"wrap"}} className="col-lg-9">
+            {
+                db.map(key => <SelectedRoom remove={remove} data={key}></SelectedRoom>)
+            }
+            </div>
+
+            <div className="col-lg-3 order-lg-last order-md-first order-sm-first order-first">
+                <Card className="d-block" style={{ maxWidth: '300px' }}>
+                <Card.Img variant="top" src={imgUrl} />
+                <Card.Body>
                 
                     
-                
-                 
-            </Card.Body>
-            </Card>
+                    {
+                        sum && 
+                        <>
+                        <Card.Text className="text-center">
+                            Total Room Selected : {length}
+                        </Card.Text>
+                        <Card.Title className="text-center"> Total Amount : {sum}$</Card.Title>
+                        <Button onClick={checkOut} variant="danger" className="d-block mx-auto px-5">
+                            {/* <Link to="/payment"> */}
+                                <span className="text-book" >Book</span>
+                            {/* </Link> */}
+                        </Button>
+                        </>
+                    }
+                    {
+                        !sum && <h6 className="text-center text-danger">You didn't select any rooms</h6>
+                    }
+                    
+                        
+                    
+                    
+                </Card.Body>
+                </Card>
+            </div>
+            </div>
         </div>
     );
 };

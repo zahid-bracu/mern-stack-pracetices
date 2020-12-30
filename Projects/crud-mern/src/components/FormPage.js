@@ -1,10 +1,24 @@
-import React from 'react';
+import React, { useState,useContext } from 'react';
 import { Form } from 'react-bootstrap';
 import {
-    Link
+    Link,
+    useHistory
   } from "react-router-dom";
-const FormPage = () => {
+import {UserContext} from '../App';
 
+
+const FormPage = () => {
+    const [user,setUser]=useContext(UserContext);
+
+    var userMail=user.mail;
+    console.log(userMail);
+    const [data,setData]=useState({
+        name:"",
+        number:"",
+        mail:"",
+        address:""
+    })
+    let history = useHistory();
     function saveData(event){
         console.log("Ok");
         event.preventDefault();
@@ -13,8 +27,30 @@ const FormPage = () => {
         var mail=document.getElementById('email').value;
         var address=document.getElementById('address').value;
 
-        console.log(name+" : "+number+" : "+mail+" : "+address);
+        //console.log(name+" : "+number+" : "+mail+" : "+address);
+        var information={
+            "name":name,
+            "number":number,
+            "mail":mail,
+            "address":address,
+            "userMail":userMail
+        }
+
+        setData(information);
+        console.log(data)
+        fetch('http://localhost:3070/addInfo',{
+               method:'POST',
+               headers:{'Content-Type': 'application/json'},
+               body:JSON.stringify(information)
+           }).then(res=>res.json())
+           .then(data=>{
+               if(data){
+                history.push("/saved");
+               }
+           })
     }
+
+    console.log(data)
 
     return (
         <div className="container">
