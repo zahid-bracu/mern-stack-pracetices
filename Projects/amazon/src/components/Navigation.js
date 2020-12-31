@@ -1,30 +1,36 @@
 import React from 'react';
-import { Button } from 'react-bootstrap';
+import { Button, Nav, Navbar,NavDropdown,Form,FormControl } from 'react-bootstrap';
+import logo from './images/logo.png'
 const Navigation = () => {
     return (
-        <div>
-            <Navbar bg="light" expand="lg">
-                <Navbar.Brand href="#home">React-Bootstrap</Navbar.Brand>
+        
+            <Navbar bg="light"  expand="lg">
+                <div className="container">
+                <Navbar.Brand > 
+                    <img src={logo} style={{width:"100px"}}/>    
+                </Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
-                <Navbar.Collapse id="basic-navbar-nav">
+                <Navbar.Collapse  id="basic-navbar-nav">
                     <Nav className="mr-auto">
                     <Nav.Link href="#home">Home</Nav.Link>
-                    <Nav.Link href="#link">Link</Nav.Link>
-                    <NavDropdown title="Dropdown" id="basic-nav-dropdown">
-                        <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
-                        <NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>
-                        <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
+                    <Nav.Link href="#link0">Product</Nav.Link>
+                    <Nav.Link href="#link1">Order Review</Nav.Link>
+                    <Nav.Link href="#link2">Manage Inventory</Nav.Link>
+                    <Nav.Link href="#link2">Contact Us</Nav.Link>
+                    <NavDropdown title="My Account" id="basic-nav-dropdown">
+                        <NavDropdown.Item href="#action/3.0">Sign Up</NavDropdown.Item>
+                        <NavDropdown.Item href="#action/3.1">Sign In</NavDropdown.Item>
+                        <NavDropdown.Item href="#action/3.2">Sign Out</NavDropdown.Item>
+                        <NavDropdown.Item href="#action/3.3">My Account Information</NavDropdown.Item>
                         <NavDropdown.Divider />
-                        <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item>
+                        <NavDropdown.Item href="#action/3.4"></NavDropdown.Item>
                     </NavDropdown>
                     </Nav>
-                    <Form inline>
-                    <FormControl type="text" placeholder="Search" className="mr-sm-2" />
-                    <Button variant="outline-success">Search</Button>
-                    </Form>
+                     
                 </Navbar.Collapse>
+                </div>
             </Navbar>
-        </div>
+    
     );
 };
 

@@ -15,6 +15,9 @@ import {createContext} from 'react';
 import Saved from './components/Saved';
 import Delete from './components/Delete';
 import DeleteMessage from './components/DeleteMessage';
+import Update from './components/Update';
+
+
 export const UserContext = React.createContext();
 
 
@@ -60,6 +63,11 @@ function App() {
 
             <Route path="/delete/:id">
             <Delete></Delete>
+            </Route>
+
+
+            <Route path="/update/:id">
+            <Update></Update>
             </Route>
 
 
