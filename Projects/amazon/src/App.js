@@ -1,4 +1,4 @@
-
+import React,{createContext,useState} from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Navigation from './components/Navigation';
 import Banner from './components/Banner'
@@ -8,21 +8,55 @@ import {
   Route,
   Link
 } from "react-router-dom";
+import Signup from './components/Signup';
+import Login from './components/Login';
+import RegMsg from './components/RegMsg'
+import LoginMsg from './components/LoginMsg';
+
+
+export const UserContext = React.createContext();
 
 function App() {
+  
+const [user,setUser]=useState();
+
+
   return (
+
+    <UserContext.Provider value={[user,setUser]}>
     <div>
-      <Navigation></Navigation>
+      
       <Router>
+      <Navigation></Navigation>
         <Switch>
           
+          
+
+          <Route path="/register">
+            <Signup/>
+          </Route>
+
+
+          <Route path="/regmsg">
+            <RegMsg/>
+          </Route>
+
+          <Route path="/loginmsg">
+            <LoginMsg/>
+          </Route>
+
+          <Route path="/login">
+            <Login/>
+          </Route>
+
+
           <Route path="/">
             <Banner/>
           </Route>
-          
         </Switch>
     </Router>
     </div>
+    </UserContext.Provider>
   );
 }
 

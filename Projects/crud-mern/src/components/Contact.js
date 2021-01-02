@@ -1,4 +1,4 @@
-import React, { useState, useContext  } from 'react';
+import React, { useState, useContext, useEffect  } from 'react';
 import {
     Link
   } from "react-router-dom";
@@ -8,28 +8,36 @@ import {UserContext} from '../App';
 
 const Contact = () => {
     const [datas,setData]=useState([])
+    const [flag,setFlag]=useState(false)
     const [user,setUser]=useContext(UserContext);
     console.log(user);
-
-
-    function loadData(){
+    document.title="Contact List"
+    useEffect(() => {
         fetch('http://localhost:3070/info?userMail='+user.mail)
         .then(response => response.json())
         .then(data => {
             setData(data)
+            setFlag(true)
         });
-    }
+      });
+
+
+     
 
     
     return (
         <div className="container">
             
             <h4 className="text-center">Welcome {user.name}.</h4>
-            <h5 className="text-center">Click below to load all of your contacts</h5>
-            <button className="mx-auto d-block btn btn-info" onClick={loadData}>Load Your Contacts</button>
+            
+            
             {
-                datas.map(key => <InfoCard data={key}></InfoCard>)
+                 
+              flag ? datas.length === 0 ? <h4 className="my-5 text-center">Your Contact List is Empty</h4> : datas.map(key => <InfoCard data={key}></InfoCard>) : <h4 className="my-5 text-center">Loading...</h4>
+                
             }
+
+             
 
             
         </div>

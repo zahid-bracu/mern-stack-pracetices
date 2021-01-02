@@ -11,18 +11,17 @@ const InfoCard = (props) => {
     return (
          
             <div className="info-card mt-3">
-                <h5>{name}</h5>
-                <h6>{number}</h6>
-                <h6>{mail}</h6>
-                <h6>{address}</h6>
-                <h6>{_id}</h6>
-                <button className="btn btn-primary btn-sm">
-                <Link to={"/update/"+_id}>
+                <h5>Name : {name}</h5>
+                <h6>Contact No. : {number}</h6>
+                <h6>Mail : {mail}</h6>
+                <h6>Address : {address}</h6>
+                <button  className="btn btn-primary btn-sm">
+                <Link style={{textDecoration:"inherit",color:"white"}} to={"/update/"+_id}>
                         Update
                     </Link>
                 </button>
                 <button className="btn btn-danger btn-sm ml-2">
-                    <Link to={"/delete/"+_id}>
+                    <Link style={{textDecoration:"inherit",color:"white"}} to={"/delete/"+_id}>
                         Delete
                     </Link>
                 </button>

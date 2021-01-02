@@ -9,6 +9,7 @@ import {UserContext} from '../App';
 
 const FormPage = () => {
     const [user,setUser]=useContext(UserContext);
+    document.title="Add New Contact"
 
     var userMail=user.mail;
     console.log(userMail);

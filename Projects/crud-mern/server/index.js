@@ -57,6 +57,28 @@ client.connect(err => {
     })
   })
 
+
+  // update
+  app.patch('/update/:id',(req,res)=>{
+    console.log(req.body)
+
+    collection.updateOne({_id:ObjectId(req.params.id)}, //update data using update one & ObjectId for matching
+    {
+      $set:{
+        name: req.body.name,
+        number:req.body.number,
+        mail: req.body.mail,
+        address:req.body.address
+      }
+    })
+    .then(result=>{
+      res.send(result);
+      console.log(result);
+      // result is to say that data is updated
+    })
+
+  })
+
   
 
 

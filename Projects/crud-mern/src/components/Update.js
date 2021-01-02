@@ -28,14 +28,11 @@ const Update = () => {
               })
 
 
-    
-
-
+    let history = useHistory();
     function saveData(event){
         console.log("Ok");
         event.preventDefault();
          
-
         
 
         var name=(document.getElementById('name').value=="") ? info.name : document.getElementById('name').value;
@@ -57,6 +54,18 @@ const Update = () => {
         }
 
         console.log(information)
+
+        
+        fetch(`http://localhost:3070/update/${id}`,{
+            method:'PATCH',
+            headers:{'Content-Type':'application/json'},
+            body:JSON.stringify(information)
+        })
+        .then(res=>res.json())
+        .then(data=>{
+            console.log("Update");
+            history.push("/updatemsg");
+        })
         // setData(information);
         // console.log(data)
         // fetch('http://localhost:3070/addInfo',{
