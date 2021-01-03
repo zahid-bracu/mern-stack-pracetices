@@ -24,13 +24,20 @@ const Navigation = () => {
                 <Navbar.Collapse  id="basic-navbar-nav">
                     <Nav className="mr-auto">
                         
-                    <Nav.Link>
-                        <Link to="/banner">
-                        Home
-                        </Link>
+                        <Nav.Link>
+                            <Link to="/banner">
+                            Home
+                            </Link>
+                        </Nav.Link>
+
+
+                        <Nav.Link>
+                            <Link to="/shop">
+                            Products
+                            </Link>
                         </Nav.Link>
                     
-                    <Nav.Link href="#link0">Product</Nav.Link>
+                    
                     <Nav.Link href="#link1">Order Review</Nav.Link>
                     <Nav.Link href="#link2">Manage Inventory</Nav.Link>
                     <Nav.Link href="#link3">Contact Us</Nav.Link>

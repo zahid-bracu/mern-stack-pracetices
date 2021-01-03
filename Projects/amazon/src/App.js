@@ -12,7 +12,8 @@ import Signup from './components/Signup';
 import Login from './components/Login';
 import RegMsg from './components/RegMsg'
 import LoginMsg from './components/LoginMsg';
-
+import Shop from './components/Shop';
+import ProductDetail from './components/ProductDetail';
 
 export const UserContext = React.createContext();
 
@@ -30,10 +31,20 @@ const [user,setUser]=useState();
       <Navigation></Navigation>
         <Switch>
           
+
+
+        <Route path='/product/:id'>
+            <ProductDetail></ProductDetail> 
+          </Route>
           
 
           <Route path="/register">
             <Signup/>
+          </Route>
+
+
+          <Route path="/shop">
+            <Shop/>
           </Route>
 
 

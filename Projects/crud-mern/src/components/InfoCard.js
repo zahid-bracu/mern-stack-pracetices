@@ -2,6 +2,8 @@ import React from 'react';
 import {
     Link
   } from "react-router-dom";
+
+import './style.css';
 const InfoCard = (props) => {
     const {name,number,mail,address,_id}=props.data;
     function deleteIs(id,name){

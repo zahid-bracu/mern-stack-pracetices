@@ -7,14 +7,15 @@ import {
     Route,
     Link
   } from "react-router-dom";
+import './style.css';
 const Navigation = () => {
     const [user,setUser]=useContext(UserContext);
     return (
         <>
-            <Navbar bg="white" expand="lg">
+            <Navbar className="bg-nav"  expand="lg">
                 <div className="container">
                     <Navbar.Brand >
-                        <Link style={{textDecoration:"inherit",color:"black"}} to="/">
+                        <Link style={{textDecoration:"inherit",color:"white"}} to="/">
                         Address Book
                         </Link>
                     </Navbar.Brand>
@@ -22,7 +23,7 @@ const Navigation = () => {
                     <Navbar.Collapse id="basic-navbar-nav">
                         <Nav className="mr-auto">
                         <Nav.Link >
-                            <Link style={{textDecoration:"inherit",color:"black"}} to="/home">Home</Link>
+                            <Link style={{textDecoration:"inherit",color:"white"}} to="/home">Home</Link>
 
                         </Nav.Link>
 
@@ -30,13 +31,13 @@ const Navigation = () => {
                             user.flag &&
                             <>
                             <Nav.Link  >
-                                <Link style={{textDecoration:"inherit",color:"black"}} to="/contact">
+                                <Link style={{textDecoration:"inherit",color:"white"}} to="/contact">
                                 Contacts
                                 </Link>
                             </Nav.Link>
 
                             <Nav.Link  >
-                                <Link style={{textDecoration:"inherit",color:"black"}} to="/form">
+                                <Link style={{textDecoration:"inherit",color:"white"}} to="/form">
                                 Add New Contacts
                                 </Link>
                             </Nav.Link>
@@ -44,7 +45,7 @@ const Navigation = () => {
                         }
                          {
                              !user.flag && <Nav.Link  >
-                             <Link style={{textDecoration:"inherit",color:"black"}} to="/login">
+                             <Link style={{textDecoration:"inherit",color:"white"}} to="/login">
                              Login
                              </Link>
                             </Nav.Link>
@@ -52,7 +53,7 @@ const Navigation = () => {
 
                         {
                              user.flag && <Nav.Link  >
-                             <Link style={{textDecoration:"inherit",color:"black"}} to="/login">
+                             <Link style={{textDecoration:"inherit",color:"white"}} to="/login">
                              Account & Signout
                              </Link>
                             </Nav.Link>
