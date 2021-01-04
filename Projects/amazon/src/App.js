@@ -14,6 +14,8 @@ import RegMsg from './components/RegMsg'
 import LoginMsg from './components/LoginMsg';
 import Shop from './components/Shop';
 import ProductDetail from './components/ProductDetail';
+import OrderReview from './components/OrderReview';
+import Inventory from './components/Inventory';
 
 export const UserContext = React.createContext();
 
@@ -40,6 +42,16 @@ const [user,setUser]=useState();
 
           <Route path="/register">
             <Signup/>
+          </Route>
+
+
+          <Route path="/orderreview">
+            <OrderReview/>
+          </Route>
+
+
+          <Route path="/inventory">
+            <Inventory/>
           </Route>
 
 

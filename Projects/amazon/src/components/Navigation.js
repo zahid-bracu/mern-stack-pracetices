@@ -7,6 +7,7 @@ import {
     useHistory
   } from "react-router-dom";
 import {UserContext} from '../App';
+import Cart from './Cart';
 
 
 
@@ -36,10 +37,30 @@ const Navigation = () => {
                             Products
                             </Link>
                         </Nav.Link>
+
+
+                        <Nav.Link>
+                            <Cart/>
+                        </Nav.Link>
                     
+                        
+
+
+                        <Nav.Link>
+                            <Link to="/orderreview">
+                            Order Review
+                            </Link>
+                        </Nav.Link>
+
+
+                        <Nav.Link>
+                            <Link to="/inventory">
+                            Inventory
+                            </Link>
+                        </Nav.Link>
                     
-                    <Nav.Link href="#link1">Order Review</Nav.Link>
-                    <Nav.Link href="#link2">Manage Inventory</Nav.Link>
+                   
+                     
                     <Nav.Link href="#link3">Contact Us</Nav.Link>
                     <NavDropdown title="My Account" id="basic-nav-dropdown">
                       {
