@@ -1,5 +1,6 @@
 
 import React, {useState,useContext} from 'react';
+import {CartContext} from '../App';
 import { Button, Nav, Navbar,NavDropdown,Form,FormControl } from 'react-bootstrap';
 import logo from './images/logo.png'
 import {
@@ -13,7 +14,8 @@ import Cart from './Cart';
 
 const Navigation = () => {
     const [user,setUser]=useContext(UserContext);
-    
+    const [cart,setCart]=useContext(CartContext);
+    console.log(cart.length)
     return (
         
             <Navbar bg="light"  expand="lg">
@@ -39,8 +41,9 @@ const Navigation = () => {
                         </Nav.Link>
 
 
-                        <Nav.Link>
-                            <Cart/>
+                         
+                        <Nav.Link >
+                            <Cart cart={cart}/>
                         </Nav.Link>
                     
                         

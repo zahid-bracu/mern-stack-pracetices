@@ -1,4 +1,5 @@
-import React,{useState} from 'react';
+import React,{useState,useContext} from 'react';
+import {CartContext} from '../App';
 import fakeData from './fakeData';
 import {
     BrowserRouter as Router,
@@ -11,8 +12,19 @@ import {
   
   import Product from './Product'
 const Shop = () => {
-    console.log(fakeData)
+     
     const [products, setProducts] = useState(fakeData);
+    const [cart,setCart]=useContext(CartContext);
+
+
+    console.log(cart);
+    function addProduct(prod){
+        console.log(prod);
+        console.log(cart)
+        const newCart=[...cart,prod];
+        setCart(newCart);
+    }
+
 
     function filterProduct(){
         var values=document.getElementById("selectCategory").value;
@@ -47,7 +59,7 @@ const Shop = () => {
 
              <div className="row justify-content-center">
                 {
-                    products.map(pd => <Product data={pd}  products={pd}></Product>)
+                    products.map(pd => <Product data={pd} addProduct={addProduct}  products={pd}></Product>)
                 }
             </div>
          </div>

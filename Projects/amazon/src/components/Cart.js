@@ -1,9 +1,17 @@
 import React,{useState} from 'react';
 import { Button, Modal } from 'react-bootstrap';
-const Cart = () => {
+const Cart = (props) => {
     const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
+
+    var total=props.cart.reduce((total, key)=>total+key.price,0);
+
+
+
+
+
+
     return (
         <>
       {/* <Button variant="primary" onClick={handleShow}>
@@ -11,7 +19,7 @@ const Cart = () => {
       </Button> */}
 
       <div onClick={handleShow}>
-          Cart
+          Cart ({props.cart.length})
       </div>
 
       <Modal show={show} onHide={handleClose}>
@@ -24,7 +32,7 @@ const Cart = () => {
         <h6>Items Ordered: 0</h6>
         <p>Items: 0$</p>
         <p>Shipping & Handling: 0$</p>
-        <p>Total before tax: 0$</p>
+        <p>Total before tax: {total}$</p>
         <p>Estimated Tax: 0$</p>
         <h5 className="text-danger">Order Total: $0</h5>
         </Modal.Body>

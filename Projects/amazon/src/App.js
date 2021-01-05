@@ -16,70 +16,90 @@ import Shop from './components/Shop';
 import ProductDetail from './components/ProductDetail';
 import OrderReview from './components/OrderReview';
 import Inventory from './components/Inventory';
+import ShippingAddress from './components/ShippingAddress';
+import PaymentPath from './components/PaymentPath';
 
 export const UserContext = React.createContext();
 
-function App() {
-  
-const [user,setUser]=useState();
+export const CartContext = React.createContext();
 
+
+function App() {
+
+const [cart,setCart]=useState([]);
+const [user,setUser]=useState();
+console.log(cart)
 
   return (
 
-    <UserContext.Provider value={[user,setUser]}>
-    <div>
-      
-      <Router>
-      <Navigation></Navigation>
-        <Switch>
-          
+    <CartContext.Provider value={[cart,setCart]}>
+      <UserContext.Provider value={[user,setUser]}>
+      <div>
+        
+        <Router>
+        <Navigation></Navigation>
+          <Switch>
+            
 
 
-        <Route path='/product/:id'>
-            <ProductDetail></ProductDetail> 
-          </Route>
-          
+          <Route path='/product/:id'>
+              <ProductDetail></ProductDetail> 
+            </Route>
+            
 
-          <Route path="/register">
-            <Signup/>
-          </Route>
-
-
-          <Route path="/orderreview">
-            <OrderReview/>
-          </Route>
+            <Route path="/register">
+              <Signup/>
+            </Route>
 
 
-          <Route path="/inventory">
-            <Inventory/>
-          </Route>
+            <Route path="/orderreview">
+              <OrderReview/>
+            </Route>
 
 
-          <Route path="/shop">
-            <Shop/>
-          </Route>
+            <Route path="/inventory">
+              <Inventory/>
+            </Route>
 
 
-          <Route path="/regmsg">
-            <RegMsg/>
-          </Route>
 
-          <Route path="/loginmsg">
-            <LoginMsg/>
-          </Route>
-
-          <Route path="/login">
-            <Login/>
-          </Route>
+            <Route path="/shippingaddress">
+              <ShippingAddress/>
+            </Route>
 
 
-          <Route path="/">
-            <Banner/>
-          </Route>
-        </Switch>
-    </Router>
-    </div>
-    </UserContext.Provider>
+
+            <Route path="/paymentpath">
+              <PaymentPath/>
+            </Route>
+
+
+            <Route path="/shop">
+              <Shop/>
+            </Route>
+
+
+            <Route path="/regmsg">
+              <RegMsg/>
+            </Route>
+
+            <Route path="/loginmsg">
+              <LoginMsg/>
+            </Route>
+
+            <Route path="/login">
+              <Login/>
+            </Route>
+
+
+            <Route path="/">
+              <Banner/>
+            </Route>
+          </Switch>
+      </Router>
+      </div>
+      </UserContext.Provider>
+    </CartContext.Provider>
   );
 }
 

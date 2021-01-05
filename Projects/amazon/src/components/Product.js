@@ -1,4 +1,4 @@
-import React from 'react';
+import React  from 'react';
 import { Button, Card } from 'react-bootstrap';
 import {
     BrowserRouter as Router,
@@ -6,6 +6,7 @@ import {
     Route,
     Switch,
   } from 'react-router-dom';
+
 const Product = (props) => {
      
     const { img, name, seller, description,price, stock,key } = props.data;
@@ -25,7 +26,7 @@ const Product = (props) => {
                         <Card.Text>
                         <p>Price : {price}$</p>
                         </Card.Text>
-                        <Button variant="warning">Add to Cart</Button>
+                        <Button variant="warning" onClick={()=>props.addProduct(props.data)}>Add to Cart</Button>
                     </Card.Body>
             </Card>
     );
