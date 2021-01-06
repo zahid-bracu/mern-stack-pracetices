@@ -61,9 +61,18 @@ const Navigation = (props) => {
 
             <NavItem>
             <NavLink>
-              <Link className="nav-custom" to="/blog">Blog</Link>
+              <Link className="nav-custom" to="/login">Login</Link>
               </NavLink>
             </NavItem>
+
+
+            <NavItem>
+            <NavLink>
+              <Link className="nav-custom" to="/addevent">Add Event</Link>
+              </NavLink>
+            </NavItem>
+
+            
 
 
             <NavItem>
@@ -71,7 +80,10 @@ const Navigation = (props) => {
             </NavItem>
 
             <NavLink>
+              <Link to="/register">
               <button style={{width:"80px"}} className="btn btn-primary btn-sm  ">Register</button>
+              </Link>
+              
               </NavLink> 
               
               <NavLink>

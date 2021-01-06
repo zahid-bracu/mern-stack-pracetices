@@ -1,5 +1,5 @@
 
-import React, {useState,useContext} from 'react';
+import React, {useState,useContext,useEffect} from 'react';
 import {CartContext} from '../App';
 import { Button, Nav, Navbar,NavDropdown,Form,FormControl } from 'react-bootstrap';
 import logo from './images/logo.png'
@@ -9,13 +9,36 @@ import {
   } from "react-router-dom";
 import {UserContext} from '../App';
 import Cart from './Cart';
-
+import { addToDatabaseCart, getDatabaseCart, removeFromDatabaseCart, processOrder } from './databaseManager';
+import fakeData from './fakeData';
 
 
 const Navigation = () => {
     const [user,setUser]=useContext(UserContext);
     const [cart,setCart]=useContext(CartContext);
-    console.log(cart.length)
+    const [data,setData]=useState([]);
+     
+
+
+    useEffect(() => {
+        var savedCart=getDatabaseCart();
+        const productKeys=Object.keys(savedCart);
+
+        
+        const cartProducts=productKeys.map(key=>{
+            const product=fakeData.find(pd=> pd.key===key);
+            product.quantiy=savedCart[key];
+            return product;
+        })
+
+        console.log(cartProducts);
+        setData(cartProducts);
+      },[]);
+
+
+      console.log(data);
+
+
     return (
         
             <Navbar bg="light"  expand="lg">

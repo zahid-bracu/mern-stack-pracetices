@@ -1,13 +1,19 @@
-import React,{useState} from 'react';
+import React,{useState,useEffect} from 'react';
 import { Button, Modal } from 'react-bootstrap';
+ 
+
 const Cart = (props) => {
     const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
 
+
+    useEffect(()=>{
+
+    },[]);
+
     var total=props.cart.reduce((total, key)=>total+key.price,0);
-
-
+    
 
 
 

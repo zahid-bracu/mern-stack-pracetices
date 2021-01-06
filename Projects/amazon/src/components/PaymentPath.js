@@ -25,11 +25,11 @@ const PaymentPath = () => {
       }
     return (
         <div>
-            <div className="container">
+            <div className="container mt-5">
           
             <div className="radio-box">
             <form onSubmit={handleClick}>
-            <h5>Please select your Payment Method : </h5>
+            <h5 className="my-3">Please select your Payment Method : </h5>
             <div className="payment-box">
                 <input type="radio" id="bkash" name="payment" value="bkash"/>
                 <label for="bkash" className="ml-2 font-weight-bold">bKash</label><br/>

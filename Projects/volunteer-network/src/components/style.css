@@ -18,23 +18,62 @@
     position: relative;
 }
 
+
+.register-box{
+    display: block;
+    min-height: 500px;
+    max-width: 600px;
+    border: 1px solid rgb(156, 156, 156);
+    padding: 20px;
+    position: relative;
+}
+
+
+.event-box{
+    display: block;
+    min-height: 400px;
+    max-width: 600px;
+    border: 1px solid rgb(156, 156, 156);
+    padding: 20px;
+    position: relative;
+}
+
 .mini-box{
      
     display: block;
     position: absolute;
-  top: 20%;
-  left: 18%;
+    top: 20%;
+    left: 18%;
 
 }
+
+
+.reg-mini-box{
+    border: 1px solid black;
+    display: block;
+    position: absolute;
+    top: 20%;
+    left: 18%;
+
+}
+
+
+
+
 .card-text-custom{
     
 }
+
+
+ 
 .card-custom{
     border: none !important;
-    background-color: rgb(252, 247, 204);
+    background-color:#0275d8 ;
+    color: aliceblue;
+    font-size:14px;
     border-radius: 20px;
     transition: .2s;
-    box-shadow: 1px 1px 18px rgb(158, 158, 158);
+    box-shadow: 5px 5px 18px rgb(158, 158, 158);
 }
 
 .card-custom:hover{

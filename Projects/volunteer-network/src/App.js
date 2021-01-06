@@ -10,15 +10,41 @@ import {
 } from "react-router-dom";
 import Login from './components/Login';
 import Works from './components/Works';
+import Register from './components/Register';
+import AddEvent from './components/AddEvent';
+import SelectedWorks from './components/SelectedWorks';
 function App() {
   return (
     <>
     <Router>
      
     <Navigation/>
+    <Switch>
+
+
+    <Route path="/login">
+      <Login/>
+    </Route>
+
+
+    <Route path="/register">
+      <Register/>
+    </Route>
+
+    <Route path="/addevent">
+      <AddEvent/>
+    </Route>
+
+
+    <Route path="/selectedworks">
+      <SelectedWorks/>
+    </Route>
+
+    <Route path="/">
+      <Works/>
+    </Route>
     
-    <Login/>
-    <Works/>
+    </Switch>
     </Router>
     
     </>

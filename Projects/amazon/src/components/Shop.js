@@ -10,7 +10,11 @@ import {
     useParams
   } from "react-router-dom";
   
-  import Product from './Product'
+import Product from './Product'
+import { addToDatabaseCart, getDatabaseCart, removeFromDatabaseCart, processOrder } from './databaseManager';
+
+
+
 const Shop = () => {
      
     const [products, setProducts] = useState(fakeData);
@@ -19,10 +23,12 @@ const Shop = () => {
 
     console.log(cart);
     function addProduct(prod){
-        console.log(prod);
-        console.log(cart)
+        
         const newCart=[...cart,prod];
         setCart(newCart);
+        const sameProduct=newCart.filter(pd=> pd.key===prod.key);
+        const count=sameProduct.length;
+        addToDatabaseCart(prod.key,count);
     }
 
 
@@ -59,7 +65,7 @@ const Shop = () => {
 
              <div className="row justify-content-center">
                 {
-                    products.map(pd => <Product data={pd} addProduct={addProduct}  products={pd}></Product>)
+                    products.map(pd => <Product data={pd} key={pd.key} addProduct={addProduct}  products={pd}></Product>)
                 }
             </div>
          </div>

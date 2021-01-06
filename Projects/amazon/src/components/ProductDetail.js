@@ -1,11 +1,21 @@
-import React from 'react';
+import React,{useState,useContext}  from 'react';
 import { useParams, Link } from 'react-router-dom';
 import fakaData from './fakeData';
+import {CartContext} from '../App';
 const ProductDetail = (props) => {
+
+
+    const [cart,setCart]=useContext(CartContext);
     const {id}=useParams();
     console.log(id);
     const prod=fakaData.find(i=> i.key === id); 
     console.log(prod)
+
+
+    function addCart(data){
+        const newCart=[...cart,data];
+        setCart(newCart);
+    }
 
     return (
         <div className="container">
@@ -19,7 +29,7 @@ const ProductDetail = (props) => {
                     <h6>Seller : {prod.seller}</h6>
                     <h6>Products in Stock : {prod.stock} items</h6>
                     <h5>Price : {prod.price}$</h5>
-                    <button className="btn btn-warning">Add to Cart</button>
+                    <button className="btn btn-warning" onClick={()=>addCart(prod)}>Add to Cart</button>
                    <Link to="/shop">
                    <button className="btn btn-secondary ml-3">Back</button>
                    </Link> 
