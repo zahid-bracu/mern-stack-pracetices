@@ -18,6 +18,7 @@ import OrderReview from './components/OrderReview';
 import Inventory from './components/Inventory';
 import ShippingAddress from './components/ShippingAddress';
 import PaymentPath from './components/PaymentPath';
+import Cart from './components/Cart';
 
 export const UserContext = React.createContext();
 
@@ -49,6 +50,11 @@ console.log(cart)
 
             <Route path="/register">
               <Signup/>
+            </Route>
+
+
+            <Route path="/cart">
+              <Cart/>
             </Route>
 
 

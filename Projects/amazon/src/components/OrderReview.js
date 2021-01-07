@@ -1,12 +1,13 @@
 import React, {useState,useContext,useEffect} from 'react';
+import Cart from './Cart';
 import { addToDatabaseCart, getDatabaseCart, removeFromDatabaseCart, processOrder } from './databaseManager';
 import fakeData from './fakeData';
 import ProductOrdered from './ProductOrdered';
-
+import {CartContext} from '../App';
 
 const OrderReview = () => {
     const [data,setData]=useState([]);
-
+    const [cart,setCart]=useContext(CartContext);
 
     useEffect(() => {
         var savedCart=getDatabaseCart();
@@ -22,12 +23,35 @@ const OrderReview = () => {
         console.log(cartProducts);
         setData(cartProducts);
       },[]);
+
+
+      function removeProduct(id){
+          console.log(id);
+
+          var allProduct=data.filter(pd=> id!==pd.key);
+          removeFromDatabaseCart(id);
+          setData(allProduct);
+          setCart(allProduct)
+      }
+
+      console.log(data)
     return (
-        <div className="container row">
-            {
-                data.map(pd=> <ProductOrdered key={pd.key} datas={pd}></ProductOrdered>)
-            }
+        <>
+        <div className="container ">
+            <div className="row">
+                <div className="col-lg-9 col-md-12 col-sm-12 col-12">
+                {
+                    data.map(pd=> <ProductOrdered removeProduct={removeProduct} key={pd.key} datas={pd}></ProductOrdered>)
+                }
+                </div>
+
+                <div className="col-lg-3 col-md-12 col-sm-12 col-12 order-lg-last order-md-first order-sm-first order-first">
+                    <Cart/>
+                </div>
+            </div>
+            
         </div>
+        </>
     );
 };
 

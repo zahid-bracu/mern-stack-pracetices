@@ -8,27 +8,35 @@ import {
   } from 'react-router-dom';
 const ProductOrdered = (props) => {
 
-    const { img, name, seller, description,price, stock,key } = props.datas;
+    const { img, name, seller, description,price, stock,key,quantiy } = props.datas;
     console.log(props.datas)
     
     return (
         <div>
-            <Card className="m-2" style={{ maxWidth: '18rem', minHeight:"25px"}}>
-                <Card.Img variant="top" src={img} />
-                    <Card.Body>
-                         
-                        <h6>
-                            <Link to={"/product/"+key}>
+            <div className="card-custom my-3 row justify-content-center  " style={{width:"600px"}}>
+                <div className="col-4">
+                    <img style={{maxWidth:"150px"}} src={img}/>
+                </div>
+
+                <div className="col-8 ">
+
+
+                <h6>
+                <Link to={"/product/"+key}>
                             {name}
                             </Link>
-                            
-                        </h6>
-                        <Card.Text>
-                        <p>Price : {price}$</p>
-                        </Card.Text>
-                        <Button variant="danger" onClick={()=>props.addProduct(props.data)}>Remove</Button>
-                    </Card.Body>
-            </Card>
+                </h6>
+
+                <h6>
+                    Quantity: {quantiy}
+                </h6>
+                
+                <h6>  Price :  <span class="badge badge-success">{price}$</span> </h6>
+                <Button   className="btn btn-danger btn-sm" onClick={()=>props.removeProduct(key)}>Remove</Button>
+                </div>
+
+            </div>
+             
         </div>
     );
 };

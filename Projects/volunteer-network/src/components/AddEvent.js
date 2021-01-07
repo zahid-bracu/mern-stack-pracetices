@@ -34,7 +34,7 @@ const AddEvent = () => {
                         <Input type="file" name="file" id="banner" />
                     </FormGroup>
 
-                    <button className="btn btn-primary btn-custom-2">Registration</button>
+                    <button className="btn btn-primary btn-custom-2">Add Event</button>
                 </Form>
             </div>
         </div>

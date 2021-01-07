@@ -36,7 +36,10 @@ const ShippingAddress = () => {
                     <Form.Label>Address</Form.Label>
                     <Form.Control as="textarea" id="address" rows={4} />
                 </Form.Group>
+                <Link to="/paymentpath">
                 <button className="btn btn-primary">Continue</button>
+                </Link>
+                
             </Form>
         </div>
     );

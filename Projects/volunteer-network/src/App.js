@@ -13,6 +13,7 @@ import Works from './components/Works';
 import Register from './components/Register';
 import AddEvent from './components/AddEvent';
 import SelectedWorks from './components/SelectedWorks';
+import VolunteerList from './components/VolunteerList';
 function App() {
   return (
     <>
@@ -24,6 +25,11 @@ function App() {
 
     <Route path="/login">
       <Login/>
+    </Route>
+
+
+    <Route path="/volunteerlist">
+      <VolunteerList/>
     </Route>
 
 

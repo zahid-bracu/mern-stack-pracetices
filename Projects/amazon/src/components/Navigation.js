@@ -66,7 +66,9 @@ const Navigation = () => {
 
                          
                         <Nav.Link >
-                            <Cart cart={cart}/>
+                            <Link to="/cart">
+                                Cart
+                            </Link>
                         </Nav.Link>
                     
                         

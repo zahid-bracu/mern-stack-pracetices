@@ -1,57 +1,56 @@
-import React,{useState,useEffect} from 'react';
+import React,{useState,useEffect,useContext} from 'react';
 import { Button, Modal } from 'react-bootstrap';
- 
-
+import { addToDatabaseCart, getDatabaseCart, removeFromDatabaseCart, processOrder } from './databaseManager';
+import fakeData from './fakeData';
+import {CartContext} from '../App';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
 const Cart = (props) => {
-    const [show, setShow] = useState(false);
-    const handleClose = () => setShow(false);
-    const handleShow = () => setShow(true);
+  const [data,setData]=useState([]);
+  const [cart,setCart]=useContext(CartContext);
 
+    // useEffect(() => {
+    //   var savedCart=getDatabaseCart();
+    //   const productKeys=Object.keys(savedCart);
 
-    useEffect(()=>{
+      
+    //   const cartProducts=productKeys.map(key=>{
+    //       const product=fakeData.find(pd=> pd.key===key);
+    //       product.quantiy=savedCart[key];
+    //       return product;
+    //   })
 
-    },[]);
+    //   console.log(cartProducts);
+    //   setData(cartProducts);
+    // },[]);
 
-    var total=props.cart.reduce((total, key)=>total+key.price,0);
+  
+    var total=cart.reduce((total, key)=>total+key.price,0);
     
 
 
 
 
     return (
-        <>
-      {/* <Button variant="primary" onClick={handleShow}>
-        Launch demo modal
-      </Button> */}
+     
+          <div className="">
+              <h6>Items Ordered: 0</h6>
+              <p>Items: 0$</p>
+              <p>Shipping & Handling: 0$</p>
+              <p>Total before tax: {total}$</p>
+              <p>Estimated Tax: 0$</p>
+              <h5 className="text-danger">Order Total: {total}$</h5>
+              
+              <Link to="/shippingaddress">
+              <button className="btn btn-warning btn-sm">Proceed</button>
+              </Link>
+              
+          </div>
 
-      <div onClick={handleShow}>
-          Cart ({props.cart.length})
-      </div>
-
-      <Modal show={show} onHide={handleClose}>
-        <Modal.Header closeButton>
-          <Modal.Title className="text-center">Order Summary</Modal.Title>
-          
-        </Modal.Header>
-        
-        <Modal.Body>
-        <h6>Items Ordered: 0</h6>
-        <p>Items: 0$</p>
-        <p>Shipping & Handling: 0$</p>
-        <p>Total before tax: {total}$</p>
-        <p>Estimated Tax: 0$</p>
-        <h5 className="text-danger">Order Total: $0</h5>
-        </Modal.Body>
-        <Modal.Footer>
-          <Button variant="warning" onClick={handleClose}>
-            Review your order
-          </Button>
-          <Button variant="danger" onClick={handleClose}>
-            Close
-          </Button>
-        </Modal.Footer>
-      </Modal>
-    </>
     );
 };
 

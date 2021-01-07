@@ -12,6 +12,7 @@ import {
   
 import Product from './Product'
 import { addToDatabaseCart, getDatabaseCart, removeFromDatabaseCart, processOrder } from './databaseManager';
+import Cart from './Cart';
 
 
 
@@ -62,6 +63,7 @@ const Shop = () => {
                     </select>
                 </div>
              </div>
+             
 
              <div className="row justify-content-center">
                 {
