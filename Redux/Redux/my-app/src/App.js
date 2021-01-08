@@ -1,11 +1,11 @@
-import Counter from './components/Counter'
+
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Patient from './components/Patient';
+import DataLoad from './components/DataLoad';
+ 
 function App() {
   return (
     <div className="App">
-      <Counter/>
-      <Patient/>
+      <DataLoad/>
     </div>
   );
 }

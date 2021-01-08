@@ -4,12 +4,49 @@ import {
     Link,
     useHistory
   } from "react-router-dom";
-
+import {UserContext} from '../App';
+import { addToDatabaseCart, getDatabaseCart, removeFromDatabaseCart, processOrder } from './databaseManager';
+import fakeData from './fakeData';
 
 const ShippingAddress = () => {
 
+    const [user,setUser]=useContext(UserContext);
+    console.log(user);
+
+
+    
+
     function saveData(event){
         event.preventDefault();
+
+        console.log(user);
+        var name=document.getElementById('name').value;
+        var number=document.getElementById('number').value;
+        var mail=document.getElementById('email').value;
+        var address=document.getElementById('address').value;
+
+        console.log(name+" "+number+" "+mail+" "+address+" "+user);
+
+
+        var savedCart=getDatabaseCart();
+        const productKeys=Object.keys(savedCart);
+
+        
+        const cartProducts=productKeys.map(key=>{
+            const product=fakeData.find(pd=> pd.key===key);
+            product.quantiy=savedCart[key];
+            return product;
+        })
+
+
+        
+        cartProducts.name=name;
+        cartProducts.number=number;
+        cartProducts.mail=mail;
+        cartProducts.address=address;
+        cartProducts.user=user;
+        console.log(cartProducts);
+        
     }
 
     return (
@@ -36,9 +73,9 @@ const ShippingAddress = () => {
                     <Form.Label>Address</Form.Label>
                     <Form.Control as="textarea" id="address" rows={4} />
                 </Form.Group>
-                <Link to="/paymentpath">
+                {/* <Link to="/paymentpath"> */}
                 <button className="btn btn-primary">Continue</button>
-                </Link>
+                {/* </Link> */}
                 
             </Form>
         </div>

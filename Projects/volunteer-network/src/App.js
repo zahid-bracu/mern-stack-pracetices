@@ -1,6 +1,7 @@
-import logo from './logo.svg';
+
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import React,{createContext,useState} from 'react';
 import Navigation from './components/Navigation';
 import {
   BrowserRouter as Router,
@@ -14,9 +15,19 @@ import Register from './components/Register';
 import AddEvent from './components/AddEvent';
 import SelectedWorks from './components/SelectedWorks';
 import VolunteerList from './components/VolunteerList';
+export const UserContext = React.createContext();
+
+
 function App() {
+  const [user,setUser]=useState({
+    name:"",
+    mail:""
+  });
+
   return (
     <>
+    
+<UserContext.Provider value={[user,setUser]}>
     <Router>
      
     <Navigation/>
@@ -52,7 +63,7 @@ function App() {
     
     </Switch>
     </Router>
-    
+    </UserContext.Provider>
     </>
   );
 }

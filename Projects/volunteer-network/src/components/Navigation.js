@@ -1,5 +1,5 @@
 
-import React, { useState } from 'react';
+import React, {useState,useContext} from 'react';
 import {
   Collapse,
   Navbar,
@@ -21,10 +21,13 @@ import {
     useLocation,
     Link
   } from "react-router-dom";
-import logo from './logos/logo.png'
+import logo from './logos/logo.png';
+import {UserContext} from '../App';
+
+
 const Navigation = (props) => {
   const [isOpen, setIsOpen] = useState(false);
-
+  const [user,setUser]=useContext(UserContext);
   const toggle = () => setIsOpen(!isOpen);
 
   return (
@@ -59,11 +62,7 @@ const Navigation = (props) => {
             </NavItem>
 
 
-            <NavItem>
-            <NavLink>
-              <Link className="nav-custom" to="/login">Login</Link>
-              </NavLink>
-            </NavItem>
+            
 
 
             <NavItem>
@@ -84,6 +83,27 @@ const Navigation = (props) => {
 
             <NavItem>
               <NavLink className="nav-custom" target="_blank" href="https://github.com/zahid-bracu">GitHub</NavLink>
+            </NavItem>
+
+
+            <NavItem>
+            <NavLink>
+              <Link className="nav-custom" to="/login">
+                {
+                  !user.name && <button className="btn btn-success btn-sm">
+                  Login
+                  </button>
+                }
+
+                {
+                  user.name && <button className="btn btn-danger btn-sm">
+                  Logout
+                  </button>
+                }
+
+
+                </Link>
+              </NavLink>
             </NavItem>
 
             <NavLink>

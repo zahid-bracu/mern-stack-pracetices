@@ -40,8 +40,8 @@ const Login = () => {
              
 
             console.log("Logged In");
-            setError("")
-            setUser(mail)
+            setError("");
+            setUser(mail);
             // history.push("/loginmsg");
         })
         .catch((error) => {
