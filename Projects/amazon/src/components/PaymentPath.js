@@ -2,7 +2,10 @@ import React,{useEffect} from 'react';
 import { Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
 import { useForm } from "react-hook-form";
 import './style.css';
-import { useHistory } from "react-router-dom";
+import {
+    Link,
+    useHistory
+  } from "react-router-dom";
 const PaymentPath = () => {
 
 
@@ -15,7 +18,7 @@ const PaymentPath = () => {
                     if(ele[i].checked) 
                     {
                       console.log(ele[i].value);
-                    //   history.push("/confirm");
+                      history.push("/submitted");
                     }else{
                        
                     }

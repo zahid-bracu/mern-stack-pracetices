@@ -19,20 +19,26 @@ import Inventory from './components/Inventory';
 import ShippingAddress from './components/ShippingAddress';
 import PaymentPath from './components/PaymentPath';
 import Cart from './components/Cart';
+import Submitted from './components/Submitted';
 
 export const UserContext = React.createContext();
 
 export const CartContext = React.createContext();
+
+export const CartProductsContext = React.createContext();
 
 
 function App() {
 
 const [cart,setCart]=useState([]);
 const [user,setUser]=useState();
+const [cartList,setCartList]=useState([]);
+
 console.log(cart)
 
   return (
 
+    <CartProductsContext.Provider value={[cartList,setCartList]}>
     <CartContext.Provider value={[cart,setCart]}>
       <UserContext.Provider value={[user,setUser]}>
       <div>
@@ -80,6 +86,11 @@ console.log(cart)
             </Route>
 
 
+            <Route path="/submitted">
+              <Submitted/>
+            </Route>
+
+
             <Route path="/shop">
               <Shop/>
             </Route>
@@ -106,6 +117,7 @@ console.log(cart)
       </div>
       </UserContext.Provider>
     </CartContext.Provider>
+    </CartProductsContext.Provider>
   );
 }
 

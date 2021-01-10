@@ -5,16 +5,20 @@ import {
     useHistory
   } from "react-router-dom";
 import {UserContext} from '../App';
+import {CartProductsContext} from '../App';
 import { addToDatabaseCart, getDatabaseCart, removeFromDatabaseCart, processOrder } from './databaseManager';
 import fakeData from './fakeData';
 
 const ShippingAddress = () => {
 
     const [user,setUser]=useContext(UserContext);
+
+    const [cartList,setCartList]=useContext(CartProductsContext);
+
     console.log(user);
 
 
-    
+    let history = useHistory();
 
     function saveData(event){
         event.preventDefault();
@@ -45,10 +49,17 @@ const ShippingAddress = () => {
         cartProducts.mail=mail;
         cartProducts.address=address;
         cartProducts.user=user;
-        console.log(cartProducts);
+        cartProducts.flag=true;
+         
+        setCartList(cartProducts); 
+        history.push("/paymentpath");
+         
+        
         
     }
 
+
+    console.log(cartList);
     return (
         <div className="container">
             <h5 className="text-center mt-5">Add new contact</h5>
