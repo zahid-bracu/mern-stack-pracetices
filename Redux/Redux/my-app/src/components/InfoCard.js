@@ -1,7 +1,7 @@
 import React from 'react';
 import { Button,Card } from 'react-bootstrap';
 const InfoCard = (props) => {
-    console.log(props.datas);
+     
     return (
         <Card style={{ width: '18rem' }}>
             <Card.Body>

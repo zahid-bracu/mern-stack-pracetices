@@ -1,4 +1,4 @@
-import React,{useState,useContext} from 'react';
+import React,{useState,useContext,useEffect} from 'react';
 import {CartContext} from '../App';
 import fakeData from './fakeData';
 import {
@@ -21,6 +21,16 @@ const Shop = () => {
     const [products, setProducts] = useState(fakeData);
     const [cart,setCart]=useContext(CartContext);
 
+
+    useEffect(() => {
+        // show data
+        fetch('http://localhost:3010/info')
+        .then(response => response.json()) //all datas are got
+        .then(json => {
+             console.log(json);
+             setProducts(products);
+        })
+       });
 
     console.log(cart);
     function addProduct(prod){

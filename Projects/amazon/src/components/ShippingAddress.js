@@ -54,7 +54,7 @@ const ShippingAddress = () => {
         cartProducts.flag=true;
          
         setCartList(cartProducts); 
-        //history.push("/paymentpath");
+        history.push("/paymentpath");
          
         
         
