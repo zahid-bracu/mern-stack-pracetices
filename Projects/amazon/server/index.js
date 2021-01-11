@@ -18,14 +18,14 @@ const client = new MongoClient(uri, { useNewUrlParser: true,  useUnifiedTopology
 client.connect(err => {
   const collection = client.db("amazon").collection("amazon-list");
   
-  app.post('/addInfo',(req,res)=>{
+  app.post('/addCart',(req,res)=>{
     const pd=req.body;
     console.log(pd);
-    collection.insertOne(pd)
-    .then(result=>{
-      console.log("Data saved");
-      res.redirect('/') // stopping it to go other page
-    })
+    // collection.insertOne(pd)
+    // .then(result=>{
+    //   console.log("Data saved");
+    //   res.redirect('/') // stopping it to go other page
+    // })
   })
 
 

@@ -32,7 +32,7 @@ function App() {
 
 const [cart,setCart]=useState([]);
 const [user,setUser]=useState();
-const [cartList,setCartList]=useState([]);
+const [cartList,setCartList]=useState({});
 
 console.log(cart)
 

@@ -29,7 +29,18 @@ const PaymentPath = () => {
                       console.log(ele[i].value);
                       cartList.paymentpath=ele[i].value;
                       console.log(cartList)
-                    //   history.push("/submitted");
+
+                       
+
+                       
+                      fetch('http://localhost:3005/addCart',{
+                            method:'POST',
+                            headers:{'Content-Type': 'application/json'},
+                            body:JSON.stringify(cartList)
+                        }).then(res=>res.json())
+                        .then(data=>{
+                            console.log(data);
+                        })
                     }else{
                        
                     }

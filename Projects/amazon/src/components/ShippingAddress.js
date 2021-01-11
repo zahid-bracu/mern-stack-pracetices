@@ -39,9 +39,11 @@ const ShippingAddress = () => {
         const cartProducts=productKeys.map(key=>{
             const product=fakeData.find(pd=> pd.key===key);
             product.quantiy=savedCart[key];
+            delete product.features; 
             return product;
         })
 
+        console.log(cartProducts);
 
         
         cartProducts.name=name;
@@ -52,7 +54,7 @@ const ShippingAddress = () => {
         cartProducts.flag=true;
          
         setCartList(cartProducts); 
-        history.push("/paymentpath");
+        //history.push("/paymentpath");
          
         
         
