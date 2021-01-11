@@ -1,10 +1,11 @@
 import React from 'react';
-import submit from './images/submit.png'
+import submit from './images/submit.png';
+import './style.css';
 const Submitted = () => {
 
     return (
         <div>
-            <img className="d-block mx-auto" src={submit} style={{width:"850px"}}/>        
+            <img className="d-block mx-auto img-submit" src={submit}/>        
         </div>
     );
 };

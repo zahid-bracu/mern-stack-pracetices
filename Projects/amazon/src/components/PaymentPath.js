@@ -1,4 +1,4 @@
-import React,{useEffect} from 'react';
+import React, { useState,useContext,useEffect } from 'react';
 import { Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
 import { useForm } from "react-hook-form";
 import './style.css';
@@ -6,25 +6,39 @@ import {
     Link,
     useHistory
   } from "react-router-dom";
+import {UserContext} from '../App';
+import {CartProductsContext} from '../App';
+
+
 const PaymentPath = () => {
 
+    const [user,setUser]=useContext(UserContext);
 
+    const [cartList,setCartList]=useContext(CartProductsContext);
 
     let history = useHistory();
 
     function handleClick(e) {
+
+        console.log(cartList);
+        
         var ele = document.getElementsByName('payment'); 
                 for(var i = 0; i < ele.length; i++) { 
                     if(ele[i].checked) 
                     {
                       console.log(ele[i].value);
-                      history.push("/submitted");
+                      cartList.paymentpath=ele[i].value;
+                      console.log(cartList)
+                    //   history.push("/submitted");
                     }else{
                        
                     }
                 }
         e.preventDefault();
-        // 
+        
+        
+
+
       }
     return (
         <div>
