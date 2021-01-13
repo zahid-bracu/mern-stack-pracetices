@@ -11,7 +11,7 @@ const groupReducers=(state=initialState,action)=>{
         case ADD_TO_GROUP:
             const newId=action.id;
             const newGroup=[...state.group,newId];
-            return {group:newGroup}
+            return {members: state.members ,group:newGroup}
         case REMOVE_FROM_GROUP:
             const id=action.id;
             const removedGroup=state.group.filter(item=>item !== id);

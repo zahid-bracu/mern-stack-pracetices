@@ -17,8 +17,8 @@ import Cart from './Cart';
 
 
 const Shop = () => {
-     
-    const [products, setProducts] = useState(fakeData);
+    const [originalData,SetOriginalData]=useState([]);
+    const [products, setProducts] = useState([]);
     const [cart,setCart]=useContext(CartContext);
 
 
@@ -27,12 +27,15 @@ const Shop = () => {
         fetch('http://localhost:3010/info')
         .then(response => response.json()) //all datas are got
         .then(json => {
-             console.log(json);
-             setProducts(products);
-        })
-       });
+              
+            //  setProducts(json);
 
-    console.log(cart);
+            setProducts(fakeData);
+             SetOriginalData(json)
+        })
+       },[]);
+
+     
     function addProduct(prod){
         
         const newCart=[...cart,prod];
@@ -60,6 +63,9 @@ const Shop = () => {
 
     }
 
+     
+    console.log(originalData);
+    console.log(products);
     return (
          <div className="container">
              <div >
@@ -77,11 +83,14 @@ const Shop = () => {
 
              <div className="row justify-content-center">
                 {
+                    
                     products.map(pd => <Product data={pd} key={pd.key} addProduct={addProduct}  products={pd}></Product>)
                 }
             </div>
          </div>
     );
+
+    
 };
 
 export default Shop;

@@ -6,6 +6,8 @@ import {connect} from 'react-redux';
 
 const DataLoad = (props) => {
     console.log(props);
+
+    const {addToGroup}=props
     const [data,setData]=useState([]);
     useEffect(() => {
         fetch('https://jsonplaceholder.typicode.com/users')
@@ -19,7 +21,7 @@ const DataLoad = (props) => {
             <h4 className="text-center my-5">This is People</h4>
             <div className="row justify-content-center align-items-center">
                 {
-                    data.map(key=> <InfoCard datas={key}></InfoCard>)
+                    data.map(key=> <InfoCard addToGroup={addToGroup} datas={key}></InfoCard>)
                 }
             </div>
         </div>

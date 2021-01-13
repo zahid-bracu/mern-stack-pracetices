@@ -1,7 +1,7 @@
 import React from 'react';
 import { Button,Card } from 'react-bootstrap';
 const InfoCard = (props) => {
-     
+     const {addToGroup}=props;
     return (
         <Card style={{ width: '18rem' }}>
             <Card.Body>
@@ -9,7 +9,7 @@ const InfoCard = (props) => {
                 <Card.Text>
                 {props.datas.phone}
                 </Card.Text>
-                <Button variant="danger">Add this person</Button>
+                <Button onClick={()=>{addToGroup(props.datas.id)}} variant="danger">Add this person</Button>
             </Card.Body>
         </Card>
     );

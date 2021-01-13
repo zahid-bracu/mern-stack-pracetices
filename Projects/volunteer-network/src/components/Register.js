@@ -1,9 +1,22 @@
-import React from 'react';
+import React, {useState,useContext} from 'react';
 import './style.css';
 import { Button,Form,FormGroup,Label,Input } from 'reactstrap';
+import { useHistory,useParams } from "react-router-dom";
+import Data from './Data';
+import {UserContext} from '../App';
+
 const Register = () => {
 
 
+    const [user,setUser]=useContext(UserContext);
+    const {id}=useParams(); 
+    console.log(id);
+
+    var work=Data.filter(key=> key.id==id);
+    var action=work[0].name;
+
+
+    let history = useHistory();
     function saveData(event){
         console.log("Ok");
         event.preventDefault();
@@ -32,6 +45,9 @@ const Register = () => {
            }).then(res=>res.json())
            .then(data=>{
                console.log(data);
+               if(data){
+                history.push("/success");
+               }
            })
     }
 
@@ -44,12 +60,12 @@ const Register = () => {
             <Form onSubmit={saveData}>
                 <FormGroup>
                     <Label for="name">Name</Label>
-                    <Input type="text" name="name" id="name" placeholder="Enter Name" />
+                    <Input type="text" name="name" value={user.name} id="name" placeholder="Enter Name" />
                 </FormGroup>
 
                 <FormGroup>
                     <Label for="email">Email</Label>
-                    <Input type="email" name="email" id="email" placeholder="Enter Email" />
+                    <Input type="email" name="email" value={user.mail} id="email" placeholder="Enter Email" />
                 </FormGroup>
 
 
@@ -72,8 +88,8 @@ const Register = () => {
 
 
                 <FormGroup>
-                    <Label for="organize">Organize</Label>
-                    <Input type="text" name="organize" id="organize" placeholder="Organize Books at Library" />
+                    <Label for="organize">Volunteer Work</Label>
+                    <Input type="text" name="organize" id="organize" value={action} placeholder="" />
                 </FormGroup>
 
                 <button className="btn btn-primary btn-custom-2">Registration</button>

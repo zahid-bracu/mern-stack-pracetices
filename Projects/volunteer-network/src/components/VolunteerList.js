@@ -1,40 +1,36 @@
-import React from 'react';
+import React, { useState , useEffect} from 'react';
 import { Table } from 'reactstrap';
+import TableData from './TableData';
 const VolunteerList = () => {
+  const [datas,setData]=useState([]);
+  useEffect(() => {
+    fetch('http://localhost:3006/info')
+    .then(response => response.json())
+    .then(data => {
+        setData(data)
+    });
+  },[]);
+
+  console.log(datas);
+
     return (
         <>
         <h4 className="text-center mt-5">Registered Volunteer List</h4>
-        <Table style={{maxWidth:"700px"}} className="mx-auto mt-5">
+        <Table style={{maxWidth:"1000px"}} className="mx-auto mt-5">
         <thead>
           <tr>
-            <th>Serial</th>
+             
             <th>Name</th>
             <th>Email</th>
             <th>Registration Date</th>
-            <th>Volunteer List</th>
+            <th>Volunteer Work</th>
             <th>Action</th>
           </tr>
         </thead>
-        <tbody>
-          <tr>
-            <th scope="row">1</th>
-            <td>Mark</td>
-            <td>Otto</td>
-            <td>@mdo</td>
-          </tr>
-          <tr>
-            <th scope="row">2</th>
-            <td>Jacob</td>
-            <td>Thornton</td>
-            <td>@fat</td>
-          </tr>
-          <tr>
-            <th scope="row">3</th>
-            <td>Larry</td>
-            <td>the Bird</td>
-            <td>@twitter</td>
-          </tr>
-        </tbody>
+        {
+          datas.map(key => <TableData info={key}/>)
+        }
+        
       </Table>
       </>
     );

@@ -5,12 +5,31 @@ import firebaseConfig from './firebaseConfig';
 import React, {useState,useContext} from 'react';
 import './style.css';
 import {UserContext} from '../App';
+import {
+    BrowserRouter as Router,
+    Switch,
+    Route,
+    Link,
+    useHistory,
+    useLocation,
+    useParams
+  } from "react-router-dom";
+
+
 firebase.initializeApp(firebaseConfig);
 
 
 const Login = () => {
     var provider = new firebase.auth.GoogleAuthProvider();
     const [user,setUser]=useContext(UserContext);
+
+
+    
+    const history = useHistory();
+    const location = useLocation();
+    const { from } = location.state || { from: { pathname: "/login" } };
+
+
 
     function SignInGoogle(){
         firebase.auth().signInWithPopup(provider).then((result) => {
@@ -30,6 +49,8 @@ const Login = () => {
                         mail:user.email
                     }
                     setUser(info);
+
+                    history.replace(from);
                     
 
 

@@ -15,6 +15,8 @@ import Register from './components/Register';
 import AddEvent from './components/AddEvent';
 import SelectedWorks from './components/SelectedWorks';
 import VolunteerList from './components/VolunteerList';
+import Success from './components/Success';
+import PrivateRoute from './components/PrivateRoute';
 export const UserContext = React.createContext();
 
 
@@ -27,7 +29,7 @@ function App() {
   return (
     <>
     
-<UserContext.Provider value={[user,setUser]}>
+    <UserContext.Provider value={[user,setUser]}>
     <Router>
      
     <Navigation/>
@@ -44,9 +46,25 @@ function App() {
     </Route>
 
 
-    <Route path="/register">
-      <Register/>
+    <Route path="/success">
+      <Success/>
     </Route>
+
+
+     
+
+
+    <PrivateRoute path="/register/:id">
+        <Register/>
+    </PrivateRoute>
+
+
+    <PrivateRoute path="/register">
+        <Register/>
+    </PrivateRoute>
+
+
+
 
     <Route path="/addevent">
       <AddEvent/>

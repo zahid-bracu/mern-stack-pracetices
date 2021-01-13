@@ -59,8 +59,8 @@ client.connect(err => {
     console.log(pd);
     collection.insertOne(pd)
     .then(result=>{
-      console.log("Data saved");
-      // res.redirect('/') // stopping it to go other page
+      res.send(true);
+       
     })
   })
 
