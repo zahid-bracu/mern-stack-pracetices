@@ -13,15 +13,17 @@ const OrderReview = () => {
         var savedCart=getDatabaseCart();
         const productKeys=Object.keys(savedCart);
 
-        // fetch('',{
-        //     method:'POST',
-        //     headers:{
-        //         'Content-Type':'application/json'
-        //     },
-        //     body: JSON.stringify(productKeys);
-        // })
-        // .then(res=> res.json())
-        // .then(data=> setCart(data))
+        fetch('http://localhost:3010/productsByKeys',{
+            method:'POST',
+            headers:{
+                'Content-Type':'application/json'
+            },
+            body: JSON.stringify(productKeys),
+        })
+        .then(res=> res.json())
+        .then(data=> {
+            console.log(data)
+        })
 
         const cartProducts=productKeys.map(key=>{
             const product=fakeData.find(pd=> pd.key===key);
