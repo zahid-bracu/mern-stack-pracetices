@@ -1,5 +1,6 @@
 import React, {useState,useEffect} from 'react';
 import CountryInfo from './CountryInfo';
+import {addToDatabaseCart,removeFromDatabaseCart,getDatabaseCart} from './utilities/databaseManager';
 
 const Countries = () => {
     const [data,setData]=useState([]);
@@ -20,19 +21,58 @@ const Countries = () => {
             setLength(json.length);
            shuffle(json);
            json=json.slice(0,20);
-           console.log(json);
 
            setData(json);
+
+
+           
         })
+
+
+         
+
+        
+    },[])
+
+
+    useEffect(()=>{
+
+        fetch("https://restcountries.eu/rest/v2/all")
+        .then(response => response.json())
+        .then(json =>{
+
+            var selectedCountries=getDatabaseCart();
+            var selectedCountriesKey=Object.keys(selectedCountries);
+            console.log(selectedCountriesKey);
+            console.log(json.length)
+            const previousCountries=selectedCountriesKey.map(it=>{
+                var country=json.filter(key=> key.numericCode==it);
+                return country;
+            });
+            var array=[];
+            for(var i=0;i<previousCountries.length;i++){
+                array.push(previousCountries[i][0])
+            }
+
+            console.log(array);
+            setVisit(array);
+             
+
+        })
+
+         
     },[])
 
     function addCountry(country){
          
         var newCountries=[...visit,country];
+         
         setVisit(newCountries);
+        
+        addToDatabaseCart(country.numericCode,0)
     }
 
-    console.log(visit);
+    
     return (
         <>
         <h5 className="text-center my-4">Total countries are loaded from API : {length}</h5>

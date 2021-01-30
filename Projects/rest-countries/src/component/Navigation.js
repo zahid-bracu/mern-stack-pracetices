@@ -10,17 +10,21 @@ const Navigation = () => {
     return (
         <Navbar bg="light" expand="lg">
             <div className="container">
-                <Navbar.Brand href="#home">Rest Countries</Navbar.Brand>
+                <Navbar.Brand >Rest Countries</Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="mr-auto">
                         
-                    <Nav.Link href="#home">
+                    <Nav.Link >
                        <Link to="/home">Home</Link>
                     </Nav.Link>
 
-                    <Nav.Link href="#home">
+                    <Nav.Link >
                        <Link to="/countries">Countries</Link>
+                    </Nav.Link>
+
+                    <Nav.Link >
+                       <Link to="/addedCountries">Added Countries</Link>
                     </Nav.Link>
 
 
@@ -30,8 +34,8 @@ const Navigation = () => {
                     <Nav.Link target="_blank" href="https://portfolio-zahid-bracu.netlify.app/">Portfolio</Nav.Link>
                     </Nav>
                     <Form inline>
-                    <FormControl type="text" placeholder="Search" className="mr-sm-2" />
-                    <Button variant="outline-success">Search</Button>
+                        <FormControl type="text" placeholder="Search" className="mr-sm-2" />
+                        <Button variant="outline-success">Search</Button>
                     </Form>
                 </Navbar.Collapse>
             </div>

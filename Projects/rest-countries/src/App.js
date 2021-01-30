@@ -8,6 +8,7 @@ import {
 } from "react-router-dom";
 import Home from "./component/Home";
 import ViewDetail from "./component/ViewDetail";
+import AddedCountry from "./component/AddedCountry";
 
 function App() {
   return (
@@ -25,6 +26,10 @@ function App() {
           
           <Route path="/countries">
             <Countries/>
+          </Route>
+
+          <Route path="/addedCountries">
+            <AddedCountry/>
           </Route>
 
 
