@@ -9,6 +9,9 @@ import {
     Link
   } from "react-router-dom";
 
+   
+
+
 const DataLoad = () => {
 
     const [filter,setFilter]=useState('All');
@@ -29,6 +32,8 @@ const DataLoad = () => {
         }
     }, [filter])
     
+
+    
      
     
     return (
@@ -43,7 +48,7 @@ const DataLoad = () => {
              <div className="container">
                 <div className="row align-items-center justify-content-center mt-5">
                     {
-                        data.map(key => <FoodCart info={key}/>)
+                        data.map(key => <FoodCart  info={key}/>)
                     }
                 </div>
                  <div className="d-block mx-auto" style={{width:"135px"}}>

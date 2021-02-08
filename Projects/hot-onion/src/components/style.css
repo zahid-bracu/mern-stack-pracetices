@@ -62,8 +62,23 @@
 
 .card{
     border: 0px solid white !important;
+    min-height: 180px !important;
+}
+.card-name, .card-description, .card-price{
+    text-decoration: none !important;
 }
 
+.card-link{
+    text-decoration: none  !important;
+    color: black !important;
+}
+
+.card-link:hover{
+    color: #0275d8 !important;
+    transition:.4s;
+    transform: scale(1.05);
+    
+}
 
 footer img{
     height: 60px;
@@ -73,4 +88,36 @@ footer  a{
     display: block;
     line-height: 2;
     font-weight: 600;
+}
+
+
+.btn-add{
+    padding: 4px 40px !important;
+    border-radius: 20px !important;
+}
+
+
+.btn-submit{
+    padding: 6px 175px !important;
+}
+
+
+.custom-input{
+    border: none !important;
+}
+
+.text-toggle:hover{
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+
+.form-check-out{
+    max-width: 500px !important;
+}
+
+
+.btn-check-out{
+    max-width: 500px !important;
+    padding: 7px 247px  !important;
 }

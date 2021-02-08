@@ -1,4 +1,4 @@
-import logo from './logo.svg';
+import React, {createContext, useState} from 'react';
 import './App.css';
 import Navigation from './components/Navigation';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -15,12 +15,30 @@ import {
 import Foods from './components/Foods';
 import Description from './components/Description';
 import Footer from './components/Footer';
+import FoodDetails from './components/FoodDetails';
+import Forms from './components/Forms';
+import CheckOut from './components/CheckOut';
+export const UserContext = React.createContext();
+export const FoodContext = React.createContext();
 
 
 function App() {
+
+  // 
+  const [foodCart,setFoodCart]=useState([]);
+
+  const [user,setUser]=useState({
+    email:"",
+    password:"",
+    state:false
+  });
+  console.log(user);
   return (
     <>
+    <UserContext.Provider value={[user,setUser]}>
+
     
+    <FoodContext.Provider value={[foodCart,setFoodCart]}>
      
      
 
@@ -37,6 +55,21 @@ function App() {
         </Route>
 
 
+        <Route path="/checkout">
+          <CheckOut/>
+        </Route>
+
+
+        <Route path="/form/:bool">
+          <Forms/>
+        </Route>
+
+
+        <Route path="/foodDetails/:id">
+          <FoodDetails/>
+        </Route>
+
+
 
         <Route path="/">
           <Banner/>
@@ -48,6 +81,10 @@ function App() {
       </Switch>
       <Footer/>
     </Router>
+
+    </FoodContext.Provider>
+
+    </UserContext.Provider>
     </>
   );
 }

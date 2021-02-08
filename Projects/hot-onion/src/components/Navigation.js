@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState,useContext} from 'react';
 import {  NavDropdown, Navbar, Nav, Button, FormControl, Form } from 'react-bootstrap';
 import './style.css';
 import cart from './resources/cart.svg';
@@ -9,7 +9,11 @@ import {
     Route,
     Link
   } from "react-router-dom";
+
+import {UserContext} from '../App';
 const Navigation = () => {
+    const [user,setUser]=useContext(UserContext);
+    console.log(user)
     return (
         <Navbar bg="light" className="sticky-top" expand="lg">
             <div className="container">
@@ -25,10 +29,28 @@ const Navigation = () => {
                     <Nav.Link>
                         <img id="cart" src={cart}/>
                     </Nav.Link>
-                    <Nav.Link className="nav-link">Login</Nav.Link>
-                    <Nav.Link className="nav-link">
-                        <button className="btn-sign btn btn-danger">Sign Up</button>
+                    
+                     {
+                         user.state && 
+                         <Nav.Link className="nav-link">
+                    <Link   to={`/form/${true}`}>
+                        <button className="btn-sign btn btn-danger">{user.email}</button>
+                        </Link>
                     </Nav.Link>
+                    
+                     }
+                    {
+                        !user.state && <Nav.Link className="nav-link">
+                        <Link   to={`/form/${true}`}>
+                            <button className="btn-sign btn btn-danger">Login/Sign Up</button>
+                            </Link>
+                        </Nav.Link>
+                    }
+                    
+                    
+
+
+
                     </Nav>
                     
                 </Navbar.Collapse>
