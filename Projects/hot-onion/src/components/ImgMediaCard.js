@@ -18,8 +18,8 @@ const useStyles = makeStyles({
 
 export default function ImgMediaCard(props) {
 
-    console.log(props)
-    const {description , icon , image , key , title}=props.info;
+    
+  const {description , icon , image , key , title}=props.info;
   const classes = useStyles();
 
   return (

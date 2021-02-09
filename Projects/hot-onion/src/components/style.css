@@ -121,3 +121,12 @@ footer  a{
     max-width: 500px !important;
     padding: 7px 247px  !important;
 }
+
+.input-custom{
+    max-width: 40px;
+}
+
+#card-number{
+    max-width: 300px !important;
+    margin-top:16px;
+}

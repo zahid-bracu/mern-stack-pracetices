@@ -38,7 +38,7 @@ const DataLoad = () => {
     
     return (
         <div>
-             <div className="btn-filter mt-5">
+             <div className="btn-filter d-flex mt-5">
                 <button onClick={()=>setFilter('All')} className="btn font-weight-bold btn-select btn-light mx-3">All</button>
                  <button onClick={()=>setFilter('Breakfast')} className="btn font-weight-bold btn-select btn-light mx-3">Breakfast</button>
                  <button onClick={()=>setFilter('Lunch')} className="btn font-weight-bold btn-select btn-light mx-3">Lunch</button>

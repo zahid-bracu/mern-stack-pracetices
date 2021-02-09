@@ -9,3 +9,15 @@
 .img-submit{
     max-width: 850px;
 }
+
+.link-nav{
+    text-decoration: inherit!important;
+    color: rgb(255, 255, 255);
+}
+
+
+.link-nav:hover{
+    text-decoration: inherit!important;
+    color: #f0ad4e;
+    font-weight: 600;
+}

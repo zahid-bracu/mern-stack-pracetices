@@ -18,6 +18,7 @@ import Footer from './components/Footer';
 import FoodDetails from './components/FoodDetails';
 import Forms from './components/Forms';
 import CheckOut from './components/CheckOut';
+import AddedFood from './components/AddedFood';
 export const UserContext = React.createContext();
 export const FoodContext = React.createContext();
 
@@ -26,7 +27,7 @@ function App() {
 
   // 
   const [foodCart,setFoodCart]=useState([]);
-
+  console.log(foodCart);
   const [user,setUser]=useState({
     email:"",
     password:"",
@@ -57,6 +58,11 @@ function App() {
 
         <Route path="/checkout">
           <CheckOut/>
+        </Route>
+
+
+        <Route path="/addedfood">
+          <AddedFood/>
         </Route>
 
 

@@ -1,49 +1,170 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import { Form, Button } from 'react-bootstrap';
 import './style.css';
+import Data from './Data';
+import {addToDatabaseCart, getDatabaseCart} from './databaseManager';
 const CheckOut = () => {
+    var [flag,setFlag]=useState(false);
+    const [address, setAddress]=useState({
+        name:"",
+        business:"",
+        flat:"",
+        house:"",
+        road:"",
+        city:"",
+        phone:""
+    })
+    const [foods,setFoods]=useState([]);
+    useEffect(() => {
+        
+        var data=getDatabaseCart();
+        var item_keys=Object.keys(data);
+        const added_items=item_keys.map(key=>{
+            const item=Data.find(id=> id.id==key);
+            item.count=data[key];
+            return item;
+        })
+
+        setFoods(added_items);
+    }, [])
+
+    console.log(foods)
+
+    var total=foods.reduce((sum,key)=>{
+        sum=sum+key.count;
+        return sum;
+    },0);
+    console.log(total);
+
+    var totalPayment=foods.reduce((payment,key)=>{
+        var temp=key.price*key.count;
+        payment=payment+temp;
+        return payment;
+    },0)
+
+    var vat=15;
+    var tax=parseInt(totalPayment)/100;
+    tax=tax*parseInt(vat);
+
+    var inTotal=totalPayment+tax+50;
+    
+    
+
+    function changeFunc(e) {
+        console.log(e.target.name + " : " + e.target.value);
+        var infos={...address};
+        infos[e.target.name]=e.target.value;
+        setAddress(infos);
+    }
+
+
+    function submitFunc(e) {
+        e.preventDefault();
+        console.log(address);
+        console.log(Object.keys(address).length)
+
+        if(address.phone!="" && address.name!=""){
+            document.getElementById('name-error').style.display="none"
+            document.getElementById('phone-error').style.display="none"
+            console.log("ase");
+            setFlag(true)
+        }else{
+            if(address.name==""){
+                document.getElementById('name-error').style.display="block"
+            }
+            if(address.name!=""){
+                document.getElementById('name-error').style.display="none"
+            }
+            if(address.phone==""){
+                document.getElementById('phone-error').style.display="block"
+            }
+
+            if(address.phone!=""){
+                document.getElementById('phone-error').style.display="none"
+            }
+        }
+
+         
+    }
+
+    function payment(){
+        document.getElementById('card-num-error').style.display="block";
+    }
+
+    function proceed(){
+        document.getElementById('proceed-error').style.display="block"
+    }
+
     return (
         <div className="container">
             <div className="row">
                 <div className="col-lg-7 col-md-12 col-sm-12 col-12 mt-4">
+                    {
+                        flag && <>
+                            <h6>Name : {address.name}</h6>
+                            <h6>Business : {address.business}</h6>
+                            <h6>Flat : {address.flat}</h6>
+                            <h6>House : {address.house}</h6>
+                            <h6>Road : {address.road}</h6>
+                            <h6>City : {address.city}</h6>
+                            <h6>Phone : {address.phone}</h6>
+                            <Form.Group for="card-number">
+                                <Form.Control onBlur={changeFunc} type="number" name="card-number" id="card-number" placeholder="Enter Card Number" />
+                                <p className="text-danger my-2" id="card-num-error" style={{display:"none"}}>Your card number is wrong</p>
+                                <p className="text-danger" id="card-error" style={{display:"none"}}>Enter your name</p>
+                                <button onClick={payment} className="btn btn-danger mt-2">Pay</button>
+                                
+                            </Form.Group>
 
-                    <h3 className="">Set Delivery Details</h3>
+                        </>
+                    }
+
+                    {
+                        !flag && <><h3 className="">Set Delivery Details</h3>
                         <hr style={{maxWidth:"500px"}}/>
-                        <Form className="form-check-out">
+                        <Form onSubmit={submitFunc} className="form-check-out">
                     
-                            <Form.Group controlId="name">
-                                <Form.Control type="text" id="name" placeholder="Name" />
+                            <Form.Group id="name">
+                                <Form.Control onBlur={changeFunc} type="text" name="name" id="name" placeholder="Name" />
+                                <p className="text-danger" id="name-error" style={{display:"none"}}>Enter your name</p>
+                            </Form.Group>
+                            
+
+                            <Form.Group id="business">
+                                <Form.Control onBlur={changeFunc} type="text" id="business" name="business" placeholder="Business Name" />
                             </Form.Group>
 
-                            <Form.Group controlId="business">
-                                <Form.Control type="text" id="business" placeholder="Business Name" />
-                            </Form.Group>
-
-                            <Form.Group controlId="flat">
-                                <Form.Control type="text" id="flat" placeholder="Flat No." />
-                            </Form.Group>
-
-
-                            <Form.Group controlId="house">
-                                <Form.Control type="text" id="house" placeholder="House No." />
+                            <Form.Group id="flat">
+                                <Form.Control onBlur={changeFunc} type="text" id="flat" name="flat" placeholder="Flat No." />
                             </Form.Group>
 
 
-                            <Form.Group controlId="road">
-                                <Form.Control type="text" id="road" placeholder="Road No." />
+                            <Form.Group id="house">
+                                <Form.Control onBlur={changeFunc} type="text" id="house" name="house" placeholder="House No." />
                             </Form.Group>
 
 
-                            <Form.Group controlId="city">
-                                <Form.Control type="text" id="city" placeholder="City" />
+                            <Form.Group id="road">
+                                <Form.Control onBlur={changeFunc} type="text" id="road" name="road" placeholder="Road No." />
+                            </Form.Group>
+
+
+                            <Form.Group id="city">
+                                <Form.Control onBlur={changeFunc} type="text" id="city" name="city" placeholder="City" />
+                            </Form.Group>
+
+                            <Form.Group id="phone">
+                                <Form.Control onBlur={changeFunc} type="number" id="phone" name="phone" placeholder="phone" />
+                                <p className="text-danger" id="phone-error" style={{display:"none"}}>Enter your phone number</p>
                             </Form.Group>
 
                             
                             
-                            <button className="btn-check-out btn btn-danger" type="submit">
+                            <button  className="btn-check-out btn btn-danger" type="submit">
                                 Submit
                             </button>
-                        </Form>
+                        </Form></>
+                    }
 
                 </div>
 
@@ -56,12 +177,13 @@ const CheckOut = () => {
                         <h6>Mymensingh</h6>
                     </div>
                     <div style={{maxWidth:"250px"}} className="mt-5">
-                        <p className="d-flex justify-content-between"><span>Sub Total . 0 Item</span> <span>$0.00</span></p>
-                        <p className="d-flex justify-content-between"><span>Tax</span> <span>$0.00</span></p>
-                        <p className="d-flex justify-content-between"><span>Delivery Fee</span> <span>$0.00</span></p>
+                        <p className="d-flex justify-content-between"><span>Sub Total . {total} Item</span> <span>${totalPayment}</span></p>
+                        <p className="d-flex justify-content-between"><span>Tax</span> <span>${tax}</span></p>
+                        <p className="d-flex justify-content-between"><span>Delivery Fee</span> <span>$50.00</span></p>
                         <hr/>
-                        <h5 className="d-flex justify-content-between"><span>Total</span> <span>$0.00</span></h5>
-                        <button className="btn btn-success mt-4">Proceed to CheckOut</button>
+                        <h5 className="d-flex justify-content-between"><span>Total</span> <span>${inTotal}</span></h5>
+                        <button onClick={proceed} className="btn btn-success mt-4">Proceed to CheckOut</button>
+                        <p className="text-danger mt-2" id="proceed-error" style={{display:"none"}}>Complete Your Payment</p>
                     </div>
                 </div>
             </div>

@@ -11,7 +11,7 @@ import {UserContext} from '../App';
 import Cart from './Cart';
 import { addToDatabaseCart, getDatabaseCart, removeFromDatabaseCart, processOrder } from './databaseManager';
 import fakeData from './fakeData';
-
+import './style.css';
 
 const Navigation = () => {
     const [user,setUser]=useContext(UserContext);
@@ -41,7 +41,7 @@ const Navigation = () => {
 
     return (
         
-            <Navbar bg="light"  expand="lg">
+            <Navbar bg="dark"  expand="lg">
                 <div className="container">
                 <Navbar.Brand > 
                     <img src={logo} style={{width:"100px"}}/>    
@@ -50,23 +50,23 @@ const Navigation = () => {
                 <Navbar.Collapse  id="basic-navbar-nav">
                     <Nav className="mr-auto">
                         
-                        <Nav.Link>
-                            <Link to="/banner">
+                        <Nav.Link className="link-nav">
+                            <Link className="link-nav" to="/banner">
                             Home
                             </Link>
                         </Nav.Link>
 
 
-                        <Nav.Link>
-                            <Link to="/shop">
+                        <Nav.Link className="link-nav">
+                            <Link className="link-nav" to="/shop">
                             Products
                             </Link>
                         </Nav.Link>
 
 
                          
-                        <Nav.Link >
-                            <Link to="/cart">
+                        <Nav.Link className="link-nav" >
+                            <Link className="link-nav" to="/cart">
                                 Cart
                             </Link>
                         </Nav.Link>
@@ -74,57 +74,48 @@ const Navigation = () => {
                         
 
 
-                        <Nav.Link>
-                            <Link to="/orderreview">
+                        <Nav.Link className="link-nav">
+                            <Link className="link-nav" to="/orderreview">
                             Order Review
                             </Link>
                         </Nav.Link>
 
 
-                        <Nav.Link>
-                            <Link to="/inventory">
+                        <Nav.Link className="link-nav">
+                            <Link className="link-nav" to="/inventory">
                             Inventory
                             </Link>
                         </Nav.Link>
                     
                    
                      
-                    <Nav.Link href="#link3">Contact Us</Nav.Link>
-                    <NavDropdown title="My Account" id="basic-nav-dropdown">
-                      {
-                          !user && <>
-                          <NavDropdown.Item>
-                            <Link to="/register">
-                            Sign Up
-                            </Link>  
-                        </NavDropdown.Item>
+                    <Nav.Link className="link-nav">
+                    <Link className="link-nav" to="/contact">
+                        Contact Us
+                        </Link>
+                    </Nav.Link>
 
-                        <NavDropdown.Item>
-                            <Link to="/login">
-                            Sign In
-                            </Link>  
-                        </NavDropdown.Item>
-                          </>
-                      }
-                        
+                    
+                    
+                    
 
 
-                        {
-                            user && <NavDropdown.Item>
-                            <Link to="/login">
-                            Sign Out
-                            </Link>  
-                        </NavDropdown.Item>
-                        }
-                        
+                    </Nav>
 
+                    <Nav className="ml-auto">
+                    <Nav.Link className="link-nav">
+                        <Link className="link-nav" to="/login">
+                            Login
+                        </Link> 
+                    </Nav.Link>
 
-                         
-                         
-                        <NavDropdown.Item href="#action/3.3">My Account Information</NavDropdown.Item>
-                        <NavDropdown.Divider />
-                        <NavDropdown.Item href="#action/3.4"></NavDropdown.Item>
-                    </NavDropdown>
+                    <Nav.Link className="link-nav">
+                            <Link className="link-nav" to="/register">
+                                <button className="btn btn-warning btn-sm text-dark font-weight-bold">Register</button>
+                            </Link>
+                    </Nav.Link>
+                    
+
                     </Nav>
                      
                 </Navbar.Collapse>
