@@ -21,6 +21,7 @@ import PaymentPath from './components/PaymentPath';
 import Cart from './components/Cart';
 import Submitted from './components/Submitted';
 import Footer from './components/Footer';
+import Contact from './components/Contact';
 
 export const UserContext = React.createContext();
 
@@ -35,7 +36,7 @@ const [cart,setCart]=useState([]);
 const [user,setUser]=useState();
 const [cartList,setCartList]=useState({});
 
-console.log(cart)
+ 
 
   return (
 
@@ -89,6 +90,11 @@ console.log(cart)
 
             <Route path="/submitted">
               <Submitted/>
+            </Route>
+
+
+            <Route path="/contact">
+              <Contact/>
             </Route>
 
 

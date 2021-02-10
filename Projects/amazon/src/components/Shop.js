@@ -24,50 +24,76 @@ const Shop = () => {
 
     useEffect(() => {
         // show data
-        fetch('http://localhost:3010/info')
-        .then(response => response.json()) //all datas are got
-        .then(json => {
-             
-            SetOriginalData(json);
-            var temp=json.slice(0,10);
-            setProducts(temp)
-        })
+        async function loadData(){
+            const response= await fetch('http://localhost:3010/info');
+            const data = await response.json(); //converting to json data
+            return data;
+        }
 
-         
 
+        loadData().then(
+            json=>{
+                 
+                SetOriginalData(json);
+                var temp=json.slice(0,10);
+                setProducts(temp)
+
+
+                var savedProducts=getDatabaseCart();
+                const dataKeys=Object.keys(savedProducts);
+                
+
+
+                const previousData=dataKeys.map(iterator=>{
+                    const item=json.find(id=> id.key===iterator);
+                    item.count=savedProducts[iterator];
+                    return item;
+                })
+
+                
+                setCart(previousData);
+
+            }
+        )
+        
+        
+
+        
         
        },0);
 
 
-    //    useEffect(() => {
-    //     if(filter=="all"){
-    //         setProducts(originalData)
-    //     }else{
-    //         const result = originalData.filter(key => key.category==filter);
-             
-    //         setProducts(result)
-    //     }
-         
-    //    }, [filter])
+    
 
      
-    function addProduct(prod){
-        
-        // const newCart=[...cart,prod];
-        // setCart(newCart);
-        // const sameProduct=newCart.filter(pd=> pd.key===prod.key);
-        // const count=sameProduct.length;
-        addToDatabaseCart(prod.key,1);
+    function addProduct(item){
+        const itemToBeAdded=item.key;
+        const sameProduct=cart.find(pd=> pd.key===itemToBeAdded);
+        let count=1;
+        let newItem;
+        if(sameProduct){
+            count=sameProduct.count+1;
+            sameProduct.count=count;
+            const others=cart.filter(it=>it.key !== itemToBeAdded);
+            newItem=[...others, sameProduct];
+        }else{
+            item.count=1;
+            newItem=[...cart,item];
+        }
+
+        setCart(newItem);
+         
+        addToDatabaseCart(item.key,count);
     }
 
 
     function filterProduct(){
         var values=document.getElementById("selectCategory").value;
-        console.log(values);
+         
 
 
         var values = values.toLowerCase();
-        console.log(values);
+         
         setFilter(values);
 
         if(values==="all"){
@@ -83,8 +109,7 @@ const Shop = () => {
     }
 
      
-    console.log(originalData.length);
-    console.log(products.length);
+     console.log(cart)
     
     return (
          <div className="container">

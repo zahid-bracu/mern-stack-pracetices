@@ -17,7 +17,7 @@ const Navigation = () => {
     const [user,setUser]=useContext(UserContext);
     const [cart,setCart]=useContext(CartContext);
     const [data,setData]=useState([]);
-     
+    console.log(user);
 
 
     useEffect(() => {
@@ -31,12 +31,12 @@ const Navigation = () => {
             return product;
         })
 
-        console.log(cartProducts);
+        
         setData(cartProducts);
       },[]);
 
 
-      console.log(data);
+     
 
 
     return (
@@ -103,17 +103,40 @@ const Navigation = () => {
                     </Nav>
 
                     <Nav className="ml-auto">
-                    <Nav.Link className="link-nav">
-                        <Link className="link-nav" to="/login">
-                            Login
-                        </Link> 
-                    </Nav.Link>
+                    {
+                        !user && <>
+                            <Nav.Link className="link-nav">
+                                    <Link className="link-nav" to="/login">
+                                        Login
+                                    </Link> 
+                            </Nav.Link>
 
-                    <Nav.Link className="link-nav">
-                            <Link className="link-nav" to="/register">
-                                <button className="btn btn-warning btn-sm text-dark font-weight-bold">Register</button>
-                            </Link>
-                    </Nav.Link>
+                            <Nav.Link className="link-nav">
+                                    <Link className="link-nav" to="/register">
+                                        <button className="btn btn-warning btn-sm text-dark font-weight-bold">Register</button>
+                                    </Link>
+                            </Nav.Link>
+                        </>
+                    }
+
+                    {
+                        user &&
+                        <>
+
+                                <Nav.Link className="link-nav">
+                                <Link className="link-nav">
+                                        {user}
+                                    </Link> 
+                                </Nav.Link>
+
+                                <Nav.Link className="link-nav">
+                                    <Link className="link-nav" to="/login">
+                                    <button className="btn btn-warning btn-sm text-dark font-weight-bold">Account </button>
+                                    </Link> 
+                                </Nav.Link>
+                        </>
+                        
+                    }
                     
 
                     </Nav>

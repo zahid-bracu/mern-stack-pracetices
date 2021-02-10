@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react';
 import { Form, Button } from 'react-bootstrap';
 import './style.css';
 import Data from './Data';
-import {addToDatabaseCart, getDatabaseCart} from './databaseManager';
+import {addToDatabaseCart, getDatabaseCart, removeFromDatabaseCart} from './databaseManager';
 import AddedFoodDetail from './AddedFoodDetail';
 import { useHistory } from "react-router-dom";
 const AddedFood = () => {
@@ -40,6 +40,10 @@ const AddedFood = () => {
         sum=sum+key.count;
         return sum;
     },0);
+
+    if(inTotal<=50){
+        inTotal=0;
+    }
     console.log(total);
 
 
@@ -47,15 +51,26 @@ const AddedFood = () => {
         history.push("/checkout");
     }
 
+
+    function removeItem(id){
+        var items=foods.filter(key=> key.id!=id);
+        setFoods(items);
+        removeFromDatabaseCart(id);
+        
+    }
+
     return (
         <div className="container">
             <div className="row">
-                <div className="col-7">
+                <div className="col-7 order-lg-first order-md-last order-sm-last order-last">
                     {
-                        foods.map(key=> <AddedFoodDetail infos={key}/>)
+                       foods && foods.map(key=> <AddedFoodDetail removeItem={removeItem} infos={key}/>)
+                    }
+                    {
+                        foods.length==0 && <h4 className="text-center text-danger mt-5">Cart is empty</h4>
                     }
                 </div>
-                <div className="col-lg-5  col-md-12 col-sm-12 col-12 mt-4">
+                <div className="col-lg-5  col-md-12 col-sm-12 col-12 mt-4 ">
                     <div>
                         <h4> From <strong className="text-danger">Red Onion Foods Restaurant</strong></h4>
                         <h5>Arriving in 10-20 min</h5>

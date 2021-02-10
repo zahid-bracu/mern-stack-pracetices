@@ -14,9 +14,9 @@ const Inventory = () => {
     }
 
     return (
-        <div>
-           <p> Inventory </p>
-           <button onClick={()=>addProducts} className="btn btn-info btn-sm">Add Products</button>
+        <div className="container">
+           <h3 className="text-center my-4"> Inventory </h3>
+           <button onClick={()=>addProducts} className="d-block mx-auto btn btn-info btn-sm">Add Products</button>
         </div>
     );
 };

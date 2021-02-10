@@ -3,7 +3,10 @@ import { Form, Button } from 'react-bootstrap';
 import './style.css';
 import Data from './Data';
 import {addToDatabaseCart, getDatabaseCart} from './databaseManager';
+import CompletedPayment from './CompletedPayment';
 const CheckOut = () => {
+    var [completed,setCompleted]=useState(false);
+    var [form,setForm]=useState(false);
     var [flag,setFlag]=useState(false);
     const [address, setAddress]=useState({
         name:"",
@@ -48,6 +51,9 @@ const CheckOut = () => {
 
     var inTotal=totalPayment+tax+50;
     
+    if(inTotal<=50){
+        inTotal=0;
+    }
     
 
     function changeFunc(e) {
@@ -59,14 +65,16 @@ const CheckOut = () => {
 
 
     function submitFunc(e) {
+        setForm(true);
         e.preventDefault();
         console.log(address);
         console.log(Object.keys(address).length)
 
+
         if(address.phone!="" && address.name!=""){
             document.getElementById('name-error').style.display="none"
             document.getElementById('phone-error').style.display="none"
-            console.log("ase");
+             
             setFlag(true)
         }else{
             if(address.name==""){
@@ -87,12 +95,32 @@ const CheckOut = () => {
          
     }
 
-    function payment(){
-        document.getElementById('card-num-error').style.display="block";
+
+    function paymentChange(e){
+        console.log(e.target.value);
+    }
+
+    function payment(e){
+        e.preventDefault();
+        console.log("Ok")
+        var cardNumber=document.getElementById('card-number').value
+        console.log(cardNumber);
+        if(cardNumber==15101122){
+            setCompleted(true);
+        }
     }
 
     function proceed(){
-        document.getElementById('proceed-error').style.display="block"
+        if(!form){
+            document.getElementById('form-error').style.display="block"
+        }
+
+        if(form){
+            document.getElementById('form-error').style.display="none"
+            document.getElementById('proceed-error').style.display="block"
+        }
+         
+        
     }
 
     return (
@@ -101,20 +129,27 @@ const CheckOut = () => {
                 <div className="col-lg-7 col-md-12 col-sm-12 col-12 mt-4">
                     {
                         flag && <>
-                            <h6>Name : {address.name}</h6>
-                            <h6>Business : {address.business}</h6>
-                            <h6>Flat : {address.flat}</h6>
-                            <h6>House : {address.house}</h6>
-                            <h6>Road : {address.road}</h6>
-                            <h6>City : {address.city}</h6>
-                            <h6>Phone : {address.phone}</h6>
-                            <Form.Group for="card-number">
-                                <Form.Control onBlur={changeFunc} type="number" name="card-number" id="card-number" placeholder="Enter Card Number" />
-                                <p className="text-danger my-2" id="card-num-error" style={{display:"none"}}>Your card number is wrong</p>
-                                <p className="text-danger" id="card-error" style={{display:"none"}}>Enter your name</p>
-                                <button onClick={payment} className="btn btn-danger mt-2">Pay</button>
-                                
-                            </Form.Group>
+                           {
+                               !completed && <>
+                               
+                                <h6>Name : {address.name}</h6>
+                                <h6>Business : {address.business}</h6>
+                                <h6>Flat : {address.flat}</h6>
+                                <h6>House : {address.house}</h6>
+                                <h6>Road : {address.road}</h6>
+                                <h6>City : {address.city}</h6>
+                                <h6>Phone : {address.phone}</h6>
+                                <Form.Group for="card-number">
+                                    <Form.Control onBlur={paymentChange} type="number" name="card-number" id="card-number" placeholder="Enter Card Number" />
+                                    <p className="text-danger my-2" id="card-num-error" style={{display:"none"}}>Your card number is wrong</p>
+                                    <p className="text-danger" id="card-error" style={{display:"none"}}>Enter your name</p>
+                                    <button onClick={payment} className="btn btn-danger mt-2">Pay</button>
+                                    
+                                </Form.Group>
+                               </>
+                           }{
+                               completed && <CompletedPayment/>
+                           }
 
                         </>
                     }
@@ -183,6 +218,9 @@ const CheckOut = () => {
                         <hr/>
                         <h5 className="d-flex justify-content-between"><span>Total</span> <span>${inTotal}</span></h5>
                         <button onClick={proceed} className="btn btn-success mt-4">Proceed to CheckOut</button>
+                        
+                        <p className="text-danger mt-2" id="form-error" style={{display:"none"}}>Fill up the form first</p>
+
                         <p className="text-danger mt-2" id="proceed-error" style={{display:"none"}}>Complete Your Payment</p>
                     </div>
                 </div>

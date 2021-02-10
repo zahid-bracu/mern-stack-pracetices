@@ -8,8 +8,8 @@ import {
   } from 'react-router-dom';
 const ProductOrdered = (props) => {
 
-    const { img, name, seller, description,price, stock,key,quantiy } = props.datas;
-    console.log(props.datas)
+    const { img, name, seller, description,price, stock,key,count } = props.datas;
+    console.log(props.datas.count)
     
     return (
         <div>
@@ -28,7 +28,7 @@ const ProductOrdered = (props) => {
                 </h6>
 
                 <h6>
-                    Quantity: {quantiy}
+                    Quantity: {count}
                 </h6>
                 
                 <h6>  Price :  <span class="badge badge-success">{price}$</span> </h6>
