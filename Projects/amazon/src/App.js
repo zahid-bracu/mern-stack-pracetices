@@ -20,6 +20,7 @@ import ShippingAddress from './components/ShippingAddress';
 import PaymentPath from './components/PaymentPath';
 import Cart from './components/Cart';
 import Submitted from './components/Submitted';
+import Footer from './components/Footer';
 
 export const UserContext = React.createContext();
 
@@ -113,6 +114,7 @@ console.log(cart)
               <Banner/>
             </Route>
           </Switch>
+          <Footer/>
       </Router>
       </div>
       </UserContext.Provider>

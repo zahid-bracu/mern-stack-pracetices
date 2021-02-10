@@ -21,3 +21,13 @@
     color: #f0ad4e;
     font-weight: 600;
 }
+
+.list-inline-item{
+    text-decoration: inherit!important;
+}
+
+
+.link-nav-footer{
+    text-decoration: inherit !important;
+    color: black;
+}

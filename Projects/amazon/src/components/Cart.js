@@ -37,18 +37,49 @@ const Cart = (props) => {
 
     return (
      
-          <div className="">
-              <h6>Items Ordered: 0</h6>
-              <p>Items: 0$</p>
-              <p>Shipping & Handling: 0$</p>
-              <p>Total before tax: {total}$</p>
-              <p>Estimated Tax: 0$</p>
-              <h5 className="text-danger">Order Total: {total}$</h5>
-              
-              <Link to="/shippingaddress">
-              <button className="btn btn-warning btn-sm">Proceed</button>
-              </Link>
-              
+          <div className="container">
+               <div className="row">
+                 <div className="col-9">
+
+                 </div>
+
+                 <div className="col-3">
+                   <h3>From <strong className="text-warning">Amazon.com, Inc</strong></h3>
+                   <h4>Seattle, Washington, U.S.</h4>
+                   <h5>Arriving in 20-30 days </h5>
+                   <hr/>
+
+                   <div>
+                     
+                     <p className="d-flex justify-content-between">
+                       <span>Sub Total . 0 Item</span>
+                       <span>$0.00</span>
+                     </p>
+
+                     <p className="d-flex justify-content-between">
+                       <span>Tax</span>
+                       <span>$0.00</span>
+                     </p>
+
+                     <p className="d-flex justify-content-between">
+                       <span>Delivery Fee</span>
+                       <span>$0.00</span>
+                     </p>
+
+                     <hr/>
+
+
+                     <h5 className="d-flex justify-content-between">
+                       <span>Total</span>
+                       <span>$0.00</span>
+                     </h5>
+
+                     <button className="btn btn-warning font-weight-bold mt-3">Procced to Check Out</button>
+                     
+                   </div>
+
+                 </div>
+               </div>
           </div>
 
     );

@@ -1,6 +1,6 @@
 import React,{useState,useContext,useEffect} from 'react';
 import {CartContext} from '../App';
-import fakeData from './fakeData';
+ 
 import {
     BrowserRouter as Router,
     Switch,
@@ -12,7 +12,7 @@ import {
   
 import Product from './Product'
 import { addToDatabaseCart, getDatabaseCart, removeFromDatabaseCart, processOrder } from './databaseManager';
-import Cart from './Cart';
+ 
 
 
 
@@ -20,29 +20,44 @@ const Shop = () => {
     const [originalData,SetOriginalData]=useState([]);
     const [products, setProducts] = useState([]);
     const [cart,setCart]=useContext(CartContext);
-
+    const [filter,setFilter]=useState('all');
 
     useEffect(() => {
         // show data
         fetch('http://localhost:3010/info')
         .then(response => response.json()) //all datas are got
         .then(json => {
-              
-            //  setProducts(json);
-
-            setProducts(fakeData);
-             SetOriginalData(json)
+             
+            SetOriginalData(json);
+            var temp=json.slice(0,10);
+            setProducts(temp)
         })
-       },[]);
+
+         
+
+        
+       },0);
+
+
+    //    useEffect(() => {
+    //     if(filter=="all"){
+    //         setProducts(originalData)
+    //     }else{
+    //         const result = originalData.filter(key => key.category==filter);
+             
+    //         setProducts(result)
+    //     }
+         
+    //    }, [filter])
 
      
     function addProduct(prod){
         
-        const newCart=[...cart,prod];
-        setCart(newCart);
-        const sameProduct=newCart.filter(pd=> pd.key===prod.key);
-        const count=sameProduct.length;
-        addToDatabaseCart(prod.key,count);
+        // const newCart=[...cart,prod];
+        // setCart(newCart);
+        // const sameProduct=newCart.filter(pd=> pd.key===prod.key);
+        // const count=sameProduct.length;
+        addToDatabaseCart(prod.key,1);
     }
 
 
@@ -52,11 +67,15 @@ const Shop = () => {
 
 
         var values = values.toLowerCase();
+        console.log(values);
+        setFilter(values);
 
         if(values==="all"){
-            setProducts(fakeData)
+            var temp=originalData.slice(0,10)
+            setProducts(temp);
         }else{
-            const result = fakeData.filter(key => key.category==values);
+            var result = originalData.filter(key => key.category==values);
+            result=result.slice(0,10);
             setProducts(result)
         }
         
@@ -64,8 +83,9 @@ const Shop = () => {
     }
 
      
-    console.log(originalData);
-    console.log(products);
+    console.log(originalData.length);
+    console.log(products.length);
+    
     return (
          <div className="container">
              <div >
@@ -84,7 +104,7 @@ const Shop = () => {
              <div className="row justify-content-center">
                 {
                     
-                    products.map(pd => <Product data={pd} key={pd.key} addProduct={addProduct}  products={pd}></Product>)
+                     products.map(pd => <Product data={pd} key={pd.key} addProduct={addProduct}  products={pd}></Product>)
                 }
             </div>
          </div>
