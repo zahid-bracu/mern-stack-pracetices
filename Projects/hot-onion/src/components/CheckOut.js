@@ -4,7 +4,9 @@ import './style.css';
 import Data from './Data';
 import {addToDatabaseCart, getDatabaseCart} from './databaseManager';
 import CompletedPayment from './CompletedPayment';
+import { useHistory } from "react-router-dom";
 const CheckOut = () => {
+    let history = useHistory();
     var [completed,setCompleted]=useState(false);
     var [form,setForm]=useState(false);
     var [flag,setFlag]=useState(false);
@@ -107,6 +109,11 @@ const CheckOut = () => {
         console.log(cardNumber);
         if(cardNumber==15101122){
             setCompleted(true);
+            document.getElementById('card-num-error').style.display="none"
+            document.getElementById('proceed-error').style.display="none"
+        }else{
+            //card-error
+            document.getElementById('card-num-error').style.display="block"
         }
     }
 
@@ -119,7 +126,10 @@ const CheckOut = () => {
             document.getElementById('form-error').style.display="none"
             document.getElementById('proceed-error').style.display="block"
         }
-         
+        
+        if(completed){
+            history.push("/confirm");
+        }
         
     }
 
@@ -217,7 +227,7 @@ const CheckOut = () => {
                         <p className="d-flex justify-content-between"><span>Delivery Fee</span> <span>$50.00</span></p>
                         <hr/>
                         <h5 className="d-flex justify-content-between"><span>Total</span> <span>${inTotal}</span></h5>
-                        <button onClick={proceed} className="btn btn-success mt-4">Proceed to CheckOut</button>
+                        <button onClick={proceed} className="btn btn-success mt-4">Confirm Order</button>
                         
                         <p className="text-danger mt-2" id="form-error" style={{display:"none"}}>Fill up the form first</p>
 

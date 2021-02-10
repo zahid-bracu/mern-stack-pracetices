@@ -19,6 +19,7 @@ import FoodDetails from './components/FoodDetails';
 import Forms from './components/Forms';
 import CheckOut from './components/CheckOut';
 import AddedFood from './components/AddedFood';
+import OrderConfirmed from './components/OrderConfirmed';
 export const UserContext = React.createContext();
 export const FoodContext = React.createContext();
 
@@ -53,6 +54,11 @@ function App() {
 
         <Route path="/foods">
           <Foods/>
+        </Route>
+
+
+        <Route path="/confirm">
+          <OrderConfirmed/>
         </Route>
 
 
