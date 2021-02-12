@@ -98,12 +98,13 @@ footer  a{
 
 
 .btn-submit{
-    padding: 6px 175px !important;
+    /* padding: 6px 175px !important; */
+     
 }
 
 
 .custom-input{
-    border: none !important;
+    /* border: none !important; */
 }
 
 .text-toggle:hover{
@@ -129,4 +130,16 @@ footer  a{
 #card-number{
     max-width: 300px !important;
     margin-top:16px;
+}
+
+.link-nav{
+    text-decoration: inherit !important;
+    color: rgb(65, 65, 65);
+    font-weight: 500;
+    transition: .4s;
+}
+
+.link-nav:hover{
+    color:red;
+    transform: scale(1.1);
 }

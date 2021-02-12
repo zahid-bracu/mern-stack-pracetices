@@ -36,6 +36,20 @@ client.connect(err => {
   })
 
 
+  // single-product saves
+  app.post('/addOne',(req,res)=>{
+    const pd=req.body;
+    console.log(pd);
+    collection.insertOne(pd)
+    .then(result=>{
+      console.log("Data saved");
+      // res.redirect('/') // stopping it to go other page
+      res.send("Data has been saved");
+    })
+    
+  })
+
+
   app.post('/productsByKeys',(req,res)=>{
     const productKeys=req.body;
     collection.find({key:{$in: productKeys}})

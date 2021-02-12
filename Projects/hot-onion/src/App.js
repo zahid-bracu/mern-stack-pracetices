@@ -20,6 +20,8 @@ import Forms from './components/Forms';
 import CheckOut from './components/CheckOut';
 import AddedFood from './components/AddedFood';
 import OrderConfirmed from './components/OrderConfirmed';
+import PrivateRoute from './components/PrivateRoute';
+import Contact from './components/Contact';
 export const UserContext = React.createContext();
 export const FoodContext = React.createContext();
 
@@ -28,12 +30,13 @@ function App() {
 
   // 
   const [foodCart,setFoodCart]=useState([]);
-  console.log(foodCart);
+   
   const [user,setUser]=useState({
     email:"",
     password:"",
     state:false
   });
+
   console.log(user);
   return (
     <>
@@ -62,17 +65,22 @@ function App() {
         </Route>
 
 
+        <Route path="/contact">
+          <Contact/>
+        </Route>
+
+
         <Route path="/checkout">
           <CheckOut/>
         </Route>
 
 
-        <Route path="/addedfood">
+        <PrivateRoute path="/addedfood">
           <AddedFood/>
-        </Route>
+        </PrivateRoute>
 
 
-        <Route path="/form/:bool">
+        <Route path="/form">
           <Forms/>
         </Route>
 

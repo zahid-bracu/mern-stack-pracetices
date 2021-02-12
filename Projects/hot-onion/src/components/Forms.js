@@ -6,21 +6,23 @@ import "firebase/auth";
 import "firebase/firestore";
 import firebaseConfig from './firebaseConfig';
 import './style.css';
-import { useParams } from "react-router-dom";
+import { useParams, useHistory, useLocation } from "react-router-dom";
 //import {information} from '../App';
 
 firebase.initializeApp(firebaseConfig);
 
 const Forms = () => {
 
-    const {bool} =useParams();
+
+    const history = useHistory();
+    const location = useLocation();
+    const { from } = location.state || { from: { pathname: "/form" } };
+     
     
      
     const [flag,setFlag]=useState(false);
 
-    // useEffect(() => {
-    //     setFlag(bool);
-    // }, [flag])
+    
 
     const [user,setUser]=useContext(UserContext);
     const [userInfo,setUserInfo]=useState({
@@ -72,39 +74,40 @@ const Forms = () => {
             setUserInfo(newInfo);
           } 
     }
-    console.log(userInfo);
+     
 
     function submitFunc(e){
-        // console.log(e)
+        
         if(flag && userInfo.email && userInfo.password && userInfo.name){
             firebase.auth().createUserWithEmailAndPassword(userInfo.email, userInfo.password)
             .then(res=>{
                 var newInfo={...userInfo};
-                // console.log(newInfo);
-                // console.log("Submitted")
+                 
                 setMessage("Form Submitted & New User Created");
                 document.getElementById("message").style.color="green";
             })
             .catch(function(error) {
-                // Handle Errors here.
+                 
                 var errorCode = error.code;
                 var errorMessage = error.message;
-                // console.log(errorMessage);
+             
                 setMessage(errorMessage);
                 document.getElementById("message").style.color="red";
-                // ...
+              
               });
         }else if(!flag && userInfo.email && userInfo.password){
             firebase.auth().signInWithEmailAndPassword(userInfo.email, userInfo.password)
             .then(res=>{
                 var newInfo={...userInfo};
-                // console.log(newInfo);
+             
                  newInfo.state=true;
                  
                  
                 setInfo(true);
                 console.log(newInfo);
                 setUser(newInfo);
+
+                history.replace(from);
                 
             })
             .catch(function(error) {
@@ -136,7 +139,7 @@ const Forms = () => {
           });
     }
     return (
-        <>
+        <div className="container">
         {
             !user.state && <> <Form   className="mx-auto mt-5" style={{width:"25rem"}}>
 
@@ -166,21 +169,21 @@ const Forms = () => {
             {
                 flag && <Form.Group controlId="Name">
                  
-                <Form.Control className="custom-input my-5" onBlur={changeFunc} name="name" type="text" placeholder="Full Name" />
+                <Form.Control className="custom-input " onBlur={changeFunc} name="name" type="text" placeholder="Full Name" />
                 </Form.Group>
             }
             
             
             
-            <Form.Group controlId="Email" className="my-5">
+            <Form.Group controlId="Email" className="">
                 
-                <Form.Control className="custom-input mb-3" onBlur={changeFunc} name="email" type="email" placeholder="Email" />
+                <Form.Control className="custom-input  " onBlur={changeFunc} name="email" type="email" placeholder="Email" />
                 <p className="text-danger" id="email-error" style={{display:"none"}}>Email Address is not Valid</p>
             </Form.Group>
 
             <Form.Group controlId="formBasicPassword my-5">
                
-                <Form.Control className="custom-input mb-3" onBlur={changeFunc} name="password" type="password" placeholder="Password" />
+                <Form.Control className="custom-input  " onBlur={changeFunc} name="password" type="password" placeholder="Password" />
                 <p className="text-danger" id="pass-error" style={{display:"none"}}>Password is not Valid</p>
             </Form.Group>
 
@@ -205,7 +208,7 @@ const Forms = () => {
             <button onClick={logout} className=" btn btn-danger d-block px-5 mx-auto">Logout</button>
             </>
         }
-        </>
+        </div>
     );
 };
 

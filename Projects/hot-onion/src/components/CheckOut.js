@@ -150,7 +150,8 @@ const CheckOut = () => {
                                 <h6>City : {address.city}</h6>
                                 <h6>Phone : {address.phone}</h6>
                                 <Form.Group for="card-number">
-                                    <Form.Control onBlur={paymentChange} type="number" name="card-number" id="card-number" placeholder="Enter Card Number" />
+                                    <p>As it is a demo project use 15101122 as your credit card number</p>
+                                    <Form.Control onBlur={paymentChange} type="number" name="card-number" id="card-number" placeholder="Enter Your Credit Card Number" />
                                     <p className="text-danger my-2" id="card-num-error" style={{display:"none"}}>Your card number is wrong</p>
                                     <p className="text-danger" id="card-error" style={{display:"none"}}>Enter your name</p>
                                     <button onClick={payment} className="btn btn-danger mt-2">Pay</button>

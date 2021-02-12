@@ -9,6 +9,7 @@ import {
     Route,
     Link
   } from "react-router-dom";
+  import './style.css';
 
 import {UserContext} from '../App';
 const Navigation = () => {
@@ -25,6 +26,32 @@ const Navigation = () => {
                 </Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
+                <Nav className="mr-auto">
+
+
+                <Nav.Link className="link-nav">
+                    <Link className="link-nav" to="/">
+                        Home
+                        </Link>
+                    </Nav.Link>
+
+                    <Nav.Link className="link-nav">
+                    <Link className="link-nav" to="/foods">
+                        Foods & Products
+                        </Link>
+                    </Nav.Link>
+
+
+                    <Nav.Link className="link-nav">
+                    <Link className="link-nav" to="/contact">
+                        Contact
+                        </Link>
+                    </Nav.Link>
+
+
+                     
+                </Nav>
+
                     <Nav className="ml-auto">
                     
                     <Nav.Link>
@@ -38,7 +65,7 @@ const Navigation = () => {
                      {
                          user.state && 
                          <Nav.Link className="nav-link">
-                    <Link   to={`/form/${true}`}>
+                    <Link   to={`/form`}>
                         <button className="btn-sign btn btn-danger">{user.email}</button>
                         </Link>
                     </Nav.Link>
@@ -46,7 +73,7 @@ const Navigation = () => {
                      }
                     {
                         !user.state && <Nav.Link className="nav-link">
-                        <Link   to={`/form/${true}`}>
+                        <Link   to={`/form`}>
                             <button className="btn-sign btn btn-danger">Login/Sign Up</button>
                             </Link>
                         </Nav.Link>

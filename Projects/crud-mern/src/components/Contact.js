@@ -13,12 +13,15 @@ const Contact = () => {
     console.log(user);
     document.title="Contact List"
     useEffect(() => {
-        fetch('http://localhost:3070/info?userMail='+user.mail)
+        
+      fetch('http://localhost:3070/info?userMail='+user.mail)
         .then(response => response.json())
         .then(data => {
             setData(data)
             setFlag(true)
         });
+
+        
       });
 
 

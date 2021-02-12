@@ -29,8 +29,7 @@ client.connect(err => {
 
 
   app.get('/info',(req,res)=>{
-    
-    collection.find({userMail: req.query.userMail}) //find all data from database
+    collection.find({userMail: req.query.userMail}) //find all data from database for specifice user
     .toArray((err,document)=>{ // to array is being used to load all data from db
       res.send(document) //data send to html
     })

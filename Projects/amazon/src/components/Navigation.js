@@ -20,20 +20,20 @@ const Navigation = () => {
     console.log(user);
 
 
-    useEffect(() => {
-        var savedCart=getDatabaseCart();
-        const productKeys=Object.keys(savedCart);
+    // useEffect(() => {
+    //     var savedCart=getDatabaseCart();
+    //     const productKeys=Object.keys(savedCart);
 
         
-        const cartProducts=productKeys.map(key=>{
-            const product=fakeData.find(pd=> pd.key===key);
-            product.quantiy=savedCart[key];
-            return product;
-        })
+    //     const cartProducts=productKeys.map(key=>{
+    //         const product=fakeData.find(pd=> pd.key===key);
+    //         product.quantiy=savedCart[key];
+    //         return product;
+    //     })
 
         
-        setData(cartProducts);
-      },[]);
+    //     setData(cartProducts);
+    //   },[]);
 
 
      
@@ -65,11 +65,11 @@ const Navigation = () => {
 
 
                          
-                        <Nav.Link className="link-nav" >
+                        {/* <Nav.Link className="link-nav" >
                             <Link className="link-nav" to="/cart">
                                 Cart
                             </Link>
-                        </Nav.Link>
+                        </Nav.Link> */}
                     
                         
 
@@ -83,7 +83,7 @@ const Navigation = () => {
 
                         <Nav.Link className="link-nav">
                             <Link className="link-nav" to="/inventory">
-                            Inventory
+                            Add Product
                             </Link>
                         </Nav.Link>
                     

@@ -1,2 +1,2 @@
-1. guarded route
+1. Search Implement
 2. responsiveness

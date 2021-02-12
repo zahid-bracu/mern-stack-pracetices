@@ -6,7 +6,8 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Link
+  Link,
+  useHistory
 } from "react-router-dom";
 const Cart = (props) => {
   const [data,setData]=useState([]);
@@ -39,17 +40,17 @@ const Cart = (props) => {
   },[]);
 
 
-    console.log(cart);
+    
     var totalMoney=cart.reduce((total, key)=>{
-      console.log(key.price+":"+key.count);
-      var value = key.price * key.count;  
-      console.log(value);
+      
+      var value = parseInt(key.price) * parseInt(key.count);  
+     
       total=total+parseInt(value); 
-      console.log(total);
+      
       return total;   
     },0);
 
-    console.log(totalMoney);
+   
 
 
     var tax=parseInt(totalMoney)/100;
@@ -58,14 +59,19 @@ const Cart = (props) => {
 
 
     var intotal=parseInt(tax)+parseInt(totalMoney)+20;
-    console.log(intotal)
+    
     
     if(intotal<=20){
       intotal=0;
     }
 
 
+    let history = useHistory();
+    function proceed(){
+      history.push('/form')
+    }
 
+    console.log(cart.length)
 
     return (
      
@@ -104,7 +110,14 @@ const Cart = (props) => {
                        <span>${intotal}</span>
                      </h5>
 
-                     <button className="btn btn-warning font-weight-bold mt-3">Procced to Check Out</button>
+                     {
+                       cart.length>0 && <button onClick={proceed} className="btn btn-warning font-weight-bold mt-3">Procced</button>
+                     }
+
+                     {
+                       cart.length==0 && <h4 className="text-danger text-center">Cart is Empty</h4>
+                     }
+                     
                      
                    
 

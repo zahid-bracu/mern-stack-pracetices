@@ -22,6 +22,9 @@ import Cart from './components/Cart';
 import Submitted from './components/Submitted';
 import Footer from './components/Footer';
 import Contact from './components/Contact';
+import Forms from './components/Forms';
+import CardNumber from './components/CardNumber';
+import ConfirmOrder from './components/ConfirmOrder';
 
 export const UserContext = React.createContext();
 
@@ -61,6 +64,11 @@ const [cartList,setCartList]=useState({});
             </Route>
 
 
+            <Route path="/confirm">
+              <ConfirmOrder/>
+            </Route>
+
+
             <Route path="/cart">
               <Cart/>
             </Route>
@@ -76,6 +84,11 @@ const [cartList,setCartList]=useState({});
             </Route>
 
 
+            <Route path="/card">
+              <CardNumber/>
+            </Route>
+
+
 
             <Route path="/shippingaddress">
               <ShippingAddress/>
@@ -85,6 +98,11 @@ const [cartList,setCartList]=useState({});
 
             <Route path="/paymentpath">
               <PaymentPath/>
+            </Route>
+
+
+            <Route path="/form">
+              <Forms/>
             </Route>
 
 

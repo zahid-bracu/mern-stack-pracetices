@@ -22,7 +22,7 @@ const AddedFood = () => {
 
         setFoods(added_items);
     }, [])
-    console.log(foods);
+ 
 
     var totalPayment=foods.reduce((payment,key)=>{
         var temp=key.price*key.count;
@@ -44,7 +44,7 @@ const AddedFood = () => {
     if(inTotal<=50){
         inTotal=0;
     }
-    console.log(total);
+     
 
 
     function checkOut(){
@@ -84,7 +84,10 @@ const AddedFood = () => {
                         <p className="d-flex justify-content-between"><span>Delivery Fee</span> <span>$50.00</span></p>
                         <hr/>
                         <h5 className="d-flex justify-content-between"><span>Total</span> <span>${inTotal}</span></h5>
-                        <button onClick={checkOut} className="btn btn-success mt-4">Proceed to CheckOut</button>
+                        {
+                            inTotal>0 && <button onClick={checkOut} className="btn btn-success mt-4">Proceed to CheckOut</button>
+                        }
+                        
                         <p className="text-danger mt-2" id="proceed-error" style={{display:"none"}}>Complete Your Payment</p>
                     </div>
                 </div>

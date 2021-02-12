@@ -33,6 +33,13 @@
 }
 
 
-.amazon-name{
-    
+.custom-form{
+    max-width: 500px;
+}
+
+
+
+.custom-form-card{
+    max-width: 500px;
+    margin: 140px 0px;
 }
