@@ -25,7 +25,8 @@ import Contact from './components/Contact';
 import Forms from './components/Forms';
 import CardNumber from './components/CardNumber';
 import ConfirmOrder from './components/ConfirmOrder';
-
+import UploadData from './components/UploadData';
+import PrivateRoute from './components/PrivateRoute';
 export const UserContext = React.createContext();
 
 export const CartContext = React.createContext();
@@ -68,15 +69,19 @@ const [cartList,setCartList]=useState({});
               <ConfirmOrder/>
             </Route>
 
+            <Route path="/uploaddata">
+              <UploadData/>
+            </Route>
+
 
             <Route path="/cart">
               <Cart/>
             </Route>
 
 
-            <Route path="/orderreview">
+            <PrivateRoute path="/orderreview">
               <OrderReview/>
-            </Route>
+            </PrivateRoute>
 
 
             <Route path="/inventory">

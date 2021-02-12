@@ -5,7 +5,8 @@ import {UserContext} from '../App';
 import { Form } from 'react-bootstrap';
 import {
     Link,
-    useHistory
+    useHistory,
+    useLocation
   } from "react-router-dom";
   import firebase from "firebase/app";
   import "firebase/auth";
@@ -18,6 +19,11 @@ if (!firebase.apps.length) {
 
 
 const Login = () => {
+
+ 
+    const location = useLocation();
+    const { from } = location.state || { from: { pathname: "/login" } };
+
 
     const [data,setData]=useState({})
     const [error,setError]=useState("")
@@ -42,6 +48,7 @@ const Login = () => {
             console.log("Logged In");
             setError("");
             setUser(mail);
+            history.replace(from);
             // history.push("/loginmsg");
         })
         .catch((error) => {
