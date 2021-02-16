@@ -109,7 +109,7 @@ const Shop = () => {
     }
 
      
-     console.log(cart)
+      
     
     return (
          <div className="container">

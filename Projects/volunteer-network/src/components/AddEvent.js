@@ -5,7 +5,7 @@ const AddEvent = () => {
     return (
         <div className="container">
              <div className="container">
-            Add Event
+            <h5 className="my-4 text-center">Add Event</h5>
             <div className="event-box mx-auto">
                 <Form>
                     <FormGroup>

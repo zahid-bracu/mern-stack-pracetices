@@ -1,26 +1,19 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect, useState, useContext} from 'react';
 import { Form, Button } from 'react-bootstrap';
 import './style.css';
 import {addToDatabaseCart, getDatabaseCart} from './databaseManager';
 import { useHistory } from "react-router-dom";
+import {UserInfoContext} from '../App';
 const Forms = () => {
     let history = useHistory();
     var [completed,setCompleted]=useState(false);
     var [form,setForm]=useState(false);
     var [flag,setFlag]=useState(false);
-    const [UserInfo, setUserInfo]=useState({
-        name:"",
-        business:"",
-        flat:"",
-        house:"",
-        road:"",
-        city:"",
-        phone:""
-    });
-
+    const [UserInfo, setUserInfo]=useContext(UserInfoContext)
+     
 
     function changeFunc(e) {
-        console.log(e.target.name + " : " + e.target.value);
+         
         var infos={...UserInfo};
         infos[e.target.name]=e.target.value;
         setUserInfo(infos);
@@ -30,8 +23,7 @@ const Forms = () => {
     function submitFunc(e) {
         setForm(true);
         e.preventDefault();
-        console.log(UserInfo);
-        console.log(Object.keys(UserInfo).length)
+         
 
 
         if(UserInfo.phone!="" && UserInfo.name!=""){
@@ -66,36 +58,36 @@ const Forms = () => {
                         <Form onSubmit={submitFunc} className="form-check-out">
                     
                             <Form.Group id="name">
-                                <Form.Control onBlur={changeFunc} type="text" name="name" id="name" placeholder="Name" />
+                                <Form.Control onBlur={changeFunc} defaultValue={UserInfo.name} type="text" name="name" id="name" placeholder="Name" />
                                 <p className="text-danger" id="name-error" style={{display:"none"}}>Enter your name</p>
                             </Form.Group>
                             
 
                             <Form.Group id="business">
-                                <Form.Control onBlur={changeFunc} type="text" id="business" name="business" placeholder="Business Name" />
+                                <Form.Control onBlur={changeFunc} defaultValue={UserInfo.business} type="text" id="business" name="business" placeholder="Business Name" />
                             </Form.Group>
 
                             <Form.Group id="flat">
-                                <Form.Control onBlur={changeFunc} type="text" id="flat" name="flat" placeholder="Flat No." />
+                                <Form.Control onBlur={changeFunc} defaultValue={UserInfo.flat} type="text" id="flat" name="flat" placeholder="Flat No." />
                             </Form.Group>
 
 
                             <Form.Group id="house">
-                                <Form.Control onBlur={changeFunc} type="text" id="house" name="house" placeholder="House No." />
+                                <Form.Control onBlur={changeFunc} defaultValue={UserInfo.house} type="text" id="house" name="house" placeholder="House No." />
                             </Form.Group>
 
 
                             <Form.Group id="road">
-                                <Form.Control onBlur={changeFunc} type="text" id="road" name="road" placeholder="Road No." />
+                                <Form.Control onBlur={changeFunc} defaultValue={UserInfo.road} type="text" id="road" name="road" placeholder="Road No." />
                             </Form.Group>
 
 
                             <Form.Group id="city">
-                                <Form.Control onBlur={changeFunc} type="text" id="city" name="city" placeholder="City" />
+                                <Form.Control onBlur={changeFunc} defaultValue={UserInfo.city} type="text" id="city" name="city" placeholder="City" />
                             </Form.Group>
 
                             <Form.Group id="phone">
-                                <Form.Control onBlur={changeFunc} type="number" id="phone" name="phone" placeholder="phone" />
+                                <Form.Control onBlur={changeFunc} defaultValue={UserInfo.phone} type="number" id="phone" name="phone" placeholder="phone" />
                                 <p className="text-danger" id="phone-error" style={{display:"none"}}>Enter your phone number</p>
                             </Form.Group>
 

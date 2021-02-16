@@ -9,7 +9,7 @@ import Count from './Count';
 const FoodDetails = () => {
 
     const [foodCart,setFoodCart]=useContext(FoodContext);
-    const [count,setCount]=useState(0);
+    const [count,setCount]=useState(1);
     const {id} =useParams();
     var food=Data.filter(key=> key.id==id);
     

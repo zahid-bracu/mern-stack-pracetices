@@ -10,10 +10,10 @@ const Register = () => {
 
     const [user,setUser]=useContext(UserContext);
     const {id}=useParams(); 
-    console.log(id);
-
+   
     var work=Data.filter(key=> key.id==id);
-    var action=work[0].name;
+    var action=work[0];
+    console.log(action.name)
 
 
     let history = useHistory();
@@ -89,7 +89,7 @@ const Register = () => {
 
                 <FormGroup>
                     <Label for="organize">Volunteer Work</Label>
-                    <Input type="text" name="organize" id="organize" value={action} placeholder="" />
+                    <Input type="text" name="organize" id="organize" value={action.name} placeholder="" />
                 </FormGroup>
 
                 <button className="btn btn-primary btn-custom-2">Registration</button>

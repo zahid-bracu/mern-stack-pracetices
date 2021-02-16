@@ -9,6 +9,15 @@
     text-decoration: inherit !important;
 }
 
+.admin-link{
+    text-decoration: inherit !important;
+    color: green;
+}
+
+.admin-link:hover{
+    color: #0275d8;
+}
+
 .login-box{
     display: block;
     min-height: 350px;

@@ -33,6 +33,14 @@ client.connect(err => {
   })
 
 
+  app.get('/task',(req,res)=>{
+    console.log(req.query)
+    collection.find({mail:req.query.mail})
+    .toArray((err,document)=>{
+      res.send(document);
+    })
+  })
+
   // update
   app.patch('/update/:id',(req,res)=>{
     console.log(req.body)
@@ -78,9 +86,10 @@ client.connect(err => {
   // deleting data
   app.delete('/delete/:id',(req,res)=>{
     console.log(req.params.id);
-    collection.deleteOne({_id: ObjectId(req.params.id)}) //delete one & object id
+    console.log(req.query);
+    collection.deleteOne({$and:[{_id: ObjectId(req.params.id)},{mail:req.query.mail}]}) //delete one & object id
     .then((result)=>{
-      console.log(result.deletedCount)
+       
       res.send(result.deletedCount>0);
     })
   })

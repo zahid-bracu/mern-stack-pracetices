@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect, useState, useContext} from 'react';
 import { Form, Button } from 'react-bootstrap';
 import './style.css';
 import {
@@ -6,33 +6,66 @@ import {
      
     useHistory
   } from "react-router-dom";
+import {UserInfoContext, UserContext} from '../App';
+import {getDatabaseCart, processOrder} from './databaseManager';
+
 const CardNumber = () => {
 
+    const [UserInfo, setUserInfo]=useContext(UserInfoContext)
+     
     const [address, setAddress]=useState({});
+    const [user,setUser]=useContext(UserContext)
 
     function changeFunc(e) {
-        console.log(e.target.name + " : " + e.target.value);
-        var infos={...address};
+
+         
+        var cart=getDatabaseCart();
+      
+        var infos={...UserInfo, savedCart:cart, mail:user};
         infos[e.target.name]=e.target.value;
-        setAddress(infos);
+        setUserInfo(infos);
     }
 
 
     let history = useHistory();
     function submitFunc(e) {
         e.preventDefault();
-        console.log(address.card_number);
+
+        fetch('http://localhost:3010/addOrder',{
+            method:'POST',
+            headers:{
+                'Content-Type':'application/json'
+            },
+            body:JSON.stringify(UserInfo)
+        }).then(res=>res.json).then(data=>{
+            
+            processOrder();
+            var infos={
+                name:"",
+                business:"",
+                flat:"",
+                house:"",
+                road:"",
+                city:"",
+                phone:"",
+                card:"",
+                mail:"",
+                savedCart:""
+            };
+            setUserInfo(infos);
+        })
+       
         history.push('/confirm')
     }
 
-     
+    console.log(UserInfo)
 
     return (
                     <div>
                         <Form onSubmit={submitFunc} className="form-check-out custom-form-card d-block mx-auto">
                             <h3 className="my-3 text-center text-danger">Credit Card Number</h3>
                             <Form.Group id="card-number">
-                                <Form.Control onBlur={changeFunc} type="number" id="card-number" name="card_number" placeholder="Enter Credit Card Number" />
+                                <Form.Control onBlur={changeFunc} defaultValue={UserInfo.card} type="number" id="card-number" name="card" placeholder="Enter Credit Card Number" />
                                 <p className="text-danger" id="card-error" style={{display:"none"}}>Card Number Invalid</p>
                             </Form.Group>
                             <button className="btn btn-warning font-weight-bold">Pay</button>

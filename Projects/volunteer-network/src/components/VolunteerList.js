@@ -11,7 +11,7 @@ const VolunteerList = () => {
     });
   },[]);
 
-  console.log(datas);
+ 
 
     return (
         <>

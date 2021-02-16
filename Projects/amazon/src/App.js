@@ -33,17 +33,32 @@ export const CartContext = React.createContext();
 
 export const CartProductsContext = React.createContext();
 
+export const UserInfoContext=React.createContext();
+
 
 function App() {
 
 const [cart,setCart]=useState([]);
 const [user,setUser]=useState();
 const [cartList,setCartList]=useState({});
+const [UserInfo, setUserInfo]=useState({
+  name:"",
+  business:"",
+  flat:"",
+  house:"",
+  road:"",
+  city:"",
+  phone:"",
+  card:"",
+  mail:"",
+  savedCart:""
+});
 
- 
+  
 
   return (
 
+    <UserInfoContext.Provider value={[UserInfo, setUserInfo]}>
     <CartProductsContext.Provider value={[cartList,setCartList]}>
     <CartContext.Provider value={[cart,setCart]}>
       <UserContext.Provider value={[user,setUser]}>
@@ -149,6 +164,7 @@ const [cartList,setCartList]=useState({});
       </UserContext.Provider>
     </CartContext.Provider>
     </CartProductsContext.Provider>
+    </UserInfoContext.Provider>
   );
 }
 

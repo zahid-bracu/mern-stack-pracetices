@@ -12,7 +12,7 @@ import {
   function PrivateRoute({ children, ...rest }) {
       
     const [user,setUser]=useContext(UserContext);
-    console.log(user);
+ 
     let values=user;
     return (
       <Route

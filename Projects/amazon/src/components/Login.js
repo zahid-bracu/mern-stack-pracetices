@@ -33,8 +33,7 @@ const Login = () => {
         event.preventDefault();
         var mail=document.getElementById('email').value;
         var password=document.getElementById('password').value;
-        console.log("Entered")
-        console.log(mail+":"+password)
+         
         
         firebase.auth().signInWithEmailAndPassword(mail, password)
         .then((res) => {
@@ -45,7 +44,7 @@ const Login = () => {
 
              
 
-            console.log("Logged In");
+           
             setError("");
             setUser(mail);
             history.replace(from);
@@ -68,7 +67,7 @@ const Login = () => {
           });
     }
 
-    console.log(user)
+ 
 
     return (
         <div>

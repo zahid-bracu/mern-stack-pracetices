@@ -67,7 +67,7 @@ const Login = () => {
                 });
     }
 
-    console.log(user);
+ 
 
 
 
@@ -85,7 +85,7 @@ const Login = () => {
                             <img style={{maxWidth:"40px"}} src="https://img.icons8.com/plasticine/100/000000/google-logo.png"/>
                             </div>
                                 Login With Google</button>
-                            <p className="text-center my-3">Don't have an account? <a href="#">Create an account</a> </p>
+                            <p className="text-center my-3">Don't have an account? <a target="_blank" href="https://accounts.google.com/signup/v2/webcreateaccount?hl=en&flowName=GlifWebSignIn&flowEntry=SignUp">Create an account</a> </p>
                             </>
                         }
 

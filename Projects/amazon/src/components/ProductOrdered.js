@@ -9,7 +9,7 @@ import {
 const ProductOrdered = (props) => {
 
     const { img, name, seller, description,price, stock,key,count } = props.datas;
-    console.log(props.datas.count)
+   
     
     return (
         <div>

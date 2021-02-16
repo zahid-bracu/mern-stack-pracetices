@@ -3,7 +3,7 @@ import Card from './Card';
 import Data from './Data';
 const Works = () => {
     
-    console.log(Data);
+     
     return (
         <div className="container">
             <div>

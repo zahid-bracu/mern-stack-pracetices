@@ -71,7 +71,7 @@ const Cart = (props) => {
       history.push('/form')
     }
 
-    console.log(cart.length)
+   
 
     return (
      

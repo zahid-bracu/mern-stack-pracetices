@@ -15,6 +15,7 @@ const uri = "mongodb+srv://demoUser:9augustbd@cluster0.rwjuz.mongodb.net/amazon?
 const client = new MongoClient(uri, { useNewUrlParser: true,  useUnifiedTopology: true });
 client.connect(err => {
   const collection = client.db("amazon").collection("amazon-list");
+  const orderCollection = client.db("amazon").collection("order-list");
   
   //load all data
   app.get('/info',(req,res)=>{
@@ -41,6 +42,21 @@ client.connect(err => {
     const pd=req.body;
     console.log(pd);
     collection.insertOne(pd)
+    .then(result=>{
+      console.log("Data saved");
+      // res.redirect('/') // stopping it to go other page
+      res.send("Data has been saved");
+    })
+    
+  })
+
+
+
+  // single-product order saves
+  app.post('/addOrder',(req,res)=>{
+    const pd=req.body;
+    console.log(pd);
+    orderCollection.insertOne(pd)
     .then(result=>{
       console.log("Data saved");
       // res.redirect('/') // stopping it to go other page

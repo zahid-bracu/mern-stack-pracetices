@@ -48,35 +48,25 @@ const Navigation = (props) => {
               </NavLink>
             </NavItem>
 
-            <NavItem>
-            <NavLink>
-              <Link className="nav-custom" to="/donation">Donation</Link>
-              </NavLink>
-            </NavItem>
+             
+            {
+              user.name && <NavItem>
+              <NavLink>
+                <Link className="nav-custom" to="/addedevent">Added Events</Link>
+                </NavLink>
+              </NavItem>
+            }
 
-
-            <NavItem>
-            <NavLink>
-              <Link className="nav-custom" to="/events">Events</Link>
-              </NavLink>
-            </NavItem>
+            
 
 
             
 
 
-            <NavItem>
-              <NavLink>
-                <Link className="nav-custom" to="/addevent">Add Event</Link>
-              </NavLink>
-            </NavItem>
+            
 
 
-            <NavItem>
-              <NavLink>
-                <Link className="nav-custom" to="/volunteerlist">Volunteer List</Link>
-              </NavLink>
-            </NavItem>
+      
 
             
 
@@ -84,6 +74,16 @@ const Navigation = (props) => {
             <NavItem>
               <NavLink className="nav-custom" target="_blank" href="https://github.com/zahid-bracu">GitHub</NavLink>
             </NavItem>
+
+             
+                {
+                  user.name && <NavItem><NavLink> 
+                    <Link className="nav-custom" to="/login">
+                    {user.name}
+                    </Link>
+                    </NavLink> </NavItem>
+                }
+ 
 
 
             <NavItem>
@@ -94,10 +94,10 @@ const Navigation = (props) => {
                   Login
                   </button>
                 }
-
+                
                 {
                   user.name && <button className="btn btn-danger btn-sm">
-                  Logout
+                  Account
                   </button>
                 }
 
@@ -106,15 +106,19 @@ const Navigation = (props) => {
               </NavLink>
             </NavItem>
 
-            <NavLink>
-              <Link to="/register">
+            {
+              !user.name && <NavLink>
+              <Link to="/newuser">
               <button style={{width:"80px"}} className="btn btn-primary btn-sm  ">Register</button>
               </Link>
               
               </NavLink> 
+            }
               
               <NavLink>
-              <button style={{width:"70px"}} className="btn btn-secondary btn-sm">Admin</button>
+                <Link to="/Admin">
+                <button style={{width:"70px"}} className="btn btn-secondary btn-sm">Admin</button>
+                </Link>
               </NavLink>
             
              
