@@ -89,13 +89,13 @@ const Login = () => {
                         New user? Register Here
                     </Link>
                 </h6>
-                <Form onSubmit={saveData} style={{maxWidth:"400px"}} className="d-block mx-auto">
+                <Form onSubmit={saveData} style={{width:"90%",maxWidth:"400px"}} className="d-block mx-auto">
                      
 
 
                     <Form.Group controlId="email">
                         <Form.Label>Email: </Form.Label>
-                        <Form.Control type="email" id="email" placeholder="Enter Email" />
+                        <Form.Control type="email" id="email" placeholder="Enter Email" required/>
                     </Form.Group>
 
                      
@@ -103,7 +103,7 @@ const Login = () => {
                     
                     <Form.Group controlId="password">
                         <Form.Label>Password: </Form.Label>
-                        <Form.Control type="password" id="password" placeholder="Enter Password" />
+                        <Form.Control type="password" id="password" placeholder="Enter Password" required/>
                     </Form.Group>
 
 

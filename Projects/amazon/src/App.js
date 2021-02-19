@@ -27,6 +27,8 @@ import CardNumber from './components/CardNumber';
 import ConfirmOrder from './components/ConfirmOrder';
 import UploadData from './components/UploadData';
 import PrivateRoute from './components/PrivateRoute';
+import DataSaved from './components/DataSaved';
+import CollectionCategory from './components/CollectionCategory';
 export const UserContext = React.createContext();
 
 export const CartContext = React.createContext();
@@ -94,6 +96,11 @@ const [UserInfo, setUserInfo]=useState({
             </Route>
 
 
+            <Route path="/datasaved">
+              <DataSaved/>
+            </Route>
+
+
             <PrivateRoute path="/orderreview">
               <OrderReview/>
             </PrivateRoute>
@@ -156,7 +163,11 @@ const [UserInfo, setUserInfo]=useState({
 
             <Route path="/">
               <Banner/>
+              <CollectionCategory/>
+              <Shop/>
             </Route>
+
+            
           </Switch>
           <Footer/>
       </Router>

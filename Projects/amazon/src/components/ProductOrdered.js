@@ -13,12 +13,12 @@ const ProductOrdered = (props) => {
     
     return (
         <div>
-            <div className="card-custom my-3 row justify-content-center  " style={{width:"600px"}}>
-                <div className="col-4">
-                    <img style={{maxWidth:"150px"}} src={img}/>
+            <div className="card-custom my-3 row justify-content-center  " style={{width:"90%",maxWidth:"600px"}}>
+                <div className="col-lg-4 col-md-4 col-sm-12 col-12">
+                    <img style={{width:"90%",maxWidth:"150px"}} src={img}/>
                 </div>
 
-                <div className="col-8 ">
+                <div className="col-lg-8 col-md-8 col-sm-12 col-12 ">
 
 
                 <h6>

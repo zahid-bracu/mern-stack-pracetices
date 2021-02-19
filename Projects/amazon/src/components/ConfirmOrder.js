@@ -6,7 +6,7 @@ const ConfirmOrder = () => {
         <div>
             <h1 className="text-center text-danger mt-5">Thank You !!</h1>
             <h2 className="text-center text-success mt-2">Your order has been confirmed</h2>
-            <img src={giphy} style={{maxWidth:"500px"}} className="d-block mx-auto mt-2" />
+            <img src={giphy} style={{width:"90%",maxWidth:"500px"}} className="d-block mx-auto mt-2" />
         </div>
     );
 };

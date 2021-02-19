@@ -5,7 +5,7 @@ const Submitted = () => {
 
     return (
         <div>
-            <img className="d-block mx-auto img-submit" src={submit}/>        
+            <img className="d-block mx-auto" style={{width:"100%",maxWidth:"600px"}} src={submit}/>        
         </div>
     );
 };

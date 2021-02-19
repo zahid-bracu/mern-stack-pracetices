@@ -1,12 +1,14 @@
 import React, {useState,useContext,useEffect} from 'react';
 import { Button,  Form } from 'react-bootstrap';
- 
+import { useHistory } from "react-router-dom";
  
  
 
 const AddProducts = () => {
     const [flag,setFlag]=useState(false);
-    const [productInfo,setProductInfo]=useState({});
+    const [productInfo,setProductInfo]=useState({
+        img:""
+    });
     const [message,setMessage]=useState("");
 
     const [info,setInfo]=useState({});
@@ -32,6 +34,7 @@ const AddProducts = () => {
                     newInfo['img']=camera;
                 }
             }
+            setFlag(true);
             setProductInfo(newInfo);
         }else{
             console.log("Nothing completed")
@@ -39,7 +42,7 @@ const AddProducts = () => {
         
     }
 
-
+    let history = useHistory();
     function addProducts(){
 
          
@@ -52,21 +55,28 @@ const AddProducts = () => {
         .then(res=>res.json)
         .then(data=>{
             console.log("Data has been saved");
+            history.replace("/datasaved");
+
         })
     }
 
     function submitFunc(e){
-        
         e.preventDefault();
-        console.log(productInfo);
-        addProducts();
+        if(productInfo.img){
+            document.getElementById('cat-error').style.display="none";
+            console.log(productInfo);
+            addProducts();
+        }else{
+            document.getElementById('cat-error').style.display="block";
+            console.log("Select product")
+        }
     }
      
 
      
     return (
         
-            <Form onSubmit={submitFunc}  className="mx-auto mt-5" style={{width:"25rem"}}>
+            <Form onSubmit={submitFunc}  className="mx-auto mt-5" style={{width:"90%",maxWidth:"25rem"}}>
 
             <Form.Group controlId="category">
                 <Form.Label>Category</Form.Label>
@@ -76,34 +86,35 @@ const AddProducts = () => {
                     <option value="laptop">Laptop</option>
                     <option value="camera">Camera</option>
                 </Form.Control>
+                <p class="text-danger" style={{display:"none"}} id="cat-error">Select your category first</p>
             </Form.Group>
 
             <Form.Group controlId="key">
                 <Form.Label>Key</Form.Label>
-                <Form.Control onBlur={changeFunc} name="key" type="text"   />
+                <Form.Control onBlur={changeFunc} name="key" type="text"   required/>
             </Form.Group>
 
             <Form.Group controlId="name">
                 <Form.Label>Name</Form.Label>
-                <Form.Control onBlur={changeFunc} name="name" type="text"   />
+                <Form.Control onBlur={changeFunc} name="name" type="text"   required/>
             </Form.Group>
 
 
             <Form.Group controlId="price">
                 <Form.Label>Price</Form.Label>
-                <Form.Control onBlur={changeFunc} name="price" type="number"   />
+                <Form.Control onBlur={changeFunc} name="price" type="number"   required/>
             </Form.Group>
 
 
             <Form.Group controlId="seller">
                 <Form.Label>Seller</Form.Label>
-                <Form.Control onBlur={changeFunc} name="seller" type="text"   />
+                <Form.Control onBlur={changeFunc} name="seller" type="text"   required/>
             </Form.Group>
 
 
             <Form.Group controlId="stock">
                 <Form.Label>Stock</Form.Label>
-                <Form.Control onBlur={changeFunc} name="stock" type="text"   />
+                <Form.Control onBlur={changeFunc} name="stock" type="text"   required/>
             </Form.Group>
 
             

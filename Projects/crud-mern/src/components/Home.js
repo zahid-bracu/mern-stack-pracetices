@@ -10,7 +10,7 @@ const Home = () => {
     return (
         <div>
             <div>
-                <img className="d-block mx-auto" style={{maxWidth:"600px"}} src={banner}/>
+                <img className="d-block mx-auto" style={{width:"100%",maxWidth:"600px"}} src={banner}/>
             </div>
             <h1 className="my-2 text-center">Welcome to Address Book </h1>
             <h4 className="mb-5 text-center">Version 2.0 (2020 Edition)</h4>

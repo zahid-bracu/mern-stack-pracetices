@@ -60,7 +60,7 @@ const [user,setUser]=useContext(UserContext);
             {
                 !user.flag && <button 
                 onClick={()=>googleSignIn()}
-                style={{padding:"10px 40px"}} className="btn btn-info font-weight-bold d-block mx-auto mt-5 text-center">🌏 Login with Google</button>
+                style={{padding:"10px 40px"}} className="btn btn-outline-primary btn-sm font-weight-bold d-block mx-auto mt-5 text-center">🌏 Login with Google</button>
             }
 
             {
@@ -69,7 +69,7 @@ const [user,setUser]=useContext(UserContext);
             <h6 className="text-center">Mail : {user.mail}</h6>
                     <button 
                     onClick={()=>googleSignOut()}
-                    style={{padding:"10px 40px"}} className="btn btn-danger font-weight-bold d-block mx-auto mt-3 text-center">Logout</button>
+                    style={{padding:"10px 40px"}} className="btn btn-danger btn-sm font-weight-bold d-block mx-auto mt-3 text-center">Logout</button>
                 </>
             }
             

@@ -17,9 +17,10 @@ import Delete from './components/Delete';
 import DeleteMessage from './components/DeleteMessage';
 import Update from './components/Update';
 import UpdateMsg from './components/UpdateMsg';
+import Footer from './components/Footer';
 
 export const UserContext = React.createContext();
-
+ 
 
 
 function App() {
@@ -37,6 +38,7 @@ function App() {
       <UserContext.Provider value={[user,setUser]}>
         <Router>
         <Navigation></Navigation>
+         
           <Switch>
             
             <Route path="/form">
@@ -86,6 +88,7 @@ function App() {
 
 
           </Switch>
+          <Footer/>
       </Router>
     </UserContext.Provider>
     </>

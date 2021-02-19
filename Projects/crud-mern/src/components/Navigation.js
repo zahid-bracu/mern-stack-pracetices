@@ -8,60 +8,72 @@ import {
     Link
   } from "react-router-dom";
 import './style.css';
+import logo from './image/logo.png'
 const Navigation = () => {
     const [user,setUser]=useContext(UserContext);
     return (
         <>
-            <Navbar className="bg-nav"  expand="lg">
+            <Navbar className="bg-white"  expand="lg">
                 <div className="container">
                     <Navbar.Brand >
-                        <Link style={{textDecoration:"inherit",color:"white"}} to="/">
-                        Address Book
+                        <Link className="nav-custom" style={{textDecoration:"inherit",color:"black"}} to="/">
+                        <img src={logo} style={{width:"45px"}}/>
                         </Link>
                     </Navbar.Brand>
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
                     <Navbar.Collapse id="basic-navbar-nav">
-                        <Nav className="mr-auto">
-                        <Nav.Link >
-                            <Link style={{textDecoration:"inherit",color:"white"}} to="/home">Home</Link>
+                        <Nav className="ml-auto">
+                        <Nav.Link className="nav-custom" >
+                            <Link className="nav-custom" style={{textDecoration:"inherit",color:"black"}} to="/home">Home</Link>
 
                         </Nav.Link>
 
                         {
                             user.flag &&
                             <>
-                            <Nav.Link  >
-                                <Link style={{textDecoration:"inherit",color:"white"}} to="/contact">
+                            <Nav.Link  className="nav-custom">
+                                <Link className="nav-custom" style={{textDecoration:"inherit",color:"black"}} to="/contact">
                                 Contacts
                                 </Link>
                             </Nav.Link>
 
-                            <Nav.Link  >
-                                <Link style={{textDecoration:"inherit",color:"white"}} to="/form">
+                            <Nav.Link  className="nav-custom">
+                                <Link className="nav-custom" style={{textDecoration:"inherit",color:"black"}} to="/form">
                                 Add New Contacts
+                                </Link>
+                            </Nav.Link>
+
+
+                            <Nav.Link  className="nav-custom">
+                                <Link className="nav-custom" style={{textDecoration:"inherit",color:"black"}} to="/login">
+                                {user.name}
                                 </Link>
                             </Nav.Link>
                             </>
                         }
                          {
-                             !user.flag && <Nav.Link  >
-                             <Link style={{textDecoration:"inherit",color:"white"}} to="/login">
-                             Login
+                             !user.flag && 
+                             <Nav.Link   >
+                             <Link   style={{textDecoration:"inherit",color:"black"}} to="/login">
+                             <button className="btn btn-danger btn-sm">Login</button>
                              </Link>
                             </Nav.Link>
                          }
 
                         {
-                             user.flag && <Nav.Link  >
-                             <Link style={{textDecoration:"inherit",color:"white"}} to="/login">
+                             user.flag && <Nav.Link>
+                             <button className="btn btn-danger btn-sm">
+                             <Link   style={{textDecoration:"inherit",color:"white"}} to="/login">
                              Account & Signout
                              </Link>
+                             </button>
                             </Nav.Link>
                          }
                         
                         </Nav>
                     </Navbar.Collapse> 
                 </div>
+                
             </Navbar>
         </>
     );

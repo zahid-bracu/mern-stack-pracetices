@@ -21,6 +21,8 @@
 .login-box{
     display: block;
     min-height: 350px;
+
+    width: 90%;
     max-width: 600px;
     border: 1px solid rgb(156, 156, 156);
     padding: 20px;

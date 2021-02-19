@@ -43,3 +43,92 @@
     max-width: 500px;
     margin: 140px 0px;
 }
+
+
+.btn-custom-product{
+    width: 7em;
+    margin:.4em;
+    background-color: #DC3545;
+    color: white;
+    box-shadow: 5px 5px 10px rgb(121, 121, 121);
+}
+
+
+.btn-custom-view{
+    width: 7em;
+    margin:.4em;
+    background-color: #273c75;
+    color: white !important;
+    box-shadow: 5px 5px 10px rgb(121, 121, 121);
+}
+
+.btn-custom-product:hover{
+    color: white;
+}
+
+.no-underline{
+    text-decoration: none !important;
+    color: rgb(51, 51, 51) !important;
+}
+
+
+.card-custom{
+    border: 0px solid black;
+    box-shadow: 3px 3px 7px rgb(143, 143, 143);
+    padding: 1rem .3em;
+    max-width: 20rem;
+    width:90%;
+    margin-left: .3rem;
+}
+
+.card-custom:hover{
+    cursor: pointer;
+    box-shadow: 1px 1px 1px solid white !important;
+}
+
+.btn{
+    box-shadow: 3px 3px 7px rgb(143, 143, 143);
+}
+
+.btn-remove-shadow{
+    box-shadow: 0px 0px 0px rgb(143, 143, 143) !important;
+}
+
+.banner-text{
+    text-shadow: 2px 2px 1px black;
+}
+
+.banner-text:hover{
+    
+    transform: scale(1.06);
+    cursor: pointer;
+}
+
+.box-1, .box-2, .box-3{
+   
+    background-color: rgb(241, 184, 184);
+    width: 80%;
+    max-width:300px;
+    
+    margin: 1em 1em;
+    padding: 1em 2em;
+    border-radius: 20px;
+}
+
+
+
+.box-1{
+    background-color: #25d0ff;
+    
+}
+.box-2{
+    background-color: #ff2344;
+}
+.box-3{
+    background-color: #FF9962;
+}
+
+.box:hover{
+    box-shadow: 1px 1px 5px rgb(97, 97, 97);
+    cursor: pointer;
+}

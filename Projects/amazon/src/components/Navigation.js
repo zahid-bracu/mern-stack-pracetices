@@ -20,21 +20,7 @@ const Navigation = () => {
  
 
 
-    // useEffect(() => {
-    //     var savedCart=getDatabaseCart();
-    //     const productKeys=Object.keys(savedCart);
-
-        
-    //     const cartProducts=productKeys.map(key=>{
-    //         const product=fakeData.find(pd=> pd.key===key);
-    //         product.quantiy=savedCart[key];
-    //         return product;
-    //     })
-
-        
-    //     setData(cartProducts);
-    //   },[]);
-
+   
 
      
 
@@ -65,11 +51,7 @@ const Navigation = () => {
 
 
                          
-                        {/* <Nav.Link className="link-nav" >
-                            <Link className="link-nav" to="/cart">
-                                Cart
-                            </Link>
-                        </Nav.Link> */}
+                         
                     
                         
 
@@ -113,7 +95,7 @@ const Navigation = () => {
 
                             <Nav.Link className="link-nav">
                                     <Link className="link-nav" to="/register">
-                                        <button className="btn btn-warning btn-sm text-dark font-weight-bold">Register</button>
+                                        <button className="btn btn-remove-shadow btn-warning btn-sm text-dark font-weight-bold">Register</button>
                                     </Link>
                             </Nav.Link>
                         </>
@@ -131,7 +113,7 @@ const Navigation = () => {
 
                                 <Nav.Link className="link-nav">
                                     <Link className="link-nav" to="/login">
-                                    <button className="btn btn-warning btn-sm text-dark font-weight-bold">Account </button>
+                                    <button className="btn btn-remove-shadow btn-warning btn-sm text-dark font-weight-bold">Account </button>
                                     </Link> 
                                 </Nav.Link>
                         </>

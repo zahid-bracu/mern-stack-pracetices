@@ -1,5 +1,5 @@
 .bg-nav{
-    background-color: #53a3e4 !important;
+    background-color: #252525 !important;
 }
 
 
@@ -14,3 +14,14 @@
     max-width: 310px;
     border-bottom: 1px solid rgb(121, 121, 121);
 }
+
+.footer{
+    font-weight: 500;
+}
+
+
+.nav-custom:hover{
+    color:brown !important;
+    transform: scale(1.04);
+}
+
