@@ -2,7 +2,7 @@
     box-sizing: border-box;
 }
 body {
-    background: #10101B;
+    background: #000000;
     height: 100vh;
 }
 .container {
@@ -11,7 +11,7 @@ body {
 
 .half-width {
     height: 570px;
-    background: #222436;
+    background: #222831;
     padding: 30px;
     text-align: center;
 }
@@ -20,7 +20,7 @@ body {
     width: 180px;
     padding: 50px;
     border-radius: 50%;
-    border: 8px solid #39458C;
+    border: 8px solid #273068;
     background-color: #495BC3;
     color: #ffffff;
     font-weight: bold;
@@ -66,10 +66,10 @@ width: 100%;
 width: 20%;
 background: #425062;
 color: #fff;
-padding: 20px 0;
+padding: .3em;
 margin: 5px;
 display: inline-block;
-font-size: 25px;
+font-size: 1.5em;
 text-align: center;
 vertical-align: middle;
 margin-right: -4px;
@@ -81,10 +81,10 @@ cursor: pointer;
     width: 20%;
 background: #425062;
 color: #fff;
-padding: 20px 0;
+padding: .3em;
 margin: 5px;
 display: inline-block;
-font-size: 25px;
+font-size: 1.5em;
 text-align: center;
 vertical-align: middle;
 margin-right: -4px;
@@ -96,10 +96,10 @@ cursor: pointer;
     width: 20%;
 background: #425062;
 color: #fff;
-padding: 20px 0;
+padding: .3em;
 margin: 5px;
 display: inline-block;
-font-size: 25px;
+font-size: 1.5em;
 text-align: center;
 vertical-align: middle;
 margin-right: -4px;
@@ -115,7 +115,7 @@ color: #E0B612;
 .submit-btn {
     border: none;
     margin-top: 20px;
-    padding: 10px 120px;
+    padding: .5em 4em;
     border-radius: 5px;
     background: #495BC3;
     color: #fff;
@@ -124,21 +124,23 @@ color: #E0B612;
     color: #fff;
     text-align: center;
     margin: 0 auto;
-    background: #222436;
+    background: #222831;
     margin-top: 20px;
     border-radius: 15px;
     padding: 5px 20px;
 }
 
 #matched{
+    width: auto;
     display: none;
 }
 #not_matched{
+    width: auto;
     display: none;
 }
 
 .notify-section{
-    width: 35%;
+    width: 90%;
     margin: 0 auto;
 }
 .action-left {
