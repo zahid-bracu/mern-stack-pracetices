@@ -1,10 +1,15 @@
-import React, {useState,useContext} from 'react';
+import React, {useState,useContext, useEffect} from 'react';
 import {UserContext} from '../App';
 import banner from './image/banner.png'
 import {
     Link
   } from "react-router-dom";
 const Home = () => {
+
+    useEffect(() => {
+        window.scrollTo(0, 0)
+      }, [])
+
     const [user,setUser]=useContext(UserContext);
     console.log(user.flag);
     return (

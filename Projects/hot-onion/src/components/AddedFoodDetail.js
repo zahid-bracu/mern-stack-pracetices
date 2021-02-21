@@ -10,8 +10,8 @@ export default function AddedFoodDetail(props) {
 
   return (
     <div class=" row border justify-content-center align-items-center my-3 p-3" >
-      <img className="col-4"   src={image} style={{maxWidth:"200px"}} />
-      <div className="col-8">
+      <img className="col-lg-4 col-md-12 col-sm-12 col-12"   src={image} style={{maxWidth:"200px"}} />
+      <div className="col-lg-8 col-md-12 col-sm-12 col-12">
           <h4>{name}</h4>
           <Card.Text>
             <h5>Price <span className="badge badge-success">{price}$</span></h5>

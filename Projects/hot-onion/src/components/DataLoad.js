@@ -23,6 +23,9 @@ const DataLoad = () => {
 
     useEffect(() => {
          
+        
+        window.scrollTo(0, 0)
+          
         if(filter==="All"){
             var datas=Data.slice(0,6)
             setData(datas)
@@ -38,8 +41,8 @@ const DataLoad = () => {
     
     return (
         <div>
-             <div className="btn-filter d-flex mt-5">
-                <button onClick={()=>setFilter('All')} className="btn font-weight-bold btn-select btn-light mx-3">All</button>
+             <div className="container mx-auto btn-filter row justify-content-center mt-5">
+                <button onClick={()=>setFilter('All')} className=" btn font-weight-bold btn-select btn-light mx-3">All</button>
                  <button onClick={()=>setFilter('Breakfast')} className="btn font-weight-bold btn-select btn-light mx-3">Breakfast</button>
                  <button onClick={()=>setFilter('Lunch')} className="btn font-weight-bold btn-select btn-light mx-3">Lunch</button>
                  <button onClick={()=>setFilter('Dinner')} className="btn font-weight-bold btn-select btn-light mx-3">Dinner</button>

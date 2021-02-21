@@ -13,6 +13,9 @@ firebase.initializeApp(firebaseConfig);
 
 const Forms = () => {
 
+    useEffect(() => {
+        window.scrollTo(0, 0)
+      }, [])
 
     const history = useHistory();
     const location = useLocation();
@@ -141,7 +144,7 @@ const Forms = () => {
     return (
         <div className="container">
         {
-            !user.state && <> <Form   className="mx-auto mt-5" style={{width:"25rem"}}>
+            !user.state && <> <Form   className="mx-auto mt-5 col-lg-12 col-12" style={{width:"25rem"}}>
 
             {
                 !flag && <h5 className="text-center my-4">Sign In</h5>
@@ -169,7 +172,7 @@ const Forms = () => {
             {
                 flag && <Form.Group controlId="Name">
                  
-                <Form.Control className="custom-input " onBlur={changeFunc} name="name" type="text" placeholder="Full Name" />
+                <Form.Control   onBlur={changeFunc} name="name" type="text" placeholder="Full Name" />
                 </Form.Group>
             }
             
@@ -177,13 +180,13 @@ const Forms = () => {
             
             <Form.Group controlId="Email" className="">
                 
-                <Form.Control className="custom-input  " onBlur={changeFunc} name="email" type="email" placeholder="Email" />
+                <Form.Control   onBlur={changeFunc} name="email" type="email" placeholder="Email" />
                 <p className="text-danger" id="email-error" style={{display:"none"}}>Email Address is not Valid</p>
             </Form.Group>
 
             <Form.Group controlId="formBasicPassword my-5">
                
-                <Form.Control className="custom-input  " onBlur={changeFunc} name="password" type="password" placeholder="Password" />
+                <Form.Control   onBlur={changeFunc} name="password" type="password" placeholder="Password" />
                 <p className="text-danger" id="pass-error" style={{display:"none"}}>Password is not Valid</p>
             </Form.Group>
 

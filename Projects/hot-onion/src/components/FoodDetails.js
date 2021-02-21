@@ -34,8 +34,8 @@ const FoodDetails = () => {
     return (
         <div className="container">
             <div className="row">
-                <div className="col-6">
-                    <h1 className="mb-4">{detail.name}</h1>
+                <div className="col-lg-6 col-md-12 col-sm-12 col-12 order-lg-first order-md-last order-sm-last order-last">
+                    <h3 className="mb-4">{detail.name}</h3>
                     <p style={{maxWidth:"400px"}} className="text-justify mb-4">{detail.fullDescription}</p>
                     <h3>Price: ${detail.price}</h3>
                     
@@ -49,8 +49,8 @@ const FoodDetails = () => {
                     </div>
                 </div>
 
-                <div className="col-6">
-                    <img style={{maxWidth:"500px"}} src={photo}/>
+                <div className="col-lg-6 col-md-12 col-sm-12 col-12 order-lg-last order-md-first order-sm-first order-first">
+                    <img style={{maxWidth:"500px",width:"90%"}} src={photo}/>
                 </div>
             </div>
         </div>

@@ -10,17 +10,30 @@
 
 .search-input{
      
-    width: 400px !important;
-    display: block;
+    width:90% !important;
+    max-width: 400px !important;
+ 
     margin: auto;
-    border-radius: 20px !important;
+    border-radius: 1em !important;
+}
+.banner{
+    background-image: url('./resources/bannerbackground.png');
+    background-position: center;
+    background-size: cover;
+    min-height: 480px;
+    font-size: 62.5%;
 }
 
+
+.banner-text{
+    font-size: 3em;
+}
 
 .search-bar{
     position: relative;
     top:130px;
-    width: 800px !important;
+    width: 90%;
+    max-width: 800px !important;
     display: block;
     margin: auto;
     height: 14px;
@@ -28,21 +41,19 @@
 
 .search-btn{
     border-radius: 20px !important;
-    padding: 6px 30px !important;
+    padding: .4em 2em !important;
     display: block !important;
-    margin: 5px auto !important; 
-    
+    margin: .4em auto !important;
 }
+
+
 
 #cart{
     width: 20px;
 }
-.banner{
-    background-image: url('./resources/bannerbackground.png');
-    background-position: center;
-    background-size: cover;
-    min-height: 480px;
-}
+
+
+
 
 .btn-select:focus{
     color: red !important;
@@ -54,9 +65,9 @@
 
 .btn-filter{
      
-    display: block;
-    margin: auto;
-    width:450px;
+      
+    width: 90%;
+    max-width:450px;
     font-weight: 700 !important;
 }
 
@@ -105,6 +116,8 @@ footer  a{
 
 .custom-input{
     /* border: none !important; */
+    width:90% !important;
+    max-width: 500px !important;
 }
 
 .text-toggle:hover{
@@ -114,13 +127,15 @@ footer  a{
 
 
 .form-check-out{
+    width: 90%;
     max-width: 500px !important;
 }
 
 
 .btn-check-out{
-    max-width: 500px !important;
-    padding: 7px 247px  !important;
+    width: 100%;
+    /* max-width: 900px !important; */
+     
 }
 
 .input-custom{

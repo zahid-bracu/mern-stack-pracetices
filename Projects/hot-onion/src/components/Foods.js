@@ -5,8 +5,9 @@ import FoodCart from './FoodCart';
 const Foods = () => {
     const [data,setData]=useState([]);
     
-
+     
     useEffect(() => {
+        window.scrollTo(0, 0)
         setData(Data)
     }, [])
     return (

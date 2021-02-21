@@ -1,4 +1,4 @@
-import React, {useState,useContext} from 'react';
+import React, {useState,useContext, useEffect} from 'react';
 import {
     Link
   } from "react-router-dom";
@@ -12,7 +12,15 @@ firebase.initializeApp(firebaseConfig);
 
 const Login = () => {
     
-const [user,setUser]=useContext(UserContext);
+
+    const [user,setUser]=useContext(UserContext);
+
+
+    useEffect(() => {
+
+        window.scrollTo(0, 0)
+
+    }, [])
 
     const provider = new firebase.auth.GoogleAuthProvider();
 

@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react';
 import { Form, Button } from 'react-bootstrap';
 import './style.css';
 import Data from './Data';
-import {addToDatabaseCart, getDatabaseCart} from './databaseManager';
+import {addToDatabaseCart, getDatabaseCart, processOrder} from './databaseManager';
 import CompletedPayment from './CompletedPayment';
 import { useHistory } from "react-router-dom";
 const CheckOut = () => {
@@ -21,7 +21,7 @@ const CheckOut = () => {
     })
     const [foods,setFoods]=useState([]);
     useEffect(() => {
-        
+        window.scrollTo(0, 0)
         var data=getDatabaseCart();
         var item_keys=Object.keys(data);
         const added_items=item_keys.map(key=>{
@@ -33,13 +33,13 @@ const CheckOut = () => {
         setFoods(added_items);
     }, [])
 
-    console.log(foods)
+     
 
     var total=foods.reduce((sum,key)=>{
         sum=sum+key.count;
         return sum;
     },0);
-    console.log(total);
+    
 
     var totalPayment=foods.reduce((payment,key)=>{
         var temp=key.price*key.count;
@@ -47,11 +47,28 @@ const CheckOut = () => {
         return payment;
     },0)
 
+    console.log("Total Pay : "+totalPayment);
+    console.log(typeof totalPayment)
+    totalPayment=parseFloat(totalPayment)
+    console.log(typeof totalPayment)
+
+
+
     var vat=15;
     var tax=parseInt(totalPayment)/100;
-    tax=tax*parseInt(vat);
+    
+    tax=parseFloat(tax*parseInt(vat));
+    tax=tax.toFixed(2);
+    console.log("Tax :"+tax)
+    console.log(typeof tax)
+    tax=parseFloat(tax);
+    tax=tax.toFixed(2);
+    tax=parseFloat(tax);
+    console.log(typeof tax)
 
     var inTotal=totalPayment+tax+50;
+     
+    // inTotal=inTotal.toFixed(2)
     
     if(inTotal<=50){
         inTotal=0;
@@ -59,7 +76,7 @@ const CheckOut = () => {
     
 
     function changeFunc(e) {
-        console.log(e.target.name + " : " + e.target.value);
+       
         var infos={...address};
         infos[e.target.name]=e.target.value;
         setAddress(infos);
@@ -69,8 +86,7 @@ const CheckOut = () => {
     function submitFunc(e) {
         setForm(true);
         e.preventDefault();
-        console.log(address);
-        console.log(Object.keys(address).length)
+         
 
 
         if(address.phone!="" && address.name!=""){
@@ -104,9 +120,9 @@ const CheckOut = () => {
 
     function payment(e){
         e.preventDefault();
-        console.log("Ok")
+        
         var cardNumber=document.getElementById('card-number').value
-        console.log(cardNumber);
+      
         if(cardNumber==15101122){
             setCompleted(true);
             document.getElementById('card-num-error').style.display="none"
@@ -128,7 +144,9 @@ const CheckOut = () => {
         }
         
         if(completed){
+            processOrder();
             history.push("/confirm");
+
         }
         
     }
@@ -171,36 +189,36 @@ const CheckOut = () => {
                         <Form onSubmit={submitFunc} className="form-check-out">
                     
                             <Form.Group id="name">
-                                <Form.Control onBlur={changeFunc} type="text" name="name" id="name" placeholder="Name" />
+                                <Form.Control onBlur={changeFunc} type="text" name="name" id="name" placeholder="Name" required/>
                                 <p className="text-danger" id="name-error" style={{display:"none"}}>Enter your name</p>
                             </Form.Group>
                             
 
                             <Form.Group id="business">
-                                <Form.Control onBlur={changeFunc} type="text" id="business" name="business" placeholder="Business Name" />
+                                <Form.Control onBlur={changeFunc} type="text" id="business" name="business" placeholder="Business Name" required/>
                             </Form.Group>
 
                             <Form.Group id="flat">
-                                <Form.Control onBlur={changeFunc} type="text" id="flat" name="flat" placeholder="Flat No." />
+                                <Form.Control onBlur={changeFunc} type="text" id="flat" name="flat" placeholder="Flat No." required/>
                             </Form.Group>
 
 
                             <Form.Group id="house">
-                                <Form.Control onBlur={changeFunc} type="text" id="house" name="house" placeholder="House No." />
+                                <Form.Control onBlur={changeFunc} type="text" id="house" name="house" placeholder="House No." required/>
                             </Form.Group>
 
 
                             <Form.Group id="road">
-                                <Form.Control onBlur={changeFunc} type="text" id="road" name="road" placeholder="Road No." />
+                                <Form.Control onBlur={changeFunc} type="text" id="road" name="road" placeholder="Road No." required/>
                             </Form.Group>
 
 
                             <Form.Group id="city">
-                                <Form.Control onBlur={changeFunc} type="text" id="city" name="city" placeholder="City" />
+                                <Form.Control onBlur={changeFunc} type="text" id="city" name="city" placeholder="City" required/>
                             </Form.Group>
 
                             <Form.Group id="phone">
-                                <Form.Control onBlur={changeFunc} type="number" id="phone" name="phone" placeholder="phone" />
+                                <Form.Control onBlur={changeFunc} type="number" id="phone" name="phone" placeholder="phone" required/>
                                 <p className="text-danger" id="phone-error" style={{display:"none"}}>Enter your phone number</p>
                             </Form.Group>
 

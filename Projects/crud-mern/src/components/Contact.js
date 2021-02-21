@@ -13,6 +13,8 @@ const Contact = () => {
     console.log(user);
     document.title="Contact List"
     useEffect(() => {
+
+      window.scrollTo(0, 0)
         
       fetch('http://localhost:3070/info?userMail='+user.mail)
         .then(response => response.json())
@@ -22,7 +24,7 @@ const Contact = () => {
         });
 
         
-      });
+      },[]);
 
 
      

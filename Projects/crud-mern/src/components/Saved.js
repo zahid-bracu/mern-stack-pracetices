@@ -1,6 +1,9 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import { useHistory, Link } from "react-router-dom";
 const Saved = () => {
+    useEffect(() => {
+        window.scrollTo(0, 0)
+      }, [])
     return (
         <div className="container">
             <h2 className="text-center mt-5">Saved Successfully</h2>

@@ -13,7 +13,7 @@ const Navigation = () => {
     const [user,setUser]=useContext(UserContext);
     return (
         <>
-            <Navbar className="bg-white"  expand="lg">
+            <Navbar className=" sticky-top bg-custom"  expand="lg">
                 <div className="container">
                     <Navbar.Brand >
                         <Link className="nav-custom" style={{textDecoration:"inherit",color:"black"}} to="/">
@@ -51,6 +51,12 @@ const Navigation = () => {
                             </Nav.Link>
                             </>
                         }
+
+                        <Nav.Link href="https://github.com/zahid-bracu" target="_blank" className="nav-custom" >
+                            
+                            Github
+                        </Nav.Link>
+
                          {
                              !user.flag && 
                              <Nav.Link   >
@@ -59,7 +65,7 @@ const Navigation = () => {
                              </Link>
                             </Nav.Link>
                          }
-
+                         
                         {
                              user.flag && <Nav.Link>
                              <button className="btn btn-danger btn-sm">

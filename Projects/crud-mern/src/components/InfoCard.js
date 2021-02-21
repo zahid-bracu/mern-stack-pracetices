@@ -12,7 +12,7 @@ const InfoCard = (props) => {
 
     return (
          
-            <div className="info-card mt-3">
+            <div className="info-card mt-3 mx-auto">
                 <h5>Name : {name}</h5>
                 <h6>Contact No. : {number}</h6>
                 <h6>Mail : {mail}</h6>

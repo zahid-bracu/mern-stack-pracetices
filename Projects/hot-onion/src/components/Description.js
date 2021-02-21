@@ -6,6 +6,9 @@ const Description = () => {
     const [data,setData]=useState([]);
 
     useEffect(() => {
+         
+            window.scrollTo(0, 0)
+         
          setData(Features);
     }, [])
     

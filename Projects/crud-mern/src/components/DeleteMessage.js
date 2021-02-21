@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {
     BrowserRouter as Router,
     Switch,
@@ -6,6 +6,9 @@ import {
     Link
   } from "react-router-dom";
 const DeleteMessage = () => {
+    useEffect(() => {
+        window.scrollTo(0, 0)
+      }, [])
     return (
         <div>
             <h4 className="text-center my-5">Deleted Successfully</h4>

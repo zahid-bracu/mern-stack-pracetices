@@ -5,6 +5,11 @@ const Delete = () => {
     const {id}=useParams();
     const [info,setInfo]=useState([]);
     let history = useHistory();
+
+
+    useEffect(() => {
+        window.scrollTo(0, 0)
+      }, [])
     // console.log(id);
     
         

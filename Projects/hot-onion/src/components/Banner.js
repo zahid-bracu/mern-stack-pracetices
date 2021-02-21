@@ -5,7 +5,7 @@ const Banner = () => {
     return (
         <div className="banner">
             <div className="search-bar">
-            <h1 className="text-center mb-3">Best Food For Your Belly</h1>
+            <h1 className="text-center mb-3 banner-text">Best Food For Your Belly</h1>
             <Form.Control className="search-input" type="text" placeholder="Normal text">
             
             </Form.Control>

@@ -12,16 +12,32 @@
 .info-card{
     padding-bottom: 20px;
     max-width: 310px;
-    border-bottom: 1px solid rgb(121, 121, 121);
+    box-shadow: 3px 3px 2px rgb(117, 117, 117);
 }
 
 .footer{
     font-weight: 500;
+     
 }
-
+.nav-custom{
+    font-weight: 500;
+}
 
 .nav-custom:hover{
     color:brown !important;
     transform: scale(1.04);
 }
 
+.btn{
+    box-shadow: 3px 3px 2px rgb(117, 117, 117);
+}
+
+
+.bg-custom{
+    background-color: rgb(255, 246, 234) !important;
+}
+
+
+.form-page{
+    background-color: rgb(241, 233, 220) !important;
+}

@@ -11,7 +11,7 @@ const AddedFood = () => {
     let history = useHistory();
 
     useEffect(() => {
-        
+        window.scrollTo(0, 0)
         var data=getDatabaseCart();
         var item_keys=Object.keys(data);
         const added_items=item_keys.map(key=>{
@@ -21,6 +21,7 @@ const AddedFood = () => {
         })
 
         setFoods(added_items);
+        
     }, [])
  
 
@@ -33,6 +34,9 @@ const AddedFood = () => {
     var vat=15;
     var tax=parseInt(totalPayment)/100;
     tax=tax*parseInt(vat);
+    tax=parseFloat(tax);
+    tax=tax.toFixed(2);
+    tax=parseFloat(tax);
 
     var inTotal=totalPayment+tax+50;
 
@@ -62,7 +66,7 @@ const AddedFood = () => {
     return (
         <div className="container">
             <div className="row">
-                <div className="col-7 order-lg-first order-md-last order-sm-last order-last">
+                <div className="col-lg-7 col-md-12 col-sm-12 col-12 order-lg-first order-md-last order-sm-last order-last">
                     {
                        foods && foods.map(key=> <AddedFoodDetail removeItem={removeItem} infos={key}/>)
                     }
