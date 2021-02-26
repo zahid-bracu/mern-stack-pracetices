@@ -3,12 +3,13 @@ import { Card, ListGroup, ListGroupItem } from 'react-bootstrap';
 import {
     Link
   } from "react-router-dom";
+  import './style.css';
 const CountryInfo = (props) => {
      
     const {key,name,nativeName,region,flag,capital,population,area}=props.datas;
 
     return (
-        <Card style={{ width: '18rem',paddingTop:"15px", height:"30rem", margin:"10px" }}>
+        <Card className="card" style={{ width: '18rem',paddingTop:"15px", height:"30rem", margin:"10px" }}>
         <Card.Img variant="top" style={{width:"200px",display:"block",margin:"0px auto"}} src={flag} />
         <Card.Body>
             <Card.Title>{name}  </Card.Title>
@@ -23,10 +24,10 @@ const CountryInfo = (props) => {
              
         </ListGroup>
         <Card.Body>
-            <button  onClick={()=>props.addCountry(props.datas)} className="btn btn-danger px-5 text-white">Add</button>
+            <button  onClick={()=>props.addCountry(props.datas)} className="btn btn-danger text-white" style={{marginRight:".5em"}}>Add</button>
 
             <Link to={'/detail/'+area}>
-            <button className="btn btn-info ml-3">View Info</button>
+            <button className="btn btn-info">View Info</button>
             </Link>
             
         </Card.Body>

@@ -3,3 +3,21 @@
     display: block;
     margin:10px auto;
 }
+
+.btn{
+    box-shadow: 2px 2px 2px rgb(119, 119, 119);
+}
+
+
+.card{
+    box-shadow:  2px 2px 2px rgb(119, 119, 119) !important;
+}
+
+.custom-nav{
+    text-decoration: inherit !important;
+    color: black;
+}
+
+.custom-nav:hover{
+    color: red !important;
+}

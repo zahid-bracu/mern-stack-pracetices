@@ -1,7 +1,7 @@
 import React, {useState,useEffect} from 'react';
 import CountryInfo from './CountryInfo';
 import {addToDatabaseCart,removeFromDatabaseCart,getDatabaseCart} from './utilities/databaseManager';
-
+import './style.css';
 const Countries = () => {
     const [data,setData]=useState([]);
     const [length,setLength]=useState();
@@ -78,10 +78,12 @@ const Countries = () => {
         <h5 className="text-center my-4">Total countries are loaded from API : {length}</h5>
         <h6 className="text-center mb-4">Showing 20 Countries</h6>
         <h5 className="text-center mb-4">You have added <span className="text-danger">{visit.length}</span> countries in your visiting plan</h5>
-        <div className="row container justify-content-center align-items-center">
+        <div className="container">
+        <div className="row  justify-content-center align-items-center">
          {
              data.map(key=> <CountryInfo addCountry={addCountry}  datas={key}/>)
          }   
+        </div>
         </div>
         </>
     );

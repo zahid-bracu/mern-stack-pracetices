@@ -10,4 +10,19 @@
   color:rgb(3, 93, 228);
 }
 
- 
+.form-custom-card{
+  max-width: 400px;
+  margin: 5rem auto;
+}
+
+
+.btn-pay-custom{
+  display: block;
+  margin: 5px auto !important;
+  
+}
+
+
+.custom-form{
+  max-width: 500px;
+}

@@ -1,7 +1,7 @@
 import React, {useEffect,useState} from 'react';
 import AddedCountryInfo from './AddedCountryInfo';
 import {addToDatabaseCart,removeFromDatabaseCart,getDatabaseCart} from './utilities/databaseManager';
-
+import './style.css';
 const AddedCountry = () => {
     const [countries,setCountries]=useState([]);
     const [flag,setFlag]=useState(false);
@@ -38,8 +38,9 @@ const AddedCountry = () => {
     
     return (
         <div className="container">
+            <h5 className="text-center my-3 text-success">You have added {countries.length} countries</h5>
             
-                <div className="row">
+                <div className="row justify-content-center align-items-center">
                 {
                      display
                 }
