@@ -1,7 +1,10 @@
 import React, {useEffect, useState, useContext} from 'react';
 import {UserInfoContext} from '../App';
 import './styles.css';
+import { useHistory } from "react-router-dom";
+
 export function PaymentCard(props) {
+  let history = useHistory();
   const [number, setNumber] = useState("");
   const [UserInfo, setUserInfo]=useContext(UserInfoContext)
   
@@ -11,6 +14,9 @@ export function PaymentCard(props) {
       infos.card=number;
       //console.log(infos)
       setUserInfo(infos);
+      if(infos.card!=""){
+        history.push("/orderconfirm");
+      }
        
   }
   console.log(UserInfo);

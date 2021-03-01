@@ -26,7 +26,7 @@ const AddedCountryInfo = (props) => {
             <button  onClick={()=>props.remove(numericCode)} className="btn btn-danger text-white">Remove</button>
 
             <Link to={'/detail/'+area}>
-            <button className="btn btn-info ml-3">View Info</button>
+            <button className="btn btn-success ml-3">View Info</button>
             </Link>
             
         </Card.Body>

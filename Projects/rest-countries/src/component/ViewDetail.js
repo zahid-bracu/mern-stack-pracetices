@@ -1,7 +1,8 @@
 import React, {useState,useEffect} from 'react';
 import {
-    useParams, Link
+    useParams, Link, useHistory
   } from "react-router-dom";
+
 
 const ViewDetail = () => {
     const [data,setData]=useState();
@@ -18,6 +19,9 @@ const ViewDetail = () => {
 
     
     console.log(data)
+
+    let history = useHistory();
+     
     
 
 
@@ -32,9 +36,9 @@ const ViewDetail = () => {
            <div  className="card-body">
                <h5 className="card-title">{data.name}</h5>
                <p className="text-justify">The Capital of {data.name} is {data.capital}.{data.name} is in {data.region} region.The Sub Region is {data.subregion}.There are total {data.population} people live in this country.The area of {data.name} is {data.area} Square Kilometre.The native language of {data.name} is {data.languages[0].nativeName}.</p>
-               <Link to="/countries">
-               <button className="btn btn-success">Go Back</button>
-               </Link>
+                
+               <button onClick={()=> history.goBack()} className="btn btn-success">Go Back</button>
+                
                
            </div>
        </div>

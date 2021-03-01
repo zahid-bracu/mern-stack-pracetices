@@ -6,14 +6,17 @@ import {
     Link
   } from "react-router-dom";
 import './style.css';
+import logo from './resource/logo.jpg'
 const Navigation = () => {
     return (
-        <Navbar bg="light" expand="lg">
+        <Navbar className="sticky-top nav-bar" bg="light" expand="lg">
             <div className="container">
-                <Navbar.Brand >Rest Countries</Navbar.Brand>
+                <Navbar.Brand >
+                    <img src={logo} style={{maxWidth:'70px',width:"100%"}}/>
+                </Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
-                    <Nav className="mr-auto">
+                    <Nav className="ml-auto">
                         
                     <Nav.Link >
                        <Link className="custom-nav" to="/home">Home</Link>
@@ -28,15 +31,23 @@ const Navigation = () => {
                     </Nav.Link>
 
 
-                    <Nav.Link  className="custom-nav" target="_blank" href="https://restcountries.eu/rest/v2/all">Api Data</Nav.Link>
-                    <Nav.Link  className="custom-nav" target="_blank" href="https://github.com/zahid-bracu">Github</Nav.Link>
+                    
 
-                    <Nav.Link  className="custom-nav" target="_blank" href="https://portfolio-zahid-bracu.netlify.app/">Portfolio</Nav.Link>
+                    
+                    <Nav.Link  className="custom-nav" target="_blank" href="https://portfolio-zahid-bracu.netlify.app/">
+                    
+                    <button className="btn btn-outline-success btn-sm btn-round">
+                        <span className="font-weight-bold">
+                        Contact
+                        </span>
+                    </button>
+                    
+                    </Nav.Link>
+                    
+
+                    
                     </Nav>
-                    <Form inline>
-                        <FormControl type="text" placeholder="Search" className="mr-sm-2" />
-                        <Button variant="outline-success">Search</Button>
-                    </Form>
+                    
                 </Navbar.Collapse>
             </div>
         </Navbar>

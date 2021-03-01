@@ -51,11 +51,7 @@ const Order = () => {
 
     function CheckOut(){
         console.log("Button Working")
-        // setCart([]);
-        // processOrder(cart);
-        // setFlag(true);
-        // history.replace('/informationform');
-        // console.log("Button Working")
+         
 
     }
 

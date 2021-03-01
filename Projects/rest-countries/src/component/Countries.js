@@ -75,8 +75,8 @@ const Countries = () => {
     
     return (
         <>
-        <h5 className="text-center my-4">Total countries are loaded from API : {length}</h5>
-        <h6 className="text-center mb-4">Showing 20 Countries</h6>
+        <h5 className="text-center my-4 bold">Total countries are loaded from API : <span className="text-danger">{length}</span> </h5>
+        <h6 className="text-center mb-4">In this interface : Showing <span className="text-danger bold">20</span>  Countries</h6>
         <h5 className="text-center mb-4">You have added <span className="text-danger">{visit.length}</span> countries in your visiting plan</h5>
         <div className="container">
         <div className="row  justify-content-center align-items-center">

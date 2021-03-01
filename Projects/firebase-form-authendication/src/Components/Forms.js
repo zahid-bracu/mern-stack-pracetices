@@ -1,20 +1,29 @@
-import React, {useState,useContext} from 'react';
-import { Button,  Form } from 'react-bootstrap';
-import * as firebase from "firebase/app";
-import "firebase/auth";
-import "firebase/firestore";
-import firebaseConfig from './firebasConfig';
-import {information} from '../App';
-
-firebase.initializeApp(firebaseConfig);
+import React, {useState,useContext, useEffect} from 'react'; //react hooks
+import { Button,  Form } from 'react-bootstrap';  // bootstraps
+import * as firebase from "firebase/app"; //importing firebase
+import "firebase/auth"; //importing fire auth
+import "firebase/firestore"; // firestore details import
+import firebaseConfig from './firebasConfig'; //firebase config file import
+import {information} from '../App'; //context api import
+import './style.css';
+firebase.initializeApp(firebaseConfig); // initialize the firebaseconfig app
 
 const Forms = () => {
     const [flag,setFlag]=useState(false);
     const [user,setUser]=useState({});
     const [message,setMessage]=useState("");
-
+    const [mail,setMail]=useState("")
     const [info,setInfo]=useContext(information);
 
+
+
+    useEffect(() => {
+         var tempMail=localStorage.getItem('email');
+          
+         setMail(tempMail);
+      },0);
+
+    
 
     function changeFunc(e){
         console.log(e.target.name +" : "+e.target.value);
@@ -64,10 +73,10 @@ const Forms = () => {
             firebase.auth().signInWithEmailAndPassword(user.email, user.password)
             .then(res=>{
                 var newInfo={...user};
-                console.log(newInfo);
                  
-                 
-                 
+                
+                localStorage.setItem('email', newInfo.email);
+                setMail(user.email)
                 setInfo(true);
             })
             .catch(function(error) {
@@ -82,41 +91,51 @@ const Forms = () => {
         }
         e.preventDefault();
     }
-    console.log(info);
+     
 
-    function logout(){
+    function logout(e){
+
         firebase.auth().signOut().then(function() {
+            e.preventDefault();
+            
+            localStorage.setItem('email',"");
+            setMail("")
+            
             setInfo(false);
             setMessage("Logged Out");
             document.getElementById("message").style.color="Black";
+            
           }).catch(function(error) {
             // An error happened.
           });
     }
+
+
+     console.log(mail)
     return (
-        <>
+        <div className="container">
         {
-            !info && <> <Form onSubmit={submitFunc}  className="mx-auto mt-5" style={{width:"25rem"}}>
+            !mail && <> <Form onSubmit={submitFunc}  className="custom-form  mt-5" >
 
             {
-                !flag && <h5>Sign In</h5>
+                !flag && <h5 className="text-center">Sign In</h5>
             }
 
             {
-                flag && <h5>Sign Up</h5>
+                flag && <h5 className="text-center">Sign Up</h5>
             }
 
             
-            <Form.Group className="mx-auto" controlId="formBasicCheckbox">
+            <Form.Group className="mx-auto " controlId="formBasicCheckbox">
                 <Form.Check onChange={()=>{
                     setFlag(!flag)
-                }} type="checkbox" label="New User?" />
+                }} type="checkbox"   label="New User?" />
             </Form.Group>
 
             {
                 flag && <Form.Group controlId="Name">
                 <Form.Label>Full Name</Form.Label>
-                <Form.Control onBlur={changeFunc} name="name" type="text" placeholder="Enter Full Name" />
+                <Form.Control className="custom-input" onBlur={changeFunc} name="name" type="text" placeholder="Enter Full Name" />
             </Form.Group>
             }
             
@@ -124,7 +143,7 @@ const Forms = () => {
             
             <Form.Group controlId="Email">
                 <Form.Label>Email Address</Form.Label>
-                <Form.Control onBlur={changeFunc} name="email" type="email" placeholder="Enter Email" />
+                <Form.Control className="custom-input" onBlur={changeFunc} name="email" type="email" placeholder="Enter Email" />
                 <Form.Text className="text-muted">
                 We'll never share your email with anyone else.
                 </Form.Text>
@@ -132,7 +151,7 @@ const Forms = () => {
 
             <Form.Group controlId="formBasicPassword">
                 <Form.Label>Password</Form.Label>
-                <Form.Control onBlur={changeFunc} name="password" type="password" placeholder="Password" />
+                <Form.Control className="custom-input" onBlur={changeFunc} name="password" type="password" placeholder="Password" />
             </Form.Group>
 
             <Form.Group controlId="formBasicCheckbox">
@@ -148,7 +167,7 @@ const Forms = () => {
         }
 
         {
-            info && <>
+            mail && <>
             <div className="container">
                 <h3 className="text-center my-5 text-success">You have logged in successfully</h3>
             </div>
@@ -156,7 +175,7 @@ const Forms = () => {
             <button onClick={logout} className=" btn btn-primary d-block px-5 mx-auto">Logout</button>
             </>
         }
-        </>
+        </div>
     );
 };
 

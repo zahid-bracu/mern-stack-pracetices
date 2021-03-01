@@ -9,6 +9,8 @@ import {
 import Home from "./component/Home";
 import ViewDetail from "./component/ViewDetail";
 import AddedCountry from "./component/AddedCountry";
+import Footer from "./component/Footer";
+import './App.css';
 
 function App() {
   return (
@@ -42,6 +44,8 @@ function App() {
           </Route>
 
         </Switch>
+        <hr/>
+        <Footer/>
       </Router>
       
     </>

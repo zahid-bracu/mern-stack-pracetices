@@ -21,6 +21,7 @@ import CourseDetails from "./components/CourseDetails";
 import { PaymentCard } from "./components/PaymentCard";
 import ConfirmedOrder from "./components/ConfirmedOrder";
 import InformationForm from "./components/InformationForm";
+import ConfirmMsg from "./components/ConfirmMsg";
 export const UserInfoContext=React.createContext();
 
 function App() {
@@ -68,6 +69,11 @@ function App() {
 
           <Route path='/orderconfirm'>
             <ConfirmedOrder/>
+          </Route>
+
+
+          <Route path='/confirmmsg'>
+              <ConfirmMsg/>
           </Route>
 
 

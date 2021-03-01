@@ -1,7 +1,7 @@
 const mongoose =require('mongoose'); // add mongoose
 
 
-// connecting / creating to databases
+// connecting / creating to databases (customer is database)
 mongoose.connect("mongodb://localhost:27017/customer", { useNewUrlParser: true, useUnifiedTopology: true,})
 .then(()=> {
     console.log("Connected")
@@ -26,7 +26,7 @@ const customerInfoSchema= new mongoose.Schema({
 })
 
 
-// model & collection setup
+// model & collection setup (customer info is collection)
 const customerInfo=new mongoose.model('customerInfo',customerInfoSchema);
 
 
