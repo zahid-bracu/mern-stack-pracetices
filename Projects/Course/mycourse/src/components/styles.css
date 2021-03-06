@@ -11,6 +11,7 @@
 }
 
 .form-custom-card{
+  width: 90%;
   max-width: 400px;
   margin: 5rem auto;
 }
@@ -45,4 +46,9 @@
 .info-list>li{
   margin: .3em 0em;
   font-weight: 600;
+}
+
+.link-nav-footer{
+  text-decoration: inherit !important;
+  color: black;
 }

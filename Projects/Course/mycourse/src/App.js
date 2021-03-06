@@ -22,6 +22,7 @@ import { PaymentCard } from "./components/PaymentCard";
 import ConfirmedOrder from "./components/ConfirmedOrder";
 import InformationForm from "./components/InformationForm";
 import ConfirmMsg from "./components/ConfirmMsg";
+import Footer from './components/Footer';
 export const UserInfoContext=React.createContext();
 
 function App() {
@@ -98,6 +99,7 @@ function App() {
             <Error></Error>{/*Wrong URL Page*/}
           </Route>
         </Switch>
+        <Footer/>
       </Router>
       
     </div>

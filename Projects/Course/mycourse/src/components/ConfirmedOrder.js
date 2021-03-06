@@ -61,7 +61,9 @@ export default function ConfirmedOrder() {
     return (
         <div className="container">
             <div className="order-info">
-                <h4>From <span className="text-danger">Dynamic Programming Academy</span></h4>
+                <h4>From
+                    <br/> <span className="text-danger">
+                    <span className="text-warning">Developers & Programmers</span> Learning Academy</span></h4>
                 <h5>Best Programming School</h5>
                 <h6>221, Baker Street</h6>
                 <h6>Asgard, Kingdom of Nine Realms</h6>
