@@ -1,1 +1,0 @@
-{"version":3,"sources":["styles.css"],"names":[],"mappings":"AAIA,MACE,8BACF,CANA,KACE,sBAAuB,CACvB,iBACF,CACA,MACE,4BACF,CAEA,qBACE,aACF","file":"main.9a0d8ba2.chunk.css","sourcesContent":[".App {\n  font-family: sans-serif;\n  text-align: center;\n}\n.main{\n  border-right:0px solid rgb(167, 167, 167);\n}\n\n#detailsButton:hover{\n  color:rgb(3, 93, 228);\n}\n\n "]}
