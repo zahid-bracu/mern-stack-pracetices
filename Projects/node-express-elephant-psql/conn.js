@@ -3,17 +3,35 @@ const ClientClass=pg.Client;
 const pgUrl="postgres://lemoqyeo:uYAwEg0lVUW8BLSGvK0RfG4PQnRFEk4U@satao.db.elephantsql.com:5432/lemoqyeo";
 const client= new ClientClass(pgUrl);
 
+ function getRandomInt(max) {
+    return Math.floor(Math.random() * Math.floor(max));
+  }
+  
+  
 
 async function connect(client){
     try{
         await client.connect();
         console.log("Connected");
         
-        const result=await client.query('SELECT * FROM COMPANY');
-        console.log(result.rows);
+        
         //console.log(result.rows[0].id);
-        await client.end();
-        return result.rows;
+        const lastName="Musa";
+
+        const num=getRandomInt(300);
+
+        // Create
+        const insertData=await client.query(`INSERT INTO COMPANY (id, name) VALUES ('${num}','${lastName}')`);
+        console.log(insertData);
+
+
+        const result=await client.query(`SELECT * FROM COMPANY WHERE name = '${lastName}'`);
+        console.table(result.rows);
+
+
+        const resultAll=await client.query(`SELECT * FROM COMPANY`);
+        console.table(resultAll.rows);
+    
         
     }
     catch(error){
