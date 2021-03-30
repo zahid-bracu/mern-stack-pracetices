@@ -53,13 +53,11 @@ app.get('/info', async (req,res)=>{
         console.log("Connected")
         const allData=await client.query(`SELECT * FROM students`);
         console.log(allData.rows);
-        client.end().then(() => console.log('client has disconnected'))
-        .catch(err => console.error('error during disconnection', err.stack))
+        client.end();
         console.log("ended")
         res.status(202).send(allData.rows);
         
-    }catch(err){
-        console.log("Error Message is : ==> "+err.message);
+    }catch{
         console.log("not connected");
         res.status(401).send("not-conneted");
     }
