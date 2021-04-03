@@ -1,0 +1,5 @@
+cmd> npm init -y
+
+
+db.sql
+==> keeping all the psql query for backup
