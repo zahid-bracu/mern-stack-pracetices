@@ -1,0 +1,31 @@
+Server
+cmd > npm init -y
+cmd > npm i express
+cmd > npm i mongoose
+cmd > npm i dotenv
+cmd > touch app.js
+cmd > touch middleware.js
+cmd > touch route.js
+cmd > touch conn.js
+
+--> move conn.js, route.js & middleware.js to file folder
+
+app.js
+--> require other files
+--> require & config .env file
+
+
+middleware.js
+--> set a simple middleware with next()
+
+route.js
+--> App Get & App Listen & App Express setup with PORT number
+--> Set PORT number from .env file
+--> import middleware & use
+
+conn.js
+Connection setting
+--> mongoose connection
+--> db Url Connection Setup with password
+--> manage and set Url from .env file
+--> 4 Deprecation Warnings message setup 
