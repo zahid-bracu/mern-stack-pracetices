@@ -1,5 +1,11 @@
+
+********************************server****************************
+
+PSQL Resources :
+tutorial site :  https://www.postgresqltutorial.com/ 
+auto code generator :  https://wtools.io/
+
 cmd> npm init -y
-
-
+cmd> npm i nodemon --save-dev
 db.sql
 ==> keeping all the psql query for backup
