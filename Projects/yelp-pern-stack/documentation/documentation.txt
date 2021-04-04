@@ -7,5 +7,6 @@ tutorial site :  https://www.postgresqltutorial.com/
 
 cmd> npm init -y
 cmd> npm i nodemon --save-dev
+
 db.sql
 ==> keeping all the psql query for backup
