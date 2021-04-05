@@ -2,8 +2,10 @@ import React from 'react';
 import './style.css'
 const Footer = () => {
     return (
-        <div className="container footer mt-5">
-            <hr/>
+        <div className="footer sticky-bottom">
+        
+        <div className="container mt-5">
+             
             <div className="row  justify-content-around ">
                 
                 <div className="col-lg-3 col-md-6 col-sm-12 col-12">
@@ -44,7 +46,10 @@ const Footer = () => {
                 </div>
 
             </div>
-            <p className="text-center mt-3">Zahid's Programming Initiative ©️ 2020 All rights Reserved</p>
+            
+        </div>
+        <hr/>
+            <p className="text-center mt-3 footer-text">Zahid's Programming Initiative ©️ 2020 All rights Reserved</p>
         </div>
     );
 };

@@ -64,24 +64,24 @@ const FormPage = () => {
             <h5 className="text-center mt-5">Add new contact</h5>
             <Form onSubmit={saveData} style={{maxWidth:"400px"}} className="d-block mx-auto">
                 <Form.Group controlId="name">
-                    <Form.Label>Contact Name : </Form.Label>
+               
                     <Form.Control type="name" id="name" placeholder="Enter Name" required/>
                 </Form.Group>
 
                 <Form.Group controlId="number">
-                    <Form.Label>Contact Number: </Form.Label>
+           
                     <Form.Control type="number" id="number" placeholder="Enter Number" required/>
                 </Form.Group>
 
                 <Form.Group controlId="email">
-                    <Form.Label>Contact Email: </Form.Label>
+            
                     <Form.Control type="email" id="email" placeholder="Enter Email" required/>
                 </Form.Group>
              
             
                 <Form.Group controlId="address">
-                    <Form.Label>Address</Form.Label>
-                    <Form.Control as="textarea" id="address" rows={4} required/>
+          
+                    <Form.Control as="textarea" placeholder="Enter Address" id="address" rows={4} required/>
                 </Form.Group>
                 <button className="btn btn-primary">Save</button>
             </Form>

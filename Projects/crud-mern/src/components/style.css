@@ -21,23 +21,50 @@
 }
 .nav-custom{
     font-weight: 500;
+    color: rgb(255, 255, 255) !important;
 }
 
 .nav-custom:hover{
-    color:brown !important;
-    transform: scale(1.04);
+    color:#d9534f !important;
 }
 
-.btn{
-    box-shadow: 3px 3px 2px rgb(117, 117, 117);
-}
-
+ 
 
 .bg-custom{
-    background-color: rgb(255, 246, 234) !important;
+    background-color: #67d9ff !important;
 }
 
 
 .form-page{
     background-color: rgb(241, 233, 220) !important;
+}
+
+#no-shadow{
+    box-shadow: 3px 3px 2px white !important;
+}
+
+
+.img-me{
+    width: 100%;
+    max-width: 50px;
+    border-radius: 50%;
+}
+
+
+.list-unstyled > li, .footer-text{
+    color: rgb(59, 59, 59);
+}
+
+.list-unstyled > li:hover{
+    cursor: pointer;
+    color: rgb(20, 20, 20);
+}
+
+.footer-text:hover{
+    cursor: pointer;
+    color: rgb(59, 59, 59);
+}
+
+.form-sm{
+    height: 31.3px !important;
 }

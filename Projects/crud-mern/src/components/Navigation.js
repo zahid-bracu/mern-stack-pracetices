@@ -1,6 +1,6 @@
 import React, {useState,useContext} from 'react';
 import {UserContext} from '../App';
-import { Nav, Navbar} from 'react-bootstrap';
+import { Nav, Navbar, FormControl, Form, Button} from 'react-bootstrap';
 import {
     BrowserRouter as Router,
     Switch,
@@ -8,21 +8,42 @@ import {
     Link
   } from "react-router-dom";
 import './style.css';
-import logo from './image/logo.png'
+import me from './image/me.jpg'
 const Navigation = () => {
     const [user,setUser]=useContext(UserContext);
     return (
         <>
+        <div>
+        <Navbar bg="light" expand="lg">
+       <div className="container">
+       <Navbar.Brand href="#home">
+            <img src={me} className="img-me" />
+        </Navbar.Brand>
+        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+        <Navbar.Collapse id="basic-navbar-nav">
+            <Nav  >
+             
+            
+            </Nav>
+            <Form className="mx-auto" inline>
+            <FormControl type="text" placeholder="Search" className="mr-sm-2 form-sm" />
+            <Button id="no-shadow" className="btn btn-success btn-sm">Search</Button>
+            </Form>
+
+            <Nav  >
+            <Nav.Link href="#home"><h5>Call : +8801612318884</h5></Nav.Link>
+            
+            </Nav>
+        </Navbar.Collapse>
+       </div>
+        </Navbar>
+        </div>
             <Navbar className=" sticky-top bg-custom"  expand="lg">
                 <div className="container">
-                    <Navbar.Brand >
-                        <Link className="nav-custom" style={{textDecoration:"inherit",color:"black"}} to="/">
-                        <img src={logo} style={{width:"45px"}}/>
-                        </Link>
-                    </Navbar.Brand>
+                     
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
                     <Navbar.Collapse id="basic-navbar-nav">
-                        <Nav className="ml-auto">
+                        <Nav className="mr-auto">
                         <Nav.Link className="nav-custom" >
                             <Link className="nav-custom" style={{textDecoration:"inherit",color:"black"}} to="/home">Home</Link>
 
@@ -57,7 +78,12 @@ const Navigation = () => {
                             Github
                         </Nav.Link>
 
-                         {
+                         
+                        
+                        </Nav>
+
+                        <Nav className="ml-auto">
+                        {
                              !user.flag && 
                              <Nav.Link   >
                              <Link   style={{textDecoration:"inherit",color:"black"}} to="/login">
@@ -75,7 +101,6 @@ const Navigation = () => {
                              </button>
                             </Nav.Link>
                          }
-                        
                         </Nav>
                     </Navbar.Collapse> 
                 </div>
