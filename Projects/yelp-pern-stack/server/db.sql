@@ -37,17 +37,30 @@ DROP database db;
 
 --create table for yelp projects
 CREATE TABLE restaurants(
-    id INT,
-    name VARCHAR(50),
-    location VARCHAR(50),
-    price_range INT
+    id BIGSERIAL NOT NULL PRIMARY KEY,
+    name VARCHAR(50)  NOT NULL,
+    location VARCHAR(50) NOT NULL,
+    price_range INT NOT NUll
 );
 
 
 --insert data to table
-INSERT INTO restaurants(id, name, location, price_range)
-VALUES (123, 'mcdonalds', 'new york', 3);
+INSERT INTO restaurants(  name, location, price_range)
+VALUES (  'mcdonalds', 'new york', 3);
 
 
 --show data from table
 SELECT * FROM restaurants;
+
+
+
+--db name: 
+yelp
+
+--table name:
+restaurants
+
+--table information
+id 
+namelocation
+price_range

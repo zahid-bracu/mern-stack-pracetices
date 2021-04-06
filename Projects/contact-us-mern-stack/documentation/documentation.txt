@@ -1,8 +1,10 @@
-Server
+******************************Server**************************
+
 cmd > npm init -y
 cmd > npm i express
 cmd > npm i mongoose
 cmd > npm i dotenv
+cmd > npm i body-parser
 cmd > touch app.js
 cmd > touch middleware.js
 cmd > touch route.js
@@ -11,21 +13,45 @@ cmd > touch conn.js
 --> move conn.js, route.js & middleware.js to file folder
 
 app.js
---> require other files
---> require & config .env file
-
+--> require express from express
+--> app set from express;
+--> require body parser from body parser
+--> require config .env file
+--> get port value from .env fil
+--> require == connection (conn) file
+--> require Router file
+--> body parser url encoded set
+--> body parser json set
+--> App uses Router
+--> App Listen to Port
 
 middleware.js
 --> set a simple middleware with next()
 
-route.js
---> App Get & App Listen & App Express setup with PORT number
---> Set PORT number from .env file
---> import middleware & use
+
 
 conn.js
 Connection setting
 --> mongoose connection
 --> db Url Connection Setup with password
---> manage and set Url from .env file
+--> manage and set connection Url from .env file
 --> 4 Deprecation Warnings message setup 
+
+userSchema.js
+--> mongoose require
+--> Schema Create
+--> Schema Model Set us mongodb collection name and keep out 's' from collection name
+--> export Schema Collection Model Name
+
+route.js
+--> Express require from express
+--> Router Set from Express Router
+--> Require middleware
+--> Require Schema 
+--> Router set for Get, Post, Put, Delete, Patch etc
+--> Module export as Router
+
+
+
+
+HTTPS response Status code

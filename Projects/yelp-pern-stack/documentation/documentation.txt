@@ -7,6 +7,20 @@ tutorial site :  https://www.postgresqltutorial.com/
 
 cmd> npm init -y
 cmd> npm i nodemon --save-dev
+cmd> npm i express
+cmd> npm i dotenv
+cmd> npm i morgan
+cmd> touch app.js
 
 db.sql
 ==> keeping all the psql query for backup
+
+App.JS
+==> Express require & App --> express
+==> Set .ENV & Port Number
+==> Middle ware : Morgan : Morgan Require & Set with Dev & Tiny
+==> Middle ware: App Use --> Express Json Set as middle ware
+==> Simple MiddleWare Set with Next();
+==> App Get : get all restaurants data
+==> App Get : get one restaurant data by using dynamic id
+==> App Post : create restaurant

@@ -1,30 +1,54 @@
 const express = require('express');
-const app = express();
-const port = process.env.port;
-const {middleware}=require('./middlware');
+const Router=express.Router();
+const {middleware}=require('./middlware.js');
+const User=require('./useSchema.js');
+ 
 
-// simple routing
-app.get('/', (req, res) => {
+
+
+Router.get('/', (req, res) => {
     res.send('Hello World from the server')
   })
   
-  app.get('/about',middleware, (req, res) => {
+  Router.get('/about',middleware, (req, res) => {
     res.send('Hello World from the About Page')
   })
   
   
-  app.get('/contact', (req, res) => {
+  Router.get('/contact', (req, res) => {
     res.send('Hello World from the Contact Page')
   })
   
-  app.get('/signin', (req, res) => {
+  Router.post('/signin', (req, res) => {
     res.send('Hello World from the Sign In Page')
   })
   
-  app.get('/signup', (req, res) => {
-    res.send('Hello World from the Sign Up Page')
+  
+  Router.post('/signup', async (req, res) => {
+    const {name,email,phone,work,password,cpassword}=   req.body;
+    if(!name  || !email || !phone || !work || !password || !cpassword){
+      res.status(400).json({error:"Please fill up the form correctly"});
+    }else{
+      try{
+        var result = await User.find({email:email});
+        console.log(result)
+        if(result.length>0){
+          res.status(401).json({error:"Email Already existed"});
+        }else{
+          const user = new User({name,email,phone,work,password,cpassword});
+          const response= await user.save();
+          console.log("Respons is : "+response);
+          res.status(201).json({message:"Data saved successfully"});
+        }
+      }catch(err){
+        console.log(err)
+        res.status(410).json({error:err});
+      }
+       
+    }
+    
   })
   
-  app.listen(port, () => {
-    console.log(`Example app listening at http://localhost:${port}`)
-  })
+  
+
+  module.exports=Router;
