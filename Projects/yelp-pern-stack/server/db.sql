@@ -49,10 +49,18 @@ INSERT INTO restaurants(  name, location, price_range)
 VALUES (  'mcdonalds', 'new york', 3);
 
 
+--update data on table
+`UPDATE restaurants SET name='${req.body.name}', location='${req.body.location}' where id='${req.params.id}'`
+
+--delete data from table
+`DELETE FROM restaurants where id='${req.params.id}'`
+
+
 --show data from table
 SELECT * FROM restaurants;
 
-
+--show data with condtion 
+`SELECT * FROM restaurants WHERE id='${req.params.id}'`
 
 --db name: 
 yelp

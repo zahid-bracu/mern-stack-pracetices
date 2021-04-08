@@ -10,7 +10,9 @@ cmd> npm i nodemon --save-dev
 cmd> npm i express
 cmd> npm i dotenv
 cmd> npm i morgan
+cmd> npm i pg
 cmd> touch app.js
+
 
 db.sql
 ==> keeping all the psql query for backup
@@ -21,6 +23,15 @@ App.JS
 ==> Middle ware : Morgan : Morgan Require & Set with Dev & Tiny
 ==> Middle ware: App Use --> Express Json Set as middle ware
 ==> Simple MiddleWare Set with Next();
-==> App Get : get all restaurants data
-==> App Get : get one restaurant data by using dynamic id
-==> App Post : create restaurant
+==> Require db;
+==> App Get : get all restaurants data + set Query with try & catch block
+==> App Get : get one restaurant data by using dynamic id + set Query with try & catch block
+==> App Post : create restaurant + set Query with try & catch block
+
+
+
+DB Folder
+  ==> index.js
+  ==> create Pool from pg 
+  ==> create connection from Pool object with user,host,password,database & port
+  ==> Export Query
