@@ -35,7 +35,7 @@ const Shop = () => {
             json=>{
                  
                 SetOriginalData(json);
-                var temp=json.slice(0,10);
+                var temp=json.slice(0,6);
                 setProducts(temp)
 
 

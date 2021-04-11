@@ -27,7 +27,7 @@ const Navigation = () => {
 
     return (
         
-            <Navbar bg="dark"  expand="lg">
+            <Navbar className="sticky-top" bg="dark"  expand="lg">
                 <div className="container">
                 <Navbar.Brand > 
                     <img src={logo} style={{width:"100px"}}/>    

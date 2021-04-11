@@ -29,6 +29,8 @@ import UploadData from './components/UploadData';
 import PrivateRoute from './components/PrivateRoute';
 import DataSaved from './components/DataSaved';
 import CollectionCategory from './components/CollectionCategory';
+import TopNav from './components/TopNav';
+import RiskReducer from './components/RiskReducer';
 export const UserContext = React.createContext();
 
 export const CartContext = React.createContext();
@@ -67,7 +69,8 @@ const [UserInfo, setUserInfo]=useState({
       <div>
         
         <Router>
-        <Navigation></Navigation>
+        <TopNav/>
+        <Navigation  ></Navigation>
           <Switch>
             
 
@@ -165,6 +168,7 @@ const [UserInfo, setUserInfo]=useState({
               <Banner/>
               <CollectionCategory/>
               <Shop/>
+              <RiskReducer/>
             </Route>
 
             

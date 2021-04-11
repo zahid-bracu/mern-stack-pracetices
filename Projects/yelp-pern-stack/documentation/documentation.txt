@@ -20,13 +20,15 @@ db.sql
 App.JS
 ==> Express require & App --> express
 ==> Set .ENV & Port Number
+==> Require db;
+
 ==> Middle ware : Morgan : Morgan Require & Set with Dev & Tiny
 ==> Middle ware: App Use --> Express Json Set as middle ware
 ==> Simple MiddleWare Set with Next();
-==> Require db;
-==> App Get : get all restaurants data + set Query with try & catch block
-==> App Get : get one restaurant data by using dynamic id + set Query with try & catch block
-==> App Post : create restaurant + set Query with try & catch block
+==> App use with middle ware function 
+
+==> App Use With Router
+
 
 
 
@@ -35,3 +37,14 @@ DB Folder
   ==> create Pool from pg 
   ==> create connection from Pool object with user,host,password,database & port
   ==> Export Query
+
+
+
+
+
+
+
+
+
+admin.js (Route Function)
+==> 

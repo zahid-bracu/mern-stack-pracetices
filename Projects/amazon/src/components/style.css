@@ -1,3 +1,5 @@
+
+
 .banner{
     background-image: url('./images/cover.jpg');
     background-position: center;
@@ -50,7 +52,7 @@
     margin:.4em;
     background-color: #DC3545;
     color: white;
-    box-shadow: 5px 5px 10px rgb(121, 121, 121);
+    /* box-shadow: 5px 5px 10px rgb(121, 121, 121); */
 }
 
 
@@ -73,8 +75,9 @@
 
 
 .card-custom{
-    border: 0px solid black;
-    box-shadow: 3px 3px 7px rgb(143, 143, 143);
+     
+    /* box-shadow: 3px 3px 7px rgb(143, 143, 143); */
+    border: 1px solid rgb(226, 226, 226);
     padding: 1rem .3em;
     max-width: 20rem;
     width:90%;
@@ -132,3 +135,33 @@
     box-shadow: 1px 1px 5px rgb(97, 97, 97);
     cursor: pointer;
 }
+
+
+.no-shadow{
+    box-shadow: none !important;
+}
+
+.common-text{
+    color: rgb(46, 46, 46);
+}
+
+
+.risk-box{
+    width:90%;
+    max-width: 380px;
+    
+    height: 150px;
+}
+
+
+ .custom-container{
+     width: 100%;
+     max-width: 1300px;
+     margin: auto;
+ }
+
+
+ .btn-back{
+     width:100% !important;
+     border-radius: 0% !important;
+ }

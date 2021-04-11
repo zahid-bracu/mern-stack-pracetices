@@ -3,9 +3,18 @@ import './style.css'
 import amazon from './images/amazon.png';
 import { Link } from 'react-router-dom';
 const Footer = () => {
+
+    function topScroll(){
+            window.scrollTo(0, 0)
+    }
+
     return (
+        <>
+        
         <footer className=" py-3">
-            <hr/>
+        
+         
+            <button className="btn btn-dark btn-back no-shadow" onClick={()=>topScroll()}>Back to top</button>
             <div className="container">
                 <div className="row footer-top py-5">
                     <div className="col-md-6 mb-5">
@@ -40,6 +49,7 @@ const Footer = () => {
                 </div>
             </div>
         </footer>
+        </>
     );
 };
 

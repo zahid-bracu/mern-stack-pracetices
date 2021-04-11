@@ -10,14 +10,10 @@ router.get('/api/v1/restaurants', async (req, res) => {
     try{
       const result=await db.query('SELECT * FROM restaurants')
       res.status(200).json({
-        status:'success',
-        result:result.rows.length,
-        data:{
-            restaurant:result.rows
-        }
-    })
+        restaurants:result.rows
+      })
     }catch(err){
-      res.status(400).json({message:err});
+      res.status(400).json([{message:err}]);
     }
   })
   
@@ -46,14 +42,15 @@ router.get('/api/v1/restaurants', async (req, res) => {
   router.post('/api/v1/restaurants', async (req, res) => {
       try{
         const result=await db.query(`INSERT INTO restaurants(  name, location, price_range)
-        VALUES (  '${req.body.name}', '${req.body.location}', '${req.body.price_range}');`)
+        VALUES (  '${req.body.name}', '${req.body.location}', '${req.body.price_range}') returning id;`)
         console.log(result);
+        var id=result.rows[0].id
         res.status(201).json({
           status:"success",
-          data:result.rowCount
+          id:id
       })
       }catch(err){
-        res.status(401).json({message:err});
+        res.status(401).json({message:"Not Saved"});
       }
       
    })
@@ -65,10 +62,18 @@ router.get('/api/v1/restaurants', async (req, res) => {
        const result = await db.query(`UPDATE restaurants SET name='${req.body.name}', location='${req.body.location}' where id='${req.params.id}'`
        );
        console.log(result);
-       res.status(202).json({
-        id:req.params.id,
-        status:'success',
-        })
+       console.log(result.rowCount)
+       if(result.rowCount>0){
+        res.status(202).json({
+          id:req.params.id,
+          status:'success',
+          })
+       }else{
+         res.status(201).json({
+           id:req.params.id,
+           status:'no data is update'
+         })
+       }
      }catch(err){
        console.log(err)
      }
@@ -77,6 +82,7 @@ router.get('/api/v1/restaurants', async (req, res) => {
   
    //delete a restaurant
    router.delete('/api/v1/restaurants/:id', async (req, res) => {
+     console.log(req.params.id);
     try{
       const result= await db.query(`DELETE FROM restaurants where id='${req.params.id}'`);
       res.status(404).json({
