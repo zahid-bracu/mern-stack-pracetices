@@ -71,7 +71,7 @@ export default function AddRestaurants() {
                     </Form.Group>
                 </div>
                 
-                <Button className="mx-auto d-block btn btn-primary"   type="submit">
+                <Button className="mx-auto d-block btn btn-success"   type="submit">
                     Add Restaurant
                 </Button>
             </Form>

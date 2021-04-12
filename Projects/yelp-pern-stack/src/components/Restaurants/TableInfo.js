@@ -53,6 +53,7 @@ export default function TableInfo(props) {
                   <th>Location</th>
                   <th>Price Range</th>
                   <th>Ratings</th>
+                  <th>Details</th>
                   <th>Edit</th>
                   <th>Delete</th>
                   </tr>

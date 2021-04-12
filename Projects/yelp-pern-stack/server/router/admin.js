@@ -59,7 +59,7 @@ router.get('/api/v1/restaurants', async (req, res) => {
    //update a restaurants
    router.put('/api/v1/restaurants/:id', async (req, res) => {
      try{
-       const result = await db.query(`UPDATE restaurants SET name='${req.body.name}', location='${req.body.location}' where id='${req.params.id}'`
+       const result = await db.query(`UPDATE restaurants SET price_range='${req.body.price_range}', name='${req.body.name}', location='${req.body.location}' where id='${req.params.id}'`
        );
        console.log(result);
        console.log(result.rowCount)
@@ -94,9 +94,44 @@ router.get('/api/v1/restaurants', async (req, res) => {
       console.log(err)
       res.status(404).json({message:err})
     }
-    
-    
-    
    })
+
+
+
+
+
+
+  //  ************************************** Review Part ************************************
+
+  // getting all reviews
+  router.get('/api/v1/review/', async (req, res) => {
+    try{
+      const result=await db.query('SELECT * FROM review')
+      res.status(200).json({
+        review:result.rows
+      })
+    }catch(err){
+      res.status(400).json([{message:err}]);
+    }
+  })
+
+
+  // posting a review
+  router.post('/api/v1/review/:id', async (req, res) => {
+    console.log(req.body);
+    try{
+        const result=await db.query(`INSERT INTO review(  restaurants_id, name, comment, mark)
+        VALUES (  '${req.body.restaurants_id}', '${req.body.name}', '${req.body.comment}', '${req.body.mark}') returning id;`)
+        console.log(result);
+        var id=result.rows[0].id
+        res.status(201).json({
+        status:"success",
+        id:id
+      })
+     }catch(err){
+       res.status(401).json({message:"Not Saved"});
+     }
+    
+ })
 
    module.exports={router}

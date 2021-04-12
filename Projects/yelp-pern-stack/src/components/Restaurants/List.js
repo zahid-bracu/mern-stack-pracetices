@@ -1,6 +1,8 @@
 import React, {useState} from 'react'
 import { useHistory } from "react-router-dom";
 import { Button, Modal } from 'react-bootstrap';
+import './style.css';
+
 
 
 export default function List(props) {
@@ -26,17 +28,23 @@ export default function List(props) {
     }
 
 
-    
+    function goDetails(id){
+        console.log(id);
+        history.push(`/restaurants/${id}/details`);
+    }
 
 
     return (
         <>
-                    <tr>
+                    <tr className="tr-custom">
                         <td>{name}</td>
                         <td>{location}</td>
                         {/* <td>${price_range}</td> */}
                         <td>{'$'.repeat(price_range)}</td>
                         <td></td>
+                        <td>
+                            <button onClick={()=> goDetails(id)} className="btn btn-info btn-sm">Details</button>
+                        </td>
                         <td>
                             <button onClick={()=>updateFunc(id)} className="btn btn-warning btn-sm">Update</button>
                         </td>

@@ -44,6 +44,22 @@ CREATE TABLE restaurants(
 );
 
 
+
+--create table for yelp projects for restaurants review
+CREATE TABLE review(
+    id BIGSERIAL NOT NULL PRIMARY KEY,
+    restaurants_id INT NOT NULL,
+    name VARCHAR(50)  NOT NULL,
+    comment VARCHAR(500) NOT NULL,
+    mark INT NOT NUll
+);
+
+--insert data to review table
+INSERT INTO review(  restaurants_id, name, comment, mark)
+VALUES (  42, 'Mokabela', 'Very Nice Enviroment' 3);
+
+
+
 --insert data to table
 INSERT INTO restaurants(  name, location, price_range)
 VALUES (  'mcdonalds', 'new york', 3);

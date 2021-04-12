@@ -5,7 +5,7 @@ import {
   Route,
   Link
 } from "react-router-dom";
-import Detail from './components/Detail';
+import Detail from './components/Detail/Details';
 import Restaurants from './components/Restaurants/Restaurants';
 import Update from './components/Update/Update';
 import Delete from './components/Restaurants/Delete';

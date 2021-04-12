@@ -17,7 +17,7 @@ export default function Update() {
     const [data,setData]=useState({
         name:"",
         location:"",
-        price_range:""
+        price_range:null
     });
 
 
