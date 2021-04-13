@@ -104,9 +104,10 @@ router.get('/api/v1/restaurants', async (req, res) => {
   //  ************************************** Review Part ************************************
 
   // getting all reviews
-  router.get('/api/v1/review/', async (req, res) => {
+  router.get('/api/v1/review/:id', async (req, res) => {
+    console.log(req.params);
     try{
-      const result=await db.query('SELECT * FROM review')
+      const result=await db.query(`SELECT * FROM review WHERE restaurants_id=${req.params.id}`)
       res.status(200).json({
         review:result.rows
       })

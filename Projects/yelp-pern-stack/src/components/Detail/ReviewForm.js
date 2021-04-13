@@ -50,6 +50,7 @@ export default function ReviewForm(props) {
                     <Form.Group controlId="exampleForm.ControlSelect1">
                     <Form.Label>Example select</Form.Label>
                         <Form.Control onBlur={changeFunc} name="mark" id="mark" as="select">
+                        <option>0</option>
                         <option>1</option>
                         <option>2</option>
                         <option>3</option>
@@ -60,7 +61,7 @@ export default function ReviewForm(props) {
                 </div>
                 
                  
-                <Button className="mx-auto d-block btn btn-warning"   type="submit">
+                <Button className="mx-auto d-block btn btn-success"   type="submit">
                     Add Comment
                 </Button>
                 
