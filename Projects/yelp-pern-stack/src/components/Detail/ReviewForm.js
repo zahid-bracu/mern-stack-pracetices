@@ -20,22 +20,24 @@ export default function ReviewForm(props) {
     async function submitFunc(event){
         event.preventDefault();
         console.log(data)
-        // await fetch(`http://localhost:5000/api/v1/restaurants/${id}`,{
-        //     method:'PUT',
-        //     headers:{
-        //         'Content-Type':'application/json'
-        //     },
-        //     body:JSON.stringify(data)})
-        //     .then(res=>res.json())
-        //     .then(result=>{
-        //         console.log(result);
-        //         handleShow();
-        //     })
+        await fetch(`http://localhost:5000/api/v1/review/${id}`,{
+             method:'POST',
+             headers:{
+                 'Content-Type':'application/json'
+             },
+             body:JSON.stringify(data)})
+             .then(res=>res.json())
+             .then(result=>{
+                 console.log(result);
+                 window.location.reload();
+                //  handleShow();
+             })
         }
     return (
         <div>
+            <h4 className="text-center">Add your review below</h4>
              <Form className="form" onSubmit={submitFunc}>
-                <div className="container">
+                
                     <Form.Group>
                     <label for="name" class="form-label font-weight-bold">Your Name : </label>
                         <Form.Control   onBlur={changeFunc} type="text" name="name" id="name"   required/>
@@ -47,8 +49,8 @@ export default function ReviewForm(props) {
                     </Form.Group>
 
 
-                    <Form.Group controlId="exampleForm.ControlSelect1">
-                    <Form.Label>Example select</Form.Label>
+                    <Form.Group controlId="mark">
+                    <Form.Label for="mark" class="form-label font-weight-bold">Rating</Form.Label>
                         <Form.Control onBlur={changeFunc} name="mark" id="mark" as="select">
                         <option>0</option>
                         <option>1</option>
@@ -58,11 +60,11 @@ export default function ReviewForm(props) {
                         <option>5</option>
                         </Form.Control>
                     </Form.Group>
-                </div>
+                
                 
                  
-                <Button className="mx-auto d-block btn btn-success"   type="submit">
-                    Add Comment
+                <Button className=" d-block btn btn-success px-3"   type="submit">
+                    Post
                 </Button>
                 
             </Form>

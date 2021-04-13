@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import { useHistory } from "react-router-dom";
 import { Button, Modal } from 'react-bootstrap';
 import './style.css';
@@ -7,7 +7,7 @@ import './style.css';
 
 export default function List(props) {
     const [show, setShow] = useState(false);
-
+    const [review,setReview]=useState([]);
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
 
@@ -17,6 +17,7 @@ export default function List(props) {
     function executeFunc(id){
         deleteRes(id);
         handleClose();
+        window.location.reload();
     }
 
     let history = useHistory();
@@ -33,6 +34,25 @@ export default function List(props) {
         history.push(`/restaurants/${id}/details`);
     }
 
+    // review calculate
+    useEffect(async () => {
+        await fetch(`http://localhost:5000/api/v1/review/${id}`)
+        .then(response => response.json())
+        .then(json => {
+            setReview(json.review);
+        })
+        .catch((err)=>{
+            console.log(err);
+        })
+    }, [])
+
+ 
+    var sum=0;
+    for(var i=0;i<review.length;i++){
+        sum=sum+review[i].mark;
+    }
+    var reviewMark=sum/(review.length);
+    var reviewValue=Math.round(reviewMark);
 
     return (
         <>
@@ -41,7 +61,7 @@ export default function List(props) {
                         <td>{location}</td>
                         {/* <td>${price_range}</td> */}
                         <td>{'$'.repeat(price_range)}</td>
-                        <td></td>
+                        <td>{'⭐'.repeat(reviewValue)}</td>
                         <td>
                             <button onClick={()=> goDetails(id)} className="btn btn-info btn-sm">Details</button>
                         </td>

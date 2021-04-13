@@ -5,6 +5,7 @@ import {
     useParams, useHistory
   } from "react-router-dom";
 import ReviewForm from './ReviewForm';
+import CommentBox from './CommentBox';
 
 
 
@@ -17,6 +18,17 @@ export default function Details() {
         price_range:null
     });
 
+
+    const [review,setReview]=useState([]);
+
+    var sum=0;
+    for(var i=0;i<review.length;i++){
+        sum=sum+review[i].mark;
+    }
+    var reviewMark=sum/(review.length);
+    var reviewValue=Math.round(reviewMark);
+
+
     useEffect( async () => {
         await fetch(`http://localhost:5000/api/v1/restaurants/${id}`)
        .then(response => response.json())
@@ -27,14 +39,35 @@ export default function Details() {
        .catch((err)=>{
            console.log(err);
        })
+
+
+
+       await fetch(`http://localhost:5000/api/v1/review/${id}`)
+       .then(response => response.json())
+       .then(json => {
+        //    console.log(json);
+           setReview(json.review);
+       })
+       .catch((err)=>{
+           console.log(err);
+       })
      },0);
     
+    
+    console.log(review);
 
 
 
     return (
-        <div>
-            <h1 className="text-center my-5">{data.name} : {id}</h1>
+        <div className="container">
+            <h1 className="text-center ">{data.name}, {data.location}</h1>
+            <h4 className="text-center">{'⭐'.repeat(reviewValue)}</h4>
+            <div className="container row justify-content-center align-items-center mb-4">
+            {
+                review.map(key=><CommentBox data={key}/>)
+            }
+            </div>
+            
             <ReviewForm id={id}/>
         </div>
     )

@@ -67,7 +67,7 @@ export default function AddRestaurants() {
 
 
                     <Form.Group className="col-lg-4 col-md-6 col-sm-12 col-12"  >
-                        <Form.Control onBlur={changeFunc} type="number" name="price_range" id="price_range" placeholder="$" required/>
+                        <Form.Control onBlur={changeFunc} type="number" name="price_range" id="price_range" placeholder="Enter a number between 1 to 5" min="1" max="5" required/>
                     </Form.Group>
                 </div>
                 
