@@ -5,6 +5,7 @@ const app = express()
 const port = process.env.PORT;
 const db = require('./db')
 const {router}=require('./router/admin.js')
+const {userRouter}=require('./router/user');
 const {middleWare}=require('./middlware/middleware');
 var cors = require('cors')
 
@@ -20,6 +21,7 @@ app.use((req,res,next)=>{
 app.use(cors())
 
 app.use(router)
+app.use(userRouter)
 
 
 // App Listen

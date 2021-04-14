@@ -57,6 +57,7 @@ const Signup = () => {
                         var errorCode = error.code;
                         var errorMessage = error.message;
                         console.log(errorMessage);
+                        document.getElementById("err-message").innerText=errorMessage;
                     });
                     console.log("Worked")
 
@@ -79,6 +80,9 @@ const Signup = () => {
                     Already have an account? Login here
                     </Link>
                 </h6>
+
+                
+
                 <Form onSubmit={saveData} style={{maxWidth:"400px"}} className="d-block mx-auto">
                     <Form.Group controlId="name">
                         <Form.Label>Name : </Form.Label>
@@ -89,6 +93,7 @@ const Signup = () => {
                     <Form.Group controlId="email">
                         <Form.Label>Email: </Form.Label>
                         <Form.Control type="email" id="email" placeholder="Enter Email" />
+                        <p className="text-center text-danger" id="err-message"></p>
                     </Form.Group>
 
                     <Form.Group controlId="number">

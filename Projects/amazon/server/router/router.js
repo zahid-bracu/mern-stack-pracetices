@@ -5,6 +5,7 @@ const orderList =require('../schema/order');
 const productList=require('../schema/product');
 
 
+
 router.get('/', async (req, res, next) => {
     try{
         const allData= await productList.find();
@@ -16,7 +17,7 @@ router.get('/', async (req, res, next) => {
   })
 
 
-  router.post('/addProducts',middleware,async (req, res) => {
+  router.post('/addProducts',middleware,async (req, res, next) => {
     console.log(req.body);
     var {category,img,key,name,price,seller,stock}=   req.body;
     if(!category  || !img || !key || !name|| !price || !seller ||  !stock){
@@ -40,5 +41,15 @@ router.get('/', async (req, res, next) => {
       }
     
   })
+//   order products
+router.post('/orderProducts', (req, res) => {
+    console.log(req.body)
+    res.json({
+        status:"success"
+    })
+  })
+
+
+
 
 module.exports=router;

@@ -35,7 +35,7 @@ Drop table table_name;
 DROP database db;
 
 
---create table for yelp projects
+--create table for yelp restaurats;
 CREATE TABLE restaurants(
     id BIGSERIAL NOT NULL PRIMARY KEY,
     name VARCHAR(50)  NOT NULL,
@@ -54,9 +54,24 @@ CREATE TABLE review(
     mark INT NOT NUll
 );
 
+
+--create table for yelp projects for user registration
+CREATE TABLE registerUser(
+    id BIGSERIAL NOT NULL PRIMARY KEY,
+    name VARCHAR(50)  NOT NULL,
+    email VARCHAR(128) NOT NULL,
+    password VARCHAR(128) NOT NULL
+);
+
+
+--insert data to review table
+INSERT INTO registerUser(  name, email, password)
+VALUES ('Md. Zahidur Rahman', 'zahid.mym@gmail.com', '981992');
+
+
 --insert data to review table
 INSERT INTO review(  restaurants_id, name, comment, mark)
-VALUES (  42, 'Mokabela', 'Very Nice Enviroment' 3);
+VALUES (  42, 'Mokabela', 'Very Nice Enviroment', 3);
 
 
 

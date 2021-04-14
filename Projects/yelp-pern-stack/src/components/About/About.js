@@ -1,8 +1,8 @@
 import React from 'react'
-
+import './about.css';
 export default function About() {
     return (
-        <div className="container">
+        <div className="container about-page">
             <h5 className="">About the Application</h5>
             <p>This is a full pern stack application. This application is built with ReactJs, NodeJs, ExpressJs, PostgreSQL Database.
                 User can add delete update & read restaurant information from this application. User can also add comment & give ratings about

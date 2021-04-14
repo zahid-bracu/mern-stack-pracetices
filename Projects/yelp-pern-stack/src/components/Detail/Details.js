@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useContext } from 'react';
-import { Button, Form, Modal } from 'react-bootstrap';
-import {RestaurantsContext} from '../../contextapi/RestaurantsContextProvider';
+
 import {
     useParams, useHistory
   } from "react-router-dom";

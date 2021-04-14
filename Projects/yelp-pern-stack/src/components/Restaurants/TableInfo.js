@@ -9,7 +9,8 @@ export default function TableInfo(props) {
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
 
-    const [restaurants, setRestaurants]=useContext(RestaurantsContext);
+    const [restaurants, setRestaurants, testing]=useContext(RestaurantsContext);
+    
     const [data,setData]=useState([])
     useEffect( async () => {
          await fetch('http://localhost:5000/api/v1/restaurants')
@@ -44,6 +45,7 @@ export default function TableInfo(props) {
 
     return (
         <>
+        {/* <button className="btn btn-success mx-auto d-block mt-4" onClick={()=>testing(120)}>Test</button> */}
         <div className="container mt-5">
             {
               restaurants && <Table striped>
