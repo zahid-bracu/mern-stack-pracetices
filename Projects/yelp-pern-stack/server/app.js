@@ -3,7 +3,6 @@ const morgan = require('morgan')
 require('dotenv').config()
 const app = express()
 const port = process.env.PORT;
-const db = require('./db')
 const {router}=require('./router/admin.js')
 const {userRouter}=require('./router/user');
 const {middleWare}=require('./middlware/middleware');

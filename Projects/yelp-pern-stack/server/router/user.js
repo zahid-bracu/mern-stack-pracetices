@@ -1,6 +1,5 @@
 const express=require('express');
 const userRouter=express.Router();
-require('dotenv').config()
 const db = require('../db/index')
 
 // registration
