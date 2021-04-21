@@ -1,5 +1,5 @@
 import {increment_value,decrement_value} from '../type';
-
+import {increment,decrement} from '../actions/actions';
 const initialState={
     count:0
 }
