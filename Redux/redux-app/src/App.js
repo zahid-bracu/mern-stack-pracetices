@@ -1,16 +1,15 @@
 import './App.css';
-import PatientManagment from './components/patients/PatientManagment';
-import ReducerCount from './components/ReducerCount';
+import MyComponent from './component/MyComponent';
+import MyComponentTwo from './component/MyComponentTwo';
+ 
  
 
 function App() {
   return (
     <div className="App">
-      <div style={{border:"1px solid black",padding:"20px",width:"400px",margin:"auto"}}>
-        <ReducerCount/>
-        <PatientManagment/>
-      </div>
-       
+      <h1>React & Redux</h1>
+      <MyComponent/>
+      <MyComponentTwo/>
     </div>
   );
 }
