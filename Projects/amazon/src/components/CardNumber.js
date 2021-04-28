@@ -9,18 +9,14 @@ import {
 import {UserInfoContext, UserContext} from '../App';
 import {getDatabaseCart, processOrder} from './databaseManager';
 
-const CardNumber = () => {
-
+const CardNumber = () => {   
     const [UserInfo, setUserInfo]=useContext(UserInfoContext)
      
     const [address, setAddress]=useState({});
     const [user,setUser]=useContext(UserContext)
 
     function changeFunc(e) {
-
-         
-        var cart=getDatabaseCart();
-      
+        var cart=getDatabaseCart();      
         var infos={...UserInfo, savedCart:cart, mail:user};
         infos[e.target.name]=e.target.value;
         setUserInfo(infos);
@@ -31,7 +27,7 @@ const CardNumber = () => {
     function submitFunc(e) {
         e.preventDefault();
 
-        fetch('http://localhost:3010/addOrder',{
+        fetch('http://localhost:3060/orderProducts',{
             method:'POST',
             headers:{
                 'Content-Type':'application/json'

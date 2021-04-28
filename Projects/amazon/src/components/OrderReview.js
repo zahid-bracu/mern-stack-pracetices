@@ -13,7 +13,7 @@ const OrderReview = () => {
         var savedCart=getDatabaseCart();
         const productKeys=Object.keys(savedCart);
          
-        fetch('http://localhost:3010/productsByKeys',{
+        fetch('http://localhost:3060/productsByKeys',{
             method:'POST',
             headers:{
                 'Content-Type':'application/json'
@@ -37,14 +37,14 @@ const OrderReview = () => {
 
 
       function removeProduct(id){
-           
-
           var allProduct=data.filter(pd=> id!==pd.key);
           removeFromDatabaseCart(id);
           setData(allProduct);
           setCart(allProduct)
       }
 
+
+      console.log(data);
    
     return (
         <>

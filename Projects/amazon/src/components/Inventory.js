@@ -46,7 +46,7 @@ const AddProducts = () => {
     function addProducts(){
 
          
-        fetch('http://localhost:3010/addOne',{
+        fetch('http://localhost:3060/addProducts',{
         method:'POST',
         headers:{
             'Content-Type':'application/json'

@@ -25,7 +25,7 @@ const Shop = () => {
     useEffect(() => {
         // show data
         async function loadData(){
-            const response= await fetch('http://localhost:3010/info');
+            const response= await fetch('http://localhost:3060');
             const data = await response.json(); //converting to json data
             return data;
         }

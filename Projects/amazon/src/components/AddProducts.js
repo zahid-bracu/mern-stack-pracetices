@@ -4,13 +4,15 @@ const Inventory = () => {
     console.log(fakeData); 
 
     function addProducts(){
-            fetch('http://localhost:3010/addProducts',{
+            fetch('http://localhost:3060/chunkProducts',{
             method:'POST',
             headers:{
                 'Content-Type':'application/json'
             },
             body:JSON.stringify(fakeData)
         })
+        .then(response => response.json())
+        .then(json => console.log(json))
     }
 
     return (

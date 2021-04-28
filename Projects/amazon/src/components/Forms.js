@@ -23,15 +23,8 @@ const Forms = () => {
     function submitFunc(e) {
         setForm(true);
         e.preventDefault();
-         
-
-
-         
             history.push('/card');
-             
             setFlag(true)
-         
-
     }
 
 

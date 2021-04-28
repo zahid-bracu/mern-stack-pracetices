@@ -20,8 +20,12 @@ export default function TopNav() {
                 </Form>
                 </Nav>
 
-                <Nav className="ml-auto">
+                <Nav className="float-left">
                     <h5 className="common-text">+8801717783803</h5>
+                </Nav>
+
+                <Nav className="float-left ml-2">
+                    <button className="btn btn-danger no-shadow">Admin Panel</button>
                 </Nav>
             </Navbar.Collapse>
             </div>

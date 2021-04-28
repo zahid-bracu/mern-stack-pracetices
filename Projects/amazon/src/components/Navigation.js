@@ -68,6 +68,13 @@ const Navigation = () => {
                             Add Product
                             </Link>
                         </Nav.Link>
+
+
+                        <Nav.Link className="link-nav">
+                    <Link className="link-nav" to="/uploaddata">
+                        Inventory
+                        </Link>
+                    </Nav.Link>
                     
                    
                      

@@ -10,7 +10,7 @@ const ProductDetail = (props) => {
      
 
     useEffect(() => {
-        fetch('http://localhost:3010/info')
+        fetch('http://localhost:3060')
         .then(response => response.json())
         .then(json => {
             const prod=json.find(i=> i.key === id);

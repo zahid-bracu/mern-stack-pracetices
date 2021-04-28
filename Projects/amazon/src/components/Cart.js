@@ -30,14 +30,10 @@ const Cart = (props) => {
             const product=data.find(pd=> pd.key===key);
             product.count=savedCart[key];
             return product;
-        })
-
-         
+        }) 
         setCart(cartProducts);
     })
-
-    
-  },[]);
+  },0);
 
 
     
