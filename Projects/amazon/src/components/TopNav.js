@@ -2,6 +2,10 @@ import React from 'react'
 import { Button, Nav, Navbar, NavDropdown, Form, FormControl } from 'react-bootstrap';
 import './style.css';
 import amazon_icon from './images/amazon_icon.jpg';
+import {
+    Link,
+    useHistory
+  } from "react-router-dom";
 export default function TopNav() {
     return (
         <div>
@@ -25,7 +29,10 @@ export default function TopNav() {
                 </Nav>
 
                 <Nav className="float-left ml-2">
-                    <button className="btn btn-danger no-shadow">Admin Panel</button>
+                <Link className="link-nav" to="/admin">
+                <button className="btn btn-danger no-shadow">Admin Panel</button>
+                                    </Link> 
+                    
                 </Nav>
             </Navbar.Collapse>
             </div>

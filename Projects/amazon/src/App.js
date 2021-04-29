@@ -31,6 +31,7 @@ import DataSaved from './components/DataSaved';
 import CollectionCategory from './components/CollectionCategory';
 import TopNav from './components/TopNav';
 import RiskReducer from './components/RiskReducer';
+import Admin from './components/Admin/Admin';
 export const UserContext = React.createContext();
 
 export const CartContext = React.createContext();
@@ -138,6 +139,10 @@ const [UserInfo, setUserInfo]=useState({
 
             <Route path="/submitted">
               <Submitted/>
+            </Route>
+
+            <Route path="/admin">
+              <Admin/>
             </Route>
 
 
