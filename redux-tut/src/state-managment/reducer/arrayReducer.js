@@ -13,9 +13,9 @@ export default function(state=previousValue,action) {
             
         case remove_value:
             console.log(action);
-            var tempx=[...state.array];
-            tempx.pop();
-            return {array:tempx};
+            var tempTwo=[...state.array];
+            tempTwo.pop();
+            return {array:tempTwo};
         default:
             return state;
     }
