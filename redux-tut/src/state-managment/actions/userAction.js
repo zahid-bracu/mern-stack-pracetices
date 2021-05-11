@@ -14,7 +14,7 @@ export const userList =  ()=>{
             console.log(res);
             dispatch({
                 type:get_users_success,
-                payload:res
+                payload:res.data
             })
         }catch(error){
             dispatch({
