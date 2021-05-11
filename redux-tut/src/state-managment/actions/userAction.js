@@ -4,8 +4,8 @@ import axios from 'axios';
 
 
 
-export const userList = async ()=>{
-    return(dispatch)=>{
+export const userList =  ()=>{
+    return async (dispatch)=>{
         try{
             dispatch({
                 type:users_request
