@@ -9,18 +9,20 @@ function User({userList,loading,user,error}) {
          userList();
       },[]);
 
-
+       console.log(user);
     return (
         <div>
             <h5>Check the Redux toolkit for details data</h5>
-            
+            {
+                user.map(key=><p>{key.name}</p>)
+            }
         </div>
     )
 }
 
 const mapStateToProps=(state)=>({
     loading:state.userReducer.loading,
-    user:state.userReducer.users,
+    user:state.userReducer.user,
     error:state.userReducer.error
 })
 
