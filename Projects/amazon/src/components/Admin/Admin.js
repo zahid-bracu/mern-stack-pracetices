@@ -14,6 +14,29 @@ function Admin() {
       },[]);
 
       console.log(data);
+
+      function removeData(id){
+        var message={
+            id:id
+        }  
+        console.log(message);
+
+        fetch('http://localhost:3060/deleteOrder',{
+            method:"DELETE",
+            headers:{
+                'Content-Type':'application/json'
+            },
+            body:JSON.stringify(message)
+        }).then(res=>res.json)
+        .then(msg=>{
+            console.log("Data has been deleted")
+            var tempData=data.filter(key=> key._id!=id);
+            setData(tempData);
+        })
+        
+
+      }
+      console.log(data);
     return (
         <>
         <h2 className="text-center mt-2 mb-4 text-info">Customer's Orders</h2>
@@ -33,7 +56,7 @@ function Admin() {
             </thead>
             <tbody >
                 {
-                    data.map(key=> <TableData data={key}/>)
+                    data.map(key=> <TableData removeData={removeData} data={key}/>)
                 }
                  
             </tbody>
