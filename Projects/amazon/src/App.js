@@ -32,6 +32,7 @@ import CollectionCategory from './components/CollectionCategory';
 import TopNav from './components/TopNav';
 import RiskReducer from './components/RiskReducer';
 import Admin from './components/Admin/Admin';
+import ViewDetails from './components/Admin/ViewDetails';
 export const UserContext = React.createContext();
 
 export const CartContext = React.createContext();
@@ -88,6 +89,11 @@ const [UserInfo, setUserInfo]=useState({
 
             <Route path="/confirm">
               <ConfirmOrder/>
+            </Route>
+
+
+            <Route path="/viewDetails/:id">
+              <ViewDetails/>
             </Route>
 
             <Route path="/uploaddata">
