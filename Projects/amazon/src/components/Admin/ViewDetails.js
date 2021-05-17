@@ -3,6 +3,7 @@ import {
 
     useParams
   } from "react-router-dom";
+import CustomerInfo from './CustomerInfo';
 import Item from './Item';
 export default function  ViewDetails() {
     let { id } = useParams();
@@ -24,20 +25,22 @@ export default function  ViewDetails() {
             fetch('http://localhost:3060/')
             .then(response => response.json())
             .then(json => {
-                console.log(data);
+             
                 setAllProducts(json);
                 
             })
       },[]);
     
-    console.log(item);
-    console.log(data);
-    console.log(allProducts);
+     console.log(data);
     return (
         <div>
-            <h5 className="text-center">Order Details</h5>
-            
-            <p  className="text-center">{id}</p>
+            <hr/>
+            <h4 className="text-center text-danger">Shipping Address</h4>
+            <hr/>
+            {
+                data && <CustomerInfo orderId={id} customer={data}/>
+            }
+             
             {
              <Item item={item} allProducts={allProducts} />
             }

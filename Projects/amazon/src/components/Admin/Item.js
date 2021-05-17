@@ -1,41 +1,40 @@
 import React, {useEffect,useState} from 'react'
+import ItemCard from './ItemCard';
 
 export default  function Item(props) {
+     
     const {item,allProducts}=props;
-    console.log(item);
-    console.log(allProducts);
-    // const [items,setItems]=useState([]);
-    // const [products,setProducts]=useState();
-    // console.log(props.item);
-    // const prods=  props.item;
-    // const data=  Object.keys(prods);
-    // console.log(data);
-
     
-    // useEffect( async () => {
-        
-    //        fetch('http://localhost:3060/')
-    //         .then(response => response.json())
-    //         .then(json => {
-    //             console.log(data);
-    //             setItems(json);
-                
-    //         })
-    // }, [])
+    const data=  Object.keys(item);
+    
+    if(allProducts.length>0 && data.length>0){
+        var array=data.map(i=>{
+            var temp=allProducts.filter(key=>key.key==i)
+            if(temp[0])
+                temp[0].count=props.item[i];
+            return temp[0];
+        });
+    }
  
-    // const array=data.map(i=>{
-    //     var temp=items.filter(key=>key.key==i)
-    //     if(temp[0])
-    //         temp[0].count=props.item[i];
-    //     return temp[0];
-    // })
+ 
+    
 
     // console.log(products);
     
 
     return (
-        <div>
-        {/* <h1 className="text-center">{array.length}</h1> */}
+        <div className="mt-5">
+            <hr/>
+        <h4 className="text-center text-danger">Order Details</h4>
+        <hr/>
+        <div className="row justify-content-center align-items-center">
+        {
+           array  && array.map(key=> <ItemCard  details={key}/>)
+        }
+        {
+           !array  && <h1 className="text-center">Loading</h1>
+        }
+        </div>
         </div>
     )
 }
