@@ -5,14 +5,14 @@ export default function TableData(props) {
     const {name,_id,time,savedCart}=props.data;
     const removeData=props.removeData;
     const ViewDetail=props.ViewDetail;
-    console.log(savedCart);
+   
     const itemCount=Object.values(savedCart);
-    console.log(itemCount);
+   
     var sum=0;
     for(var i=0;i<itemCount.length;i++){
         sum+=itemCount[i];
     }
-    console.log(sum);
+  
 
     const array= time.split("||");
     return (

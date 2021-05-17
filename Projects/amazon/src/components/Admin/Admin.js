@@ -2,9 +2,6 @@ import React, {useEffect, useState} from 'react'
 import TableData from './TableData';
 import {
     BrowserRouter as Router,
-    Switch,
-    Route,
-    Link,
     useHistory
   } from "react-router-dom";
 function Admin() {
@@ -12,9 +9,9 @@ function Admin() {
     const [data,setData]=useState([]);
     
 
-    useEffect(() => {
+    useEffect(async () => {
         // Update the document title using the browser API
-        fetch('http://localhost:3060/allOrders')
+        await fetch('http://localhost:3060/allOrders')
             .then(response => response.json())
             .then(json => setData(json))
       },[]);
@@ -24,7 +21,7 @@ function Admin() {
         var message={
             id:id
         }  
-        console.log(message);
+       
         fetch('http://localhost:3060/deleteOrder',{
             method:"DELETE",
             headers:{
@@ -33,7 +30,7 @@ function Admin() {
             body:JSON.stringify(message)
         }).then(res=>res.json)
         .then(msg=>{
-            console.log("Data has been deleted")
+            
             var tempData=data.filter(key=> key._id!=id);
             setData(tempData);
         })
