@@ -17,7 +17,7 @@ export default function List(props) {
     function executeFunc(id){
         deleteRes(id);
         handleClose();
-        window.location.reload();
+        // window.location.reload();
     }
 
     let history = useHistory();

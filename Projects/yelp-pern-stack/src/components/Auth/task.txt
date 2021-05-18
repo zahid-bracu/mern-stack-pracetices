@@ -1,0 +1,5 @@
+# add login and registration (self)
+# set up back end login and registration + create database (watch video)
+# set up jwt in login and registration (watch video)
+# set up private route
+# set up restricted route with jwt

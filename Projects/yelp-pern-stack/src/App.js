@@ -13,6 +13,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import RestaurantsContextProvider from './contextapi/RestaurantsContextProvider';
 import Navigation from "./components/Nav/Navigation";
 import About from './components/About/About';
+import Register from './components/Auth/Register';
+import Login from './components/Auth/Login'
 function App() {
   return (
     <RestaurantsContextProvider>
@@ -24,6 +26,8 @@ function App() {
         <Route exact path="/restaurants/:id/update" component={Update} />
         <Route exact path="/restaurants/:id/details" component={Detail} />
         <Route exact path="/restaurants/:id/delete" component={Delete} />
+        <Route exact path="/register" component={Register} />
+        <Route exact path="/login" component={Login} />
       </Switch>
     </Router>
     </RestaurantsContextProvider>

@@ -13,7 +13,25 @@ export default function Navigation() {
                 <Nav.Link className=" font-weight-bold" href="/">
                     Home
                 </Nav.Link>
-                <Nav.Link className="font-weight-bold" href="/about">About</Nav.Link>
+
+                <Nav.Link className="font-weight-bold" href="/about">
+                    About
+                </Nav.Link>
+
+
+                <Nav.Link className="font-weight-bold" href="/login">
+                    <button className="btn btn-primary btn-sm">
+                    Login
+                    </button>
+                </Nav.Link>
+
+                <Nav.Link className="font-weight-bold" href="/register">
+                <button className="btn btn-success btn-sm">
+                    Register
+                    </button>
+                </Nav.Link>
+
+
                 </Nav>
             </Navbar.Collapse>
             </div>

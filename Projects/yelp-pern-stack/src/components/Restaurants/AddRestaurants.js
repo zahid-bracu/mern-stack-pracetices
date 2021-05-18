@@ -48,7 +48,7 @@ export default function AddRestaurants() {
 
          function executeFunc(){
              handleClose();
-             window.location.reload();
+            //  window.location.reload();
          }
     
     return (
