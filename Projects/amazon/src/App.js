@@ -33,6 +33,7 @@ import TopNav from './components/TopNav';
 import RiskReducer from './components/RiskReducer';
 import Admin from './components/Admin/Admin';
 import ViewDetails from './components/Admin/ViewDetails';
+import UserOder from './components/UserOder/UserOder';
 export const UserContext = React.createContext();
 
 export const CartContext = React.createContext();
@@ -98,6 +99,10 @@ const [UserInfo, setUserInfo]=useState({
 
             <Route path="/uploaddata">
               <UploadData/>
+            </Route>
+
+            <Route path="/userorder">
+              <UserOder/>
             </Route>
 
 

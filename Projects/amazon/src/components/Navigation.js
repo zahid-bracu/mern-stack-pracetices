@@ -75,6 +75,13 @@ const Navigation = () => {
                         Inventory
                         </Link>
                     </Nav.Link>
+                    {
+                        user && <Nav.Link className="link-nav">
+                                        <Link className="link-nav" to="/userorder">
+                                            My Orders
+                                        </Link> 
+                                </Nav.Link>
+                    }
                     
                    
                      

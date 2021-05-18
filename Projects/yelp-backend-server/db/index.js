@@ -1,6 +1,6 @@
 const { Pool } = require('pg')
-//const elephantURL='postgres://btbyzssw:tpIm6L3g6ClKgr5zXvq2ogyY-ofLikXp@queenie.db.elephantsql.com:5432/btbyzssw'
-const pool = new Pool({
+//const elephantURL='postgres://bwcrajbx:Oy15Qz4lVlFMYL11B9oL5uQ2iTp4Rh9P@topsy.db.elephantsql.com/bwcrajbx'
+const pool = new Pool({ 
     user: process.env.user,
     host: process.env.host,
     database: process.env.database,
