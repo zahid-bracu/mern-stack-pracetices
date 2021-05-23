@@ -4,3 +4,10 @@
     margin: 15px auto;
  
 }
+.item-card:hover{
+    box-shadow: 2px 2px 1px rgb(180, 180, 180);
+    border: none !important;
+    cursor: pointer !important;
+    
+}
+ 

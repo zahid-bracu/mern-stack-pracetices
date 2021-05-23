@@ -34,8 +34,8 @@ export default function  ViewDetails() {
      console.log(data);
     return (
         <div>
-            <hr/>
-            <h4 className="text-center text-danger">Shipping Address</h4>
+          
+            <h4 className="text-center text-danger mt-3">Shipping Address</h4>
             <hr/>
             {
                 data && <CustomerInfo orderId={id} customer={data}/>

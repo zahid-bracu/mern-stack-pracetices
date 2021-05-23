@@ -17,14 +17,6 @@ const Navigation = () => {
     const [user,setUser]=useContext(UserContext);
     const [cart,setCart]=useContext(CartContext);
     const [data,setData]=useState([]);
- 
-
-
-   
-
-     
-
-
     return (
         
             <Navbar className="sticky-top" bg="dark"  expand="lg">
