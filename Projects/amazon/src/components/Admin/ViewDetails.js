@@ -5,11 +5,15 @@ import {
   } from "react-router-dom";
 import CustomerInfo from './CustomerInfo';
 import Item from './Item';
+import './style.css';
+import { useHistory } from "react-router-dom";
 export default function  ViewDetails() {
     let { id } = useParams();
     const [data, setdata] = useState();
     const [item,setItem]=useState([]);
     const [allProducts,setAllProducts]=useState([]);
+
+    let history = useHistory();
 
     useEffect(async () => {
         // Update the document title using the browser API
@@ -32,7 +36,9 @@ export default function  ViewDetails() {
       },[]);
     
      console.log(data);
+      
     return (
+        <div className="main-part">
         <div>
           
             <h4 className="text-center text-danger mt-3">Shipping Address</h4>
@@ -44,6 +50,8 @@ export default function  ViewDetails() {
             {
              <Item item={item} allProducts={allProducts} />
             }
+        </div>
+        <button onClick={()=>history.push("/admin")} className='btn btn-danger px-5 middle'>Back</button>
         </div>
     )
 }
