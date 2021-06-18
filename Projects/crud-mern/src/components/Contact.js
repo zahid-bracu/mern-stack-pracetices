@@ -38,7 +38,7 @@ const Contact = () => {
             
             <div className="container ">
               <div className="row justify-content-center align-items-center">
-                <div className="col-lg-12 col-md-12 col-sm-12 col-12 d-block ">
+                <div className="col-lg-12 col-md-12 col-sm-12 col-12   ">
                 {
                   
                   flag ? datas.length === 0 ? <h4 className="my-5 text-center">Your Contact List is Empty</h4> : datas.map(key => <InfoCard data={key}></InfoCard>) : <h4 className="my-5 text-center">Loading...</h4>

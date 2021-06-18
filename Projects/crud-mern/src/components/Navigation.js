@@ -17,7 +17,7 @@ const Navigation = () => {
         <Navbar bg="light" expand="lg">
        <div className="container">
        <Navbar.Brand href="#home">
-            <img src={me} className="img-me" />
+            <img src='https://visualpharm.com/assets/319/Male%20User-595b40b65ba036ed117d3de6.svg' className="img-me" />
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
@@ -31,7 +31,7 @@ const Navigation = () => {
             </Form>
 
             <Nav  >
-            <Nav.Link href="#home"><h5>Call : +8801612318884</h5></Nav.Link>
+            <Nav.Link href="#home"><h5 style={{color:"#4f4f4f"}}>Call : +8801612318884</h5></Nav.Link>
             
             </Nav>
         </Navbar.Collapse>
