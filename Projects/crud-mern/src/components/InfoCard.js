@@ -17,12 +17,12 @@ const InfoCard = (props) => {
                 <h6>Contact No. : {number}</h6>
                 <h6>Mail : {mail}</h6>
                 <h6>Address : {address}</h6>
-                <button  className="btn btn-primary btn-sm">
+                <button  className="btn btn-custom-two btn-sm">
                 <Link style={{textDecoration:"inherit",color:"white"}} to={"/update/"+_id}>
                         Update
                     </Link>
                 </button>
-                <button className="btn btn-danger btn-sm ml-2">
+                <button className="btn btn-custom btn-sm ml-2">
                     <Link style={{textDecoration:"inherit",color:"white"}} to={"/delete/"+_id}>
                         Delete
                     </Link>

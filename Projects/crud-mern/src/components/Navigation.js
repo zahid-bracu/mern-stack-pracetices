@@ -27,7 +27,7 @@ const Navigation = () => {
             </Nav>
             <Form className="mx-auto" inline>
             <FormControl type="text" placeholder="Search" className="mr-sm-2 form-sm" />
-            <Button id="no-shadow" className="btn btn-success btn-sm">Search</Button>
+            <Button id="no-shadow" className="btn btn-custom-two btn-sm">Search</Button>
             </Form>
 
             <Nav  >
@@ -87,14 +87,14 @@ const Navigation = () => {
                              !user.flag && 
                              <Nav.Link   >
                              <Link   style={{textDecoration:"inherit",color:"black"}} to="/login">
-                             <button className="btn btn-danger btn-sm">Login</button>
+                             <button className="btn btn-custom-two btn-sm">Login</button>
                              </Link>
                             </Nav.Link>
                          }
                          
                         {
                              user.flag && <Nav.Link>
-                             <button className="btn btn-danger btn-sm">
+                             <button className="btn btn-custom btn-sm">
                              <Link   style={{textDecoration:"inherit",color:"white"}} to="/login">
                              Account & Signout
                              </Link>

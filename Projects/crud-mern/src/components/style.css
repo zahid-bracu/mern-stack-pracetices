@@ -1,3 +1,5 @@
+ 
+
 .bg-nav{
     background-color: #646464 !important;
 }
@@ -7,7 +9,10 @@
     position: fixed;
     top:230px;
 }
-
+.btn-custom{
+    background-color: #F05454 !important;
+    color: white !important;
+}
 
 .info-card{
     padding-bottom: 20px;
@@ -27,10 +32,12 @@
 .nav-custom{
     /* font-weight: 500; */
     color: rgb(112, 112, 112) !important;
+    font-weight: 500;
 }
 
 .nav-custom:hover{
-    color:#3f3f3f !important;
+    color:#F05454 !important;
+    font-weight: 500;
 }
 
  
@@ -72,4 +79,38 @@
 
 .form-sm{
     height: 31.3px !important;
+}
+
+.card{
+    width: 220px;
+    border: 1px solid black;
+    height: 150px;
+    border-radius: 10px !important;
+}
+
+.card:hover{
+    box-shadow: 3px 3px   5px rgb(143, 143, 143);
+    cursor: pointer;
+    transform: scale(1.01);
+}
+
+
+.btn-custom-two{
+    background-color: #30475E !important;
+    color: white !important;
+    border:none !important;
+}
+
+.crud-card{
+    /* border: 1px solid rgb(158, 158, 158); */
+    padding: 1rem;
+    box-shadow: 0px 0px 15px  rgb(228, 228, 228);
+    font-family: 'Courier New', Courier, monospace;
+ 
+}
+
+.crud-card:hover{
+    box-shadow: 2px 2px 4px  rgb(221, 221, 221);
+    transform: scale(1.01);
+    cursor: pointer;
 }

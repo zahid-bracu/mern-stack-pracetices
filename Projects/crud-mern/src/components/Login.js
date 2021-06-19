@@ -7,6 +7,7 @@ import "firebase/auth";
 import "firebase/firestore";
 import firebaseConfig from './firebaseConfig';
 import {UserContext} from '../App';
+import './style.css';
 
 firebase.initializeApp(firebaseConfig);
 
@@ -68,7 +69,7 @@ const Login = () => {
             {
                 !user.flag && <button 
                 onClick={()=>googleSignIn()}
-                style={{padding:"10px 40px"}} className="btn btn-outline-primary btn-sm font-weight-bold d-block mx-auto mt-5 text-center">🌏 Login with Google</button>
+                style={{padding:"10px 40px"}} className="btn btn-outline-dark btn-sm font-weight-bold d-block mx-auto mt-5 text-center">🌏 Login with Google</button>
             }
 
             {
@@ -77,7 +78,7 @@ const Login = () => {
             <h6 className="text-center">Mail : {user.mail}</h6>
                     <button 
                     onClick={()=>googleSignOut()}
-                    style={{padding:"10px 40px"}} className="btn btn-danger btn-sm font-weight-bold d-block mx-auto mt-3 text-center">Logout</button>
+                    style={{padding:"10px 40px"}} className="btn btn-custom btn-sm font-weight-bold d-block mx-auto mt-3 text-center">Logout</button>
                 </>
             }
             
@@ -96,7 +97,7 @@ const Login = () => {
                         user.flag && <>
                         
                         <Link style={{textDecoration:"inherit"}} to="/contact">
-                            <button className="btn btn-primary d-block my-2 mx-auto">Show All Contacts</button>
+                            <button className="btn btn-custom-two d-block my-2 mx-auto">Show All Contacts</button>
                         </Link>
                         <Link style={{textDecoration:"inherit"}} to="/form">
                             <button className="btn btn-secondary text-white my-2 d-block mx-auto">Add New Contact</button>
