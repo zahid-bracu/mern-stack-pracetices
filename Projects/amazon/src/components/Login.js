@@ -1,5 +1,4 @@
 
-// importing
 import React, {useState,useContext} from 'react';
 import {UserContext} from '../App';
 import { Form } from 'react-bootstrap';
@@ -19,12 +18,8 @@ if (!firebase.apps.length) {
 
 
 const Login = () => {
-
- 
     const location = useLocation();
     const { from } = location.state || { from: { pathname: "/login" } };
-
-
     const [data,setData]=useState({})
     const [error,setError]=useState("")
     const [user,setUser]=useContext(UserContext);
@@ -33,22 +28,12 @@ const Login = () => {
         event.preventDefault();
         var mail=document.getElementById('email').value;
         var password=document.getElementById('password').value;
-         
-        
         firebase.auth().signInWithEmailAndPassword(mail, password)
         .then((res) => {
-
             const {displayName,photoURL,email}=res.user;
-            
-             
-
-             
-
-           
             setError("");
             setUser(mail);
             history.replace(from);
-            // history.push("/loginmsg");
         })
         .catch((error) => {
             var errorCode = error.code;
@@ -63,7 +48,6 @@ const Login = () => {
         firebase.auth().signOut().then(() => {
             setUser("");
           }).catch((error) => {
-            // An
           });
     }
 

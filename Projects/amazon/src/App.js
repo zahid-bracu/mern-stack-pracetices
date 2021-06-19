@@ -101,9 +101,9 @@ const [UserInfo, setUserInfo]=useState({
               <UploadData/>
             </Route>
 
-            <Route path="/userorder">
+            {/* <Route path="/userorder">
               <UserOder/>
-            </Route>
+            </Route> */}
 
 
             <Route path="/cart">
