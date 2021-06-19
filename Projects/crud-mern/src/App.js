@@ -18,7 +18,7 @@ import DeleteMessage from './components/DeleteMessage';
 import Update from './components/Update';
 import UpdateMsg from './components/UpdateMsg';
 import Footer from './components/Footer';
-
+import ContactUs from './components/ContactUs';
 export const UserContext = React.createContext();
  
 
@@ -48,6 +48,11 @@ function App() {
 
             <Route path="/deletemsg">
             <DeleteMessage></DeleteMessage>
+            </Route>
+
+
+            <Route path="/contactus">
+            <ContactUs/>
             </Route>
 
 

@@ -27,7 +27,7 @@ const Navigation = () => {
             </Nav>
             <Form className="mx-auto" inline>
             <FormControl type="text" placeholder="Search" className="mr-sm-2 form-sm" />
-            <Button id="no-shadow" className="btn btn-custom-two btn-sm">Search</Button>
+            <Button id="no-shadow" onClick={()=>alert("Search button doesn't work.try other functionality")} className="btn btn-custom-two btn-sm">Search</Button>
             </Form>
 
             <Nav  >

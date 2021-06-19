@@ -39,12 +39,7 @@ const Update = () => {
         var number=(document.getElementById('number').value=="") ? info.number : document.getElementById('number').value;
         var mail=(document.getElementById('mail').value=="") ? info.mail : document.getElementById('mail').value;
         var address=(document.getElementById('address').value=="") ? info.address : document.getElementById('address').value;
-
- /*       var number=document.getElementById('number').value;
-        var mail=document.getElementById('email').value;
-        var address=document.getElementById('address').value; */
-
-        //console.log(name+" : "+number+" : "+mail+" : "+address);
+ 
         var information={
             "name":name,
             "number":number,
@@ -66,18 +61,7 @@ const Update = () => {
             console.log("Update");
             history.push("/updatemsg");
         })
-        // setData(information);
-        // console.log(data)
-        // fetch('http://localhost:3070/addInfo',{
-        //        method:'POST',
-        //        headers:{'Content-Type': 'application/json'},
-        //        body:JSON.stringify(information)
-        //    }).then(res=>res.json())
-        //    .then(data=>{
-        //        if(data){
-        //         history.push("/saved");
-        //        }
-        //    })
+      
     }
     return (
         <div className="container">
@@ -103,19 +87,19 @@ const Update = () => {
                     <Form.Label>Address</Form.Label>
                     <Form.Control   placeholder={info.address} as="textarea" id="address" rows={4} />
                 </Form.Group>
-                <button className="btn btn-primary">Save</button>
+                <button className="btn btn-custom">Save</button>
             </Form>
 
             <div className="d-block mx-auto" style={{background:"none", maxWidth:"152.9px" }}>
                 <div className="d-inline-block text-center">
                     
                     <Link style={{textDecoration:"inherit"}} to="/contact">
-                        <button className="btn btn-primary d-block my-2 mx-auto">Show All Contacts</button>
+                        <button className="btn btn-custom-two d-block my-2 mx-auto">Show All Contacts</button>
                     </Link>
                     
                     
                     <Link style={{textDecoration:"inherit"}} to="/home">
-                        <button className="btn btn-secondary text-white my-2 px-4 d-block mx-auto">Back to Home</button>
+                        <button className="btn btn-success text-white my-2 px-4 d-block mx-auto">Back to Home</button>
                     </Link>
                 </div>
             </div>

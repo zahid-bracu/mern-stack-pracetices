@@ -83,19 +83,19 @@ const FormPage = () => {
           
                     <Form.Control as="textarea" placeholder="Enter Address" id="address" rows={4} required/>
                 </Form.Group>
-                <button className="btn btn-primary">Save</button>
+                <button className="btn btn-custom-two">Save</button>
             </Form>
 
             <div className="d-block mx-auto" style={{background:"none", maxWidth:"152.9px" }}>
                 <div className="d-inline-block text-center">
                     
                     <Link style={{textDecoration:"inherit"}} to="/contact">
-                        <button className="btn btn-primary d-block my-2 mx-auto">Show All Contacts</button>
+                        <button className="btn btn-custom d-block my-2 mx-auto">Show All Contacts</button>
                     </Link>
                     
                     
                     <Link style={{textDecoration:"inherit"}} to="/home">
-                        <button className="btn btn-secondary text-white my-2 px-4 d-block mx-auto">Back to Home</button>
+                        <button className="btn btn-dark text-white my-2 px-4 d-block mx-auto">Back to Home</button>
                     </Link>
                 </div>
             </div>
