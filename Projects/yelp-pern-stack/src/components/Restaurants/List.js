@@ -17,7 +17,7 @@ export default function List(props) {
     function executeFunc(id){
         deleteRes(id);
         handleClose();
-        // window.location.reload();
+        
     }
 
     let history = useHistory();
@@ -34,7 +34,7 @@ export default function List(props) {
         history.push(`/restaurants/${id}/details`);
     }
 
-    // review calculate
+    
     useEffect(async () => {
         await fetch(`http://localhost:5000/api/v1/review/${id}`)
         .then(response => response.json())

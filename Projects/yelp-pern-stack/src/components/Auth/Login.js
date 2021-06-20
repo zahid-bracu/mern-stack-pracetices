@@ -25,9 +25,9 @@ export default function Login() {
                     <Form.Control onBlur={changeFunc} type="password" name="password" placeholder="Enter Password" />
                 </Form.Group>
 
-                <Button variant="primary" value="submit" type="submit">
+                <button className="btn btn-success" value="submit" type="submit">
                     Submit
-                </Button>
+                </button>
             </Form>
         </div>
     )

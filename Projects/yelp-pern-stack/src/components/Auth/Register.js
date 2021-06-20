@@ -41,9 +41,9 @@ export default function Register() {
 
                  
 
-                <Button variant="success" value="submit" type="submit">
-                    Register
-                </Button>
+                <button className="btn btn-success " value="submit" type="submit">
+                    Submit
+                </button>
             </Form>
         </div>
     )

@@ -28,10 +28,10 @@ export default function TableInfo(props) {
 
 
 
-      async function deleteRes(id){
+      function deleteRes(id){
           console.log(id);
 
-        await fetch(`http://localhost:5000/api/v1/restaurants/${id}`,{
+       fetch(`http://localhost:5000/api/v1/restaurants/${id}`,{
               method:'DELETE'
           })
         .then(response => response.json())
