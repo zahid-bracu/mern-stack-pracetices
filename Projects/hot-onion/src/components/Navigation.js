@@ -20,7 +20,7 @@ const Navigation = () => {
             <div className="container">
                 <Navbar.Brand>
                     <Link to="/">
-                    <img style={{width:"140px"}} src={logo2}/>
+                    <img style={{width:"50px"}} src={logo2}/>
                     </Link>
                     
                 </Navbar.Brand>

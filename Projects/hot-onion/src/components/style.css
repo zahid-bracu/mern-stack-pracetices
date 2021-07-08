@@ -1,5 +1,23 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Otomanopee+One&display=swap');
+.red-color{
+    color: rgba(207,17,43,255);
+}
+
+.yellow-color{
+    color: #fddb00;
+}
+
+.custom-font{
+    font-family: 'Otomanopee One', sans-serif;
+}
+
+.btn-danger{
+    background-color: rgba(207,17,43,255) !important;
+} 
+
 .btn-sign{
-    border-radius: 30px  !important;
+    
     padding: 5px 20px !important;
 }
 
@@ -56,8 +74,8 @@
 
 
 .btn-select:focus{
-    color: red !important;
-    border-bottom: 3px solid red !important;
+    color: rgba(207,17,43,255) !important;
+    border-bottom: 3px solid rgba(207,17,43,255) !important;
     background-color: white !important;
     border-radius: 0px;
     box-shadow: none !important;
@@ -155,6 +173,6 @@ footer  a{
 }
 
 .link-nav:hover{
-    color:red;
+    color:rgba(207,17,43,255);
     transform: scale(1.1);
 }

@@ -234,7 +234,7 @@ const CheckOut = () => {
 
                 <div className="col-lg-5  col-md-12 col-sm-12 col-12 mt-4">
                     <div>
-                        <h4> From <strong className="text-danger">Red Onion Foods Restaurant</strong></h4>
+                        <h4> From <strong className="text-danger custom-font">LOS POLLOS HERMANOS</strong></h4>
                         <h5>Arriving in 10-20 min</h5>
                         <h6>House no. 105, Road no. 11-B</h6>
                         <h6>Aqua</h6>

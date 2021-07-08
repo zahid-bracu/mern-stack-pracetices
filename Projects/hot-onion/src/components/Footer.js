@@ -4,10 +4,12 @@ import logo2 from './resources/logo2.png';
 import { Link } from 'react-router-dom';
 const Footer = () => {
     return (
+        <>
+        <hr/>
         <footer className=" py-3">
             <div className="container">
                 <div className="row footer-top py-5">
-                    <div className="col-md-6 mb-5">
+                    <div className="col-md-6  ">
                         <img src={logo2} alt="Hot Onion White Logo"/>
                     </div>
                     <div className="col-md-3">
@@ -39,6 +41,7 @@ const Footer = () => {
                 </div>
             </div>
         </footer>
+        </>
     );
 };
 
